@@ -1,0 +1,254 @@
+26/02/2019 8:46:19 a. m. : Febos_folio: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+
+
+26/02/2019 8:46:19 a. m. : Febos_folio: RequestUrihttps://api.febos.co/produccion/documentos?campos=tipoDocumento,folio&itemsPorPagina=20&pagina=1&filtros=nitEmisor:830049916|folio:1000300
+26/02/2019 8:46:20 a. m. : folio_webResponse: {"totalElementos":"1","totalPaginas":"1","paginaActual":"1","elementosPorPagina":"20","documentos":[{"febosId":"11cc63f91de2c14c9d189331ef392c78c200","folio":1000300,"tipoDocumento":1,"linea":0,"categoria":0}],"codigo":10,"mensaje":"Acción realizada satisfactoriamente","seguimientoId":"daa1f018964960478f288ad-ba4b4d097615","duracion":186,"hora":"2019-02-26 08:46:19.029"}
+26/02/2019 8:46:20 a. m. : StatusDoc: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+febosId: 11cc63f91de2c14c9d189331ef392c78c200
+
+
+26/02/2019 8:46:20 a. m. : StatusDoc: RequestUrihttps://api.febos.co/produccion/documentos/11cc63f91de2c14c9d189331ef392c78c200?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si
+26/02/2019 8:46:49 a. m. : StatusDoc_WebException: {"message": "Endpoint request timed out"}
+26/02/2019 8:46:49 a. m. : StatusFebos: La clave proporcionada no se encontró en el diccionario.
+26/02/2019 8:47:19 a. m. : Febos_folio: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+
+
+26/02/2019 8:47:19 a. m. : Febos_folio: RequestUrihttps://api.febos.co/produccion/documentos?campos=tipoDocumento,folio&itemsPorPagina=20&pagina=1&filtros=nitEmisor:830049916|folio:1000300
+26/02/2019 8:47:19 a. m. : folio_webResponse: {"totalElementos":"1","totalPaginas":"1","paginaActual":"1","elementosPorPagina":"20","documentos":[{"febosId":"11cc63f91de2c14c9d189331ef392c78c200","folio":1000300,"tipoDocumento":1,"linea":0,"categoria":0}],"codigo":10,"mensaje":"Acción realizada satisfactoriamente","seguimientoId":"148ba1cf9e21b0438728fa9-deed61f15c8b","duracion":146,"hora":"2019-02-26 08:47:18.581"}
+26/02/2019 8:47:19 a. m. : StatusDoc: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+febosId: 11cc63f91de2c14c9d189331ef392c78c200
+
+
+26/02/2019 8:47:19 a. m. : StatusDoc: RequestUrihttps://api.febos.co/produccion/documentos/11cc63f91de2c14c9d189331ef392c78c200?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si
+26/02/2019 8:47:49 a. m. : StatusDoc_WebException: {"message": "Endpoint request timed out"}
+26/02/2019 8:47:49 a. m. : StatusFebos: La clave proporcionada no se encontró en el diccionario.
+26/02/2019 8:48:19 a. m. : Febos_folio: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+
+
+26/02/2019 8:48:19 a. m. : Febos_folio: RequestUrihttps://api.febos.co/produccion/documentos?campos=tipoDocumento,folio&itemsPorPagina=20&pagina=1&filtros=nitEmisor:830049916|folio:1000300
+26/02/2019 8:48:19 a. m. : folio_webResponse: {"totalElementos":"1","totalPaginas":"1","paginaActual":"1","elementosPorPagina":"20","documentos":[{"febosId":"11cc63f91de2c14c9d189331ef392c78c200","folio":1000300,"tipoDocumento":1,"linea":0,"categoria":0}],"codigo":10,"mensaje":"Acción realizada satisfactoriamente","seguimientoId":"2cb773a79b797047e329391-f28c51f8eed1","duracion":150,"hora":"2019-02-26 08:48:18.618"}
+26/02/2019 8:48:19 a. m. : StatusDoc: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+febosId: 11cc63f91de2c14c9d189331ef392c78c200
+
+
+26/02/2019 8:48:19 a. m. : StatusDoc: RequestUrihttps://api.febos.co/produccion/documentos/11cc63f91de2c14c9d189331ef392c78c200?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si
+26/02/2019 8:48:49 a. m. : StatusDoc_WebException: {"message": "Endpoint request timed out"}
+26/02/2019 8:48:49 a. m. : StatusFebos: La clave proporcionada no se encontró en el diccionario.
+26/02/2019 8:49:19 a. m. : Febos_folio: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+
+
+26/02/2019 8:49:19 a. m. : Febos_folio: RequestUrihttps://api.febos.co/produccion/documentos?campos=tipoDocumento,folio&itemsPorPagina=20&pagina=1&filtros=nitEmisor:830049916|folio:1000300
+26/02/2019 8:49:20 a. m. : folio_webResponse: {"totalElementos":"1","totalPaginas":"1","paginaActual":"1","elementosPorPagina":"20","documentos":[{"febosId":"11cc63f91de2c14c9d189331ef392c78c200","folio":1000300,"tipoDocumento":1,"linea":0,"categoria":0}],"codigo":10,"mensaje":"Acción realizada satisfactoriamente","seguimientoId":"b3f51edc9eeff040232ae18-f4e4ebadda43","duracion":206,"hora":"2019-02-26 08:49:18.759"}
+26/02/2019 8:49:20 a. m. : StatusDoc: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+febosId: 11cc63f91de2c14c9d189331ef392c78c200
+
+
+26/02/2019 8:49:20 a. m. : StatusDoc: RequestUrihttps://api.febos.co/produccion/documentos/11cc63f91de2c14c9d189331ef392c78c200?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si
+26/02/2019 8:49:49 a. m. : StatusDoc_WebException: {"message": "Endpoint request timed out"}
+26/02/2019 8:49:49 a. m. : StatusFebos: La clave proporcionada no se encontró en el diccionario.
+26/02/2019 8:50:28 a. m. : SendFE: DocEntry: 336 TipoDoc: 1
+26/02/2019 8:50:31 a. m. : ObtenerFebosID: La clave proporcionada no se encontró en el diccionario.
+26/02/2019 8:50:31 a. m. : StatusFebos: Referencia a objeto no establecida como instancia de un objeto.
+26/02/2019 8:51:38 a. m. : Febos_folio: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+
+
+26/02/2019 8:51:38 a. m. : Febos_folio: RequestUrihttps://api.febos.co/produccion/documentos?campos=tipoDocumento,folio&itemsPorPagina=20&pagina=1&filtros=nitEmisor:830049916|folio:1000300
+26/02/2019 8:51:38 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 8:51:38 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 8:51:38 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 8:51:39 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"894b0258936f50479f29888-f8497058e20d","errores":[],"duracion":93,"hora":"2019-02-26 08:51:37.863"}
+26/02/2019 8:51:39 a. m. : folio_webResponse: {"totalElementos":"1","totalPaginas":"1","paginaActual":"1","elementosPorPagina":"20","documentos":[{"febosId":"11cc63f91de2c14c9d189331ef392c78c200","folio":1000300,"tipoDocumento":1,"linea":0,"categoria":0}],"codigo":10,"mensaje":"Acción realizada satisfactoriamente","seguimientoId":"9beea9ae95fa0046cb2ae73-3bcdce2ac360","duracion":155,"hora":"2019-02-26 08:51:37.853"}
+26/02/2019 8:51:39 a. m. : StatusDoc: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+febosId: 11cc63f91de2c14c9d189331ef392c78c200
+
+
+26/02/2019 8:51:39 a. m. : StatusDoc: RequestUrihttps://api.febos.co/produccion/documentos/11cc63f91de2c14c9d189331ef392c78c200?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si
+26/02/2019 8:51:43 a. m. : SendFE: DocEntry: 301 TipoDoc: 1
+26/02/2019 8:53:34 a. m. : AddDTEMonitor: [Microsoft][SQL Server Native Client 11.0][SQL Server]Cannot insert the value NULL into column 'Name', table 'FebosInte.dbo.@FEDIAN_MONITORLOG'; column does not allow nulls. INSERT fails.
+26/02/2019 8:53:34 a. m. : StatusFebos: La clave proporcionada no se encontró en el diccionario.
+26/02/2019 8:53:35 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 8:53:35 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 8:53:35 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 8:53:35 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"097b9810904e7049a02903f-3a93889df281","errores":[],"duracion":182,"hora":"2019-02-26 08:53:34.074"}
+26/02/2019 8:53:36 a. m. : SendFE: DocEntry: 302 TipoDoc: 1
+26/02/2019 8:53:36 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 8:53:36 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 8:53:36 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 8:53:36 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"f786170a91fb70424029fd1-8c6a3ebc89a7","errores":[],"duracion":106,"hora":"2019-02-26 08:53:35.595"}
+26/02/2019 8:53:37 a. m. : SendFE: DocEntry: 303 TipoDoc: 1
+26/02/2019 8:53:38 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 8:53:38 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 8:53:38 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 8:53:38 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"7064aef1946a7047d82b2b3-40e780840661","errores":[],"duracion":115,"hora":"2019-02-26 08:53:37.054"}
+26/02/2019 8:54:34 a. m. : Febos_folio: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+
+
+26/02/2019 8:54:34 a. m. : Febos_folio: RequestUrihttps://api.febos.co/produccion/documentos?campos=tipoDocumento,folio&itemsPorPagina=20&pagina=1&filtros=nitEmisor:830049916|folio:1000300
+26/02/2019 8:54:35 a. m. : folio_webResponse: {"totalElementos":"1","totalPaginas":"1","paginaActual":"1","elementosPorPagina":"20","documentos":[{"febosId":"11cc63f91de2c14c9d189331ef392c78c200","folio":1000300,"tipoDocumento":1,"linea":0,"categoria":0}],"codigo":10,"mensaje":"Acción realizada satisfactoriamente","seguimientoId":"f86f3bb090a13040a52aad6-dd9486222b04","duracion":176,"hora":"2019-02-26 08:54:33.891"}
+26/02/2019 8:54:35 a. m. : StatusDoc: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+febosId: 11cc63f91de2c14c9d189331ef392c78c200
+
+
+26/02/2019 8:54:35 a. m. : StatusDoc: RequestUrihttps://api.febos.co/produccion/documentos/11cc63f91de2c14c9d189331ef392c78c200?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si
+26/02/2019 8:55:04 a. m. : StatusDoc_WebException: {"message": "Endpoint request timed out"}
+26/02/2019 8:55:04 a. m. : StatusFebos: La clave proporcionada no se encontró en el diccionario.
+26/02/2019 8:57:07 a. m. : SendFE: DocEntry: 336 TipoDoc: 1
+26/02/2019 8:57:07 a. m. : ObtenerFebosID: La clave proporcionada no se encontró en el diccionario.
+26/02/2019 8:57:09 a. m. : StatusFebos: Referencia a objeto no establecida como instancia de un objeto.
+26/02/2019 8:57:24 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 8:57:24 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 8:57:24 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 8:57:25 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"7870f3499724a0432a28fdc-1c4de88a88fd","errores":[],"duracion":125,"hora":"2019-02-26 08:57:24.269"}
+26/02/2019 8:57:36 a. m. : SendFE: DocEntry: 301 TipoDoc: 1
+26/02/2019 8:58:11 a. m. : AddDTEMonitor: [Microsoft][SQL Server Native Client 11.0][SQL Server]Cannot insert the value NULL into column 'Name', table 'FebosInte.dbo.@FEDIAN_MONITORLOG'; column does not allow nulls. INSERT fails.
+26/02/2019 8:58:11 a. m. : Febos_folio: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+
+
+26/02/2019 8:58:11 a. m. : Febos_folio: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 8:58:11 a. m. : AutoReSend: El proceso no puede obtener acceso al archivo 'C:\Users\user1\Dropbox\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x86\Debug\FE_DIAN_LOG20190226.txt' porque está siendo utilizado en otro proceso.
+26/02/2019 8:58:11 a. m. : folio_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"d4ef10ee92872040692b7a1-a2b7803b2048","errores":[],"duracion":94,"hora":"2019-02-26 08:58:10.442"}
+26/02/2019 9:00:57 a. m. : SendFE: DocEntry: 336 TipoDoc: 1
+26/02/2019 9:01:29 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:01:29 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:01:29 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:01:30 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"40aa22de901dd04c2e2819e-90cea83e1bc0","errores":[],"duracion":153,"hora":"2019-02-26 09:01:28.760"}
+26/02/2019 9:01:33 a. m. : SendFE: DocEntry: 300 TipoDoc: 1
+26/02/2019 9:09:59 a. m. : AddDTEMonitor: [Microsoft][SQL Server Native Client 11.0][SQL Server]Cannot insert the value NULL into column 'Name', table 'FebosInte.dbo.@FEDIAN_MONITORLOG'; column does not allow nulls. INSERT fails.
+26/02/2019 9:10:02 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:10:02 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:10:02 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:10:02 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"eb2d625b91d5d04c7629202-d0effb73f737","errores":[],"duracion":173,"hora":"2019-02-26 09:10:01.335"}
+26/02/2019 9:10:03 a. m. : SendFE: DocEntry: 301 TipoDoc: 1
+26/02/2019 9:10:03 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:10:03 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:10:03 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:10:04 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"00bd26f99312204bed2a23e-ef27a7ac9d97","errores":[],"duracion":108,"hora":"2019-02-26 09:10:02.925"}
+26/02/2019 9:10:05 a. m. : SendFE: DocEntry: 302 TipoDoc: 1
+26/02/2019 9:10:05 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:10:05 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:10:05 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:10:05 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"d8086e0a9aa1204477292ea-3211d7eef1a1","errores":[],"duracion":95,"hora":"2019-02-26 09:10:04.438"}
+26/02/2019 9:10:06 a. m. : SendFE: DocEntry: 303 TipoDoc: 1
+26/02/2019 9:10:06 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:10:06 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:10:06 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:10:07 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"0e40804c9fdfc0433b2a92d-29e0d3baf607","errores":[],"duracion":124,"hora":"2019-02-26 09:10:06.114"}
+26/02/2019 9:19:58 a. m. : SendFE: DocEntry: 336 TipoDoc: 1
+26/02/2019 9:20:18 a. m. : AddDTEMonitor: Se agrego registro: 121 NumeroDoc: 993000121
+26/02/2019 9:20:18 a. m. : SendFE: El proceso no puede obtener acceso al archivo 'C:\Users\user1\Dropbox\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x86\Debug\FE_DIAN_LOG20190226.txt' porque está siendo utilizado en otro proceso.
+26/02/2019 9:20:18 a. m. : SendFE: DocEntry: 300 TipoDoc: 1
+26/02/2019 9:20:18 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:20:18 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:20:18 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:20:18 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"d88ff3279a84e04b322a6fa-be86481e94b4","errores":[],"duracion":197,"hora":"2019-02-26 09:20:17.516"}
+26/02/2019 9:20:20 a. m. : SendFE: DocEntry: 301 TipoDoc: 1
+26/02/2019 9:20:20 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:20:20 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:20:20 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:20:20 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"ebd5687597368042962a24e-038e23d54bbf","errores":[],"duracion":109,"hora":"2019-02-26 09:20:19.129"}
+26/02/2019 9:20:21 a. m. : SendFE: DocEntry: 302 TipoDoc: 1
+26/02/2019 9:20:21 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:20:21 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:20:21 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:20:21 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"026e7fb39001804afd2bf3d-5f37ea46f2e6","errores":[],"duracion":121,"hora":"2019-02-26 09:20:20.596"}
+26/02/2019 9:20:23 a. m. : SendFE: DocEntry: 303 TipoDoc: 1
+26/02/2019 9:20:23 a. m. : documentos: requestStreamSystem.Net.ConnectStream
+26/02/2019 9:20:23 a. m. : documentos: HeadersContent-Type: application/json
+token: YjgzZDNhNDYxNGViODE0Y2YzMTlhOWIxOTNlZTc0YzgyMjcz
+empresa: 830049916
+Host: api.febos.co
+
+
+26/02/2019 9:20:23 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo=1&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si
+26/02/2019 9:20:23 a. m. : documentos_webResponse: {"codigo":3,"mensaje":"Acceso denegado","seguimientoId":"7001252c9e7f5041e52bf40-3add94cdd7cb","errores":[],"duracion":86,"hora":"2019-02-26 09:20:22.095"}

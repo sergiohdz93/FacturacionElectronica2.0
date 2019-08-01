@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://wsconsultarpdfxml.webservice.dispapeles.com/" targetNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="consultarArchivos" type="tns:consultarArchivos" />
+  <xs:element name="consultarArchivosResponse" type="tns:consultarArchivosResponse" />
+  <xs:complexType name="consultarArchivos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:felConsultaFacturaArchivo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="felConsultaFacturaArchivo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="consecutivo" type="xs:long" />
+      <xs:element minOccurs="0" name="contrasenia" type="xs:string" />
+      <xs:element name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="prefijo" type="xs:string" />
+      <xs:element name="tipoArchivo" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoDocumento" type="xs:string" />
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="version" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consultarArchivosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:felRepuestaDescargaDocumentos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="felRepuestaDescargaDocumentos">
+    <xs:sequence>
+      <xs:element name="codigoRespuesta" type="xs:int" />
+      <xs:element minOccurs="0" name="consecutivo" type="xs:long" />
+      <xs:element minOccurs="0" name="descripcionRespuesta" type="xs:string" />
+      <xs:element name="estadoProceso" type="xs:int" />
+      <xs:element minOccurs="0" name="formato" type="xs:string" />
+      <xs:element minOccurs="0" name="idErp" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaMensajesProceso" nillable="true" type="tns:felMensajesProceso" />
+      <xs:element minOccurs="0" name="mimeType" type="xs:string" />
+      <xs:element minOccurs="0" name="nameFile" type="xs:string" />
+      <xs:element minOccurs="0" name="prefijo" type="xs:string" />
+      <xs:element minOccurs="0" name="streamFile" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="tipoDocumento" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="felMensajesProceso">
+    <xs:sequence>
+      <xs:element name="codigoMensaje" type="xs:int" />
+      <xs:element minOccurs="0" name="descripcionMensaje" type="xs:string" />
+      <xs:element minOccurs="0" name="rechazoNotificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

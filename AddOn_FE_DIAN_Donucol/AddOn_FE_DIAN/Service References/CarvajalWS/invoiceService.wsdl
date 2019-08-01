@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://invoice.carvajal.com/invoiceService/" name="invoiceService" targetNamespace="http://invoice.carvajal.com/invoiceService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://invoice.carvajal.com/invoiceService/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://invoice.carvajal.com/invoiceService/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="AcceptanceRejection">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ReceiverId" type="xs:string" />
+            <xs:element minOccurs="0" name="CountryCode" type="xs:string" />
+            <xs:element name="Documents">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element maxOccurs="unbounded" name="Document">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="InvoiceNumber" type="xs:string" />
+                        <xs:element name="InvoiceType" type="xs:string" />
+                        <xs:element name="SenderId" type="xs:string" />
+                        <xs:element name="UseStateCode" type="xs:string" />
+                        <xs:element minOccurs="0" name="Reason" type="xs:string" />
+                        <xs:element minOccurs="0" name="UseStateDate" type="xs:dateTime" />
+                        <xs:element minOccurs="0" name="User" type="xs:string" />
+                        <xs:element minOccurs="0" maxOccurs="unbounded" name="LineResponse" type="tns:lineResponse" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckAvailableDocumentsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="initialDate" type="xs:dateTime" />
+            <xs:element name="finalDate" type="xs:dateTime" />
+            <xs:element name="resourceType" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckAvailableDocumentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="availableDocument" type="tns:availableDocument" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DocumentStatusByNumberRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="accountId" type="xs:string" />
+            <xs:element name="documentType" type="xs:string" />
+            <xs:element minOccurs="0" name="documentPrefix" type="xs:string" />
+            <xs:element name="documentNumber" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DocumentStatusRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="accountId" type="xs:string" />
+            <xs:element name="transactionId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DocumentStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="processName" type="xs:string" />
+            <xs:element name="processStatus" type="xs:string" />
+            <xs:element minOccurs="0" name="processDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="messageType" type="xs:string" />
+            <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+            <xs:element minOccurs="0" name="legalStatus" type="xs:string" />
+            <xs:element minOccurs="0" name="businessStatus" type="xs:string" />
+            <xs:element minOccurs="0" name="governmentResponseCode" type="xs:string" />
+            <xs:element minOccurs="0" name="governmentResponseDescription" type="xs:string" />
+            <xs:element minOccurs="0" name="governmentObservations" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadAvailableDocumentsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="resourceType" type="xs:string" />
+            <xs:element maxOccurs="unbounded" name="availableDocument" type="tns:availableDocument" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadAvailableDocumentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element maxOccurs="unbounded" name="availableDocument" type="tns:availableDocument" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadReceiverRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="documentType" type="xs:string" />
+            <xs:element name="documentNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="documentPrefix" type="xs:string" />
+            <xs:element name="resourceType" type="xs:string" />
+            <xs:element name="companyReceiverId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadReceiverResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="downloadData" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="accountId" type="xs:string" />
+            <xs:element name="documentType" type="xs:string" />
+            <xs:element name="documentNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="documentPrefix" type="xs:string" />
+            <xs:element name="resourceType" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DownloadResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="downloadData" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="InvoiceServiceFault" type="tns:InvoiceServiceFault" />
+      <xs:element name="PaymentStatesByDocumentsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="initialDate" type="xs:dateTime" />
+            <xs:element name="finalDate" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PaymentStatesByDocumentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="description" type="xs:string" />
+            <xs:element name="paymentData" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PaymentStatesRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="documentType" type="xs:string" />
+            <xs:element name="documentNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="documentPrefix" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PaymentStatesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="description" type="xs:string" />
+            <xs:element name="paymentData" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReceivedDocumentRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="documentNumber" type="xs:string" />
+            <xs:element name="documentType" type="xs:string" />
+            <xs:element name="hash" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReceivedDocumentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="companyId" type="xs:string" />
+            <xs:element minOccurs="0" name="documentNumber" type="xs:string" />
+            <xs:element minOccurs="0" name="fileName" type="xs:string" />
+            <xs:element minOccurs="0" name="documentType" type="xs:string" />
+            <xs:element name="status" type="xs:boolean" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReceivedDocumentsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element maxOccurs="unbounded" name="receivedDocuments">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="documentNumber" type="xs:string" />
+                  <xs:element name="documentType" type="xs:string" />
+                  <xs:element name="hash" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ReceivedDocumentsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="receivedDocuments" nillable="true">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="companyId" type="xs:string" />
+                  <xs:element minOccurs="0" name="documentNumber" type="xs:string" />
+                  <xs:element minOccurs="0" name="fileName" type="xs:string" />
+                  <xs:element minOccurs="0" name="documentType" type="xs:string" />
+                  <xs:element name="status" type="xs:boolean" />
+                  <xs:element minOccurs="0" name="message" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateAppMobileRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="operativeSystemName" type="xs:string" />
+            <xs:element name="operativeSystemVersion" type="xs:string" />
+            <xs:element name="appVersion" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateAppMobileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="updateData" type="xs:string" />
+            <xs:element name="appVersion" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadCompanyRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="company" type="tns:company" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadCompanyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadLogFileRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="logFileName" type="xs:string" />
+            <xs:element name="logContent" type="xs:base64Binary" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadLogFileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="logFileName" type="xs:string" />
+            <xs:element name="status" type="xs:boolean" />
+            <xs:element minOccurs="0" name="message" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadLogFilesRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element maxOccurs="unbounded" name="uploadLogFiles">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="logFileName" type="xs:string" />
+                  <xs:element name="logContent" type="xs:base64Binary" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadLogFilesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="uploadLogFileResponses">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="logFileName" type="xs:string" />
+                  <xs:element name="status" type="xs:boolean" />
+                  <xs:element minOccurs="0" name="message" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="fileName" type="xs:string" />
+            <xs:element name="fileData" type="xs:string" />
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="accountId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadRequestDocument">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="fileName" type="xs:string" />
+            <xs:element name="fileData" type="xs:string" />
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="accountId" type="xs:string" />
+            <xs:element name="documentType" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadResolutionRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="resolution" type="tns:resolution" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadResolutionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="transactionId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadSyncRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="fileName" type="xs:string" />
+            <xs:element name="fileData" type="xs:base64Binary" />
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="accountId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UploadSyncResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="transactionId" type="xs:string" />
+            <xs:element name="downloadData" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="lineReference" type="tns:lineReference" />
+      <xs:element name="lineResponse" type="tns:lineResponse" />
+      <xs:element name="response" type="tns:response" />
+      <xs:complexType name="InvoiceServiceFault">
+        <xs:sequence>
+          <xs:element name="statusCode" type="xs:string" />
+          <xs:element name="reasonPhrase" type="xs:string" />
+          <xs:element name="errorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resolution">
+        <xs:sequence>
+          <xs:element name="documentType" type="xs:string" />
+          <xs:element name="resolutionNumber" type="xs:string" />
+          <xs:element name="companyId" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="isEnable" type="xs:string" />
+          <xs:element name="initialDateValidity" type="xs:string" />
+          <xs:element name="finalDateValidity" type="xs:string" />
+          <xs:element name="initialNumber" type="xs:string" />
+          <xs:element name="finalNumber" type="xs:string" />
+          <xs:element name="invoicingTechnicalKey" type="xs:string" />
+          <xs:element maxOccurs="unbounded" name="prefix" type="tns:prefix" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="prefix">
+        <xs:sequence>
+          <xs:element name="prefix" type="xs:string" />
+          <xs:element name="oldPrefix" type="xs:string" />
+          <xs:element name="description" type="xs:string" />
+          <xs:element name="initialNumber" type="xs:string" />
+          <xs:element name="finalNumber" type="xs:string" />
+          <xs:element name="isEnable" type="xs:string" />
+          <xs:element name="rowStatus" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="company">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" />
+          <xs:element name="number" type="xs:string" />
+          <xs:element name="status" type="xs:string" />
+          <xs:element name="email" type="xs:string" />
+          <xs:element name="configuration" type="tns:configuration" />
+          <xs:element name="properties" type="tns:properties" />
+          <xs:element minOccurs="0" name="creationDateOriginal" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="configuration">
+        <xs:sequence>
+          <xs:element name="senderConfiguration" type="tns:senderConfiguration" />
+          <xs:element name="governmentConfiguration" type="tns:governmentConfiguration" />
+          <xs:element name="billingPlanConfiguration" type="tns:billingPlanConfiguration" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="senderConfiguration">
+        <xs:sequence>
+          <xs:element name="publishTimeLimit" type="xs:string" />
+          <xs:element name="cancellationsStatementTime" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="governmentConfiguration">
+        <xs:sequence>
+          <xs:element name="obliged" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="billingPlanConfiguration">
+        <xs:sequence>
+          <xs:element name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="properties">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="property" type="tns:property" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="property">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="availableDocument">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="documentNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="documentPrefix" type="xs:string" />
+          <xs:element minOccurs="0" name="documentType" type="xs:string" />
+          <xs:element minOccurs="0" name="downloadData" type="xs:string" />
+          <xs:element minOccurs="0" name="senderIdentification" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lineResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LineReference" type="tns:lineReference" />
+          <xs:element minOccurs="0" name="Response" type="tns:response" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lineReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LineID" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReferenceID" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DocumentStatusByNumberResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="processName" type="xs:string" />
+            <xs:element name="processStatus" type="xs:string" />
+            <xs:element minOccurs="0" name="processDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="messageType" type="xs:string" />
+            <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+            <xs:element minOccurs="0" name="legalStatus" type="xs:string" />
+            <xs:element minOccurs="0" name="businessStatus" type="xs:string" />
+            <xs:element minOccurs="0" name="governmentResponseCode" type="xs:string" />
+            <xs:element minOccurs="0" name="governmentResponseDescription" type="xs:string" />
+            <xs:element minOccurs="0" name="governmentObservations" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PaymentStatusResponse" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="status" type="xs:string" />
+            <xs:element name="description" type="xs:string" />
+            <xs:element name="paymentData" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidateSentFiles">
+    <wsdl:part name="body" element="ns1:ReceivedDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="PaymentStatesByDocumentsRequestResponse">
+    <wsdl:part name="body" element="ns1:PaymentStatesByDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadResolutionResponse">
+    <wsdl:part name="body" element="ns1:UploadResolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentStatesByDocumentsRequest">
+    <wsdl:part name="body" element="ns1:PaymentStatesByDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="InvoiceServiceFaultException">
+    <wsdl:part name="InvoiceServiceFaultException" element="ns1:InvoiceServiceFault" />
+  </wsdl:message>
+  <wsdl:message name="UploadDocument">
+    <wsdl:part name="body" element="ns1:UploadRequestDocument" />
+  </wsdl:message>
+  <wsdl:message name="DocumentStatusByNumber">
+    <wsdl:part name="body" element="ns1:DocumentStatusByNumberRequest" />
+  </wsdl:message>
+  <wsdl:message name="DocumentStatusByNumberResponse">
+    <wsdl:part name="body" element="ns1:DocumentStatusByNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadSync">
+    <wsdl:part name="body" element="ns1:UploadSyncRequest" />
+  </wsdl:message>
+  <wsdl:message name="Upload">
+    <wsdl:part name="body" element="ns1:UploadRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadLogFiles">
+    <wsdl:part name="body" element="ns1:UploadLogFilesRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadLogFilesResponse">
+    <wsdl:part name="body" element="ns1:UploadLogFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentStatesResponse">
+    <wsdl:part name="body" element="ns1:PaymentStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadResponse">
+    <wsdl:part name="body" element="ns1:DownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadResolution">
+    <wsdl:part name="body" element="ns1:UploadResolutionRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadCompany">
+    <wsdl:part name="body" element="ns1:UploadCompanyRequest" />
+  </wsdl:message>
+  <wsdl:message name="ValidateSentFilesResponse">
+    <wsdl:part name="body" element="ns1:ReceivedDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadSyncResponse">
+    <wsdl:part name="body" element="ns1:UploadSyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAvailableDocumentsResponse">
+    <wsdl:part name="body" element="ns1:CheckAvailableDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckAvailableDocuments">
+    <wsdl:part name="body" element="ns1:CheckAvailableDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:message name="Download">
+    <wsdl:part name="body" element="ns1:DownloadRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadDocumentResponse">
+    <wsdl:part name="body" element="ns1:UploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadAvailableDocumentsResponse">
+    <wsdl:part name="body" element="ns1:DownloadAvailableDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentStates">
+    <wsdl:part name="body" element="ns1:PaymentStatesRequest" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReceiver">
+    <wsdl:part name="body" element="ns1:DownloadReceiverRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadResponse">
+    <wsdl:part name="body" element="ns1:UploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="DocumentStatus">
+    <wsdl:part name="body" element="ns1:DocumentStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="DocumentStatusResponse">
+    <wsdl:part name="body" element="ns1:DocumentStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAppMobile">
+    <wsdl:part name="body" element="ns1:UpdateAppMobileRequest" />
+  </wsdl:message>
+  <wsdl:message name="UploadCompanyResponse">
+    <wsdl:part name="body" element="ns1:UploadCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadReceiverResponse">
+    <wsdl:part name="body" element="ns1:DownloadReceiverResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAppMobileResponse">
+    <wsdl:part name="body" element="ns1:UpdateAppMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadAvailableDocuments">
+    <wsdl:part name="body" element="ns1:DownloadAvailableDocumentsRequest" />
+  </wsdl:message>
+  <wsdl:portType name="invoiceService">
+    <wsdl:operation name="ValidateSentFiles">
+      <wsdl:input name="ValidateSentFiles" message="ns1:ValidateSentFiles" />
+      <wsdl:output name="ValidateSentFilesResponse" message="ns1:ValidateSentFilesResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentStatesByDocumentsRequest">
+      <wsdl:input name="PaymentStatesByDocumentsRequest" message="ns1:PaymentStatesByDocumentsRequest" />
+      <wsdl:output name="PaymentStatesByDocumentsRequestResponse" message="ns1:PaymentStatesByDocumentsRequestResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <wsdl:input name="UploadDocument" message="ns1:UploadDocument" />
+      <wsdl:output name="UploadDocumentResponse" message="ns1:UploadDocumentResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="DocumentStatusByNumber">
+      <wsdl:input name="DocumentStatusByNumber" message="ns1:DocumentStatusByNumber" />
+      <wsdl:output name="DocumentStatusByNumberResponse" message="ns1:DocumentStatusByNumberResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadSync">
+      <wsdl:input name="UploadSync" message="ns1:UploadSync" />
+      <wsdl:output name="UploadSyncResponse" message="ns1:UploadSyncResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <wsdl:input name="Upload" message="ns1:Upload" />
+      <wsdl:output name="UploadResponse" message="ns1:UploadResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadLogFiles">
+      <wsdl:input name="UploadLogFiles" message="ns1:UploadLogFiles" />
+      <wsdl:output name="UploadLogFilesResponse" message="ns1:UploadLogFilesResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadResolution">
+      <wsdl:input name="UploadResolution" message="ns1:UploadResolution" />
+      <wsdl:output name="UploadResolutionResponse" message="ns1:UploadResolutionResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadCompany">
+      <wsdl:input name="UploadCompany" message="ns1:UploadCompany" />
+      <wsdl:output name="UploadCompanyResponse" message="ns1:UploadCompanyResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentStates">
+      <wsdl:input name="PaymentStates" message="ns1:PaymentStates" />
+      <wsdl:output name="PaymentStatesResponse" message="ns1:PaymentStatesResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReceiver">
+      <wsdl:input name="DownloadReceiver" message="ns1:DownloadReceiver" />
+      <wsdl:output name="DownloadReceiverResponse" message="ns1:DownloadReceiverResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="DocumentStatus">
+      <wsdl:input name="DocumentStatus" message="ns1:DocumentStatus" />
+      <wsdl:output name="DocumentStatusResponse" message="ns1:DocumentStatusResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppMobile">
+      <wsdl:input name="UpdateAppMobile" message="ns1:UpdateAppMobile" />
+      <wsdl:output name="UpdateAppMobileResponse" message="ns1:UpdateAppMobileResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailableDocuments">
+      <wsdl:input name="CheckAvailableDocuments" message="ns1:CheckAvailableDocuments" />
+      <wsdl:output name="CheckAvailableDocumentsResponse" message="ns1:CheckAvailableDocumentsResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <wsdl:input name="Download" message="ns1:Download" />
+      <wsdl:output name="DownloadResponse" message="ns1:DownloadResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAvailableDocuments">
+      <wsdl:input name="DownloadAvailableDocuments" message="ns1:DownloadAvailableDocuments" />
+      <wsdl:output name="DownloadAvailableDocumentsResponse" message="ns1:DownloadAvailableDocumentsResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

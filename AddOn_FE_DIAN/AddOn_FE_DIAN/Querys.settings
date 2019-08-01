@@ -1,0 +1,635 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AddOn_FE_DIAN" GeneratedClassName="Querys">
+  <Profiles />
+  <Settings>
+    <Setting Name="NotaCredito" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select cadena From (
+Select 0 'LineNum', 0 as 'ordenplano',
+'@CABECERA' + ';' + Cast(A0.DocNum as nVarchar(100)) + ';' + CONVERT(char(10), A0.DocDate,126) + ';' + 
+convert(varchar(10), GETDATE(), 108) + ';' + '1' + ';' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' + '' as 'cadena'
+From ORIN A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OADM A2 on 1 = 1 
+Where A0.DocEntry = {0}
+
+Union All 
+
+Select  0 'LineNum', 0 as 'ordenplano', '@REFERENCIA' + ';' + 'Anulacion de factura electronica' + ';' + '2' From ORIN A0 
+Where A0.DocEntry = {0}
+
+Union All 
+
+Select  0 'LineNum', 0 as 'ordenplano', '@DESCRIPCION_REF' + ';' + Cast(A2.DocNum as nVarchar(100)) + ';' + CONVERT(char(10), A2.DocDate,126)
+From ORIN A0 
+Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
+Inner Join OINV A2 On A1.BaseEntry = A2.DocEntry
+Where A0.DocEntry = {0}
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@EMISOR' + ';' + '1' + ';' + '31' + ';' +
+Case When CharIndex('-', A0.TaxIdNum) = 0 Then A0.TaxIdNum Else SubString(A0.TaxIdNum, 1, CharIndex('-', A0.TaxIdNum)-1) End + ';' +
+IsNull(A0.CompnyName,'') + ';' + IsNull(A0.State,'') + ';' + IsNull(A1.County,'')  + ';' + IsNUll(A1.City,'') + ';' + IsNull(A1.Street,'') + ';' + 
+IsNull(A1.Country,'') + ';' + IsNull(A2.Name,'') + ';' + '' + ';' + '' + ';' + '' as 'cadena'
+From OADM A0
+Inner Join ADM1 A1 ON A0.Code= A1.Code
+Inner Join OCRY A2 On A1.Country = A2.Code
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Impuesto sobre la renta y complementario régimen ordinario' + ';' + 'O-05' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Retención en la fuente a título de renta' + ';' + 'O-07' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Retención en la fuente en el impuesto sobre las ventas' + ';' + 'O-09' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Ventas régimen común' + ';' + 'O-11' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Informante de exógena' + ';' + 'O-14' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Usuario aduanero' + ';' + 'O-10' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Obligado a Llevar Contabilidad' + ';' + 'O-42' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Exportador' + ';' + 'A-22' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Importador' + ';' + 'A-23' as 'cadena'
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_CAM_COMERCIO_EMI' + ';' + A0.PrintHeadr
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@RECEPTOR' + ';' + 
+Case When A1.U_HBT_TipEnt = '1' Then '2' When A1.U_HBT_TipEnt = '2' Then '1' Else '1' End + ';' + IsNull(A1.U_HBT_TipDoc,'') + ';' +
+Case When CharIndex('-',A1.LicTradNum) = 0 Then A1.LicTradNum Else SubString(A1.LicTradNum, 1, CharIndex('-', A1.LicTradNum)-1) End + ';' +
+A1.CardName + ';' + IsNull(A1.U_HBT_MunMed,'') + ';' + IsNull(A1.State1,'') + ';' + 
+Case When IsNull(A1.City,'') = '' Then IsNull(A1.U_BPCO_City,'') Else IsNull(A1.City,'') End + ';' + 
+Case When IsNull(A1.Address,'') = '' Then IsNull(A1.U_BPCO_Address,'') Else IsNull(A1.Address,'') End  + ';' +
+IsNull(A1.Country,'') + ';' + IsNull(A2.Name,'') + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Nombres,'') Else '' End + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Apellido1,'') Else '' End + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Apellido2,'') Else '' End + ';' +
+IsNull(A1.Phone1,'') + ';' + IsNull(A1.Phone2,'') + ';' + IsNull(A1.E_Mail,'') as 'cadena'
+From ORIN A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OCRY A2 On A1.Country = A2.Code
+Where A0.DocEntry = {0}
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@INFO_TRIBUTARIA_REC' + ';' + 'Otro tipo de obligado' + ';' + 'O-99' as 'cadena'
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@INFO_CAM_COMERCIO_REC' + ';' + A1.CardName as 'cadena'
+From ORIN A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OCRY A2 On A1.Country = A2.Code
+Where A0.DocEntry = {0}
+
+Union All
+
+Select 0 'LineNum', 6 as 'ordenplano',
+'@TOTALES' + ';' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' + 
+Cast(Cast(Sum(A1.Linetotal) as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+Cast(Cast(A0.VatSum as Decimal(15,2)) as Nvarchar(100)) + ';' + Cast(Cast(A0.DocTotal as Decimal(15,2)) as Nvarchar(100)) + ';' +
+Cast(Cast(A0.WTSum as Decimal(15,2)) as Nvarchar(100)) + ';' + Cast(Cast(A0.DiscSum as Decimal(15,2)) as Nvarchar(100)) + ';' + '0.00' + ';' + 
+Cast(Cast(A0.DpmAmnt as Decimal(15,2)) as Nvarchar(100)) as 'cadena'
+From ORIN A0 
+Inner Join RIN1 A1 On A0.Docentry = A1.DocEntry
+Where A0.DocEntry = {0}
+Group By A0.DocCur, A0.DocTotal, A0.DiscSum, A0.VatSum, A0.DpmAmnt, A0.WTSum
+
+Union All 
+
+Select * From (
+	Select A1.LineNum, 7 as 'ordenplano', '@DETALLE' + ';' + 
+	Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' +
+	Cast(A1.LineNum + 1 as Nvarchar(100)) + ';' +  Cast(A1.LineTotal + 1 as Nvarchar(100)) + ';' +
+	Cast(Cast(A1.Quantity as Decimal(12,0)) as Nvarchar(100)) + ';' +
+	Cast(Cast(A1.Price as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+	Case When A0.DocType = 'I' Then A1.ItemCode Else A1.AcctCode end + ';' +
+	'' + ';' + '' + ';' + '' + ';' + '' + ';' + '' + ';' + '' + ';' + '' as 'cadena'
+	From ORIN A0 
+	Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0}
+
+	Union All
+
+	Select A1.LineNum, 8 as 'ordenplano', '@DESCRIPCION_DET' + ';' + 'es-CO' + ';' + IsNull(A1.Dscription,'')'cadena'
+	From ORIN A0 
+	Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0}
+
+	Union All
+
+	Select A1.LineNum, 9 as 'ordenplano', '@ADICIONAL_PRODUCTO' + ';' + 'codigo' + ';' + 
+	Case When A0.DocType = 'I' Then A1.ItemCode Else A1.AcctCode end 'cadena'
+	From ORIN A0 
+	Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0}
+)C0
+Union All
+
+Select 1000 'LineNum', 10 as 'ordenplano',
+'@PERSONALIZADO' + ';' + 'numero-pedido' + ';' + A0.NumAtCard 
+From ORIN A0 
+Where A0.DocEntry = {0} And IsNull(A0.NumAtCard,'') != ''
+
+Union All
+
+Select 2000 'LineNum',11 as 'ordenplano',
+'@PERSONALIZADO' + ';' + 'persona-contacto' + ';' + A1.CntctPrsn
+From ORIN A0 
+Inner Join OCRD A1 ON A0.CardCode = A1.CardCode
+Where A0.DocEntry = {0} And IsNull(A1.CntctPrsn,'') != ''
+)A0
+Order By LineNum, ordenplano;</Value>
+    </Setting>
+    <Setting Name="FacturaVenta" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select cadena From (
+Select 0 'LineNum', 0 as 'ordenplano',
+'@CABECERA' + ';' + Cast(A0.DocNum as nVarchar(100)) + ';' + CONVERT(char(10), A0.DocDate,126) + ';' + 
+convert(varchar(10), GETDATE(), 108) + ';' + '1' + ';' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' + '' as 'cadena'
+From OINV A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OADM A2 on 1 = 1 
+Where A0.DocEntry = {0}
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@EMISOR' + ';' + '1' + ';' + '31' + ';' +
+Case When CharIndex('-', A0.TaxIdNum) = 0 Then A0.TaxIdNum Else SubString(A0.TaxIdNum, 1, CharIndex('-', A0.TaxIdNum)-1) End + ';' +
+IsNull(A0.CompnyName,'') + ';' + IsNull(A0.State,'') + ';' + IsNull(A1.County,'')  + ';' + IsNUll(A1.City,'') + ';' + IsNull(A1.Street,'') + ';' + 
+IsNull(A1.Country,'') + ';' + IsNull(A2.Name,'') + ';' + '' + ';' + '' + ';' + '' as 'cadena'
+From OADM A0
+Inner Join ADM1 A1 ON A0.Code= A1.Code
+Inner Join OCRY A2 On A1.Country = A2.Code
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Impuesto sobre la renta y complementario régimen ordinario' + ';' + 'O-05' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Retención en la fuente a título de renta' + ';' + 'O-07' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Retención en la fuente en el impuesto sobre las ventas' + ';' + 'O-09' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Ventas régimen común' + ';' + 'O-11' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Informante de exógena' + ';' + 'O-14' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Usuario aduanero' + ';' + 'O-10' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Obligado a Llevar Contabilidad' + ';' + 'O-42' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Exportador' + ';' + 'A-22' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Importador' + ';' + 'A-23' as 'cadena'
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_CAM_COMERCIO_EMI' + ';' + A0.PrintHeadr
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@RECEPTOR' + ';' + 
+Case When A1.U_HBT_TipEnt = '1' Then '2' When A1.U_HBT_TipEnt = '2' Then '1' Else '1' End + ';' + IsNull(A1.U_HBT_TipDoc,'') + ';' +
+Case When CharIndex('-',A1.LicTradNum) = 0 Then A1.LicTradNum Else SubString(A1.LicTradNum, 1, CharIndex('-', A1.LicTradNum)-1) End + ';' +
+A1.CardName + ';' + IsNull(A1.U_HBT_MunMed,'') + ';' + IsNull(A1.State1,'') + ';' + 
+Case When IsNull(A1.City,'') = '' Then IsNull(A1.U_BPCO_City,'') Else IsNull(A1.City,'') End + ';' + 
+Case When IsNull(A1.Address,'') = '' Then IsNull(A1.U_BPCO_Address,'') Else IsNull(A1.Address,'') End  + ';' +
+IsNull(A1.Country,'') + ';' + IsNull(A2.Name,'') + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Nombres,'') Else '' End + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Apellido1,'') Else '' End + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Apellido2,'') Else '' End + ';' +
+IsNull(A1.Phone1,'') + ';' + IsNull(A1.Phone2,'') + ';' + IsNull(A1.E_Mail,'') as 'cadena'
+From OINV A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OCRY A2 On A1.Country = A2.Code
+Where A0.DocEntry = {0}
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@INFO_TRIBUTARIA_REC' + ';' + 'Otro tipo de obligado' + ';' + 'O-99' as 'cadena'
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@INFO_CAM_COMERCIO_REC' + ';' + A1.CardName as 'cadena'
+From OINV A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OCRY A2 On A1.Country = A2.Code
+Where A0.DocEntry = {0}
+
+Union All 
+
+Select 0 'LineNum', 4 as 'ordenplano',
+'@IMPUESTOS' + ';' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' + 
+'01' + ';' + 'false' + ';' + 
+Cast(Cast(Sum(A1.TaxSum) as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+Cast(Cast(A1.TaxRate as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+Cast(Cast(IsNull(Sum(A1.BaseSum),0) as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+Cast(Cast(Sum(A1.TaxSum) as Decimal(15,2)) as Nvarchar(100)) as 'cadena'
+From OINV A0
+Inner Join INV4 A1 On A0.DocEntry = A1.DocEntry
+Where A0.DocEntry = {0}
+Group By A0.DocCur, A1.TaxRate
+
+Union All
+
+Select 0 'LineNum', 5 as 'ordenplano',
+'@IMPUESTOS' + ';' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' + 
+Case When A2.U_HBT_TipRet = '1' Then '03' When A2.U_HBT_TipRet = '02' Then '1' Else '02' End + ';' + 'true' + ';' + 
+Cast(Cast(Sum(A1.WTAmnt) as Decimal(15,2)) as Nvarchar(100)) + ';' + Cast(Cast(A1.Rate as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+Cast(Cast(IsNull(A0.BaseAmnt,0) as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+Cast(Cast(Sum(A1.WTAmnt) as Decimal(15,2)) as Nvarchar(100)) as 'cadena'
+From OINV A0
+Inner Join INV5 A1 On A0.DocEntry = A1.AbsEntry
+Inner Join OWHT A2 On A1.WTCode = A2.WTCode
+Where A0.DocEntry = {0}
+Group By A0.DocCur, A2.U_HBT_TipRet, A1.Rate, A0.BaseAmnt
+
+Union All
+
+Select 0 'LineNum', 6 as 'ordenplano',
+'@TOTALES' + ';' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' + 
+Cast(Cast(Sum(A1.Linetotal) as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+Cast(Cast(A0.VatSum as Decimal(15,2)) as Nvarchar(100)) + ';' + Cast(Cast(A0.DocTotal as Decimal(15,2)) as Nvarchar(100)) + ';' +
+Cast(Cast(A0.WTSum as Decimal(15,2)) as Nvarchar(100)) + ';' + Cast(Cast(A0.DiscSum as Decimal(15,2)) as Nvarchar(100)) + ';' + '0.00' + ';' + 
+Cast(Cast(A0.DpmAmnt as Decimal(15,2)) as Nvarchar(100)) as 'cadena'
+From OINV A0 
+Inner Join INV1 A1 On A0.Docentry = A1.DocEntry
+Where A0.DocEntry = {0}
+Group By A0.DocCur, A0.DocTotal, A0.DiscSum, A0.VatSum, A0.DpmAmnt, A0.WTSum
+
+Union All 
+
+Select * From (
+	Select A1.LineNum, 7 as 'ordenplano', '@DETALLE' + ';' + 
+	Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' +
+	Cast(A1.LineNum + 1 as Nvarchar(100)) + ';' +  Cast(A1.LineTotal + 1 as Nvarchar(100)) + ';' +
+	Cast(Cast(A1.Quantity as Decimal(12,0)) as Nvarchar(100)) + ';' +
+	Cast(Cast(A1.Price as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+	Case When A0.DocType = 'I' Then A1.ItemCode Else A1.AcctCode end + ';' +
+	'' + ';' + '' + ';' + '' + ';' + '' + ';' + '' + ';' + '' + ';' + '' as 'cadena'
+	From OINV A0 
+	Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0}
+
+	Union All
+
+	Select A1.LineNum, 8 as 'ordenplano', '@DESCRIPCION_DET' + ';' + 'es-CO' + ';' + IsNull(A1.Dscription,'')'cadena'
+	From OINV A0 
+	Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0}
+
+	Union All
+
+	Select A1.LineNum, 9 as 'ordenplano', '@ADICIONAL_PRODUCTO' + ';' + 'codigo' + ';' + 
+	Case When A0.DocType = 'I' Then A1.ItemCode Else A1.AcctCode end 'cadena'
+	From OINV A0 
+	Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0}
+)C0
+Union All
+
+Select 1000 'LineNum', 10 as 'ordenplano',
+'@PERSONALIZADO' + ';' + 'numero-pedido' + ';' + A0.NumAtCard 
+From OINV A0 
+Where A0.DocEntry = {0} And IsNull(A0.NumAtCard,'') != ''
+
+Union All
+
+Select 2000 'LineNum',11 as 'ordenplano',
+'@PERSONALIZADO' + ';' + 'persona-contacto' + ';' + A1.CntctPrsn
+From OINV A0 
+Inner Join OCRD A1 ON A0.CardCode = A1.CardCode
+Where A0.DocEntry = {0} And IsNull(A1.CntctPrsn,'') != ''
+)A0
+Order By LineNum, ordenplano;</Value>
+    </Setting>
+    <Setting Name="CargueMonitor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select 
+A0.Code, A0.U_ObjType as 'Tipo Objeto', A0.U_DocType as 'Tipo Documento', A1.Name as 'Documento DIAN', A0.U_Folio as 'Numero Documento', A0.U_DocNum as 'Numero Interno', 
+A0.U_Status as 'Codigo Estado', A0.U_Resultado as 'Descripcion Estado', A0.U_ProcessID as 'ID Proceso', A0.U_Fecha_Envio as 'Fecha Envio', A0.U_Hora_Envio as 'Hora Envio', 
+A0.U_Usuario_Envio as 'Usuario Envio', A0.U_Fecha_ReEnvio as 'Fecha Re-Envio', A0.U_Hora_ReEnvio as 'Hora Re-Envio', A0.U_Usuario_ReEnvio as 'Usuario Re-Envio', 
+A0.U_Det_Peticion as 'Detalle Peticion', A0.U_Respuesta_Int as 'Respuesta Integracion', A0.U_Archivo_PDF as 'Archivo PDF', A0.U_Enlace_XML as 'Archivo XML',
+A0.U_ID_Seguimiento as 'FebosID'
+From [@FEDIAN_MONITORLOG] A0
+Left Join [@FEDIAN_CODDOC] A1 On A0.U_DocType = A1.Code
+Where (A0.U_Fecha_Envio Between '{0}' and '{1}' or IsNull(A0.U_Fecha_Envio,'') = '') and (A0.U_DocType = '{2}' OR IsNull('{2}','')='') and (A0.U_Status = '{3}' OR IsNull('{3}','')='')
+Order By Cast(A0.Code as int)</Value>
+    </Setting>
+    <Setting Name="PARAMG" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select * from [@FEDIAN_PARAMG]</Value>
+    </Setting>
+    <Setting Name="GetCodeLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select Code From [@FEDIAN_MONITORLOG] Where U_DocNum = {0}</Value>
+    </Setting>
+    <Setting Name="ProcessStatus" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select Code, U_ProcessID, U_ID_Seguimiento, U_Det_Peticion 
+					From [@FEDIAN_MONITORLOG] 
+					Where U_Status In ({0})and IsNull(Cast(U_Archivo_PDF as Nvarchar(2500)), '') = ''</Value>
+    </Setting>
+    <Setting Name="FacturaExpo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FacturaConti" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="NotaDebito" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select cadena From (
+Select 0 'LineNum', 0 as 'ordenplano',
+'@CABECERA' + ';' + Cast(A0.DocNum as nVarchar(100)) + ';' + CONVERT(char(10), A0.DocDate,126) + ';' + 
+convert(varchar(10), GETDATE(), 108) + ';' + '1' + ';' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' + '' as 'cadena'
+From OINV A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OADM A2 on 1 = 1 
+Where A0.DocEntry = {0} and A0.DocSubType = 'DN'
+
+Union All 
+
+Select  0 'LineNum', 0 as 'ordenplano', '@REFERENCIA' + ';' + 'Cambio del valor' + ';' + '3' 
+From OINV A0 
+Where A0.DocEntry = {0} and A0.DocSubType = 'DN'
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@EMISOR' + ';' + '1' + ';' + '31' + ';' +
+Case When CharIndex('-', A0.TaxIdNum) = 0 Then A0.TaxIdNum Else SubString(A0.TaxIdNum, 1, CharIndex('-', A0.TaxIdNum)-1) End + ';' +
+IsNull(A0.CompnyName,'') + ';' + IsNull(A0.State,'') + ';' + IsNull(A1.County,'')  + ';' + IsNUll(A1.City,'') + ';' + IsNull(A1.Street,'') + ';' + 
+IsNull(A1.Country,'') + ';' + IsNull(A2.Name,'') + ';' + '' + ';' + '' + ';' + '' as 'cadena'
+From OADM A0
+Inner Join ADM1 A1 ON A0.Code= A1.Code
+Inner Join OCRY A2 On A1.Country = A2.Code
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Impuesto sobre la renta y complementario régimen ordinario' + ';' + 'O-05' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Retención en la fuente a título de renta' + ';' + 'O-07' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Retención en la fuente en el impuesto sobre las ventas' + ';' + 'O-09' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Ventas régimen común' + ';' + 'O-11' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Informante de exógena' + ';' + 'O-14' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Usuario aduanero' + ';' + 'O-10' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Obligado a Llevar Contabilidad' + ';' + 'O-42' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Exportador' + ';' + 'A-22' as 'cadena'
+From OADM A0
+
+Union All
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_TRIBUTARIA_EMI' + ';' + 'Importador' + ';' + 'A-23' as 'cadena'
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 2 as 'ordenplano',
+'@INFO_CAM_COMERCIO_EMI' + ';' + A0.PrintHeadr
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@RECEPTOR' + ';' + 
+Case When A1.U_HBT_TipEnt = '1' Then '2' When A1.U_HBT_TipEnt = '2' Then '1' Else '1' End + ';' + IsNull(A1.U_HBT_TipDoc,'') + ';' +
+Case When CharIndex('-',A1.LicTradNum) = 0 Then A1.LicTradNum Else SubString(A1.LicTradNum, 1, CharIndex('-', A1.LicTradNum)-1) End + ';' +
+A1.CardName + ';' + IsNull(A1.U_HBT_MunMed,'') + ';' + IsNull(A1.State1,'') + ';' + 
+Case When IsNull(A1.City,'') = '' Then IsNull(A1.U_BPCO_City,'') Else IsNull(A1.City,'') End + ';' + 
+Case When IsNull(A1.Address,'') = '' Then IsNull(A1.U_BPCO_Address,'') Else IsNull(A1.Address,'') End  + ';' +
+IsNull(A1.Country,'') + ';' + IsNull(A2.Name,'') + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Nombres,'') Else '' End + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Apellido1,'') Else '' End + ';' +
+Case When A1.U_HBT_TipEnt = '1' Then IsNull(A1.U_HBT_Apellido2,'') Else '' End + ';' +
+IsNull(A1.Phone1,'') + ';' + IsNull(A1.Phone2,'') + ';' + IsNull(A1.E_Mail,'') as 'cadena'
+From OINV A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OCRY A2 On A1.Country = A2.Code
+Where A0.DocEntry = {0} and A0.DocSubType = 'DN'
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@INFO_TRIBUTARIA_REC' + ';' + 'Otro tipo de obligado' + ';' + 'O-99' as 'cadena'
+From OADM A0
+
+Union All 
+
+Select 0 'LineNum', 3 as 'ordenplano',
+'@INFO_CAM_COMERCIO_REC' + ';' + A1.CardName as 'cadena'
+From OINV A0 
+Inner Join OCRD A1 On A0.CardCode = A1.CardCode 
+Inner Join OCRY A2 On A1.Country = A2.Code
+Where A0.DocEntry = {0} and A0.DocSubType = 'DN'
+
+Union All
+
+Select 0 'LineNum', 6 as 'ordenplano',
+'@TOTALES' + ';' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' + 
+Cast(Cast(Sum(A1.Linetotal) as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+Cast(Cast(A0.VatSum as Decimal(15,2)) as Nvarchar(100)) + ';' + Cast(Cast(A0.DocTotal as Decimal(15,2)) as Nvarchar(100)) + ';' +
+Cast(Cast(A0.WTSum as Decimal(15,2)) as Nvarchar(100)) + ';' + Cast(Cast(A0.DiscSum as Decimal(15,2)) as Nvarchar(100)) + ';' + '0.00' + ';' + 
+Cast(Cast(A0.DpmAmnt as Decimal(15,2)) as Nvarchar(100)) as 'cadena'
+From OINV A0 
+Inner Join INV1 A1 On A0.Docentry = A1.DocEntry
+Where A0.DocEntry = {0} and A0.DocSubType = 'DN'
+Group By A0.DocCur, A0.DocTotal, A0.DiscSum, A0.VatSum, A0.DpmAmnt, A0.WTSum
+
+Union All 
+
+Select * From (
+	Select A1.LineNum, 7 as 'ordenplano', '@DETALLE' + ';' + 
+	Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ';' +
+	Cast(A1.LineNum + 1 as Nvarchar(100)) + ';' +  Cast(A1.LineTotal + 1 as Nvarchar(100)) + ';' +
+	Cast(Cast(A1.Quantity as Decimal(12,0)) as Nvarchar(100)) + ';' +
+	Cast(Cast(A1.Price as Decimal(15,2)) as Nvarchar(100)) + ';' + 
+	Case When A0.DocType = 'I' Then A1.ItemCode Else A1.AcctCode end + ';' +
+	'' + ';' + '' + ';' + '' + ';' + '' + ';' + '' + ';' + '' + ';' + '' as 'cadena'
+	From OINV A0 
+	Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0} and A0.DocSubType = 'DN'
+
+	Union All
+
+	Select A1.LineNum, 8 as 'ordenplano', '@DESCRIPCION_DET' + ';' + 'es-CO' + ';' + IsNull(A1.Dscription,'')'cadena'
+	From OINV A0 
+	Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0} and A0.DocSubType = 'DN'
+
+	Union All
+
+	Select A1.LineNum, 9 as 'ordenplano', '@ADICIONAL_PRODUCTO' + ';' + 'codigo' + ';' + 
+	Case When A0.DocType = 'I' Then A1.ItemCode Else A1.AcctCode end 'cadena'
+	From OINV A0 
+	Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
+	Where A0.DocEntry = {0} and A0.DocSubType = 'DN'
+)C0
+Union All
+
+Select 1000 'LineNum', 10 as 'ordenplano',
+'@PERSONALIZADO' + ';' + 'numero-pedido' + ';' + A0.NumAtCard 
+From OINV A0 
+Where A0.DocEntry = {0} and A0.DocSubType = 'DN' And IsNull(A0.NumAtCard,'') != ''
+
+Union All
+
+Select 2000 'LineNum',11 as 'ordenplano',
+'@PERSONALIZADO' + ';' + 'persona-contacto' + ';' + A1.CntctPrsn
+From OINV A0 
+Inner Join OCRD A1 ON A0.CardCode = A1.CardCode
+Where A0.DocEntry = {0} and A0.DocSubType = 'DN' And IsNull(A1.CntctPrsn,'') != ''
+)A0
+Order By LineNum, ordenplano;</Value>
+    </Setting>
+    <Setting Name="Msginter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select * From [@FEDIAN_INTERF_ERR] Where IsNull(Cast(U_MsgExter as Nvarchar(2500)), '') = '{0}'</Value>
+    </Setting>
+    <Setting Name="cmbTipodoc" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select * from [@FEDIAN_CODDOC] Order By Code</Value>
+    </Setting>
+    <Setting Name="cmbEstado" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select U_Status, 
+					Case 
+					When U_Status = '1' Then 'Procesado' 
+					When U_Status = '2' Then 'En Proceso' 
+					When U_Status = '3' Then 'Error' 
+					When U_Status = '10' Then 'Procesado'
+					When U_Status = '102' Then 'Error'
+					When U_Status = '106' Then 'Error' else 'En Proceso' End
+					from [@FEDIAN_MONITORLOG]
+					Where IsNull(U_Status,'') != ''
+					Group By U_Status
+					Order By U_Status</Value>
+    </Setting>
+    <Setting Name="ReSendAuto" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select A0.Code, A0.U_DocNum, A0.U_DocType, A0.U_ObjType, IsNull(Cast(A0.U_Fecha_Envio as nvarchar(100)),'') as'U_Fecha_Envio'
+From [@FEDIAN_MONITORLOG] A0
+Where IsNull(A0.U_Status,'') = '' or IsNull(A0.U_Status,'') In ({0})</Value>
+    </Setting>
+    <Setting Name="MaxLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Select IsNull(Max(cast(Code as Int)),0)+1 As 'NextCode' From [@FEDIAN_MONITORLOG]</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
