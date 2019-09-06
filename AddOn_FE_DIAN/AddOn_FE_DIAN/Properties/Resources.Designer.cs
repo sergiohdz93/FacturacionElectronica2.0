@@ -59,5 +59,42 @@ namespace AddOn_FE_DIAN.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Code&quot;, &quot;Name&quot; 
+        ///From &quot;@FEDIAN_CODDOC&quot;.
+        /// </summary>
+        internal static string ListaDocDIAN {
+            get {
+                return ResourceManager.GetString("ListaDocDIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Code&quot;, &quot;U_Descripcion&quot; 
+        ///From &quot;@FEDIAN_UM&quot;.
+        /// </summary>
+        internal static string ListaUM {
+            get {
+                return ResourceManager.GetString("ListaUM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select C0.&quot;Unidad&quot;, C0.&quot;Descr&quot;
+        ///From(
+        ///	SELECT 
+        ///	Case When IsNull(&quot;UomCode&quot;,&apos;&apos;) = &apos;Manual&apos; Then &quot;unitMsr&quot; Else &quot;UomCode&quot; End &quot;Unidad&quot;, 
+        ///	&quot;unitMsr&quot; as &quot;Descr&quot; 
+        ///	FROM INV1
+        ///)C0 
+        ///Where IsNull(&quot;Unidad&quot;,&apos;&apos;) != &apos;&apos; And C0.&quot;Unidad&quot; Not In (Select &quot;U_SAP_UM&quot; From &quot;@FEDIAN_HOMOL_UM&quot; Where IsNull(&quot;U_DIAN_UM&quot;,&apos;&apos;) != &apos;&apos;)
+        ///Group By C0.&quot;Unidad&quot;, C0.Descr.
+        /// </summary>
+        internal static string UM_Pendientes {
+            get {
+                return ResourceManager.GetString("UM_Pendientes", resourceCulture);
+            }
+        }
     }
 }

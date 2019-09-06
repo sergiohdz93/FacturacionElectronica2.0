@@ -1,0 +1,15 @@
+﻿[
+  {
+    "QueryName": "UM_Pendientes",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaUM",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaDocDIAN",
+    "QueryCategory": "FEDIAN"
+  }
+]
+

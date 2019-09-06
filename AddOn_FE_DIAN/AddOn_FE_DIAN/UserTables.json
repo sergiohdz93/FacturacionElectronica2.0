@@ -4,11 +4,6 @@
     "TableDescription": "Parametrizacion General",
     "TableType": "bott_NoObject"
   },
-  //{
-  //  "TableName": "FEDIAN_OBLIGACIONES",
-  //  "TableDescription": "Obligaciones Emisor",
-  //  "TableType": "bott_NoObject"
-  //},
   {
     "TableName": "FEDIAN_INTERF_CFG",
     "TableDescription": "Configuracion Interfaces",
@@ -67,6 +62,11 @@
   {
     "TableName": "FEDIAN_TIPOPERA",
     "TableDescription": "Tipos de Operacion",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_HOMOL_UM",
+    "TableDescription": "Homomlogacion UM",
     "TableType": "bott_NoObject"
   }
 ]

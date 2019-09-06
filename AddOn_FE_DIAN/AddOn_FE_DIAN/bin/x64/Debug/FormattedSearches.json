@@ -1,0 +1,33 @@
+[
+  {
+    "QueryName": "UM_Pendientes",
+    "FormID": "134",
+    "FieldID": "U_GO2_CodigoDpto",
+    "CollumID": "-1"
+  },
+  {
+    "QueryName": "LocMunicipios_Departamentos",
+    "FormID": "134",
+    "FieldID": "U_GO2_CodigoMun",
+    "CollumID": "-1"
+  },
+  {
+    "QueryName": "LocalizacionPaises",
+    "FormID": "134",
+    "FieldID": "U_GO2_PaisDom",
+    "CollumID": "-1"
+  },
+  {
+    "QueryName": "SociosDeNegocio",
+    "FormID": "392",
+    "FieldID": "76",
+    "CollumID": "U_GO2_CodeSN"
+  },
+   {
+    "QueryName": "LocalizacionMunicipios",
+    "FormID": "65015",
+    "FieldID": "3",
+    "CollumID": "U_GO2_Municipio"
+  }
+]
+

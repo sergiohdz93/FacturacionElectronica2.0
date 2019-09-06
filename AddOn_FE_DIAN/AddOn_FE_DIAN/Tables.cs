@@ -14,7 +14,6 @@ namespace AddOn_FE_DIAN
         private SAPbouiCOM.Application SBO_Application;
         private SAPbobsCOM.Company oCompany;
         public static SAPbobsCOM.Recordset oRS;
-        public static SAPbobsCOM.UserTable TablaInsertarValor;
         public static string sSql;
         public static int lRetCode;
         public static string sErrMsg;
@@ -30,7 +29,6 @@ namespace AddOn_FE_DIAN
                 leerJsonCamposUsuario();
                 leerJsonDocDIAN();
                 leerJsonCfgInter();
-                leerJsonTipPre();
                 leerJsonTipOpe();
                 leerJsonUM();
                 leerJsonRespon();
@@ -39,6 +37,7 @@ namespace AddOn_FE_DIAN
                 leerJsonConcepND();
                 leerJsonConcepNC();
                 leerJsonTributos();
+                leerJsonUserQueries();
                 //AddTables(version);
                 //AddQueryManager();
             }
@@ -52,7 +51,7 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                string outputJSON = File.ReadAllText("UserTables.json", Encoding.Default);
+                string outputJSON = File.ReadAllText("UserTables.json", Encoding.UTF8);
                 JArray parsedArray = JArray.Parse(outputJSON);
                 int cantidad = parsedArray.Count;
                 Console.WriteLine("Cantidad de tablas " + cantidad);
@@ -198,7 +197,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_CODDOC.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_CODDOC.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -244,7 +243,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_INTERF_CFG.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_INTERF_CFG.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -284,52 +283,6 @@ namespace AddOn_FE_DIAN
             }
         }
 
-        public void leerJsonTipPre()
-        {
-            try
-            {
-                SAPbobsCOM.UserTables tbls = null;
-                SAPbobsCOM.UserTable tbl = null;
-
-                string inputJSON = File.ReadAllText("FEDIAN_TIPPRECIO.json", Encoding.Default);
-                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
-                foreach (var item in dynJson)
-                {
-                    tbls = oCompany.UserTables;
-                    tbl = tbls.Item("FEDIAN_TIPPRECIO");
-
-                    tbl.Code = Convert.ToString(item.Codigo);
-                    tbl.Name = Convert.ToString(item.Nombre);
-
-                    lRetCode = tbl.Add();
-
-                    if (lRetCode != 0)
-                    {
-                        if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                        {
-                            oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        }
-                        else
-                        {
-                            oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        }
-                        Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
-                    }
-
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
-                    tbls = null;
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
-                    tbl = null;
-                    GC.Collect();
-                }
-                SBO_Application.StatusBar.SetText("Configuracion tipo precios añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
-            }
-            catch (Exception ex)
-            {
-                SBO_Application.MessageBox("Metodo TipPre\n" + ex.Message);
-            }
-        }
-
         public void leerJsonTipOpe()
         {
             try
@@ -337,7 +290,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_TIPOPERA.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_TIPOPERA.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -384,15 +337,18 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
                 
-                string inputJSON = File.ReadAllText("FEDIAN_UM.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_UM.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
                     tbls = oCompany.UserTables;
                     tbl = tbls.Item("FEDIAN_UM");
 
+                    string s_unicode = Convert.ToString(item.Nombre);
+
                     tbl.Code = Convert.ToString(item.Codigo);
-                    tbl.Name = Convert.ToString(item.Nombre);
+                    tbl.Name = s_unicode.Length <= 100 ? s_unicode : s_unicode.Substring(0, 99);
+                    tbl.UserFields.Fields.Item("U_Descripcion").Value = s_unicode;
 
                     lRetCode = tbl.Add();
 
@@ -430,7 +386,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
                 
-                string inputJSON = File.ReadAllText("FEDIAN_RESPONSA.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_RESPONSA.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -476,7 +432,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_MEDPAGO.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_MEDPAGO.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -522,7 +478,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
                 
-                string inputJSON = File.ReadAllText("FEDIAN_DESCU.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_DESCU.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -568,7 +524,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_ND.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_ND.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -614,7 +570,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_NC.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_NC.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -660,7 +616,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_TRIBU.json", Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_TRIBU.json", Encoding.UTF8);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -696,6 +652,24 @@ namespace AddOn_FE_DIAN
             catch (Exception ex)
             {
                 SBO_Application.MessageBox("Metodo Tributos\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonUserQueries()
+        {
+            try
+            {
+                string inputJSON = File.ReadAllText("UserQueries.json", Encoding.UTF8);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    AddQueryManager(Convert.ToString(item.QueryName), Convert.ToString(item.QueryCategory));
+                }
+                SBO_Application.StatusBar.SetText("Consultas creadas", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Agregar consultas de ususario\n" + ex.Message);
             }
         }
 
@@ -753,6 +727,80 @@ namespace AddOn_FE_DIAN
             System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserTablesMD);
             oUserTablesMD = null;
             GC.Collect();
+        }
+
+        public void AddQueryManager(string nombreQuery, string categoria)
+        {
+            try
+            {
+                int i = 0;
+                int codigoSubCat = 0;
+                SAPbobsCOM.QueryCategories sboQryCategory;
+                sboQryCategory = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oQueryCategories);
+
+                SAPbobsCOM.UserQueries sboUserQuery;
+                sboUserQuery = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserQueries);
+
+                oRS = (SAPbobsCOM.Recordset)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
+                sSql = string.Format(Constants.categorQuery, categoria);
+
+                oRS.DoQuery(sSql);
+
+                i = oRS.RecordCount;
+
+                if (i < 1)
+                {
+                    sboQryCategory.Name = "FEDIAN";
+                    lRetCode = sboQryCategory.Add();
+
+                    if (lRetCode != 0)
+                    {
+                        if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                        { }
+                        else
+                        {
+                            oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            sboQryCategory = null;
+                            GC.Collect();
+                        }
+                    }
+                    else
+                    {
+                        sSql = string.Format(Constants.categorQuery, categoria);
+                        oRS.DoQuery(sSql);
+                    }
+                }
+                codigoSubCat = oRS.Fields.Item("CategoryId").Value;
+                string query = String.Format(Properties.Resources.ResourceManager.GetString(nombreQuery));
+
+                sboUserQuery.QueryCategory = codigoSubCat;
+                sboUserQuery.QueryDescription = nombreQuery;
+                sboUserQuery.Query = query;
+
+                lRetCode = sboUserQuery.Add();
+
+                if (lRetCode != 0)
+                {
+                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                    { }
+                    else
+                    {
+
+                    }
+                }
+
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(sboQryCategory);
+                sboQryCategory = null;
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(sboUserQuery);
+                sboUserQuery = null;
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
+                oRS = null;
+                GC.Collect();
+            }
+            catch (Exception ex)
+            {
+                Procesos.EscribirLogFileTXT("AddQueryManager: " + ex.Message);
+            }
         }
 
         public SAPbobsCOM.UserFieldsMD AddTypeField(SAPbobsCOM.UserFieldsMD oUserField, string type)
@@ -839,5 +887,6 @@ namespace AddOn_FE_DIAN
 
             return oUserField;
         }
+
     }
 }

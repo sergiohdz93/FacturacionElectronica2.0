@@ -8,7 +8,7 @@ namespace AddOn_FE_DIAN
 {
     class Constants
     {
-        public static string categorQuery = "SELECT \"CategoryId\" FROM OQCN WHERE \"CatName\" = 'FE_DIAN'";
+        public static string categorQuery = "SELECT \"CategoryId\" FROM OQCN WHERE \"CatName\" = '{0}'";
         public static string[] green = new string[] { "1", "10"};
         public static string[] yellow = new string[] { "7", "99", "127", "137" };
         public static string[] red = new string[] { "2", "3", "5", "102", "106", "116", "117", "118", "126", "160", "147"};

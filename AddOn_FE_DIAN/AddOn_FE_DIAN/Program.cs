@@ -31,16 +31,19 @@ namespace AddOn_FE_DIAN
                 AvanceBar = LimiteBar / CantClases;
 
                 //Barra de progreso en SAP
+                
+                //Creacion de tablas y campos de usuario
+                if (CargueIni == true)
+                {
+                    oConnection.SBO_Application.StatusBar.SetText("Creacion de tablas y campos de usuario", SAPbouiCOM.BoMessageTime.bmt_Long, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                    Tables oTables = null;
+                    oTables = new Tables(oConnection.oCompany, oConnection.SBO_Application, CargueIni);
+                    //oConnection.SBO_Application.StatusBar.SetText("Creacion de tablas y campos de usuario ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+                }
                 oProgBar = oConnection.SBO_Application.StatusBar.CreateProgressBar("Inicio " + "AddOnFE_DIAN", LimiteBar, true);
 
                 oProgBar.Text = "Inicio Carga AddOn ... Conexión Satisfactoria. ";
                 oProgBar.Value += AvanceBar;
-                //Creacion de tablas y campos de usuario
-                if (CargueIni == true)
-                {
-                    Tables oTables = null;
-                    oTables = new Tables(oConnection.oCompany, oConnection.SBO_Application, CargueIni);
-                }
 
                 oProgBar.Text = "Cargando AddOn ... Proceso (1) ";
                 oProgBar.Value += AvanceBar;
