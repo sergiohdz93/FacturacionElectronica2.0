@@ -22,7 +22,6 @@
     <MetadataSource Address="https://enviardocumentos.dispafel.com:443/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="enviarDocumento.xsd" MetadataType="Schema" ID="f48db73a-a762-4fba-bc72-c66aaa23d83f" SourceId="1" SourceUrl="https://enviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?xsd=1" />
     <MetadataFile FileName="enviarDocumento.wsdl" MetadataType="Wsdl" ID="57379fe8-b399-4698-a539-e9e2d23e6c1a" SourceId="1" SourceUrl="https://enviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?wsdl" />
   </Metadata>
   <Extensions>

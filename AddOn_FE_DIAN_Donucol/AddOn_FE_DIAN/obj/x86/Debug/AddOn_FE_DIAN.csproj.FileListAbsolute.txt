@@ -1,7 +1,0 @@
-C:\Users\user1\Desktop\AddOn_FE_DIAN_Donucol\AddOn_FE_DIAN\obj\x86\Debug\AddOn_FE_DIAN.csprojAssemblyReference.cache
-C:\Users\user1\Desktop\AddOn_FE_DIAN_Donucol\AddOn_FE_DIAN\obj\x86\Debug\Interop.SAPbobsCOM.dll
-C:\Users\user1\Desktop\AddOn_FE_DIAN_Donucol\AddOn_FE_DIAN\obj\x86\Debug\Interop.SAPbouiCOM.dll
-C:\Users\user1\Desktop\AddOn_FE_DIAN_Donucol\AddOn_FE_DIAN\obj\x86\Debug\AddOn_FE_DIAN.csproj.ResolveComReference.cache
-C:\Users\user1\Desktop\AddOn_FE_DIAN_Donucol\AddOn_FE_DIAN\obj\x86\Debug\AddOn_FE_DIAN.Properties.Resources.resources
-C:\Users\user1\Desktop\AddOn_FE_DIAN_Donucol\AddOn_FE_DIAN\obj\x86\Debug\AddOn_FE_DIAN.csproj.GenerateResource.cache
-C:\Users\user1\Desktop\AddOn_FE_DIAN_Donucol\AddOn_FE_DIAN\obj\x86\Debug\AddOn_FE_DIAN.csproj.CoreCompileInputs.cache

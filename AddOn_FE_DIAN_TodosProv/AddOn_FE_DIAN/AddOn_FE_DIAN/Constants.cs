@@ -16,14 +16,15 @@ namespace AddOn_FE_DIAN
                                                     "10001", "10002", "10003", "10004", "10005", "10006", "10009", "10013",
                                                     "7200004", "7200005"
                                                   };
-        public static string urlstatusFebos = "https://api.febos.co/pruebas/documentos/{0}?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si";
-        public static string urlstatusFolio = "https://api.febos.co/pruebas/documentos?campos=tipoDocumento,folio&itemsPorPagina=20&pagina=1&filtros=nitEmisor:{0}|folio:{1}";
+        public static string urlstatusFebos = "https://cenflab.cen.biz/";
+        public static string urlstatusFolio = "https://cenflab.cen.biz/";
 
 
-        public static string[] CodDIAN_01 = { "1", "Factura de Venta" };
-        public static string[] CodDIAN_02 = { "2", "Factura de Contingencia" };
-        public static string[] CodDIAN_03 = { "3", "Factura de Exportacion" };
-        public static string[] CodDIAN_04 = { "4", "Nota de Credito" };
-        public static string[] CodDIAN_05 = { "5", "Nota de Debito" };
+        public static string[] CodDIAN_01 = { "01", "Factura de Venta Nacional" };
+        public static string[] CodDIAN_02 = { "02", "Factura de Exportacion" };
+        public static string[] CodDIAN_03 = { "03", "Factura de Contingencia Facturador" };
+        public static string[] CodDIAN_04 = { "04", "Factura de Contingencia DIAN" };
+        public static string[] CodDIAN_05 = { "91", "Nota de Credito" };
+        public static string[] CodDIAN_06 = { "92", "Nota de Debito" };
     }
 }

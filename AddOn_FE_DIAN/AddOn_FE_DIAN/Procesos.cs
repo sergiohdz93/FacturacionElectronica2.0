@@ -1586,7 +1586,6 @@ namespace AddOn_FE_DIAN
                         string docentry;
                         string tipDoc;
                         string fechaenvio;
-                        string objType;
 
                         LogCode = Convert.ToString(ResultQuery.Rows[i]["Code"]); //Getting value CodeLog
                         docentry = Convert.ToString(ResultQuery.Rows[i]["U_DocNum"]); //Getting value docentry
@@ -1744,55 +1743,6 @@ namespace AddOn_FE_DIAN
             System.IO.StreamWriter file = new System.IO.StreamWriter(sPath, true);
             file.WriteLine(DateTime.Now + " : " + cadenalog);
             file.Close();
-        }
-
-        //Funcion para agregar nuevos mensajes al repositorio
-        public static void RepoMensajes(string codigo, string mensaje)
-        {
-            string sSQL = "";
-
-            try
-            {
-                //int i = 0;
-                //oRS = (SAPbobsCOM.Recordset)oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                //sSQL = string.Format(Querys.Default.Msginter, mensaje.Replace("'",""));
-                //oRS.DoQuery(sSQL);
-                //i = oRS.RecordCount;
-
-                //if (i > 0)
-                //{
-                    
-                //}
-                //else
-                //{
-                //    SAPbobsCOM.UserTables tbls = null;
-                //    SAPbobsCOM.UserTable tbl = null;
-
-                //    tbls = oCompany.UserTables;
-                //    tbl = tbls.Item("FEDIAN_INTERF_ERR");
-                //    tbl.UserFields.Fields.Item("U_MsgExter").Value = mensaje;
-
-                //    lRetCode = tbl.Add();
-
-                //    //Vereficar si se añade registro en la tabla
-                //    if (lRetCode != 0)
-                //    {
-                //        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                //        Procesos.EscribirLogFileTXT("RepositorioMensajes: " + sErrMsg);
-                //    }
-                //    else
-                //    {
-                       
-                //    }
-                //}
-                //System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
-                //oRS = null;
-                //GC.Collect();
-            }
-            catch (Exception ex)
-            {
-                Procesos.EscribirLogFileTXT("RepoError: " + ex.Message);
-            }
         }
     }
 }

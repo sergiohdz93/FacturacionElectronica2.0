@@ -1,0 +1,302 @@
+[
+ {
+   "Codigo": "1",
+   "Nombre": "Instrumento no definido"
+ },
+ {
+   "Codigo": "2",
+   "Nombre": "Credito ACH"
+ },
+ {
+   "Codigo": "3",
+   "Nombre": "Debito ACH"
+ },
+ {
+   "Codigo": "4",
+   "Nombre": "Reversion debito de demanda ACH"
+ },
+ {
+   "Codigo": "5",
+   "Nombre": "Reversion Credito de Demanda ACH"
+ },
+ {
+   "Codigo": "6",
+   "Nombre": "Credito de demanda ACH"
+ },
+ {
+   "Codigo": "7",
+   "Nombre": "Debito de Demanda ACH"
+ },
+ {
+   "Codigo": "8",
+   "Nombre": "Mantener"
+ },
+ {
+   "Codigo": "9",
+   "Nombre": "Clearing Nacional o Regional"
+ },
+ {
+   "Codigo": "10",
+   "Nombre": "Efectivo"
+ },
+ {
+   "Codigo": "11",
+   "Nombre": "Reversion Credito Ahorro"
+ },
+ {
+   "Codigo": "12",
+   "Nombre": "Reversion Debito Ahorro"
+ },
+ {
+   "Codigo": "13",
+   "Nombre": "Credito Ahorro"
+ },
+ {
+   "Codigo": "14",
+   "Nombre": "Debito Ahorro"
+ },
+ {
+   "Codigo": "15",
+   "Nombre": "Bookentry Credito"
+ },
+ {
+   "Codigo": "16",
+   "Nombre": "Bookentry Debito"
+ },
+ {
+   "Codigo": "17",
+   "Nombre": "Contenctacion de la demanda en efectivo/Desembolso credito CCD"
+ },
+ {
+   "Codigo": "18",
+   "Nombre": "Concentracion de la demanda en efectivo/Desembolso debito CCD"
+ },
+ {
+   "Codigo": "19",
+   "Nombre": "Credito Pago Negocio Corporativo CTP"
+ },
+ {
+   "Codigo": "20",
+   "Nombre": "Cheque"
+ },
+ {
+   "Codigo": "21",
+   "Nombre": "Proyecto Bancario"
+ },
+ {
+   "Codigo": "22",
+   "Nombre": "Proyecto Bancario certificado"
+ },
+ {
+   "Codigo": "23",
+   "Nombre": "Cheque bancario"
+ },
+ {
+   "Codigo": "24",
+   "Nombre": "Nota Cambiaria esperando aceptacion"
+ },
+ {
+   "Codigo": "25",
+   "Nombre": "Cheque certificado"
+ },
+ {
+   "Codigo": "26",
+   "Nombre": "Cheque Local"
+ },
+ {
+   "Codigo": "27",
+   "Nombre": "Debito Pago Negocio Corporativo CTP"
+ },
+ {
+   "Codigo": "28",
+   "Nombre": "Credito Negocio Intercambio Corporativo CTX"
+ },
+ {
+   "Codigo": "29",
+   "Nombre": "Debito Negocio Intercambio Corporativo CTX"
+ },
+ {
+   "Codigo": "30",
+   "Nombre": "Transferencia Credito"
+ },
+ {
+   "Codigo": "31",
+   "Nombre": "Transferencia Debito"
+ },
+ {
+   "Codigo": "32",
+   "Nombre": "Concentracion efectivo / Desembolso Credito plus CCD+"
+ },
+ {
+   "Codigo": "33",
+   "Nombre": "Concentracion efectivo / Desembolso Debito plus CCD+"
+ },
+ {
+   "Codigo": "34",
+   "Nombre": "Pago y deposito pre acordado PPD"
+ },
+ {
+   "Codigo": "35",
+   "Nombre": "Concentracion efectivo ahorros /Desembolso Credito CCD"
+ },
+ {
+   "Codigo": "36",
+   "Nombre": "Concentracion efectivo ahorros /Desembolso Debito CCD"
+ },
+ {
+   "Codigo": "37",
+   "Nombre": "Pago Negocio Corporativo Ahorros Credito CTP"
+ },
+ {
+   "Codigo": "38",
+   "Nombre": "Pago Negocio Corporativo Ahorros Debito CTP"
+ },
+ {
+   "Codigo": "39",
+   "Nombre": "Credito Negocio Intercambio Corporativo CTX"
+ },
+ {
+   "Codigo": "40",
+   "Nombre": "Debito Negocio Intercambio Corporativo CTX"
+ },
+ {
+   "Codigo": "41",
+   "Nombre": "Concentracion efectivo/Desembolso Credito plus CCD+"
+ },
+ {
+   "Codigo": "42",
+   "Nombre": "Consignacion Bancaria"
+ },
+ {
+   "Codigo": "43",
+   "Nombre": "Concentracion efectivo/Desembolso Debito plus CCD+"
+ },
+ {
+   "Codigo": "44",
+   "Nombre": "Nota cambiaria"
+ },
+ {
+   "Codigo": "45",
+   "Nombre": "Transferencia Credito BAncario"
+ },
+ {
+   "Codigo": "46",
+   "Nombre": "Transferencia Debito InterBancario"
+ },
+ {
+   "Codigo": "47",
+   "Nombre": "Transferencia Debito Bancario"
+ },
+ {
+   "Codigo": "48",
+   "Nombre": "Tarjeta Credito"
+ },
+ {
+   "Codigo": "49",
+   "Nombre": "Tarjeta Debito"
+ },
+ {
+   "Codigo": "50",
+   "Nombre": "Postgiro"
+ },
+ {
+   "Codigo": "51",
+   "Nombre": "Telex estandar bancario frances"
+ },
+ {
+   "Codigo": "52",
+   "Nombre": "Pago comercial urgente "
+ },
+ {
+   "Codigo": "53",
+   "Nombre": "Pago tesoreria urgente"
+ },
+ {
+   "Codigo": "60",
+   "Nombre": "Nota promisoria"
+ },
+ {
+   "Codigo": "61",
+   "Nombre": "Nota promisoria firmada por el acreedor"
+ },
+ {
+   "Codigo": "62",
+   "Nombre": "Nota promisoria firmada por el acreedor, avalada por el banco"
+ },
+ {
+   "Codigo": "63",
+   "Nombre": "Nota promisoria firmada por el acreedor, avalada por un tercero"
+ },
+ {
+   "Codigo": "64",
+   "Nombre": "Nota promisoria firmada por el banco"
+ },
+ {
+   "Codigo": "65",
+   "Nombre": "Nota promisoria firmada por el banco avalada por otro banco"
+ },
+ {
+   "Codigo": "66",
+   "Nombre": "Nota promisoria firmada"
+ },
+ {
+   "Codigo": "67",
+   "Nombre": "Nota promisoria firmada por un tercero avalada por el banco"
+ },
+ {
+   "Codigo": "70",
+   "Nombre": "Retiro de nota por el acreedor"
+ },
+ {
+   "Codigo": "74",
+   "Nombre": "Retiro de nota por el acreedor sobre un banco"
+ },
+ {
+   "Codigo": "75",
+   "Nombre": "Retiro de nota por el acreedor, avalada por otro banco"
+ },
+ {
+   "Codigo": "76",
+   "Nombre": "Retiro de nota por el acreedor sobre un banco avalada por un tercero"
+ },
+ {
+   "Codigo": "77",
+   "Nombre": "Retiro de nota por el acreedor sobre un tercero"
+ },
+ {
+   "Codigo": "78",
+   "Nombre": "Retiro de nota por el acreedor sobre un tercero avalada por un banco"
+ },
+ {
+   "Codigo": "91",
+   "Nombre": "Nota Bancaria Transferible"
+ },
+ {
+   "Codigo": "92",
+   "Nombre": "Cheque Local Transferible"
+ },
+ {
+   "Codigo": "93",
+   "Nombre": "Giro Referenciado"
+ },
+ {
+   "Codigo": "94",
+   "Nombre": "GiroUrgente"
+ },
+ {
+   "Codigo": "95",
+   "Nombre": "Giro Formato Abierto"
+ },
+ {
+   "Codigo": "96",
+   "Nombre": "Metodo de pago solicidado no usado"
+ },
+ {
+   "Codigo": "97",
+   "Nombre": "Clearing entre Partners"
+ },
+ {
+   "Codigo": "ZZZ",
+   "Nombre": "Acuerdo Mutuo"
+ }
+]

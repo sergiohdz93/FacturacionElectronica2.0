@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data;
-using System.Globalization;
 using System.Text;
 using System.IO;
 using System.Drawing;
 using System.Linq;
 using System.Xml;
-using System.Xml.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -487,32 +484,16 @@ namespace AddOn_FE_DIAN
                     oMenus.AddEx(oCreationPackage);
 
                     oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    oCreationPackage.UniqueID = "FE_0004";
-                    oCreationPackage.String = "Tipos Doc. DIAN";
-                    oCreationPackage.Image = "";
-                    oMenus.AddEx(oCreationPackage);
-
-                    oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
                     oCreationPackage.UniqueID = "FE_0003";
                     oCreationPackage.String = "Configuracion de Interfaces";
                     oCreationPackage.Image = "";
                     oMenus.AddEx(oCreationPackage);
 
-                    //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    //oCreationPackage.UniqueID = "FE_0005";
-                    //oCreationPackage.String = "Clase Doc DIAN/SAP";
-                    //oMenus.AddEx(oCreationPackage);
-
                     oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    oCreationPackage.UniqueID = "FE_0006";
-                    oCreationPackage.String = "Mensajes Interfaces";
+                    oCreationPackage.UniqueID = "FE_0004";
+                    oCreationPackage.String = "Tipos Doc. DIAN";
                     oCreationPackage.Image = "";
                     oMenus.AddEx(oCreationPackage);
-
-                    //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    //oCreationPackage.UniqueID = "FE_0007";
-                    //oCreationPackage.String = "Notificacion Errores";
-                    //oMenus.AddEx(oCreationPackage);
 
                     oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
                     oCreationPackage.UniqueID = "FE_0008";
@@ -631,58 +612,6 @@ namespace AddOn_FE_DIAN
                     {
                         string tablaname = oMenu.SubMenus.Item(i).String;
                         if (tablaname.Contains("FEDIAN_CODDOC"))
-                        {
-                            MenuUID = oMenu.SubMenus.Item(i).UID;
-                            break;
-                        }
-
-                    }
-                    SBO_Application.ActivateMenuItem(MenuUID);
-                }
-            }
-
-            if ((pVal.MenuUID == "FE_0006") & (pVal.BeforeAction == false))
-            {
-                try
-                {
-                    oForm = SBO_Application.Forms.Item("FORM_FE_0006");
-                    oForm.Visible = true;
-                }
-                catch
-                {
-                    oMenu = SBO_Application.Menus.Item("51200");
-                    int i;
-                    string MenuUID = "";
-                    for (i = 0; (i <= (oMenu.SubMenus.Count - 1)); i++)
-                    {
-                        string tablaname = oMenu.SubMenus.Item(i).String;
-                        if (tablaname.Contains("FEDIAN_INTERF_ERR"))
-                        {
-                            MenuUID = oMenu.SubMenus.Item(i).UID;
-                            break;
-                        }
-
-                    }
-                    SBO_Application.ActivateMenuItem(MenuUID);
-                }
-            }
-
-            if ((pVal.MenuUID == "FE_0007") & (pVal.BeforeAction == false))
-            {
-                try
-                {
-                    oForm = SBO_Application.Forms.Item("FORM_FE_0007");
-                    oForm.Visible = true;
-                }
-                catch
-                {
-                    oMenu = SBO_Application.Menus.Item("51200");
-                    int i;
-                    string MenuUID = "";
-                    for (i = 0; (i <= (oMenu.SubMenus.Count - 1)); i++)
-                    {
-                        string tablaname = oMenu.SubMenus.Item(i).String;
-                        if (tablaname.Contains("FEDIAN_MAIL_INTERF"))
                         {
                             MenuUID = oMenu.SubMenus.Item(i).UID;
                             break;

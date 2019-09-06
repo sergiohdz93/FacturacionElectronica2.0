@@ -277,9 +277,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\consultarArchivosDispape\consultarArchivos.wsdl" />
-    <None Include="Service References\consultarArchivosDispape\consultarArchivos.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -287,9 +284,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\consultarEstadoDispape\consultarEstado.wsdl" />
-    <None Include="Service References\consultarEstadoDispape\consultarEstado.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\enviarDocumentoDispape\AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -297,9 +291,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\enviarDocumentoDispape\enviarDocumento.wsdl" />
-    <None Include="Service References\enviarDocumentoDispape\enviarDocumento.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CarvajalWS\" />

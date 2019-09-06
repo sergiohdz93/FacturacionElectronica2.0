@@ -1,37 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://wsconsultaestadofactura.webservice.dispapeles.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="consultarEstado" targetNamespace="http://wsconsultaestadofactura.webservice.dispapeles.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
-  <types>
-    <xsd:schema>
-      <xsd:import schemaLocation="https://consultarestadofactura.dispafel.com:443/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado?xsd=1" namespace="http://wsconsultaestadofactura.webservice.dispapeles.com/" />
-    </xsd:schema>
-  </types>
-  <message name="consultarEstadoFactura">
-    <part name="parameters" element="tns:consultarEstadoFactura" />
-  </message>
-  <message name="consultarEstadoFacturaResponse">
-    <part name="parameters" element="tns:consultarEstadoFacturaResponse" />
-  </message>
-  <portType name="ConsultarEstado">
-    <operation name="consultarEstadoFactura">
-      <input wsam:Action="http://wsconsultaestadofactura.webservice.dispapeles.com/ConsultarEstado/consultarEstadoFacturaRequest" message="tns:consultarEstadoFactura" />
-      <output wsam:Action="http://wsconsultaestadofactura.webservice.dispapeles.com/ConsultarEstado/consultarEstadoFacturaResponse" message="tns:consultarEstadoFacturaResponse" />
-    </operation>
-  </portType>
-  <binding name="ConsultarEstadoPortBinding" type="tns:ConsultarEstado">
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://wsconsultaestadofactura.webservice.dispapeles.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="consultarEstado" targetNamespace="http://wsconsultaestadofactura.webservice.dispapeles.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://wsconsultaestadofactura.webservice.dispapeles.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="consultarEstadoFactura" type="tns:consultarEstadoFactura" />
+      <xs:element name="consultarEstadoFacturaResponse" type="tns:consultarEstadoFacturaResponse" />
+      <xs:complexType name="consultarEstadoFactura">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:felConsultaFactura" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="felConsultaFactura">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="consecutivo" type="xs:long" />
+          <xs:element minOccurs="0" name="contrasenia" type="xs:string" />
+          <xs:element minOccurs="0" name="idEmpresa" type="xs:long" />
+          <xs:element minOccurs="0" name="prefijo" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoDocumento" type="xs:string" />
+          <xs:element minOccurs="0" name="token" type="xs:string" />
+          <xs:element minOccurs="0" name="usuario" type="xs:string" />
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="consultarEstadoFacturaResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:felRespuestaEstado" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="felRespuestaEstado">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoQr" type="xs:string" />
+          <xs:element name="codigoUltimoEstadoAdquirente" type="xs:int" />
+          <xs:element name="codigoUltimoEstadoDian" type="xs:int" />
+          <xs:element name="codigoUltimoEstadoDispapeles" type="xs:int" />
+          <xs:element name="codigoUltimoEstadoEmail" type="xs:int" />
+          <xs:element minOccurs="0" name="consecutivo" type="xs:long" />
+          <xs:element minOccurs="0" name="cufe" type="xs:string" />
+          <xs:element minOccurs="0" name="descripcionUltimoEstadoAdquirente" type="xs:string" />
+          <xs:element minOccurs="0" name="descripcionUltimoEstadoDian" type="xs:string" />
+          <xs:element minOccurs="0" name="descripcionUltimoEstadoDispapeles" type="xs:string" />
+          <xs:element minOccurs="0" name="descripcionUltimoEstadoEmail" type="xs:string" />
+          <xs:element name="estadoProceso" type="xs:int" />
+          <xs:element minOccurs="0" name="fechaFactura" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechaRespuesta" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechaRespuestaUltimoEstadoAdquirente" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechaRespuestaUltimoEstadoDian" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechaRespuestaUltimoEstadoDispapeles" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fechaRespuestaUltimoEstadoEmail" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="firmaDelDocumento" type="xs:string" />
+          <xs:element minOccurs="0" name="idErp" type="xs:string" />
+          <xs:element minOccurs="0" name="idLote" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="listaMensajesProceso" nillable="true" type="tns:felMensajesProceso" />
+          <xs:element minOccurs="0" name="prefijo" type="xs:string" />
+          <xs:element minOccurs="0" name="selloDeValidacion" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoDocumento" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="felMensajesProceso">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codigoMensaje" type="xs:string" />
+          <xs:element minOccurs="0" name="descripcionMensaje" type="xs:string" />
+          <xs:element minOccurs="0" name="rechazoNotificacion" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="consultarEstadoFacturaResponse">
+    <wsdl:part name="parameters" element="tns:consultarEstadoFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="consultarEstadoFactura">
+    <wsdl:part name="parameters" element="tns:consultarEstadoFactura" />
+  </wsdl:message>
+  <wsdl:portType name="ConsultarEstado">
+    <wsdl:operation name="consultarEstadoFactura">
+      <wsdl:input name="consultarEstadoFactura" message="tns:consultarEstadoFactura" />
+      <wsdl:output name="consultarEstadoFacturaResponse" message="tns:consultarEstadoFacturaResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="consultarEstadoSoapBinding" type="tns:ConsultarEstado">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="consultarEstadoFactura">
-      <soap:operation soapAction="" />
-      <input>
+    <wsdl:operation name="consultarEstadoFactura">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="consultarEstadoFactura">
         <soap:body use="literal" />
-      </input>
-      <output>
+      </wsdl:input>
+      <wsdl:output name="consultarEstadoFacturaResponse">
         <soap:body use="literal" />
-      </output>
-    </operation>
-  </binding>
-  <service name="consultarEstado">
-    <port name="ConsultarEstadoPort" binding="tns:ConsultarEstadoPortBinding">
-      <soap:address location="https://consultarestadofactura.dispafel.com:443/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado" />
-    </port>
-  </service>
-</definitions>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="consultarEstado">
+    <wsdl:port name="ConsultarEstadoPort" binding="tns:consultarEstadoSoapBinding">
+      <soap:address location="http://172.17.0.3:8080/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

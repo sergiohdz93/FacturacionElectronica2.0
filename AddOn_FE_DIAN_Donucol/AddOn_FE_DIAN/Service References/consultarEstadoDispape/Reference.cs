@@ -16,21 +16,17 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
     public interface ConsultarEstado {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://wsconsultaestadofactura.webservice.dispapeles.com/ConsultarEstado/consulta" +
-            "rEstadoFacturaRequest", ReplyAction="http://wsconsultaestadofactura.webservice.dispapeles.com/ConsultarEstado/consulta" +
-            "rEstadoFacturaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse consultarEstadoFactura(AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaRequest request);
+        AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse consultarEstadoFactura(AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFactura request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://wsconsultaestadofactura.webservice.dispapeles.com/ConsultarEstado/consulta" +
-            "rEstadoFacturaRequest", ReplyAction="http://wsconsultaestadofactura.webservice.dispapeles.com/ConsultarEstado/consulta" +
-            "rEstadoFacturaResponse")]
-        System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse> consultarEstadoFacturaAsync(AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse> consultarEstadoFacturaAsync(AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFactura request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -43,7 +39,9 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
         
         private string contraseniaField;
         
-        private int idEmpresaField;
+        private long idEmpresaField;
+        
+        private bool idEmpresaFieldSpecified;
         
         private string prefijoField;
         
@@ -93,13 +91,25 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idEmpresa {
+        public long idEmpresa {
             get {
                 return this.idEmpresaField;
             }
             set {
                 this.idEmpresaField = value;
                 this.RaisePropertyChanged("idEmpresa");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idEmpresaSpecified {
+            get {
+                return this.idEmpresaFieldSpecified;
+            }
+            set {
+                this.idEmpresaFieldSpecified = value;
+                this.RaisePropertyChanged("idEmpresaSpecified");
             }
         }
         
@@ -174,14 +184,14 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://wsconsultaestadofactura.webservice.dispapeles.com/")]
     public partial class felMensajesProceso : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int codigoMensajeField;
+        private string codigoMensajeField;
         
         private string descripcionMensajeField;
         
@@ -189,7 +199,7 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int codigoMensaje {
+        public string codigoMensaje {
             get {
                 return this.codigoMensajeField;
             }
@@ -234,7 +244,7 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -295,9 +305,7 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
         
         private string idErpField;
         
-        private long idLoteField;
-        
-        private bool idLoteFieldSpecified;
+        private string idLoteField;
         
         private felMensajesProceso[] listaMensajesProcesoField;
         
@@ -633,25 +641,13 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
-        public long idLote {
+        public string idLote {
             get {
                 return this.idLoteField;
             }
             set {
                 this.idLoteField = value;
                 this.RaisePropertyChanged("idLote");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idLoteSpecified {
-            get {
-                return this.idLoteFieldSpecified;
-            }
-            set {
-                this.idLoteFieldSpecified = value;
-                this.RaisePropertyChanged("idLoteSpecified");
             }
         }
         
@@ -717,16 +713,16 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="consultarEstadoFactura", WrapperNamespace="http://wsconsultaestadofactura.webservice.dispapeles.com/", IsWrapped=true)]
-    public partial class consultarEstadoFacturaRequest {
+    public partial class consultarEstadoFactura {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://wsconsultaestadofactura.webservice.dispapeles.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public AddOn_FE_DIAN.consultarEstadoDispape.felConsultaFactura arg0;
         
-        public consultarEstadoFacturaRequest() {
+        public consultarEstadoFactura() {
         }
         
-        public consultarEstadoFacturaRequest(AddOn_FE_DIAN.consultarEstadoDispape.felConsultaFactura arg0) {
+        public consultarEstadoFactura(AddOn_FE_DIAN.consultarEstadoDispape.felConsultaFactura arg0) {
             this.arg0 = arg0;
         }
     }
@@ -777,24 +773,24 @@ namespace AddOn_FE_DIAN.consultarEstadoDispape {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse AddOn_FE_DIAN.consultarEstadoDispape.ConsultarEstado.consultarEstadoFactura(AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaRequest request) {
+        AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse AddOn_FE_DIAN.consultarEstadoDispape.ConsultarEstado.consultarEstadoFactura(AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFactura request) {
             return base.Channel.consultarEstadoFactura(request);
         }
         
         public AddOn_FE_DIAN.consultarEstadoDispape.felRespuestaEstado consultarEstadoFactura(AddOn_FE_DIAN.consultarEstadoDispape.felConsultaFactura arg0) {
-            AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaRequest inValue = new AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaRequest();
+            AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFactura inValue = new AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFactura();
             inValue.arg0 = arg0;
             AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse retVal = ((AddOn_FE_DIAN.consultarEstadoDispape.ConsultarEstado)(this)).consultarEstadoFactura(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse> AddOn_FE_DIAN.consultarEstadoDispape.ConsultarEstado.consultarEstadoFacturaAsync(AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaRequest request) {
+        System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse> AddOn_FE_DIAN.consultarEstadoDispape.ConsultarEstado.consultarEstadoFacturaAsync(AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFactura request) {
             return base.Channel.consultarEstadoFacturaAsync(request);
         }
         
         public System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse> consultarEstadoFacturaAsync(AddOn_FE_DIAN.consultarEstadoDispape.felConsultaFactura arg0) {
-            AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaRequest inValue = new AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaRequest();
+            AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFactura inValue = new AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFactura();
             inValue.arg0 = arg0;
             return ((AddOn_FE_DIAN.consultarEstadoDispape.ConsultarEstado)(this)).consultarEstadoFacturaAsync(inValue);
         }

@@ -1,0 +1,33 @@
+4/09/2019 12:57:09 p. m. : SendFE: Inicio
+4/09/2019 12:57:10 p. m. : SendFE: doc
+4/09/2019 12:57:10 p. m. : SendFE: impDoc
+4/09/2019 12:57:10 p. m. : envioFacturaRespuestaDTO: Inicio
+4/09/2019 12:57:31 p. m. : Consumo: Inicio
+4/09/2019 12:57:34 p. m. : Consumo: Fin
+4/09/2019 12:57:34 p. m. : UpdateLogDispapeles: Inicio
+4/09/2019 12:57:34 p. m. : UpdateLogDispapeles: Error3
+4/09/2019 12:57:34 p. m. : UpdateLogDispapeles: ErrorError Validando Documento
+4/09/2019 12:57:34 p. m. : reSend: True
+4/09/2019 12:57:34 p. m. : Update OK: 
+4/09/2019 1:00:43 p. m. : SendFE: Inicio
+4/09/2019 1:00:43 p. m. : SendFE: doc
+4/09/2019 1:00:43 p. m. : SendFE: impDoc
+4/09/2019 1:00:43 p. m. : envioFacturaRespuestaDTO: Inicio
+4/09/2019 1:00:47 p. m. : Consumo: Inicio
+4/09/2019 1:00:49 p. m. : Consumo: Fin
+4/09/2019 1:00:49 p. m. : UpdateLogDispapeles: Inicio
+4/09/2019 1:00:49 p. m. : UpdateLogDispapeles: Error3
+4/09/2019 1:00:49 p. m. : UpdateLogDispapeles: ErrorError Validando Documento
+4/09/2019 1:00:49 p. m. : reSend: True
+4/09/2019 1:00:49 p. m. : Update OK: 
+4/09/2019 2:21:51 p. m. : SendFE: Inicio
+4/09/2019 2:21:52 p. m. : SendFE: doc
+4/09/2019 2:21:52 p. m. : SendFE: impDoc
+4/09/2019 2:21:52 p. m. : envioFacturaRespuestaDTO: Inicio
+4/09/2019 2:21:52 p. m. : Consumo: Inicio
+4/09/2019 2:21:55 p. m. : Consumo: Fin
+4/09/2019 2:21:55 p. m. : UpdateLogDispapeles: Inicio
+4/09/2019 2:21:55 p. m. : UpdateLogDispapeles: Error3
+4/09/2019 2:21:55 p. m. : UpdateLogDispapeles: ErrorError Validando Documento
+4/09/2019 2:21:55 p. m. : reSend: True
+4/09/2019 2:21:55 p. m. : Update OK: 

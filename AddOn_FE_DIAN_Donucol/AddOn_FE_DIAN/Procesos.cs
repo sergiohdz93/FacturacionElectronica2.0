@@ -54,7 +54,7 @@ namespace AddOn_FE_DIAN
                 oCompany = oCmpn;
                 SBO_Application = SBO_App;
                 //Creacion de timer para actualziacion de formulario Monitor Log
-                StartMonitorSAPB1();
+                //StartMonitorSAPB1();
                 //Cargue inicial de parametrizacion
                 user = SBO_Application.Company.UserName;
                 CargueInicial();
@@ -196,7 +196,7 @@ namespace AddOn_FE_DIAN
                                         tbl.UserFields.Fields.Item("U_Status").Value = "";
                                         tbl.UserFields.Fields.Item("U_ProcessID").Value = "";
                                         tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = "";
+                                        tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = null;
                                         tbl.UserFields.Fields.Item("U_Det_Peticion").Value = "";
                                         tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = "";
                                         tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = "";
@@ -1593,7 +1593,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Actualizacion Log despues de envio a Dispapeles
-        public static void UpdateLogDispapeles(int codeline, enviarDocumentoDispape.enviarDocumentoResponse response, string srequest, Boolean reSend)
+        public static void UpdateLogDispapeles(int codeline, enviarDocumentoDispape.felRespuestaEnvio response, string srequest, Boolean reSend)
         {
             try
             {
@@ -1617,7 +1617,7 @@ namespace AddOn_FE_DIAN
                 string xmlresponse = Encoding.UTF8.GetString(ms.ToArray());
 
                 tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = xmlresponse;
-                if (response.mensaje == "OK")
+                if (response.descripcionProceso == "OK")
                 {
                     Procesos.EscribirLogFileTXT("UpdateLogDispapeles: OK");
                     int docEntry;
@@ -1628,7 +1628,7 @@ namespace AddOn_FE_DIAN
 
                     tbl.UserFields.Fields.Item("U_Status").Value = "1";
 
-                    tbl.UserFields.Fields.Item("U_Resultado").Value = response.mensaje;
+                    tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
                     if (response.cufe != null)
                     {
                         tbl.UserFields.Fields.Item("U_ProcessID").Value = response.cufe;
@@ -1650,10 +1650,10 @@ namespace AddOn_FE_DIAN
                     respuestaXML = WebServiceDispapelesController.consultaArchivos(docEntry, response.fechaFactura, response.prefijo, tipoDoc, urlWS);
                     respuestaPDF = WebServiceDispapelesController.consultaArchivos(docEntry, response.fechaFactura, response.prefijo, tipoDoc, urlWS);
 
-                    if (respuestaPDF.streamFile != null)
+                    if (respuestaPDF.listaArchivos != null)
                     {
-                        Procesos.EscribirLogFileTXT("ConsultaXML: No Null");
-                        string base64 = Convert.ToBase64String(respuestaPDF.streamFile);
+                        Procesos.EscribirLogFileTXT("ConsultaXML : No Null");
+                        string base64 = Convert.ToBase64String(respuestaPDF.listaArchivos[0].streamFile);
                         //string serverDirectory = Properties.Settings.Default.RutaPDF;
                         if (base64.Length > 256000)
                         {
@@ -1680,21 +1680,22 @@ namespace AddOn_FE_DIAN
                         //}
                     }
 
-                    if (respuestaXML.streamFile != null)
+                    if (respuestaXML.listaArchivos != null)
                     {
                         Procesos.EscribirLogFileTXT("ConsultaPDF: No Null");
-                        string base64 = Convert.ToBase64String(respuestaXML.streamFile);
+                        string base64 = Convert.ToBase64String(respuestaXML.listaArchivos[0].streamFile);
                         tbl.UserFields.Fields.Item("U_Enlace_XML").Value = base64;
                     }
+
                 }
 
-                else if (response.mensaje == "La factura fue ingresada previamente")
+                else if (response.descripcionProceso == "La factura fue ingresada previamente")
                 {
                     Procesos.EscribirLogFileTXT("UpdateLogDispapeles: La factura fue ingresada previamente");
 
                     tbl.UserFields.Fields.Item("U_Status").Value = "2";
 
-                    tbl.UserFields.Fields.Item("U_Resultado").Value = response.mensaje;
+                    tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
                     if (response.cufe != null)
                     {
                         tbl.UserFields.Fields.Item("U_ProcessID").Value = response.cufe;
@@ -1709,7 +1710,7 @@ namespace AddOn_FE_DIAN
                     char[] delimiter = delimStr.ToCharArray();
 
                     int x = 2;
-                    ArrLine = response.mensaje.Split(delimiter, x);
+                    ArrLine = response.descripcionProceso.Split(delimiter, x);
 
                     if (ArrLine.Length > 1)
                     {
@@ -1734,8 +1735,8 @@ namespace AddOn_FE_DIAN
                     {
                         Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + "3");
                         tbl.UserFields.Fields.Item("U_Status").Value = "3";
-                        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + response.mensaje);
-                        tbl.UserFields.Fields.Item("U_Resultado").Value = response.mensaje;
+                        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + response.descripcionProceso);
+                        tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
                     }
                 }
 
@@ -1744,10 +1745,14 @@ namespace AddOn_FE_DIAN
                     Procesos.EscribirLogFileTXT("reSend: " + reSend);
                     if (response.fechaFactura != null)
                     {
-                        Procesos.EscribirLogFileTXT("FechaDispapeles: " + response.fechaFactura.ToString("yyyy/MM/dd"));
-                        tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = response.fechaFactura.ToString("yyyy/MM/dd");//dateSend.ToString("yyyy/MM/dd");
-                        tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm"); //response.fechaFactura.ToString("HH:mm");
+                        Procesos.EscribirLogFileTXT("FechaDispapeles: " + dateSend.ToString("yyyy/MM/dd"));
+                        tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
+                        tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
+                        tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
+                        //tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = response.fechaFactura.ToString("yyyy/MM/dd");//dateSend.ToString("yyyy/MM/dd");
+                        //tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm"); //response.fechaFactura.ToString("HH:mm");
                     }
+
                     else
                     {
                         Procesos.EscribirLogFileTXT("FechaSistema: " + dateSend.ToString("yyyy/MM/dd"));
@@ -1765,17 +1770,17 @@ namespace AddOn_FE_DIAN
                 }
 
                 lRetCode = tbl.Update();
+
                 if (lRetCode != 0)
                 {
                     oCompany.GetLastError(out lRetCode, out sErrMsg);
                     Procesos.EscribirLogFileTXT("updateLog: " + sErrMsg);
-                    //oCompany.GetLastError(out lRetCode, out sErrMsg);
-                    //SBO_Application.MessageBox(sErrMsg);
                 }
                 else
                 {
                     Procesos.EscribirLogFileTXT("Update OK: ");
                 }
+
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
                 tbl = null;
                 GC.Collect();

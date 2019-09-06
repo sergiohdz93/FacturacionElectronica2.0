@@ -118,6 +118,22 @@ namespace AddOn_FE_DIAN
                         Procesos.EscribirLogFileTXT("PreCarga: " + lRetCode + " > " + sErrMsg);
                     }
                 }
+
+                tbl.Code = Constants.CodDIAN_06[0];
+                tbl.Name = Constants.CodDIAN_06[1];
+
+                lRetCode = tbl.Add();
+
+                if (lRetCode != 0)
+                {
+                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                    { }
+                    else
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                        Procesos.EscribirLogFileTXT("PreCarga: " + lRetCode + " > " + sErrMsg);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -128,7 +144,7 @@ namespace AddOn_FE_DIAN
         private void cfgInter()
         {
             string urlFebos = "";
-            urlFebos = "https://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo={0}&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si";
+            urlFebos = "https://cenflab.cen.biz/";
             try
             {
                 SAPbobsCOM.UserTables tbls = null;
@@ -137,8 +153,8 @@ namespace AddOn_FE_DIAN
                 tbls = oCompany.UserTables;
                 tbl = tbls.Item("FEDIAN_INTERF_CFG");
 
-                tbl.Code = "1";
-                tbl.Name = "Factura de Venta";
+                tbl.Code = Constants.CodDIAN_01[0];
+                tbl.Name = Constants.CodDIAN_01[1];
                 tbl.UserFields.Fields.Item("U_WS_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_Job_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_URL").Value = string.Format(urlFebos, tbl.Code);
@@ -156,8 +172,8 @@ namespace AddOn_FE_DIAN
                     }
                 }
 
-                tbl.Code = "2";
-                tbl.Name = "Factura de Contingencia";
+                tbl.Code = Constants.CodDIAN_02[0];
+                tbl.Name = Constants.CodDIAN_02[1];
                 tbl.UserFields.Fields.Item("U_WS_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_Job_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_URL").Value = string.Format(urlFebos, tbl.Code);
@@ -175,8 +191,8 @@ namespace AddOn_FE_DIAN
                     }
                 }
 
-                tbl.Code = "3";
-                tbl.Name = "Factura de Exportacion";
+                tbl.Code = Constants.CodDIAN_03[0];
+                tbl.Name = Constants.CodDIAN_03[1];
                 tbl.UserFields.Fields.Item("U_WS_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_Job_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_URL").Value = string.Format(urlFebos, tbl.Code);
@@ -194,8 +210,8 @@ namespace AddOn_FE_DIAN
                     }
                 }
 
-                tbl.Code = "4";
-                tbl.Name = "Nota de Credito";
+                tbl.Code = Constants.CodDIAN_04[0];
+                tbl.Name = Constants.CodDIAN_04[1];
                 tbl.UserFields.Fields.Item("U_WS_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_Job_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_URL").Value = string.Format(urlFebos, tbl.Code);
@@ -213,8 +229,8 @@ namespace AddOn_FE_DIAN
                     }
                 }
 
-                tbl.Code = "5";
-                tbl.Name = "Nota de Debito";
+                tbl.Code = Constants.CodDIAN_05[0];
+                tbl.Name = Constants.CodDIAN_05[1];
                 tbl.UserFields.Fields.Item("U_WS_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_Job_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_URL").Value = string.Format(urlFebos, tbl.Code);
@@ -232,8 +248,8 @@ namespace AddOn_FE_DIAN
                     }
                 }
 
-                tbl.Code = "6";
-                tbl.Name = "Lectura de Respuesta DIAN";
+                tbl.Code = Constants.CodDIAN_06[0];
+                tbl.Name = Constants.CodDIAN_06[1];
                 tbl.UserFields.Fields.Item("U_WS_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_Job_Activo").Value = "Y";
                 tbl.UserFields.Fields.Item("U_URL").Value = Constants.urlstatusFebos;

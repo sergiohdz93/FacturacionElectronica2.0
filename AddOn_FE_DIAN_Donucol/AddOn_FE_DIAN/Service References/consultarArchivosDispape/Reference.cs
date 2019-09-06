@@ -16,21 +16,17 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
     public interface ConsultarArchivos {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/consultarArc" +
-            "hivosRequest", ReplyAction="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/consultarArc" +
-            "hivosResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse consultarArchivos(AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosRequest request);
+        AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse consultarArchivos(AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivos1 request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/consultarArc" +
-            "hivosRequest", ReplyAction="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/consultarArc" +
-            "hivosResponse")]
-        System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse> consultarArchivosAsync(AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse> consultarArchivosAsync(AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivos1 request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -43,7 +39,9 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         
         private string contraseniaField;
         
-        private int idEmpresaField;
+        private long idEmpresaField;
+        
+        private bool idEmpresaFieldSpecified;
         
         private string prefijoField;
         
@@ -95,13 +93,25 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idEmpresa {
+        public long idEmpresa {
             get {
                 return this.idEmpresaField;
             }
             set {
                 this.idEmpresaField = value;
                 this.RaisePropertyChanged("idEmpresa");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idEmpresaSpecified {
+            get {
+                return this.idEmpresaFieldSpecified;
+            }
+            set {
+                this.idEmpresaFieldSpecified = value;
+                this.RaisePropertyChanged("idEmpresaSpecified");
             }
         }
         
@@ -188,14 +198,14 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://wsconsultarpdfxml.webservice.dispapeles.com/")]
     public partial class felMensajesProceso : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private int codigoMensajeField;
+        private string codigoMensajeField;
         
         private string descripcionMensajeField;
         
@@ -203,7 +213,7 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int codigoMensaje {
+        public string codigoMensaje {
             get {
                 return this.codigoMensajeField;
             }
@@ -248,7 +258,81 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://wsconsultarpdfxml.webservice.dispapeles.com/")]
+    public partial class felArchivos : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string formatoField;
+        
+        private string mimeTypeField;
+        
+        private string nameFileField;
+        
+        private byte[] streamFileField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string formato {
+            get {
+                return this.formatoField;
+            }
+            set {
+                this.formatoField = value;
+                this.RaisePropertyChanged("formato");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string mimeType {
+            get {
+                return this.mimeTypeField;
+            }
+            set {
+                this.mimeTypeField = value;
+                this.RaisePropertyChanged("mimeType");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string nameFile {
+            get {
+                return this.nameFileField;
+            }
+            set {
+                this.nameFileField = value;
+                this.RaisePropertyChanged("nameFile");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", Order=3)]
+        public byte[] streamFile {
+            get {
+                return this.streamFileField;
+            }
+            set {
+                this.streamFileField = value;
+                this.RaisePropertyChanged("streamFile");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -265,19 +349,13 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         
         private int estadoProcesoField;
         
-        private string formatoField;
-        
         private string idErpField;
+        
+        private felArchivos[] listaArchivosField;
         
         private felMensajesProceso[] listaMensajesProcesoField;
         
-        private string mimeTypeField;
-        
-        private string nameFileField;
-        
         private string prefijoField;
-        
-        private byte[] streamFileField;
         
         private string tipoDocumentoField;
         
@@ -343,18 +421,6 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public string formato {
-            get {
-                return this.formatoField;
-            }
-            set {
-                this.formatoField = value;
-                this.RaisePropertyChanged("formato");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public string idErp {
             get {
                 return this.idErpField;
@@ -362,6 +428,18 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
             set {
                 this.idErpField = value;
                 this.RaisePropertyChanged("idErp");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("listaArchivos", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=5)]
+        public felArchivos[] listaArchivos {
+            get {
+                return this.listaArchivosField;
+            }
+            set {
+                this.listaArchivosField = value;
+                this.RaisePropertyChanged("listaArchivos");
             }
         }
         
@@ -379,30 +457,6 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
-        public string mimeType {
-            get {
-                return this.mimeTypeField;
-            }
-            set {
-                this.mimeTypeField = value;
-                this.RaisePropertyChanged("mimeType");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
-        public string nameFile {
-            get {
-                return this.nameFileField;
-            }
-            set {
-                this.nameFileField = value;
-                this.RaisePropertyChanged("nameFile");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public string prefijo {
             get {
                 return this.prefijoField;
@@ -414,19 +468,7 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="base64Binary", Order=10)]
-        public byte[] streamFile {
-            get {
-                return this.streamFileField;
-            }
-            set {
-                this.streamFileField = value;
-                this.RaisePropertyChanged("streamFile");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string tipoDocumento {
             get {
                 return this.tipoDocumentoField;
@@ -451,17 +493,17 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="consultarArchivos", WrapperNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", IsWrapped=true)]
-    public partial class consultarArchivosRequest {
+    public partial class consultarArchivos1 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public AddOn_FE_DIAN.consultarArchivosDispape.felConsultaFacturaArchivo arg0;
+        public AddOn_FE_DIAN.consultarArchivosDispape.felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo;
         
-        public consultarArchivosRequest() {
+        public consultarArchivos1() {
         }
         
-        public consultarArchivosRequest(AddOn_FE_DIAN.consultarArchivosDispape.felConsultaFacturaArchivo arg0) {
-            this.arg0 = arg0;
+        public consultarArchivos1(AddOn_FE_DIAN.consultarArchivosDispape.felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo) {
+            this.Fel_ConsultaFacturaArchivo = Fel_ConsultaFacturaArchivo;
         }
     }
     
@@ -511,25 +553,25 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse AddOn_FE_DIAN.consultarArchivosDispape.ConsultarArchivos.consultarArchivos(AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosRequest request) {
+        AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse AddOn_FE_DIAN.consultarArchivosDispape.ConsultarArchivos.consultarArchivos(AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivos1 request) {
             return base.Channel.consultarArchivos(request);
         }
         
-        public AddOn_FE_DIAN.consultarArchivosDispape.felRepuestaDescargaDocumentos consultarArchivos(AddOn_FE_DIAN.consultarArchivosDispape.felConsultaFacturaArchivo arg0) {
-            AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosRequest inValue = new AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosRequest();
-            inValue.arg0 = arg0;
+        public AddOn_FE_DIAN.consultarArchivosDispape.felRepuestaDescargaDocumentos consultarArchivos(AddOn_FE_DIAN.consultarArchivosDispape.felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo) {
+            AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivos1 inValue = new AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivos1();
+            inValue.Fel_ConsultaFacturaArchivo = Fel_ConsultaFacturaArchivo;
             AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse retVal = ((AddOn_FE_DIAN.consultarArchivosDispape.ConsultarArchivos)(this)).consultarArchivos(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse> AddOn_FE_DIAN.consultarArchivosDispape.ConsultarArchivos.consultarArchivosAsync(AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosRequest request) {
+        System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse> AddOn_FE_DIAN.consultarArchivosDispape.ConsultarArchivos.consultarArchivosAsync(AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivos1 request) {
             return base.Channel.consultarArchivosAsync(request);
         }
         
-        public System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse> consultarArchivosAsync(AddOn_FE_DIAN.consultarArchivosDispape.felConsultaFacturaArchivo arg0) {
-            AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosRequest inValue = new AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosRequest();
-            inValue.arg0 = arg0;
+        public System.Threading.Tasks.Task<AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse> consultarArchivosAsync(AddOn_FE_DIAN.consultarArchivosDispape.felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo) {
+            AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivos1 inValue = new AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivos1();
+            inValue.Fel_ConsultaFacturaArchivo = Fel_ConsultaFacturaArchivo;
             return ((AddOn_FE_DIAN.consultarArchivosDispape.ConsultarArchivos)(this)).consultarArchivosAsync(inValue);
         }
     }

@@ -1,0 +1,38 @@
+[
+ {
+   "Código": "1",
+   "Significado": "Combustibles"
+ },
+ {
+   "Código": "2",
+   "Significado": "Emisor es Autorretenedor"
+ },
+ {
+   "Código": "3",
+   "Significado": "Excluidos y Exentos"
+ },
+ {
+   "Código": "4",
+   "Significado": "Exportación"
+ },
+ {
+   "Código": "5",
+   "Significado": "Genérica"
+ },
+ {
+   "Código": "6",
+   "Significado": "Genérica con Pago Anticipado"
+ },
+ {
+   "Código": "7",
+   "Significado": "Genérica con Periodo de Facturación"
+ },
+ {
+   "Código": "8",
+   "Significado": "Consorcio"
+ },
+ {
+   "Código": "9",
+   "Significado": "Servicios AIU"
+ }
+]

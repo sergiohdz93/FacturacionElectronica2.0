@@ -19,10 +19,9 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://consultarpdfxmlfactura.dispafel.com:443/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="consultarArchivos.xsd" MetadataType="Schema" ID="01a924c0-eecb-42d3-ae8a-797dec48bc29" SourceId="1" SourceUrl="https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos?xsd=1" />
     <MetadataFile FileName="consultarArchivos.wsdl" MetadataType="Wsdl" ID="be7dab79-114b-4ad4-9cc9-00a7d6473933" SourceId="1" SourceUrl="https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos?wsdl" />
   </Metadata>
   <Extensions>

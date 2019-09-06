@@ -505,11 +505,11 @@ namespace AddOn_FE_DIAN
                     //oCreationPackage.String = "Clase Doc DIAN/SAP";
                     //oMenus.AddEx(oCreationPackage);
 
-                    oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    oCreationPackage.UniqueID = "FE_0006";
-                    oCreationPackage.String = "Mensajes Interfaces";
-                    oCreationPackage.Image = "";
-                    oMenus.AddEx(oCreationPackage);
+                    //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
+                    //oCreationPackage.UniqueID = "FE_0006";
+                    //oCreationPackage.String = "Mensajes Interfaces";
+                    //oCreationPackage.Image = "";
+                    //oMenus.AddEx(oCreationPackage);
 
                     //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
                     //oCreationPackage.UniqueID = "FE_0007";

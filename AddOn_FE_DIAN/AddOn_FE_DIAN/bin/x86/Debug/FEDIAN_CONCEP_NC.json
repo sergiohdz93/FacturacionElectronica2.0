@@ -1,0 +1,24 @@
+[{
+	"Codigo": "1",
+	"Nombre": "Devolución de parte de los bienes; no aceptación de partes del servicio"
+},
+{
+	"Codigo": "2",
+	"Nombre": "Anulación de Factura Electrónica"
+},
+{
+	"Codigo": "3",
+	"Nombre": "Rebaja Total Aplicada"
+},
+{
+	"Codigo": "4",
+	"Nombre": "Descuento Total Aplicado"
+},
+{
+	"Codigo": "5",
+	"Nombre": "Rescición: Nulidad por Falta de Requisitos"
+},
+{
+	"Codigo": "6",
+	"Nombre": "Otros"
+}]

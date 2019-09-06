@@ -1,0 +1,9678 @@
+[
+ {
+   "Codigo": "5",
+   "Nombre": "Ascensor"
+ },
+ {
+   "Codigo": "4",
+   "Nombre": "Pequeño aerosol"
+ },
+ {
+   "Codigo": "8",
+   "Nombre": "Montón de calor"
+ },
+ {
+   "Codigo": "10",
+   "Nombre": "Grupos"
+ },
+ {
+   "Codigo": "11",
+   "Nombre": "Equipos"
+ },
+ {
+   "Codigo": "13",
+   "Nombre": "Raciones"
+ },
+ {
+   "Codigo": "14",
+   "Nombre": "Shot"
+ },
+ {
+   "Codigo": "15",
+   "Nombre": "Palo, medida militar."
+ },
+ {
+   "Codigo": "16",
+   "Nombre": "Tambor de 115 kilogramos"
+ },
+ {
+   "Codigo": "17",
+   "Nombre": "Tambor de cien libras"
+ },
+ {
+   "Codigo": "18",
+   "Nombre": "Tambor de cincuenta y cinco galones (EUA)"
+ },
+ {
+   "Codigo": "19",
+   "Nombre": "Camión cisterna"
+ },
+ {
+   "Codigo": "20",
+   "Nombre": "Contenedores de veinte pies"
+ },
+ {
+   "Codigo": "21",
+   "Nombre": "Contenedor de cuarenta pies"
+ },
+ {
+   "Codigo": "22",
+   "Nombre": "Decilitro por gramo"
+ },
+ {
+   "Codigo": "23",
+   "Nombre": "Gramo por centímetro cúbico"
+ },
+ {
+   "Codigo": "24",
+   "Nombre": "Libra teórica"
+ },
+ {
+   "Codigo": "25",
+   "Nombre": "Gramo por centímetro cuadrado"
+ },
+ {
+   "Codigo": "26",
+   "Nombre": "Tonelada real"
+ },
+ {
+   "Codigo": "27",
+   "Nombre": "Tonelada teórica"
+ },
+ {
+   "Codigo": "28",
+   "Nombre": "Kilogramo por metro cuadrado"
+ },
+ {
+   "Codigo": "29",
+   "Nombre": "Libra por mil pies cuadrados"
+ },
+ {
+   "Codigo": "30",
+   "Nombre": "Día de potencia de caballos por tonelada métrica de aire seco"
+ },
+ {
+   "Codigo": "31",
+   "Nombre": "Pescar"
+ },
+ {
+   "Codigo": "32",
+   "Nombre": "Kilogramo por tonelada métrica seca del aire"
+ },
+ {
+   "Codigo": "33",
+   "Nombre": "Kilopascal por grtr"
+ },
+ {
+   "Codigo": "34",
+   "Nombre": "Kilopascal por milimetro"
+ },
+ {
+   "Codigo": "35",
+   "Nombre": "Milimetro por un segundo centimetro cuadrado"
+ },
+ {
+   "Codigo": "36",
+   "Nombre": "Pie cúbico por minuto por pie cuadrado"
+ },
+ {
+   "Codigo": "37",
+   "Nombre": "Onza por pie cuadrado"
+ },
+ {
+   "Codigo": "38",
+   "Nombre": "Onzas por pie cuadrado por 0,01 pulgadas"
+ },
+ {
+   "Codigo": "40",
+   "Nombre": "Mililitro por segundo"
+ },
+ {
+   "Codigo": "41",
+   "Nombre": "Mililitro por minuto"
+ },
+ {
+   "Codigo": "43",
+   "Nombre": "Bolsa Super a granel"
+ },
+ {
+   "Codigo": "44",
+   "Nombre": "Bolsa a granel de quinientos kilos"
+ },
+ {
+   "Codigo": "45",
+   "Nombre": "Bolsa a granel de trescientos kilos"
+ },
+ {
+   "Codigo": "46",
+   "Nombre": "Bolsa a granel de cincuenta libras"
+ },
+ {
+   "Codigo": "47",
+   "Nombre": "Bolso de cincuenta libras"
+ },
+ {
+   "Codigo": "48",
+   "Nombre": "Carga masiva"
+ },
+ {
+   "Codigo": "53",
+   "Nombre": "Kilogramo teórico"
+ },
+ {
+   "Codigo": "54",
+   "Nombre": "Tonelada teórica (UK)"
+ },
+ {
+   "Codigo": "56",
+   "Nombre": "Sitas"
+ },
+ {
+   "Codigo": "57",
+   "Nombre": "Malla"
+ },
+ {
+   "Codigo": "58",
+   "Nombre": "kilogramo neto"
+ },
+ {
+   "Codigo": "59",
+   "Nombre": "Parte por millón"
+ },
+ {
+   "Codigo": "60",
+   "Nombre": "Porcentaje en peso"
+ },
+ {
+   "Codigo": "61",
+   "Nombre": "Parte por billon (US)"
+ },
+ {
+   "Codigo": "62",
+   "Nombre": "Por ciento por 1000 horas"
+ },
+ {
+   "Codigo": "63",
+   "Nombre": "Tasa de fracaso en el tiempo"
+ },
+ {
+   "Codigo": "64",
+   "Nombre": "Libra por pulgada cuadrada, calíbre"
+ },
+ {
+   "Codigo": "66",
+   "Nombre": "Oersted"
+ },
+ {
+   "Codigo": "69",
+   "Nombre": "Escala específica de prueba"
+ },
+ {
+   "Codigo": "71",
+   "Nombre": "Voltios amperios por libra"
+ },
+ {
+   "Codigo": "72",
+   "Nombre": "Vatio por libra"
+ },
+ {
+   "Codigo": "73",
+   "Nombre": "Amperios por centímetro"
+ },
+ {
+   "Codigo": "74",
+   "Nombre": "Milipascal"
+ },
+ {
+   "Codigo": "76",
+   "Nombre": "Gauss"
+ },
+ {
+   "Codigo": "77",
+   "Nombre": "Mili-pulgada"
+ },
+ {
+   "Codigo": "78",
+   "Nombre": "Kilogauss"
+ },
+ {
+   "Codigo": "80",
+   "Nombre": "Libra por pulgada cuadrado absoluta"
+ },
+ {
+   "Codigo": "81",
+   "Nombre": "Henry"
+ },
+ {
+   "Codigo": "84",
+   "Nombre": "Kilopound-force por pulgada cuadrada"
+ },
+ {
+   "Codigo": "85",
+   "Nombre": "Pie libra-fuerza"
+ },
+ {
+   "Codigo": "87",
+   "Nombre": "Libra por pie cúbico"
+ },
+ {
+   "Codigo": "89",
+   "Nombre": "Poise"
+ },
+ {
+   "Codigo": "90",
+   "Nombre": "Saybold segundo universal"
+ },
+ {
+   "Codigo": "91",
+   "Nombre": "Stokes"
+ },
+ {
+   "Codigo": "92",
+   "Nombre": "Calorías por centímetro cúbico"
+ },
+ {
+   "Codigo": "93",
+   "Nombre": "Calorías por gramo"
+ },
+ {
+   "Codigo": "94",
+   "Nombre": "Unidad de curl"
+ },
+ {
+   "Codigo": "95",
+   "Nombre": "Veinte mil galones"
+ },
+ {
+   "Codigo": "96",
+   "Nombre": "Diez mil galones (US)"
+ },
+ {
+   "Codigo": "97",
+   "Nombre": "Diez kilos de tambor"
+ },
+ {
+   "Codigo": "98",
+   "Nombre": "Quince kilos de tambor"
+ },
+ {
+   "Codigo": "1A",
+   "Nombre": "Milla de carros"
+ },
+ {
+   "Codigo": "1B",
+   "Nombre": "Recuento de automóviles"
+ },
+ {
+   "Codigo": "1C",
+   "Nombre": "Conteo de locomotoras"
+ },
+ {
+   "Codigo": "1D",
+   "Nombre": "Caboose count"
+ },
+ {
+   "Codigo": "1E",
+   "Nombre": "Coche vacío"
+ },
+ {
+   "Codigo": "1F",
+   "Nombre": "Milla de tren"
+ },
+ {
+   "Codigo": "1G",
+   "Nombre": "Galón del uso del combustible (los EUA)"
+ },
+ {
+   "Codigo": "1H",
+   "Nombre": "Milla de caboose"
+ },
+ {
+   "Codigo": "1I",
+   "Nombre": "Tipo de interés fijo"
+ },
+ {
+   "Codigo": "1J",
+   "Nombre": "Tonelada milla"
+ },
+ {
+   "Codigo": "1K",
+   "Nombre": "Milla locomotora"
+ },
+ {
+   "Codigo": "1L",
+   "Nombre": "Recuento total de automóviles"
+ },
+ {
+   "Codigo": "1M",
+   "Nombre": "Milla total del coche"
+ },
+ {
+   "Codigo": "1X",
+   "Nombre": "Cuarto de milla"
+ },
+ {
+   "Codigo": "2A",
+   "Nombre": "Radián por segundo"
+ },
+ {
+   "Codigo": "2B",
+   "Nombre": "Radián por segundo cuadrado"
+ },
+ {
+   "Codigo": "2C",
+   "Nombre": "Roentgen"
+ },
+ {
+   "Codigo": "2G",
+   "Nombre": "Voltios CA"
+ },
+ {
+   "Codigo": "2H",
+   "Nombre": "Voltios CD"
+ },
+ {
+   "Codigo": "2I",
+   "Nombre": "Unidad térmica británica (tabla internacional) por hora"
+ },
+ {
+   "Codigo": "2J",
+   "Nombre": "Centímetro cúbico por segundo"
+ },
+ {
+   "Codigo": "2K",
+   "Nombre": "Pie cúbico por hora"
+ },
+ {
+   "Codigo": "2L",
+   "Nombre": "Pie cúbico por minuto"
+ },
+ {
+   "Codigo": "2M",
+   "Nombre": "Centímetro por segundo"
+ },
+ {
+   "Codigo": "2N",
+   "Nombre": "Decibel"
+ },
+ {
+   "Codigo": "2P",
+   "Nombre": "Kilobyte"
+ },
+ {
+   "Codigo": "2Q",
+   "Nombre": "Kilobecquerel"
+ },
+ {
+   "Codigo": "2R",
+   "Nombre": "Kilocurie"
+ },
+ {
+   "Codigo": "2U",
+   "Nombre": "Megagramo"
+ },
+ {
+   "Codigo": "2V",
+   "Nombre": "Megagrama por hora"
+ },
+ {
+   "Codigo": "2X",
+   "Nombre": "Metro por minuto"
+ },
+ {
+   "Codigo": "2Y",
+   "Nombre": "Milliroentgen"
+ },
+ {
+   "Codigo": "2Z",
+   "Nombre": "Milivoltio"
+ },
+ {
+   "Codigo": "3B",
+   "Nombre": "Megajoule"
+ },
+ {
+   "Codigo": "3C",
+   "Nombre": "Manmonth"
+ },
+ {
+   "Codigo": "3E",
+   "Nombre": "Libra por libra de producto"
+ },
+ {
+   "Codigo": "3G",
+   "Nombre": "Libra por pieza de producto"
+ },
+ {
+   "Codigo": "3H",
+   "Nombre": "Kilogramo por kilogramo de producto"
+ },
+ {
+   "Codigo": "3I",
+   "Nombre": "Kilogramo por pedazo de producto"
+ },
+ {
+   "Codigo": "4B",
+   "Nombre": "Gorra"
+ },
+ {
+   "Codigo": "4C",
+   "Nombre": "Centistokes"
+ },
+ {
+   "Codigo": "4E",
+   "Nombre": "Veinte pack"
+ },
+ {
+   "Codigo": "4G",
+   "Nombre": "Microlitro"
+ },
+ {
+   "Codigo": "4H",
+   "Nombre": "Micra"
+ },
+ {
+   "Codigo": "4K",
+   "Nombre": "Miliamperio"
+ },
+ {
+   "Codigo": "4L",
+   "Nombre": "Megabyte"
+ },
+ {
+   "Codigo": "4M",
+   "Nombre": "Miligramo por hora"
+ },
+ {
+   "Codigo": "4N",
+   "Nombre": "Megabequerel"
+ },
+ {
+   "Codigo": "4O",
+   "Nombre": "Microfaradio"
+ },
+ {
+   "Codigo": "4P",
+   "Nombre": "Newton por metro"
+ },
+ {
+   "Codigo": "4Q",
+   "Nombre": "Onza pulgada"
+ },
+ {
+   "Codigo": "4R",
+   "Nombre": "Onza pie"
+ },
+ {
+   "Codigo": "4T",
+   "Nombre": "Picofaradio"
+ },
+ {
+   "Codigo": "4U",
+   "Nombre": "Libra por hora"
+ },
+ {
+   "Codigo": "4W",
+   "Nombre": "Tonelada (EUA) por hora"
+ },
+ {
+   "Codigo": "4X",
+   "Nombre": "Kilolitro por hora"
+ },
+ {
+   "Codigo": "5A",
+   "Nombre": "Barril por minuto"
+ },
+ {
+   "Codigo": "5B",
+   "Nombre": "Batch"
+ },
+ {
+   "Codigo": "5C",
+   "Nombre": "Galón (US) por mil"
+ },
+ {
+   "Codigo": "5E",
+   "Nombre": "Mmscf/day"
+ },
+ {
+   "Codigo": "5F",
+   "Nombre": "Libra por mil"
+ },
+ {
+   "Codigo": "5G",
+   "Nombre": "bomba"
+ },
+ {
+   "Codigo": "5H",
+   "Nombre": "Escenario"
+ },
+ {
+   "Codigo": "5I",
+   "Nombre": "Pies cúbicos estándar"
+ },
+ {
+   "Codigo": "5J",
+   "Nombre": "Caballos de potencia hidráulica"
+ },
+ {
+   "Codigo": "5K",
+   "Nombre": "Contar por minuto"
+ },
+ {
+   "Codigo": "5P",
+   "Nombre": "Nivel sísmico"
+ },
+ {
+   "Codigo": "5Q",
+   "Nombre": "Línea sísmica"
+ },
+ {
+   "Codigo": "A1",
+   "Nombre": "15 ° C calorías"
+ },
+ {
+   "Codigo": "A10",
+   "Nombre": "Amperio por metro cuadrado por joule segundo"
+ },
+ {
+   "Codigo": "A11",
+   "Nombre": "Ángstrom"
+ },
+ {
+   "Codigo": "A12",
+   "Nombre": "Unidad astronómica"
+ },
+ {
+   "Codigo": "A13",
+   "Nombre": "Attojoule"
+ },
+ {
+   "Codigo": "A14",
+   "Nombre": "Barn"
+ },
+ {
+   "Codigo": "A15",
+   "Nombre": "Barn por electrovoltio"
+ },
+ {
+   "Codigo": "A16",
+   "Nombre": "Barn por electrovoltio"
+ },
+ {
+   "Codigo": "A17",
+   "Nombre": "Barn por esteroradian"
+ },
+ {
+   "Codigo": "A18",
+   "Nombre": "Becquerel por kilogramo"
+ },
+ {
+   "Codigo": "A19",
+   "Nombre": "Becquerel por metro cúbico"
+ },
+ {
+   "Codigo": "A2",
+   "Nombre": "Amperio por centímetro"
+ },
+ {
+   "Codigo": "A20",
+   "Nombre": "Unidad térmica británica (tabla internacional) por segundo pie cuadrado grado rankine."
+ },
+ {
+   "Codigo": "A21",
+   "Nombre": "Unidad térmica británica (tabla internacional) por libra grado rankine"
+ },
+ {
+   "Codigo": "A22",
+   "Nombre": "Unidad térmica británica (tabla internacional) por segundo pie grado rankine"
+ },
+ {
+   "Codigo": "A23",
+   "Nombre": "Unidad térmica británica (tabla internacional) por hora pie cuadrado grado rankine."
+ },
+ {
+   "Codigo": "A24",
+   "Nombre": "Candela por metro cuadrado"
+ },
+ {
+   "Codigo": "A25",
+   "Nombre": "Caballo de vapor"
+ },
+ {
+   "Codigo": "A26",
+   "Nombre": "Culombio metro"
+ },
+ {
+   "Codigo": "A27",
+   "Nombre": "Culombio metro cuadrado por voltio"
+ },
+ {
+   "Codigo": "A28",
+   "Nombre": "Culombio por centímetro cúbico"
+ },
+ {
+   "Codigo": "A29",
+   "Nombre": "Culombio por metro cúbico"
+ },
+ {
+   "Codigo": "A3",
+   "Nombre": "Amperio por milímetro"
+ },
+ {
+   "Codigo": "A30",
+   "Nombre": "Culombio por milimetro cúbico"
+ },
+ {
+   "Codigo": "A31",
+   "Nombre": "Culombio por kilogramo-segundo"
+ },
+ {
+   "Codigo": "A32",
+   "Nombre": "Culombio por Mol"
+ },
+ {
+   "Codigo": "A33",
+   "Nombre": "Culombio por centímetro cuadrado"
+ },
+ {
+   "Codigo": "A34",
+   "Nombre": "Culombio por metro cuadrado"
+ },
+ {
+   "Codigo": "A35",
+   "Nombre": "Culombio por milímetro cuadrado"
+ },
+ {
+   "Codigo": "A36",
+   "Nombre": "Centimetro cúbico por Mol"
+ },
+ {
+   "Codigo": "A37",
+   "Nombre": "Decimetro cuadrado por Mol"
+ },
+ {
+   "Codigo": "A38",
+   "Nombre": "Cubic pooulo p"
+ },
+ {
+   "Codigo": "A39",
+   "Nombre": "Metro cúbico por kilogramo"
+ },
+ {
+   "Codigo": "A4",
+   "Nombre": "Amperio por centímetro cuadrado"
+ },
+ {
+   "Codigo": "A40",
+   "Nombre": "Metro cubbico por Mol"
+ },
+ {
+   "Codigo": "A41",
+   "Nombre": "Amperio por metro cuadrado"
+ },
+ {
+   "Codigo": "A42",
+   "Nombre": "Curie por kilogramo"
+ },
+ {
+   "Codigo": "A43",
+   "Nombre": "Tonelaje de peso muerto"
+ },
+ {
+   "Codigo": "A44",
+   "Nombre": "Decalitro"
+ },
+ {
+   "Codigo": "A45",
+   "Nombre": "Decámetro"
+ },
+ {
+   "Codigo": "A47",
+   "Nombre": "Decitex"
+ },
+ {
+   "Codigo": "A48",
+   "Nombre": "Grado rankine"
+ },
+ {
+   "Codigo": "A49",
+   "Nombre": "Negador"
+ },
+ {
+   "Codigo": "A5",
+   "Nombre": "Amperio metro cuadrado"
+ },
+ {
+   "Codigo": "A50",
+   "Nombre": "Dina segundo por centímetro cúbico"
+ },
+ {
+   "Codigo": "A51",
+   "Nombre": "Dina segundo por centímetro"
+ },
+ {
+   "Codigo": "A52",
+   "Nombre": "Dina segundo por centímetro a la quinta potencia"
+ },
+ {
+   "Codigo": "A53",
+   "Nombre": "Electrónvoltio"
+ },
+ {
+   "Codigo": "A54",
+   "Nombre": "Electrovoltio por metro"
+ },
+ {
+   "Codigo": "A55",
+   "Nombre": "Electrovoltio por metro cuadrado"
+ },
+ {
+   "Codigo": "A56",
+   "Nombre": "Electrovoltio metro cuadrado por kilogramo"
+ },
+ {
+   "Codigo": "A57",
+   "Nombre": "Ergio"
+ },
+ {
+   "Codigo": "A58",
+   "Nombre": "Erg por centímetro"
+ },
+ {
+   "Codigo": "A59",
+   "Nombre": "La cobertura de nubes 8-parte"
+ },
+ {
+   "Codigo": "A6",
+   "Nombre": "Amperio por metro cuadrado Kelvin cuadrado"
+ },
+ {
+   "Codigo": "A60",
+   "Nombre": "Erg por centímetro cúbico"
+ },
+ {
+   "Codigo": "A61",
+   "Nombre": "Erg por gramo"
+ },
+ {
+   "Codigo": "A62",
+   "Nombre": "Erg por segundo gramo"
+ },
+ {
+   "Codigo": "A63",
+   "Nombre": "Erg por segundo"
+ },
+ {
+   "Codigo": "A64",
+   "Nombre": "Erg por segundo centímetro cuadrado"
+ },
+ {
+   "Codigo": "A65",
+   "Nombre": "Erg por centímetro cuadrado segundo"
+ },
+ {
+   "Codigo": "A66",
+   "Nombre": "Erg centímetro cuadrado"
+ },
+ {
+   "Codigo": "A67",
+   "Nombre": "Erg centímetro cuadrado por gramo"
+ },
+ {
+   "Codigo": "A68",
+   "Nombre": "Exajoule"
+ },
+ {
+   "Codigo": "A69",
+   "Nombre": "Faradio por metro"
+ },
+ {
+   "Codigo": "A7",
+   "Nombre": "Amperio por milímetro cuadrado"
+ },
+ {
+   "Codigo": "A70",
+   "Nombre": "Femtojoule"
+ },
+ {
+   "Codigo": "A71",
+   "Nombre": "Femtómetro"
+ },
+ {
+   "Codigo": "A73",
+   "Nombre": "Pie por segundo al cuadrado"
+ },
+ {
+   "Codigo": "A74",
+   "Nombre": "Pie libra-fuerza por segundo"
+ },
+ {
+   "Codigo": "A75",
+   "Nombre": "Tonelada de carga"
+ },
+ {
+   "Codigo": "A76",
+   "Nombre": "Galón"
+ },
+ {
+   "Codigo": "A77",
+   "Nombre": "Gaussian CGS (Centímetro-Gram-Segundo sistema) unidad de desplazamiento"
+ },
+ {
+   "Codigo": "A78",
+   "Nombre": "Gaussiano CGS (Centímetro-Gram-Segundo sistema) unidad de corriente eléctrica"
+ },
+ {
+   "Codigo": "A79",
+   "Nombre": "Gaussian CGS (Centímetro-Gram-Segundo sistema) unidad de carga eléctrica"
+ },
+ {
+   "Codigo": "A8",
+   "Nombre": "Amperio segundo"
+ },
+ {
+   "Codigo": "A80",
+   "Nombre": "Gaussiano CGS (Centímetro-Gram-Segundo sistema) unidad de la fuerza del campo eléctrico"
+ },
+ {
+   "Codigo": "A81",
+   "Nombre": "Gaussian CGS (Centímetro-Gram-Segundo sistema) unidad de polarización eléctrica"
+ },
+ {
+   "Codigo": "A82",
+   "Nombre": "Gaussiano CGS (Centímetro-Gram-Segundo sistema) unidad de potencial eléctrico"
+ },
+ {
+   "Codigo": "A83",
+   "Nombre": "Gaussian CGS (Centímetro-Gram-Segundo sistema) unidad de magnetización"
+ },
+ {
+   "Codigo": "A84",
+   "Nombre": "GigaCulombio por metro cúbico"
+ },
+ {
+   "Codigo": "A85",
+   "Nombre": "Gigaelectrónvoltio"
+ },
+ {
+   "Codigo": "A86",
+   "Nombre": "Gigahertz"
+ },
+ {
+   "Codigo": "A87",
+   "Nombre": "GigaOhm"
+ },
+ {
+   "Codigo": "A88",
+   "Nombre": "GigaOhm metro"
+ },
+ {
+   "Codigo": "A89",
+   "Nombre": "Gigapascal"
+ },
+ {
+   "Codigo": "A9",
+   "Nombre": "Tarífa"
+ },
+ {
+   "Codigo": "A90",
+   "Nombre": "Gigawatt"
+ },
+ {
+   "Codigo": "A91",
+   "Nombre": "Grado centesimal"
+ },
+ {
+   "Codigo": "A93",
+   "Nombre": "Gramo por metro cúbico"
+ },
+ {
+   "Codigo": "A94",
+   "Nombre": "Gramo por Mol"
+ },
+ {
+   "Codigo": "A95",
+   "Nombre": "Gray"
+ },
+ {
+   "Codigo": "A96",
+   "Nombre": "Gray por segundo"
+ },
+ {
+   "Codigo": "A97",
+   "Nombre": "Hectopascal"
+ },
+ {
+   "Codigo": "A98",
+   "Nombre": "Henry por metro"
+ },
+ {
+   "Codigo": "A99",
+   "Nombre": "Bit"
+ },
+ {
+   "Codigo": "AA",
+   "Nombre": "Balón"
+ },
+ {
+   "Codigo": "AB",
+   "Nombre": "Paquete a granel"
+ },
+ {
+   "Codigo": "ACR",
+   "Nombre": "Acre"
+ },
+ {
+   "Codigo": "ACT",
+   "Nombre": "Actividad"
+ },
+ {
+   "Codigo": "AD",
+   "Nombre": "Byte"
+ },
+ {
+   "Codigo": "AE",
+   "Nombre": "Amperio por metro"
+ },
+ {
+   "Codigo": "AH",
+   "Nombre": "Minuto adicional"
+ },
+ {
+   "Codigo": "AI",
+   "Nombre": "Minuto y medio por llamada"
+ },
+ {
+   "Codigo": "AJ",
+   "Nombre": "policía"
+ },
+ {
+   "Codigo": "AK",
+   "Nombre": "Braza"
+ },
+ {
+   "Codigo": "AL",
+   "Nombre": "Línea de acceso"
+ },
+ {
+   "Codigo": "AMH",
+   "Nombre": "Amperio hora"
+ },
+ {
+   "Codigo": "AMP",
+   "Nombre": "Amperio"
+ },
+ {
+   "Codigo": "ANN",
+   "Nombre": "Año"
+ },
+ {
+   "Codigo": "AP",
+   "Nombre": "Libra de aluminio solamente"
+ },
+ {
+   "Codigo": "APZ",
+   "Nombre": "Onza troy u onza farmacéutica"
+ },
+ {
+   "Codigo": "AQ",
+   "Nombre": "Unidad del factir anti-hemofilico."
+ },
+ {
+   "Codigo": "AR",
+   "Nombre": "supositorio"
+ },
+ {
+   "Codigo": "ARE",
+   "Nombre": "Are"
+ },
+ {
+   "Codigo": "AS",
+   "Nombre": "Variedad"
+ },
+ {
+   "Codigo": "ASM",
+   "Nombre": "Grado alcohólico en masa"
+ },
+ {
+   "Codigo": "ASU",
+   "Nombre": "Grado alcohólico volumétrico"
+ },
+ {
+   "Codigo": "ATM",
+   "Nombre": "Atmósfera estándar"
+ },
+ {
+   "Codigo": "ATT",
+   "Nombre": "Atmósfera técnica"
+ },
+ {
+   "Codigo": "AW",
+   "Nombre": "Relleno de polvo en viales"
+ },
+ {
+   "Codigo": "AWG",
+   "Nombre": "Calibre de alambre americano"
+ },
+ {
+   "Codigo": "AY",
+   "Nombre": "Montaje"
+ },
+ {
+   "Codigo": "AZ",
+   "Nombre": "Unidad térmica británica (tabla internacional) por libra"
+ },
+ {
+   "Codigo": "B0",
+   "Nombre": "Btu por pie cúbico"
+ },
+ {
+   "Codigo": "B1",
+   "Nombre": "Barril (EUA) por día"
+ },
+ {
+   "Codigo": "B10",
+   "Nombre": "Bits por segundo"
+ },
+ {
+   "Codigo": "B11",
+   "Nombre": "Joule por kilogramo kelvin"
+ },
+ {
+   "Codigo": "B12",
+   "Nombre": "Joule por metro"
+ },
+ {
+   "Codigo": "B13",
+   "Nombre": "Joule por metro cuadrado"
+ },
+ {
+   "Codigo": "B14",
+   "Nombre": "Joule por metro a la cuarta potencia"
+ },
+ {
+   "Codigo": "B15",
+   "Nombre": "Juole por Mol"
+ },
+ {
+   "Codigo": "B16",
+   "Nombre": "Juoule por Mol kelvin"
+ },
+ {
+   "Codigo": "B17",
+   "Nombre": "Crédito"
+ },
+ {
+   "Codigo": "B18",
+   "Nombre": "Segundos joule"
+ },
+ {
+   "Codigo": "B19",
+   "Nombre": "Dígito"
+ },
+ {
+   "Codigo": "B2",
+   "Nombre": "litera"
+ },
+ {
+   "Codigo": "B20",
+   "Nombre": "Joule metro cuadrado por kologramo"
+ },
+ {
+   "Codigo": "B21",
+   "Nombre": "Kelvin por watt"
+ },
+ {
+   "Codigo": "B22",
+   "Nombre": "Kiloamperio"
+ },
+ {
+   "Codigo": "B23",
+   "Nombre": "Kiloamperio por metro cuadrado"
+ },
+ {
+   "Codigo": "B24",
+   "Nombre": "Kiloamperio por metro"
+ },
+ {
+   "Codigo": "B25",
+   "Nombre": "Kilobecquerel por metrocúbico"
+ },
+ {
+   "Codigo": "B26",
+   "Nombre": "KiloCulombio"
+ },
+ {
+   "Codigo": "B27",
+   "Nombre": "KiloCulombio por metro cúbico"
+ },
+ {
+   "Codigo": "B28",
+   "Nombre": "KiloCulombio por metro cuadrado"
+ },
+ {
+   "Codigo": "B29",
+   "Nombre": "Kiloelectrónvoltio"
+ },
+ {
+   "Codigo": "B3",
+   "Nombre": "Libra de bateo"
+ },
+ {
+   "Codigo": "B30",
+   "Nombre": "Gibibit"
+ },
+ {
+   "Codigo": "B31",
+   "Nombre": "Kilogramo metro por segundo"
+ },
+ {
+   "Codigo": "B32",
+   "Nombre": "Kilogramo metro cuadrado"
+ },
+ {
+   "Codigo": "B33",
+   "Nombre": "Kilogramo metro cuadrado por segundo"
+ },
+ {
+   "Codigo": "B34",
+   "Nombre": "Kilogramo por decímetro cúbico"
+ },
+ {
+   "Codigo": "B35",
+   "Nombre": "Kilogramo por litro"
+ },
+ {
+   "Codigo": "B36",
+   "Nombre": "Calorías (termoquímicas) por gramo"
+ },
+ {
+   "Codigo": "B37",
+   "Nombre": "Kilogramo de fuerza"
+ },
+ {
+   "Codigo": "B38",
+   "Nombre": "Kilogramo-metro de la fuerza"
+ },
+ {
+   "Codigo": "B39",
+   "Nombre": "Kilogramo-fuerza del metro por segundo"
+ },
+ {
+   "Codigo": "B4",
+   "Nombre": "Barril, unidad imperial"
+ },
+ {
+   "Codigo": "B40",
+   "Nombre": "Kilogramo de fuerza por metro cuadrado"
+ },
+ {
+   "Codigo": "B41",
+   "Nombre": "Kilojoule por kelvin"
+ },
+ {
+   "Codigo": "B42",
+   "Nombre": "Kilojoule por kilogramo"
+ },
+ {
+   "Codigo": "B43",
+   "Nombre": "Kilojoule por kilogramo kelvin"
+ },
+ {
+   "Codigo": "B44",
+   "Nombre": "Kilojoule por Mol"
+ },
+ {
+   "Codigo": "B45",
+   "Nombre": "KiloMol"
+ },
+ {
+   "Codigo": "B46",
+   "Nombre": "KiloMol por metro cúbico"
+ },
+ {
+   "Codigo": "B47",
+   "Nombre": "Kilonewton"
+ },
+ {
+   "Codigo": "B48",
+   "Nombre": "Kilonewton metro"
+ },
+ {
+   "Codigo": "B49",
+   "Nombre": "KiloOhm"
+ },
+ {
+   "Codigo": "B5",
+   "Nombre": "palanquilla"
+ },
+ {
+   "Codigo": "B50",
+   "Nombre": "KiloOhm metro"
+ },
+ {
+   "Codigo": "B51",
+   "Nombre": "KiloLibra"
+ },
+ {
+   "Codigo": "B52",
+   "Nombre": "Kilosegundo"
+ },
+ {
+   "Codigo": "B53",
+   "Nombre": "Kilosiemens"
+ },
+ {
+   "Codigo": "B54",
+   "Nombre": "Kilosiemens por metro"
+ },
+ {
+   "Codigo": "B55",
+   "Nombre": "Kilovoltio por metro"
+ },
+ {
+   "Codigo": "B56",
+   "Nombre": "Kiloweber por metro"
+ },
+ {
+   "Codigo": "B57",
+   "Nombre": "Año luz"
+ },
+ {
+   "Codigo": "B58",
+   "Nombre": "Litro por Mol"
+ },
+ {
+   "Codigo": "B59",
+   "Nombre": "Lumen hora"
+ },
+ {
+   "Codigo": "B6",
+   "Nombre": "Bollo"
+ },
+ {
+   "Codigo": "B60",
+   "Nombre": "Lumen por metro cuadrado"
+ },
+ {
+   "Codigo": "B61",
+   "Nombre": "Luminosidad por watt"
+ },
+ {
+   "Codigo": "B62",
+   "Nombre": "Lumen segundo"
+ },
+ {
+   "Codigo": "B63",
+   "Nombre": "Hora de luz"
+ },
+ {
+   "Codigo": "B64",
+   "Nombre": "Segundo de luz"
+ },
+ {
+   "Codigo": "B65",
+   "Nombre": "Maxwell"
+ },
+ {
+   "Codigo": "B66",
+   "Nombre": "Megaamperio por metro cuadrado"
+ },
+ {
+   "Codigo": "B67",
+   "Nombre": "Megabecquerel por kilogramo"
+ },
+ {
+   "Codigo": "B68",
+   "Nombre": "Gigabit"
+ },
+ {
+   "Codigo": "B69",
+   "Nombre": "MegaCulombio por metro cúbico"
+ },
+ {
+   "Codigo": "B7",
+   "Nombre": "Ciclo"
+ },
+ {
+   "Codigo": "B70",
+   "Nombre": "MegaCulombio por metro cuadrado"
+ },
+ {
+   "Codigo": "B71",
+   "Nombre": "Megaelectrónvoltio"
+ },
+ {
+   "Codigo": "B72",
+   "Nombre": "Megagramo por metro cúbico"
+ },
+ {
+   "Codigo": "B73",
+   "Nombre": "Meganewton"
+ },
+ {
+   "Codigo": "B74",
+   "Nombre": "Meganewton metro"
+ },
+ {
+   "Codigo": "B75",
+   "Nombre": "MegaOhm"
+ },
+ {
+   "Codigo": "B76",
+   "Nombre": "MegaOhm metro"
+ },
+ {
+   "Codigo": "B77",
+   "Nombre": "Megasiemens por metro"
+ },
+ {
+   "Codigo": "B78",
+   "Nombre": "Megavoltio"
+ },
+ {
+   "Codigo": "B79",
+   "Nombre": "Megavoltio por metro"
+ },
+ {
+   "Codigo": "B8",
+   "Nombre": "Joule por metro cúbico"
+ },
+ {
+   "Codigo": "B80",
+   "Nombre": "Gigabit por segundo"
+ },
+ {
+   "Codigo": "B81",
+   "Nombre": "Reciprocidad del metro cuadrado, reciprocidad del segundo"
+ },
+ {
+   "Codigo": "B82",
+   "Nombre": "Pulgadas por pie lineal"
+ },
+ {
+   "Codigo": "B83",
+   "Nombre": "Metro a la cuarta potencia"
+ },
+ {
+   "Codigo": "B84",
+   "Nombre": "Microamperio"
+ },
+ {
+   "Codigo": "B85",
+   "Nombre": "Microbar"
+ },
+ {
+   "Codigo": "B86",
+   "Nombre": "MicroCulombio"
+ },
+ {
+   "Codigo": "B87",
+   "Nombre": "MicroCulombio por metro cúbico"
+ },
+ {
+   "Codigo": "B88",
+   "Nombre": "MicroCulombio por metro cuadrado"
+ },
+ {
+   "Codigo": "B89",
+   "Nombre": "Microfaradio por metro"
+ },
+ {
+   "Codigo": "B9",
+   "Nombre": "Batt"
+ },
+ {
+   "Codigo": "B90",
+   "Nombre": "Microhenry"
+ },
+ {
+   "Codigo": "B91",
+   "Nombre": "Microhenry por metro"
+ },
+ {
+   "Codigo": "B92",
+   "Nombre": "Micronewton"
+ },
+ {
+   "Codigo": "B93",
+   "Nombre": "Micronewton metro"
+ },
+ {
+   "Codigo": "B94",
+   "Nombre": "Micro Ohm"
+ },
+ {
+   "Codigo": "B95",
+   "Nombre": "MicroOhm metro"
+ },
+ {
+   "Codigo": "B96",
+   "Nombre": "Micropascal"
+ },
+ {
+   "Codigo": "B97",
+   "Nombre": "Microrradián"
+ },
+ {
+   "Codigo": "B98",
+   "Nombre": "Microsegundo"
+ },
+ {
+   "Codigo": "B99",
+   "Nombre": "Microsiemens"
+ },
+ {
+   "Codigo": "BAR",
+   "Nombre": "Bar [unidad de presión]"
+ },
+ {
+   "Codigo": "BB",
+   "Nombre": "Caja base"
+ },
+ {
+   "Codigo": "BFT",
+   "Nombre": "Tablero de pies"
+ },
+ {
+   "Codigo": "BH",
+   "Nombre": "Cepillo"
+ },
+ {
+   "Codigo": "BHP",
+   "Nombre": "Potencia al freno"
+ },
+ {
+   "Codigo": "BIL",
+   "Nombre": "Billon"
+ },
+ {
+   "Codigo": "BLD",
+   "Nombre": "Barril seco (EUA)"
+ },
+ {
+   "Codigo": "BLL",
+   "Nombre": "Barril (EUA)"
+ },
+ {
+   "Codigo": "BP",
+   "Nombre": "Tabledo de cien pies"
+ },
+ {
+   "Codigo": "BPM",
+   "Nombre": "Latidos por minuto"
+ },
+ {
+   "Codigo": "BQL",
+   "Nombre": "Becquerel"
+ },
+ {
+   "Codigo": "BTU",
+   "Nombre": "Unidad térmica británica (tabla internacional)"
+ },
+ {
+   "Codigo": "BUA",
+   "Nombre": "Bushel (EUA)"
+ },
+ {
+   "Codigo": "BUI",
+   "Nombre": "Bushel (UK)"
+ },
+ {
+   "Codigo": "BW",
+   "Nombre": "Peso base"
+ },
+ {
+   "Codigo": "BZ",
+   "Nombre": "Millones de BTUs"
+ },
+ {
+   "Codigo": "C0",
+   "Nombre": "Llamada"
+ },
+ {
+   "Codigo": "C1",
+   "Nombre": "Libra de producto compuesto (peso total)"
+ },
+ {
+   "Codigo": "C10",
+   "Nombre": "Milifaradio"
+ },
+ {
+   "Codigo": "C11",
+   "Nombre": "Miligalón"
+ },
+ {
+   "Codigo": "C12",
+   "Nombre": "Miligramo por metro"
+ },
+ {
+   "Codigo": "C13",
+   "Nombre": "MilliGray"
+ },
+ {
+   "Codigo": "C14",
+   "Nombre": "Milihenry"
+ },
+ {
+   "Codigo": "C15",
+   "Nombre": "Milijoule"
+ },
+ {
+   "Codigo": "C16",
+   "Nombre": "Milímetro por segundo"
+ },
+ {
+   "Codigo": "C17",
+   "Nombre": "Milímetro cuadrado por segundo"
+ },
+ {
+   "Codigo": "C18",
+   "Nombre": "MiliMol"
+ },
+ {
+   "Codigo": "C19",
+   "Nombre": "Mol por kilogramo"
+ },
+ {
+   "Codigo": "C2",
+   "Nombre": "Carset"
+ },
+ {
+   "Codigo": "C20",
+   "Nombre": "Milinewton"
+ },
+ {
+   "Codigo": "C21",
+   "Nombre": "Kibibit"
+ },
+ {
+   "Codigo": "C22",
+   "Nombre": "Milinewton por metro"
+ },
+ {
+   "Codigo": "C23",
+   "Nombre": "MiliOhm metro"
+ },
+ {
+   "Codigo": "C24",
+   "Nombre": "Milipascal segundo"
+ },
+ {
+   "Codigo": "C25",
+   "Nombre": "Milirradián"
+ },
+ {
+   "Codigo": "C26",
+   "Nombre": "Milisegundo"
+ },
+ {
+   "Codigo": "C27",
+   "Nombre": "Milisiemens"
+ },
+ {
+   "Codigo": "C28",
+   "Nombre": "MilliSievert"
+ },
+ {
+   "Codigo": "C29",
+   "Nombre": "Militesla"
+ },
+ {
+   "Codigo": "C3",
+   "Nombre": "Microvoltios por metro"
+ },
+ {
+   "Codigo": "C30",
+   "Nombre": "Milivoltio por metro"
+ },
+ {
+   "Codigo": "C31",
+   "Nombre": "Miliwatt"
+ },
+ {
+   "Codigo": "C32",
+   "Nombre": "Miliwatt por metro cuadrado"
+ },
+ {
+   "Codigo": "C33",
+   "Nombre": "Miliweber"
+ },
+ {
+   "Codigo": "C34",
+   "Nombre": "Mol"
+ },
+ {
+   "Codigo": "C35",
+   "Nombre": "Mol por decimetro cúbico"
+ },
+ {
+   "Codigo": "C36",
+   "Nombre": "Mol por metro cúbico"
+ },
+ {
+   "Codigo": "C37",
+   "Nombre": "Kilobits"
+ },
+ {
+   "Codigo": "C38",
+   "Nombre": "Mol por litro"
+ },
+ {
+   "Codigo": "C39",
+   "Nombre": "Nanoamperio"
+ },
+ {
+   "Codigo": "C4",
+   "Nombre": "partido de carga"
+ },
+ {
+   "Codigo": "C40",
+   "Nombre": "NanoCulombio"
+ },
+ {
+   "Codigo": "C41",
+   "Nombre": "Nanofaradio"
+ },
+ {
+   "Codigo": "C42",
+   "Nombre": "Nanofaradio por metro"
+ },
+ {
+   "Codigo": "C43",
+   "Nombre": "Nanohenry"
+ },
+ {
+   "Codigo": "C44",
+   "Nombre": "Nanohenry por metro"
+ },
+ {
+   "Codigo": "C45",
+   "Nombre": "Nanómetro"
+ },
+ {
+   "Codigo": "C46",
+   "Nombre": "NanoOhm metro"
+ },
+ {
+   "Codigo": "C47",
+   "Nombre": "Nanosegundo"
+ },
+ {
+   "Codigo": "C48",
+   "Nombre": "Nanotesla"
+ },
+ {
+   "Codigo": "C49",
+   "Nombre": "Nanowatt"
+ },
+ {
+   "Codigo": "C5",
+   "Nombre": "Costo"
+ },
+ {
+   "Codigo": "C50",
+   "Nombre": "Neperio"
+ },
+ {
+   "Codigo": "C51",
+   "Nombre": "Neperio por segundo"
+ },
+ {
+   "Codigo": "C52",
+   "Nombre": "Picómetro"
+ },
+ {
+   "Codigo": "C53",
+   "Nombre": "Newton metro segundo"
+ },
+ {
+   "Codigo": "C54",
+   "Nombre": "Newton metro cuadrado por kilogramo cuadrado"
+ },
+ {
+   "Codigo": "C55",
+   "Nombre": "Newton por metro cuadrado"
+ },
+ {
+   "Codigo": "C56",
+   "Nombre": "Newton por milimetro cuadrado"
+ },
+ {
+   "Codigo": "C57",
+   "Nombre": "Newton segundo"
+ },
+ {
+   "Codigo": "C58",
+   "Nombre": "Segundos newton por metro"
+ },
+ {
+   "Codigo": "C59",
+   "Nombre": "Octava"
+ },
+ {
+   "Codigo": "C6",
+   "Nombre": "celda"
+ },
+ {
+   "Codigo": "C60",
+   "Nombre": "Ohm centímetro"
+ },
+ {
+   "Codigo": "C61",
+   "Nombre": "Ohm metro"
+ },
+ {
+   "Codigo": "C62",
+   "Nombre": "Uno"
+ },
+ {
+   "Codigo": "C63",
+   "Nombre": "Pársec"
+ },
+ {
+   "Codigo": "C64",
+   "Nombre": "Pascal por kelvin"
+ },
+ {
+   "Codigo": "C65",
+   "Nombre": "Pascal segundo"
+ },
+ {
+   "Codigo": "C66",
+   "Nombre": "Segundos pascal por metro cúbico"
+ },
+ {
+   "Codigo": "C67",
+   "Nombre": "Segundos pascal por metro"
+ },
+ {
+   "Codigo": "C68",
+   "Nombre": "Petajoule"
+ },
+ {
+   "Codigo": "C69",
+   "Nombre": "Phon"
+ },
+ {
+   "Codigo": "C7",
+   "Nombre": "Centipoise"
+ },
+ {
+   "Codigo": "C70",
+   "Nombre": "Picoamperio"
+ },
+ {
+   "Codigo": "C71",
+   "Nombre": "PicoCulombio"
+ },
+ {
+   "Codigo": "C72",
+   "Nombre": "Picofaradio por metro"
+ },
+ {
+   "Codigo": "C73",
+   "Nombre": "Picohenry"
+ },
+ {
+   "Codigo": "C74",
+   "Nombre": "Kilobits por segundo"
+ },
+ {
+   "Codigo": "C75",
+   "Nombre": "Picowatt"
+ },
+ {
+   "Codigo": "C76",
+   "Nombre": "Picowatt por metro cuadrado"
+ },
+ {
+   "Codigo": "C77",
+   "Nombre": "Calibre de libra"
+ },
+ {
+   "Codigo": "C78",
+   "Nombre": "Libra fuerza"
+ },
+ {
+   "Codigo": "C79",
+   "Nombre": "Kilovoltios horas amperios"
+ },
+ {
+   "Codigo": "C8",
+   "Nombre": "MilliCulombio por kilogramo"
+ },
+ {
+   "Codigo": "C80",
+   "Nombre": "Rad"
+ },
+ {
+   "Codigo": "C81",
+   "Nombre": "Radián"
+ },
+ {
+   "Codigo": "C82",
+   "Nombre": "Radianmetro cuadrado por Mol"
+ },
+ {
+   "Codigo": "C83",
+   "Nombre": "Rradian metro cuadrado por kilogramo"
+ },
+ {
+   "Codigo": "C84",
+   "Nombre": "Radían por metro"
+ },
+ {
+   "Codigo": "C85",
+   "Nombre": "Reciprocidad Ámstrong"
+ },
+ {
+   "Codigo": "C86",
+   "Nombre": "Reciprocidad del metro cúbico"
+ },
+ {
+   "Codigo": "C87",
+   "Nombre": "Reciprocidad metro cúbico por segundo"
+ },
+ {
+   "Codigo": "C88",
+   "Nombre": "Recíproco joule por metro cúbico"
+ },
+ {
+   "Codigo": "C89",
+   "Nombre": "Henry recíproco"
+ },
+ {
+   "Codigo": "C9",
+   "Nombre": "Grupo bobinas"
+ },
+ {
+   "Codigo": "C90",
+   "Nombre": "Recíproco Henry"
+ },
+ {
+   "Codigo": "C91",
+   "Nombre": "Recíprocidad de kelvin ó kelvin a la potencia menos 1"
+ },
+ {
+   "Codigo": "C92",
+   "Nombre": "Reciprocidad Metro"
+ },
+ {
+   "Codigo": "C93",
+   "Nombre": "Reciprocidad Metro cuadrado"
+ },
+ {
+   "Codigo": "C94",
+   "Nombre": "Reciprocidad Minuto"
+ },
+ {
+   "Codigo": "C95",
+   "Nombre": "Reciprocidad Mol"
+ },
+ {
+   "Codigo": "C96",
+   "Nombre": "Reciprocidad Pascal o pascal a la potencia menos 1"
+ },
+ {
+   "Codigo": "C97",
+   "Nombre": "Reciprocidad Segundo"
+ },
+ {
+   "Codigo": "C98",
+   "Nombre": "Segundo recíproco por metro cúbico"
+ },
+ {
+   "Codigo": "C99",
+   "Nombre": "Reciprocidad Segundo por metro cuadrado"
+ },
+ {
+   "Codigo": "CCT",
+   "Nombre": "Capacidad de carga en toneladas métricas"
+ },
+ {
+   "Codigo": "CDL",
+   "Nombre": "Candela"
+ },
+ {
+   "Codigo": "CE",
+   "Nombre": "Cada mes"
+ },
+ {
+   "Codigo": "CEL",
+   "Nombre": "Grados celsius"
+ },
+ {
+   "Codigo": "CEN",
+   "Nombre": "Centenar"
+ },
+ {
+   "Codigo": "CG",
+   "Nombre": "Tarjeta"
+ },
+ {
+   "Codigo": "CGM",
+   "Nombre": "Centígramo"
+ },
+ {
+   "Codigo": "CK",
+   "Nombre": "Conector"
+ },
+ {
+   "Codigo": "CKG",
+   "Nombre": "Culombio por kilogramo"
+ },
+ {
+   "Codigo": "CLF",
+   "Nombre": "Cientos de hojas"
+ },
+ {
+   "Codigo": "CLT",
+   "Nombre": "Centilitro"
+ },
+ {
+   "Codigo": "CMK",
+   "Nombre": "Centímetro cuadrado"
+ },
+ {
+   "Codigo": "CMQ",
+   "Nombre": "Centímetro cúbico"
+ },
+ {
+   "Codigo": "CMT",
+   "Nombre": "Centímetro"
+ },
+ {
+   "Codigo": "CNP",
+   "Nombre": "Cientos de paquetes"
+ },
+ {
+   "Codigo": "CNT",
+   "Nombre": "Cental (UK)"
+ },
+ {
+   "Codigo": "COU",
+   "Nombre": "Culombio"
+ },
+ {
+   "Codigo": "CTG",
+   "Nombre": "Contenido en gramos"
+ },
+ {
+   "Codigo": "CTM",
+   "Nombre": "Quilatage métrico"
+ },
+ {
+   "Codigo": "CTN",
+   "Nombre": "Tonelada de contenido (métrica)"
+ },
+ {
+   "Codigo": "CUR",
+   "Nombre": "Curie"
+ },
+ {
+   "Codigo": "CWA",
+   "Nombre": "Hundred pound"
+ },
+ {
+   "Codigo": "CWI",
+   "Nombre": "Hundredweight"
+ },
+ {
+   "Codigo": "CZ",
+   "Nombre": "Combo"
+ },
+ {
+   "Codigo": "D03",
+   "Nombre": "Kilovatio hora por hora"
+ },
+ {
+   "Codigo": "D04",
+   "Nombre": "Lot [unidad de peso]"
+ },
+ {
+   "Codigo": "D1",
+   "Nombre": "Segundo recíproco por estereorradián"
+ },
+ {
+   "Codigo": "D10",
+   "Nombre": "Siemens por metro"
+ },
+ {
+   "Codigo": "D11",
+   "Nombre": "Mebibit"
+ },
+ {
+   "Codigo": "D12",
+   "Nombre": "Siemens metro cuadrado por Mol"
+ },
+ {
+   "Codigo": "D13",
+   "Nombre": "Sievert"
+ },
+ {
+   "Codigo": "D14",
+   "Nombre": "Yarda mil lineal"
+ },
+ {
+   "Codigo": "D15",
+   "Nombre": "Sone"
+ },
+ {
+   "Codigo": "D16",
+   "Nombre": "Centimetro cuadrado por erg"
+ },
+ {
+   "Codigo": "D17",
+   "Nombre": "Centimetro cuadrado por esteroradian erg"
+ },
+ {
+   "Codigo": "D18",
+   "Nombre": "Metro kelvin"
+ },
+ {
+   "Codigo": "D19",
+   "Nombre": "Metro cuadrado kelvin por watt."
+ },
+ {
+   "Codigo": "D2",
+   "Nombre": "Segundo recíproco por estereorradián metro cuadrado"
+ },
+ {
+   "Codigo": "D20",
+   "Nombre": "Metro cuadrado por joule"
+ },
+ {
+   "Codigo": "D21",
+   "Nombre": "Metro cuadrado por kilogramo"
+ },
+ {
+   "Codigo": "D22",
+   "Nombre": "Metro cuadrado por Mol"
+ },
+ {
+   "Codigo": "D23",
+   "Nombre": "Gramo pluma (proteína)"
+ },
+ {
+   "Codigo": "D24",
+   "Nombre": "Metro cuadrado por esteroradian"
+ },
+ {
+   "Codigo": "D25",
+   "Nombre": "Metro cuadrado por esteroradian joule"
+ },
+ {
+   "Codigo": "D26",
+   "Nombre": "Metro cuadrado por voltiosegundo"
+ },
+ {
+   "Codigo": "D27",
+   "Nombre": "Estereorradían"
+ },
+ {
+   "Codigo": "D28",
+   "Nombre": "sifón"
+ },
+ {
+   "Codigo": "D29",
+   "Nombre": "Terahertz"
+ },
+ {
+   "Codigo": "D30",
+   "Nombre": "Terajoule"
+ },
+ {
+   "Codigo": "D31",
+   "Nombre": "Terawatt"
+ },
+ {
+   "Codigo": "D32",
+   "Nombre": "Terawatt hora"
+ },
+ {
+   "Codigo": "D33",
+   "Nombre": "Tesla"
+ },
+ {
+   "Codigo": "D34",
+   "Nombre": "Tex"
+ },
+ {
+   "Codigo": "D35",
+   "Nombre": "Calorías (termoquímicas)"
+ },
+ {
+   "Codigo": "D36",
+   "Nombre": "Megabit"
+ },
+ {
+   "Codigo": "D37",
+   "Nombre": "Calorías (termoquímicas) por gramo de kelvin"
+ },
+ {
+   "Codigo": "D38",
+   "Nombre": "Calorías (termoquímicas) por segundo centímetro kelvin"
+ },
+ {
+   "Codigo": "D39",
+   "Nombre": "Calorías (termoquímicas) por segundo centímetro cuadrado kelvin"
+ },
+ {
+   "Codigo": "D40",
+   "Nombre": "Mil litros"
+ },
+ {
+   "Codigo": "D41",
+   "Nombre": "Tonelada por metro cúbico"
+ },
+ {
+   "Codigo": "D42",
+   "Nombre": "Año tropical"
+ },
+ {
+   "Codigo": "D43",
+   "Nombre": "Unidad de masa atómica unificada"
+ },
+ {
+   "Codigo": "D44",
+   "Nombre": "Var"
+ },
+ {
+   "Codigo": "D45",
+   "Nombre": "Voltio cuadrado por kelvin cuadrado"
+ },
+ {
+   "Codigo": "D46",
+   "Nombre": "Voltioio-amperio"
+ },
+ {
+   "Codigo": "D47",
+   "Nombre": "Voltio por centímetro"
+ },
+ {
+   "Codigo": "D48",
+   "Nombre": "Voltio por Kelvin"
+ },
+ {
+   "Codigo": "D49",
+   "Nombre": "Millivoltio por Kelvin"
+ },
+ {
+   "Codigo": "D5",
+   "Nombre": "Kilogramo por centímetro cuadrado"
+ },
+ {
+   "Codigo": "D50",
+   "Nombre": "Voltio por metro"
+ },
+ {
+   "Codigo": "D51",
+   "Nombre": "Voltio por milímetro"
+ },
+ {
+   "Codigo": "D52",
+   "Nombre": "Watt por kelvin"
+ },
+ {
+   "Codigo": "D53",
+   "Nombre": "Watt por metro kelvin"
+ },
+ {
+   "Codigo": "D54",
+   "Nombre": "Watt por metro cuadrado"
+ },
+ {
+   "Codigo": "D55",
+   "Nombre": "Watt por metro cuadrado kelvin"
+ },
+ {
+   "Codigo": "D56",
+   "Nombre": "Watt por metro cuadrado kelvin a la cuarta potencia"
+ },
+ {
+   "Codigo": "D57",
+   "Nombre": "Watt por estereorradián"
+ },
+ {
+   "Codigo": "D58",
+   "Nombre": "Watt por estereorradián metro cuadrado"
+ },
+ {
+   "Codigo": "D59",
+   "Nombre": "Weber por metro"
+ },
+ {
+   "Codigo": "D6",
+   "Nombre": "Roentgen por segundo"
+ },
+ {
+   "Codigo": "D60",
+   "Nombre": "Weber por milímetro"
+ },
+ {
+   "Codigo": "D61",
+   "Nombre": "Minuto [unidad de ángulo]"
+ },
+ {
+   "Codigo": "D62",
+   "Nombre": "Segundo [unidad de ángulo]"
+ },
+ {
+   "Codigo": "D63",
+   "Nombre": "Libro"
+ },
+ {
+   "Codigo": "D64",
+   "Nombre": "bloquear"
+ },
+ {
+   "Codigo": "D65",
+   "Nombre": "Redondo"
+ },
+ {
+   "Codigo": "D66",
+   "Nombre": "casete"
+ },
+ {
+   "Codigo": "D67",
+   "Nombre": "Dólar por hora"
+ },
+ {
+   "Codigo": "D68",
+   "Nombre": "Número de palabras"
+ },
+ {
+   "Codigo": "D69",
+   "Nombre": "Pulgada a la cuarta potencia"
+ },
+ {
+   "Codigo": "D7",
+   "Nombre": "Sandwich"
+ },
+ {
+   "Codigo": "D70",
+   "Nombre": "Calorías (tabla internacional)"
+ },
+ {
+   "Codigo": "D71",
+   "Nombre": "Calorías (tabla internacional) por segundo centímetro kelvin"
+ },
+ {
+   "Codigo": "D72",
+   "Nombre": "Calorías (tabla internacional) por segundo centímetro cuadrado kelvin"
+ },
+ {
+   "Codigo": "D73",
+   "Nombre": "Joule metro cuadrado"
+ },
+ {
+   "Codigo": "D74",
+   "Nombre": "Kilogramo por Mol"
+ },
+ {
+   "Codigo": "D75",
+   "Nombre": "Calorías (tabla internacional) por gramo"
+ },
+ {
+   "Codigo": "D76",
+   "Nombre": "Calorías (tabla internacional) por gramo de kelvin"
+ },
+ {
+   "Codigo": "D77",
+   "Nombre": "MegaCulombio"
+ },
+ {
+   "Codigo": "D78",
+   "Nombre": "Megajoule por segundo"
+ },
+ {
+   "Codigo": "D79",
+   "Nombre": "Viga"
+ },
+ {
+   "Codigo": "D8",
+   "Nombre": "Draize score"
+ },
+ {
+   "Codigo": "D80",
+   "Nombre": "Microwatt"
+ },
+ {
+   "Codigo": "D81",
+   "Nombre": "Microtesla"
+ },
+ {
+   "Codigo": "D82",
+   "Nombre": "Microvoltio"
+ },
+ {
+   "Codigo": "D83",
+   "Nombre": "Milinewton metro"
+ },
+ {
+   "Codigo": "D85",
+   "Nombre": "Microwatt por metro cuadrado"
+ },
+ {
+   "Codigo": "D86",
+   "Nombre": "MiliCulombio"
+ },
+ {
+   "Codigo": "D87",
+   "Nombre": "MiliMol por kilogramo"
+ },
+ {
+   "Codigo": "D88",
+   "Nombre": "MiliCulombio por metro cúbico"
+ },
+ {
+   "Codigo": "D89",
+   "Nombre": "MiliCulombio por metro cuadrado"
+ },
+ {
+   "Codigo": "D9",
+   "Nombre": "Dina por centímetro cuadrado"
+ },
+ {
+   "Codigo": "D90",
+   "Nombre": "Metro cúbico (neta)"
+ },
+ {
+   "Codigo": "D91",
+   "Nombre": "Rem"
+ },
+ {
+   "Codigo": "D92",
+   "Nombre": "banda"
+ },
+ {
+   "Codigo": "D93",
+   "Nombre": "Segundo por metro cúbico"
+ },
+ {
+   "Codigo": "D94",
+   "Nombre": "Segundo por metro cúbico Radian"
+ },
+ {
+   "Codigo": "D95",
+   "Nombre": "Joule por gramo"
+ },
+ {
+   "Codigo": "D96",
+   "Nombre": "Libra bruta"
+ },
+ {
+   "Codigo": "D98",
+   "Nombre": "Libra masiva"
+ },
+ {
+   "Codigo": "D99",
+   "Nombre": "manga"
+ },
+ {
+   "Codigo": "DAA",
+   "Nombre": "Decar"
+ },
+ {
+   "Codigo": "DAD",
+   "Nombre": "Decena de días"
+ },
+ {
+   "Codigo": "DAY",
+   "Nombre": "Día"
+ },
+ {
+   "Codigo": "DB",
+   "Nombre": "Libra seca"
+ },
+ {
+   "Codigo": "DC",
+   "Nombre": "Disco (disco)"
+ },
+ {
+   "Codigo": "DD",
+   "Nombre": "Grado [unidad de ángulo]"
+ },
+ {
+   "Codigo": "DE",
+   "Nombre": "Acuerdo"
+ },
+ {
+   "Codigo": "DEC",
+   "Nombre": "Década"
+ },
+ {
+   "Codigo": "DG",
+   "Nombre": "Decigramo"
+ },
+ {
+   "Codigo": "DI",
+   "Nombre": "dispensador"
+ },
+ {
+   "Codigo": "DJ",
+   "Nombre": "Decagramo"
+ },
+ {
+   "Codigo": "DLT",
+   "Nombre": "Decilitro"
+ },
+ {
+   "Codigo": "DMA",
+   "Nombre": "Decámetro cúbico"
+ },
+ {
+   "Codigo": "DMK",
+   "Nombre": "Decímetro cuadrado"
+ },
+ {
+   "Codigo": "DMO",
+   "Nombre": "Kiloliter norma"
+ },
+ {
+   "Codigo": "DMQ",
+   "Nombre": "Decímetro cúbico"
+ },
+ {
+   "Codigo": "DMT",
+   "Nombre": "Decímetro"
+ },
+ {
+   "Codigo": "DN",
+   "Nombre": "Decinewton metro"
+ },
+ {
+   "Codigo": "DPC",
+   "Nombre": "Docenas de piezas"
+ },
+ {
+   "Codigo": "DPR",
+   "Nombre": "Docenas de pares"
+ },
+ {
+   "Codigo": "DPT",
+   "Nombre": "Peso de desplazamiento"
+ },
+ {
+   "Codigo": "DQ",
+   "Nombre": "registro de datos"
+ },
+ {
+   "Codigo": "DRA",
+   "Nombre": "Dram (EUA)"
+ },
+ {
+   "Codigo": "DRI",
+   "Nombre": "Dram (UK)"
+ },
+ {
+   "Codigo": "DRL",
+   "Nombre": "Docena de rodillos"
+ },
+ {
+   "Codigo": "DRM",
+   "Nombre": "Drachm (UK)"
+ },
+ {
+   "Codigo": "DS",
+   "Nombre": "monitor"
+ },
+ {
+   "Codigo": "DT",
+   "Nombre": "Tonelada seca"
+ },
+ {
+   "Codigo": "DTN",
+   "Nombre": "Decitonelada métrica"
+ },
+ {
+   "Codigo": "DU",
+   "Nombre": "dina"
+ },
+ {
+   "Codigo": "DWT",
+   "Nombre": "Pennyweight"
+ },
+ {
+   "Codigo": "Dx",
+   "Nombre": "Dina por centímetro"
+ },
+ {
+   "Codigo": "DY",
+   "Nombre": "Libro de directorio"
+ },
+ {
+   "Codigo": "DZN",
+   "Nombre": "Docena"
+ },
+ {
+   "Codigo": "DZP",
+   "Nombre": "Docena de paquete"
+ },
+ {
+   "Codigo": "E01",
+   "Nombre": "Newton por centímetro cuadrado"
+ },
+ {
+   "Codigo": "E07",
+   "Nombre": "Megawatt hora por hora"
+ },
+ {
+   "Codigo": "E08",
+   "Nombre": "Megavatios por hertz"
+ },
+ {
+   "Codigo": "E09",
+   "Nombre": "Miliamperio hora"
+ },
+ {
+   "Codigo": "E10",
+   "Nombre": "Día de grado"
+ },
+ {
+   "Codigo": "E11",
+   "Nombre": "Gigacalorie"
+ },
+ {
+   "Codigo": "E12",
+   "Nombre": "Mille"
+ },
+ {
+   "Codigo": "E14",
+   "Nombre": "Kilocaloría (tabla internacional)"
+ },
+ {
+   "Codigo": "E15",
+   "Nombre": "Kilocaloría (termoquímica) por hora"
+ },
+ {
+   "Codigo": "E16",
+   "Nombre": "Millón de btu (ti) por hora"
+ },
+ {
+   "Codigo": "E17",
+   "Nombre": "Pie cúbico por segundo"
+ },
+ {
+   "Codigo": "E18",
+   "Nombre": "Tonelada por hora"
+ },
+ {
+   "Codigo": "E19",
+   "Nombre": "Ping"
+ },
+ {
+   "Codigo": "E20",
+   "Nombre": "Megabit por segundo"
+ },
+ {
+   "Codigo": "E21",
+   "Nombre": "Shares"
+ },
+ {
+   "Codigo": "E22",
+   "Nombre": "Tue"
+ },
+ {
+   "Codigo": "E23",
+   "Nombre": "Neumático"
+ },
+ {
+   "Codigo": "E25",
+   "Nombre": "Unidad activa"
+ },
+ {
+   "Codigo": "E27",
+   "Nombre": "Dosis"
+ },
+ {
+   "Codigo": "E28",
+   "Nombre": "Tonelada seca de aire"
+ },
+ {
+   "Codigo": "E3",
+   "Nombre": "remolque"
+ },
+ {
+   "Codigo": "E30",
+   "Nombre": "Hebra"
+ },
+ {
+   "Codigo": "E31",
+   "Nombre": "Metro cuadrado por litro"
+ },
+ {
+   "Codigo": "E32",
+   "Nombre": "Litros por hora"
+ },
+ {
+   "Codigo": "E33",
+   "Nombre": "Por mil pies"
+ },
+ {
+   "Codigo": "E34",
+   "Nombre": "Gigabyte"
+ },
+ {
+   "Codigo": "E35",
+   "Nombre": "Terabyte"
+ },
+ {
+   "Codigo": "E36",
+   "Nombre": "Petabyte"
+ },
+ {
+   "Codigo": "E37",
+   "Nombre": "Pixel"
+ },
+ {
+   "Codigo": "E38",
+   "Nombre": "Megapíxeles"
+ },
+ {
+   "Codigo": "E39",
+   "Nombre": "Puntos por pulgada"
+ },
+ {
+   "Codigo": "E4",
+   "Nombre": "Kilo bruto"
+ },
+ {
+   "Codigo": "E40",
+   "Nombre": "Parte por cien mil"
+ },
+ {
+   "Codigo": "E41",
+   "Nombre": "Kilogramo-fuerza por milímetro cuadrado"
+ },
+ {
+   "Codigo": "E42",
+   "Nombre": "Kilogramo-fuerza por centímetro cuadrado"
+ },
+ {
+   "Codigo": "E43",
+   "Nombre": "Joule por centímetro cuadrado"
+ },
+ {
+   "Codigo": "E44",
+   "Nombre": "Metros kilogramo-fuerza por centímetro cuadrado"
+ },
+ {
+   "Codigo": "E45",
+   "Nombre": "MiliOhm"
+ },
+ {
+   "Codigo": "E46",
+   "Nombre": "Kilovatio hora por metro cúbico"
+ },
+ {
+   "Codigo": "E47",
+   "Nombre": "Kilovatio hora por kelvin"
+ },
+ {
+   "Codigo": "E48",
+   "Nombre": "Unidad de servicio"
+ },
+ {
+   "Codigo": "E49",
+   "Nombre": "Día de trabajo"
+ },
+ {
+   "Codigo": "E5",
+   "Nombre": "Tonelada métrica larga"
+ },
+ {
+   "Codigo": "E50",
+   "Nombre": "Unidad de cuenta"
+ },
+ {
+   "Codigo": "E51",
+   "Nombre": "Trabajo"
+ },
+ {
+   "Codigo": "E52",
+   "Nombre": "Run foot"
+ },
+ {
+   "Codigo": "E53",
+   "Nombre": "Prueba"
+ },
+ {
+   "Codigo": "E54",
+   "Nombre": "Viaje"
+ },
+ {
+   "Codigo": "E55",
+   "Nombre": "Utilizar"
+ },
+ {
+   "Codigo": "E56",
+   "Nombre": "Bien"
+ },
+ {
+   "Codigo": "E57",
+   "Nombre": "Zona"
+ },
+ {
+   "Codigo": "E58",
+   "Nombre": "Exabit por segundo"
+ },
+ {
+   "Codigo": "E59",
+   "Nombre": "Exbibyte"
+ },
+ {
+   "Codigo": "E60",
+   "Nombre": "Pebibyte"
+ },
+ {
+   "Codigo": "E61",
+   "Nombre": "Tebibyte"
+ },
+ {
+   "Codigo": "E62",
+   "Nombre": "Gibibyte"
+ },
+ {
+   "Codigo": "E63",
+   "Nombre": "Mebibyte"
+ },
+ {
+   "Codigo": "E64",
+   "Nombre": "Kibibyte"
+ },
+ {
+   "Codigo": "E65",
+   "Nombre": "Exbibit por metro"
+ },
+ {
+   "Codigo": "E66",
+   "Nombre": "Exbibit por metro cuadrado"
+ },
+ {
+   "Codigo": "E67",
+   "Nombre": "Exbibit por metro cúbico"
+ },
+ {
+   "Codigo": "E68",
+   "Nombre": "Gigabyte por segundo"
+ },
+ {
+   "Codigo": "E69",
+   "Nombre": "Gibibit por metro"
+ },
+ {
+   "Codigo": "E70",
+   "Nombre": "Gibibit por metro cuadrado"
+ },
+ {
+   "Codigo": "E71",
+   "Nombre": "Gibibit por metro cúbico"
+ },
+ {
+   "Codigo": "E72",
+   "Nombre": "Kibibit por metro"
+ },
+ {
+   "Codigo": "E73",
+   "Nombre": "Kibibit por metro cuadrado"
+ },
+ {
+   "Codigo": "E74",
+   "Nombre": "Kikibit por metro cúbico."
+ },
+ {
+   "Codigo": "E75",
+   "Nombre": "Mebbit por metro."
+ },
+ {
+   "Codigo": "E76",
+   "Nombre": "Mebbitt por metro cuadrado."
+ },
+ {
+   "Codigo": "E77",
+   "Nombre": "Mebbit por metro cúbico."
+ },
+ {
+   "Codigo": "E78",
+   "Nombre": "Petabit"
+ },
+ {
+   "Codigo": "E79",
+   "Nombre": "Pebibit por segundo."
+ },
+ {
+   "Codigo": "E80",
+   "Nombre": "Pebibit por metro."
+ },
+ {
+   "Codigo": "E81",
+   "Nombre": "Pebibit por metro cuadrado."
+ },
+ {
+   "Codigo": "E82",
+   "Nombre": "Pebibit por metro cúbico."
+ },
+ {
+   "Codigo": "E83",
+   "Nombre": "Tebibit."
+ },
+ {
+   "Codigo": "E84",
+   "Nombre": "Tebibit por segundo"
+ },
+ {
+   "Codigo": "E85",
+   "Nombre": "Tebibit por metro."
+ },
+ {
+   "Codigo": "E86",
+   "Nombre": "Tebibit por metro cúbico."
+ },
+ {
+   "Codigo": "E87",
+   "Nombre": "Tebibit por metro cuadrado"
+ },
+ {
+   "Codigo": "E88",
+   "Nombre": "Bit por metro"
+ },
+ {
+   "Codigo": "E89",
+   "Nombre": "Bit por metro cuadrado"
+ },
+ {
+   "Codigo": "E90",
+   "Nombre": "Centímetro recíproco"
+ },
+ {
+   "Codigo": "E91",
+   "Nombre": "Día recíproco"
+ },
+ {
+   "Codigo": "E92",
+   "Nombre": "Decímetro cúbico por hora"
+ },
+ {
+   "Codigo": "E93",
+   "Nombre": "Kilogramo por hora"
+ },
+ {
+   "Codigo": "E94",
+   "Nombre": "KiloMol por segundo"
+ },
+ {
+   "Codigo": "E95",
+   "Nombre": "Mol por segundo"
+ },
+ {
+   "Codigo": "E96",
+   "Nombre": "Grado por segundo"
+ },
+ {
+   "Codigo": "E97",
+   "Nombre": "Mililitro por gadro celsius metro"
+ },
+ {
+   "Codigo": "E98",
+   "Nombre": "Grado celsius por kelvin"
+ },
+ {
+   "Codigo": "E99",
+   "Nombre": "Hectopascal por bar"
+ },
+ {
+   "Codigo": "EA",
+   "Nombre": "Elemento"
+ },
+ {
+   "Codigo": "EB",
+   "Nombre": "Casilla de correo electrónico"
+ },
+ {
+   "Codigo": "EP",
+   "Nombre": "Paquete de once"
+ },
+ {
+   "Codigo": "EQ",
+   "Nombre": "Galón equivalente"
+ },
+ {
+   "Codigo": "F01",
+   "Nombre": "Bit por metro cúbico"
+ },
+ {
+   "Codigo": "F02",
+   "Nombre": "Kelvin por kelvin"
+ },
+ {
+   "Codigo": "F03",
+   "Nombre": "Kilopascal por bar"
+ },
+ {
+   "Codigo": "F04",
+   "Nombre": "Milibar por bar"
+ },
+ {
+   "Codigo": "F05",
+   "Nombre": "Megapascal por bar"
+ },
+ {
+   "Codigo": "F06",
+   "Nombre": "Poise por bar"
+ },
+ {
+   "Codigo": "F07",
+   "Nombre": "Pascal por bar"
+ },
+ {
+   "Codigo": "F08",
+   "Nombre": "Miliamperio por pulgada"
+ },
+ {
+   "Codigo": "F1",
+   "Nombre": "Mil pies cúbicos por día"
+ },
+ {
+   "Codigo": "F10",
+   "Nombre": "Kelvin por hora"
+ },
+ {
+   "Codigo": "F11",
+   "Nombre": "Kelvin por minuto"
+ },
+ {
+   "Codigo": "F12",
+   "Nombre": "Kelvin por segundo"
+ },
+ {
+   "Codigo": "F13",
+   "Nombre": "Slug"
+ },
+ {
+   "Codigo": "F14",
+   "Nombre": "Gramo por kelvin"
+ },
+ {
+   "Codigo": "F15",
+   "Nombre": "Kilogramo por kelvin"
+ },
+ {
+   "Codigo": "F16",
+   "Nombre": "Miligramo por kelvin"
+ },
+ {
+   "Codigo": "F17",
+   "Nombre": "Libra fuerza por pie"
+ },
+ {
+   "Codigo": "F18",
+   "Nombre": "Kilogramo centímetro cuadrado"
+ },
+ {
+   "Codigo": "F19",
+   "Nombre": "Kilogramo milimetro cuadrado"
+ },
+ {
+   "Codigo": "F20",
+   "Nombre": "Libra pulgada cuadrada"
+ },
+ {
+   "Codigo": "F21",
+   "Nombre": "Libra fuerza pulgada"
+ },
+ {
+   "Codigo": "F22",
+   "Nombre": "Libra fuerza por pie entre amperio"
+ },
+ {
+   "Codigo": "F23",
+   "Nombre": "Gramo por decímetro cúbico"
+ },
+ {
+   "Codigo": "F24",
+   "Nombre": "Kilogramo por kiloMol"
+ },
+ {
+   "Codigo": "F25",
+   "Nombre": "Gramo por hertz"
+ },
+ {
+   "Codigo": "F26",
+   "Nombre": "Gramo por día"
+ },
+ {
+   "Codigo": "F27",
+   "Nombre": "Gramo por hora"
+ },
+ {
+   "Codigo": "F28",
+   "Nombre": "Gramo por minuto"
+ },
+ {
+   "Codigo": "F29",
+   "Nombre": "Gramo por segundo"
+ },
+ {
+   "Codigo": "F30",
+   "Nombre": "Kilogramo por día"
+ },
+ {
+   "Codigo": "F31",
+   "Nombre": "Kilogramo por minuto"
+ },
+ {
+   "Codigo": "F32",
+   "Nombre": "Miligramo por dia"
+ },
+ {
+   "Codigo": "F33",
+   "Nombre": "Miligramo por minuto"
+ },
+ {
+   "Codigo": "F34",
+   "Nombre": "Miligramo por segundo"
+ },
+ {
+   "Codigo": "F35",
+   "Nombre": "Gramo por día kelvin"
+ },
+ {
+   "Codigo": "F36",
+   "Nombre": "Gramo por hora kelvin"
+ },
+ {
+   "Codigo": "F37",
+   "Nombre": "Gramo por minuto kelvin"
+ },
+ {
+   "Codigo": "F38",
+   "Nombre": "Gramo por segundo kelvin"
+ },
+ {
+   "Codigo": "F39",
+   "Nombre": "Kilogramo por día kelvin"
+ },
+ {
+   "Codigo": "F40",
+   "Nombre": "Kilogramo por hora kelvin"
+ },
+ {
+   "Codigo": "F41",
+   "Nombre": "Kilogramo por minuto kelvin"
+ },
+ {
+   "Codigo": "F42",
+   "Nombre": "Kilogramo por segundo kelvin"
+ },
+ {
+   "Codigo": "F43",
+   "Nombre": "Miligramo por día kelvin"
+ },
+ {
+   "Codigo": "F44",
+   "Nombre": "Miligramo por hora kelvin"
+ },
+ {
+   "Codigo": "F45",
+   "Nombre": "Miligramo por minuto kelvin"
+ },
+ {
+   "Codigo": "F46",
+   "Nombre": "Miligramo por segundo kelvin"
+ },
+ {
+   "Codigo": "F47",
+   "Nombre": "Newton por milímetro"
+ },
+ {
+   "Codigo": "F48",
+   "Nombre": "Libra fuerza por pulgada"
+ },
+ {
+   "Codigo": "F49",
+   "Nombre": "Rod (Unidad de distancia)"
+ },
+ {
+   "Codigo": "F50",
+   "Nombre": "Micrómetro por kelvin"
+ },
+ {
+   "Codigo": "F51",
+   "Nombre": "Centímetro por kelvin"
+ },
+ {
+   "Codigo": "F52",
+   "Nombre": "Metro por kelvin"
+ },
+ {
+   "Codigo": "F53",
+   "Nombre": "Mililitro por kelvin"
+ },
+ {
+   "Codigo": "F54",
+   "Nombre": "MiliOhm por metro"
+ },
+ {
+   "Codigo": "F55",
+   "Nombre": "Ohm por milla (milla estatal)"
+ },
+ {
+   "Codigo": "F56",
+   "Nombre": "Ohm por kilómetro"
+ },
+ {
+   "Codigo": "F57",
+   "Nombre": "Miliamperio por libra-fuerza por pulgada cuadrada"
+ },
+ {
+   "Codigo": "F58",
+   "Nombre": "Bar recíproco"
+ },
+ {
+   "Codigo": "F59",
+   "Nombre": "Miliamperio por bar"
+ },
+ {
+   "Codigo": "F60",
+   "Nombre": "Grado celsius por bar"
+ },
+ {
+   "Codigo": "F61",
+   "Nombre": "Kelvin por bar"
+ },
+ {
+   "Codigo": "F62",
+   "Nombre": "Gramo por día bar"
+ },
+ {
+   "Codigo": "F63",
+   "Nombre": "Gramo por hora bar"
+ },
+ {
+   "Codigo": "F64",
+   "Nombre": "Gramo por minuto bar"
+ },
+ {
+   "Codigo": "F65",
+   "Nombre": "Gramo por segundo bar"
+ },
+ {
+   "Codigo": "F66",
+   "Nombre": "Kililogramo por día bar"
+ },
+ {
+   "Codigo": "F67",
+   "Nombre": "Kilogramo por hora bar"
+ },
+ {
+   "Codigo": "F68",
+   "Nombre": "Kilogramo por minuto bar"
+ },
+ {
+   "Codigo": "F69",
+   "Nombre": "Kilogramo por segundo bar"
+ },
+ {
+   "Codigo": "F70",
+   "Nombre": "Miligramo por día bar"
+ },
+ {
+   "Codigo": "F71",
+   "Nombre": "Miligramo por hora bar"
+ },
+ {
+   "Codigo": "F72",
+   "Nombre": "Miligramo por minuto bar"
+ },
+ {
+   "Codigo": "F73",
+   "Nombre": "Miligramo por segundo bar"
+ },
+ {
+   "Codigo": "F74",
+   "Nombre": "Gramo por bar"
+ },
+ {
+   "Codigo": "F75",
+   "Nombre": "Miligramo por bar"
+ },
+ {
+   "Codigo": "F76",
+   "Nombre": "Miliamperio por milímetro"
+ },
+ {
+   "Codigo": "F77",
+   "Nombre": "Pascal segundo por kelvin"
+ },
+ {
+   "Codigo": "F78",
+   "Nombre": "Pulgada de agua"
+ },
+ {
+   "Codigo": "F79",
+   "Nombre": "Pulgada de mercurio"
+ },
+ {
+   "Codigo": "F80",
+   "Nombre": "Caballos de fuerza de agua"
+ },
+ {
+   "Codigo": "F81",
+   "Nombre": "Bar por kelvin"
+ },
+ {
+   "Codigo": "F82",
+   "Nombre": "Hectopascal por kelvin"
+ },
+ {
+   "Codigo": "F83",
+   "Nombre": "Kilopascal por kelvin"
+ },
+ {
+   "Codigo": "F84",
+   "Nombre": "Milibar por kelvin"
+ },
+ {
+   "Codigo": "F85",
+   "Nombre": "Megapascal por kelvin"
+ },
+ {
+   "Codigo": "F86",
+   "Nombre": "Poise por kelvin"
+ },
+ {
+   "Codigo": "F87",
+   "Nombre": "Voltio por litro minuto"
+ },
+ {
+   "Codigo": "F88",
+   "Nombre": "Newton centímetro"
+ },
+ {
+   "Codigo": "F89",
+   "Nombre": "Newton metro por grados"
+ },
+ {
+   "Codigo": "F9",
+   "Nombre": "Fibra por centímetro cúbico de aire"
+ },
+ {
+   "Codigo": "F90",
+   "Nombre": "Newton metro por amperio"
+ },
+ {
+   "Codigo": "F91",
+   "Nombre": "Bar litro por segundo"
+ },
+ {
+   "Codigo": "F92",
+   "Nombre": "Bar metro cúbico por segundo"
+ },
+ {
+   "Codigo": "F93",
+   "Nombre": "Hectopascal litro por segundo"
+ },
+ {
+   "Codigo": "F94",
+   "Nombre": "Hectopascal metro cúbico por segundo"
+ },
+ {
+   "Codigo": "F95",
+   "Nombre": "Milibar litro por segundo"
+ },
+ {
+   "Codigo": "F96",
+   "Nombre": "Milibar metro cúbico por segundo"
+ },
+ {
+   "Codigo": "F97",
+   "Nombre": "Megapascal litro por segundo"
+ },
+ {
+   "Codigo": "F98",
+   "Nombre": "Megapascal metro cúbico por segundo"
+ },
+ {
+   "Codigo": "F99",
+   "Nombre": "Pascal litro por segundo"
+ },
+ {
+   "Codigo": "FAH",
+   "Nombre": "Grado fahrenheit"
+ },
+ {
+   "Codigo": "FAR",
+   "Nombre": "Farad"
+ },
+ {
+   "Codigo": "FB",
+   "Nombre": "campo"
+ },
+ {
+   "Codigo": "FBM",
+   "Nombre": "Medidor de fibra"
+ },
+ {
+   "Codigo": "FC",
+   "Nombre": "Mil pies cúbicos"
+ },
+ {
+   "Codigo": "FD",
+   "Nombre": "Millones de partículas por pie cúbico"
+ },
+ {
+   "Codigo": "FE",
+   "Nombre": "Pie de pista"
+ },
+ {
+   "Codigo": "FF",
+   "Nombre": "Cien metros cúbicos"
+ },
+ {
+   "Codigo": "FG",
+   "Nombre": "Parche transdérmico"
+ },
+ {
+   "Codigo": "FH",
+   "Nombre": "MicroMol"
+ },
+ {
+   "Codigo": "FIT",
+   "Nombre": "Fallas en el tiempo"
+ },
+ {
+   "Codigo": "FL",
+   "Nombre": "Flake ton"
+ },
+ {
+   "Codigo": "FM",
+   "Nombre": "Millones de pies cúbicos"
+ },
+ {
+   "Codigo": "FOT",
+   "Nombre": "Pie"
+ },
+ {
+   "Codigo": "FP",
+   "Nombre": "Libra por pie cuadrado"
+ },
+ {
+   "Codigo": "FR",
+   "Nombre": "Pie por minuto"
+ },
+ {
+   "Codigo": "FS",
+   "Nombre": "Pie por segundo"
+ },
+ {
+   "Codigo": "FTK",
+   "Nombre": "Pie cuadrado"
+ },
+ {
+   "Codigo": "FTQ",
+   "Nombre": "Pie cúbico"
+ },
+ {
+   "Codigo": "G01",
+   "Nombre": "Pascal metro cúbico por segundo"
+ },
+ {
+   "Codigo": "G04",
+   "Nombre": "Centímetro por bar"
+ },
+ {
+   "Codigo": "G05",
+   "Nombre": "Metro por bar"
+ },
+ {
+   "Codigo": "G06",
+   "Nombre": "Milímetro por bar"
+ },
+ {
+   "Codigo": "G08",
+   "Nombre": "Pulgada cuadrada por segundo"
+ },
+ {
+   "Codigo": "G09",
+   "Nombre": "Metro cuadrado por segundo kelvin"
+ },
+ {
+   "Codigo": "G10",
+   "Nombre": "Stokes por kelvin"
+ },
+ {
+   "Codigo": "G11",
+   "Nombre": "Gramo por centímetro cúbico bar"
+ },
+ {
+   "Codigo": "G12",
+   "Nombre": "Gramo por decímetro cúbico bar"
+ },
+ {
+   "Codigo": "G13",
+   "Nombre": "Gramo por litro bar"
+ },
+ {
+   "Codigo": "G14",
+   "Nombre": "Gramo por metro cúbico bar"
+ },
+ {
+   "Codigo": "G15",
+   "Nombre": "Gramo por mililitro bar"
+ },
+ {
+   "Codigo": "G16",
+   "Nombre": "Kilogramo por centímetro cúbico bar"
+ },
+ {
+   "Codigo": "G17",
+   "Nombre": "Kilogramo por litro bar"
+ },
+ {
+   "Codigo": "G18",
+   "Nombre": "Kilogramo por metro cúbico bar"
+ },
+ {
+   "Codigo": "G19",
+   "Nombre": "Newton metro por kilogramo"
+ },
+ {
+   "Codigo": "G2",
+   "Nombre": "Galón (EUA) por minuto"
+ },
+ {
+   "Codigo": "G20",
+   "Nombre": "Libra-fuerza pie por libra"
+ },
+ {
+   "Codigo": "G21",
+   "Nombre": "Taza (unidad de volumen)"
+ },
+ {
+   "Codigo": "G23",
+   "Nombre": "Peck"
+ },
+ {
+   "Codigo": "G24",
+   "Nombre": "Cucharada (estados unidos)"
+ },
+ {
+   "Codigo": "G25",
+   "Nombre": "Cucharilla (estados unidos)"
+ },
+ {
+   "Codigo": "G26",
+   "Nombre": "Estere"
+ },
+ {
+   "Codigo": "G27",
+   "Nombre": "Centímetro cúbico por kelvin"
+ },
+ {
+   "Codigo": "G28",
+   "Nombre": "Litro por kelvin"
+ },
+ {
+   "Codigo": "G29",
+   "Nombre": "Metro cúbico por kelvin"
+ },
+ {
+   "Codigo": "G3",
+   "Nombre": "Galón (RU) por minuto"
+ },
+ {
+   "Codigo": "G30",
+   "Nombre": "Mililitro por klevin"
+ },
+ {
+   "Codigo": "G31",
+   "Nombre": "Kilogramo por centímetro cúbico"
+ },
+ {
+   "Codigo": "G32",
+   "Nombre": "Onza (avoirdupois) por yarda cúbica"
+ },
+ {
+   "Codigo": "G33",
+   "Nombre": "Gramo por centímetro cúbico kelvin"
+ },
+ {
+   "Codigo": "G34",
+   "Nombre": "Gramo por decímetro cúbico kelvin"
+ },
+ {
+   "Codigo": "G35",
+   "Nombre": "Gramo por litro kelvin"
+ },
+ {
+   "Codigo": "G36",
+   "Nombre": "Gramo por metro cúbico kelvin"
+ },
+ {
+   "Codigo": "G37",
+   "Nombre": "Gramo por mililitro kelvin"
+ },
+ {
+   "Codigo": "G38",
+   "Nombre": "Kilogramo por centímetro cúbico kelvin"
+ },
+ {
+   "Codigo": "G39",
+   "Nombre": "Kilogramo por litro kelvin"
+ },
+ {
+   "Codigo": "G40",
+   "Nombre": "Kilogramo por metro cúbico kelvin"
+ },
+ {
+   "Codigo": "G41",
+   "Nombre": "Metro cuadrado por segundo bar"
+ },
+ {
+   "Codigo": "G42",
+   "Nombre": "Microsiemens por centímetro"
+ },
+ {
+   "Codigo": "G43",
+   "Nombre": "Microsiemens por metro"
+ },
+ {
+   "Codigo": "G44",
+   "Nombre": "Nanosiemens por centímetro"
+ },
+ {
+   "Codigo": "G45",
+   "Nombre": "Nanosiemens por metro"
+ },
+ {
+   "Codigo": "G46",
+   "Nombre": "Stokes por bar"
+ },
+ {
+   "Codigo": "G47",
+   "Nombre": "Centímetro cúbico por día"
+ },
+ {
+   "Codigo": "G48",
+   "Nombre": "Centímetro cúbico por hora"
+ },
+ {
+   "Codigo": "G49",
+   "Nombre": "Centímetro cúbico por minuto"
+ },
+ {
+   "Codigo": "G50",
+   "Nombre": "Galón por hora"
+ },
+ {
+   "Codigo": "G51",
+   "Nombre": "Litro por segundo"
+ },
+ {
+   "Codigo": "G52",
+   "Nombre": "Metro cúbico por día"
+ },
+ {
+   "Codigo": "G53",
+   "Nombre": "Metro cúbico por minuto"
+ },
+ {
+   "Codigo": "G54",
+   "Nombre": "Mililitro por día"
+ },
+ {
+   "Codigo": "G55",
+   "Nombre": "Mililitro por hora"
+ },
+ {
+   "Codigo": "G56",
+   "Nombre": "Pulgada cúbica por hora"
+ },
+ {
+   "Codigo": "G57",
+   "Nombre": "Pulgada cúbica por minuto"
+ },
+ {
+   "Codigo": "G58",
+   "Nombre": "Pulgada cúbica por segundo"
+ },
+ {
+   "Codigo": "G59",
+   "Nombre": "Miliamperio por litro minuto"
+ },
+ {
+   "Codigo": "G60",
+   "Nombre": "Voltio por bar"
+ },
+ {
+   "Codigo": "G61",
+   "Nombre": "Centímetro cúbico por día kelvin"
+ },
+ {
+   "Codigo": "G62",
+   "Nombre": "Centímetro cúbico por hora kelvin"
+ },
+ {
+   "Codigo": "G63",
+   "Nombre": "Centímetro cúbico por minuto kelvin"
+ },
+ {
+   "Codigo": "G64",
+   "Nombre": "Centímetro cúbico por segundo kelvin"
+ },
+ {
+   "Codigo": "G65",
+   "Nombre": "Litro por día kelvin"
+ },
+ {
+   "Codigo": "G66",
+   "Nombre": "Litro por hora kelvin"
+ },
+ {
+   "Codigo": "G67",
+   "Nombre": "Litro por minuto kelvin"
+ },
+ {
+   "Codigo": "G68",
+   "Nombre": "Litro por segundo kelvin"
+ },
+ {
+   "Codigo": "G69",
+   "Nombre": "Metro cúbico por día kelvin"
+ },
+ {
+   "Codigo": "G7",
+   "Nombre": "Hoja de microficha"
+ },
+ {
+   "Codigo": "G70",
+   "Nombre": "Metro cúbico por hora kelvin"
+ },
+ {
+   "Codigo": "G71",
+   "Nombre": "Metro cúbico por minuto kelvin"
+ },
+ {
+   "Codigo": "G72",
+   "Nombre": "Metro cúbico por segundo kelvin"
+ },
+ {
+   "Codigo": "G73",
+   "Nombre": "Mililitro por día kelvin"
+ },
+ {
+   "Codigo": "G74",
+   "Nombre": "Mililitro por hora kelvin"
+ },
+ {
+   "Codigo": "G75",
+   "Nombre": "Mililitro por minuto kelvin"
+ },
+ {
+   "Codigo": "G76",
+   "Nombre": "Mililitro por segundo kelvin"
+ },
+ {
+   "Codigo": "G77",
+   "Nombre": "Milímetro a la cuarta potencia"
+ },
+ {
+   "Codigo": "G78",
+   "Nombre": "Centímetro cúbico por día bar"
+ },
+ {
+   "Codigo": "G79",
+   "Nombre": "Centímetro cúbico por hora bar"
+ },
+ {
+   "Codigo": "G80",
+   "Nombre": "Centímetro cúbico por minuto bar"
+ },
+ {
+   "Codigo": "G81",
+   "Nombre": "Centímetro cúbico por segundo bar"
+ },
+ {
+   "Codigo": "G82",
+   "Nombre": "Litro por día bar"
+ },
+ {
+   "Codigo": "G83",
+   "Nombre": "Litro por hora bar"
+ },
+ {
+   "Codigo": "G84",
+   "Nombre": "Litro por minuto bar"
+ },
+ {
+   "Codigo": "G85",
+   "Nombre": "Litro por segundo bar"
+ },
+ {
+   "Codigo": "G86",
+   "Nombre": "Metro cúbico por día bar"
+ },
+ {
+   "Codigo": "G87",
+   "Nombre": "Metro cúbico por hora bar"
+ },
+ {
+   "Codigo": "G88",
+   "Nombre": "Metro cúbico por minuto bar"
+ },
+ {
+   "Codigo": "G89",
+   "Nombre": "Metro cúbico por segundo bar"
+ },
+ {
+   "Codigo": "G90",
+   "Nombre": "Mililitro por día bar"
+ },
+ {
+   "Codigo": "G91",
+   "Nombre": "Mililitro por hora bar"
+ },
+ {
+   "Codigo": "G92",
+   "Nombre": "Mililitro por minuto bar"
+ },
+ {
+   "Codigo": "G93",
+   "Nombre": "Mililitro por segundo bar"
+ },
+ {
+   "Codigo": "G94",
+   "Nombre": "Centímetro cúbico por bar"
+ },
+ {
+   "Codigo": "G95",
+   "Nombre": "Litro por bar"
+ },
+ {
+   "Codigo": "G96",
+   "Nombre": "Metro cúbico por bar"
+ },
+ {
+   "Codigo": "G97",
+   "Nombre": "Mililitro por bar"
+ },
+ {
+   "Codigo": "G98",
+   "Nombre": "Micro henry por kiloOhm"
+ },
+ {
+   "Codigo": "G99",
+   "Nombre": "Micro henry por Ohm"
+ },
+ {
+   "Codigo": "GB",
+   "Nombre": "Galón (EUA) por día"
+ },
+ {
+   "Codigo": "GBQ",
+   "Nombre": "Gigabecquerel"
+ },
+ {
+   "Codigo": "GC",
+   "Nombre": "Gramo por 100 gramos"
+ },
+ {
+   "Codigo": "Gd",
+   "Nombre": "Barril bruto"
+ },
+ {
+   "Codigo": "GDW",
+   "Nombre": "Gramo, peso seco"
+ },
+ {
+   "Codigo": "GE",
+   "Nombre": "Libra por galón (EUA)"
+ },
+ {
+   "Codigo": "GF",
+   "Nombre": "Gramo por metro (gramo por 100 centímetros)"
+ },
+ {
+   "Codigo": "GFI",
+   "Nombre": "Gramo de isótopo fisible"
+ },
+ {
+   "Codigo": "GGR",
+   "Nombre": "Grandioso"
+ },
+ {
+   "Codigo": "GH",
+   "Nombre": "Medio galón (US)"
+ },
+ {
+   "Codigo": "GIA",
+   "Nombre": "Gill (us)"
+ },
+ {
+   "Codigo": "GIC",
+   "Nombre": "Gramo, incluido el contenedor"
+ },
+ {
+   "Codigo": "GII",
+   "Nombre": "Gill (uk)"
+ },
+ {
+   "Codigo": "GIP",
+   "Nombre": "Grama, incluido el embalaje interior"
+ },
+ {
+   "Codigo": "GJ",
+   "Nombre": "Gramo por mililitro"
+ },
+ {
+   "Codigo": "GK",
+   "Nombre": "Gramo por kilogramo"
+ },
+ {
+   "Codigo": "GL",
+   "Nombre": "Gramo por litro"
+ },
+ {
+   "Codigo": "GLD",
+   "Nombre": "Galón seco (EUA)"
+ },
+ {
+   "Codigo": "GLI",
+   "Nombre": "Galón (UK)"
+ },
+ {
+   "Codigo": "GLL",
+   "Nombre": "Galón (EUA)"
+ },
+ {
+   "Codigo": "GM",
+   "Nombre": "Gramo por metro cuadrado"
+ },
+ {
+   "Codigo": "GN",
+   "Nombre": "Galón bruto"
+ },
+ {
+   "Codigo": "GO",
+   "Nombre": "Miligramo por metro cuadrado"
+ },
+ {
+   "Codigo": "GP",
+   "Nombre": "Miligramo por metro cúbico"
+ },
+ {
+   "Codigo": "GQ",
+   "Nombre": "Microgramo por metro cúbico"
+ },
+ {
+   "Codigo": "GRM",
+   "Nombre": "Gramo"
+ },
+ {
+   "Codigo": "GRN",
+   "Nombre": "Grano"
+ },
+ {
+   "Codigo": "GRO",
+   "Nombre": "Gross"
+ },
+ {
+   "Codigo": "GT",
+   "Nombre": "Tonelada bruta"
+ },
+ {
+   "Codigo": "GV",
+   "Nombre": "Gigajoule"
+ },
+ {
+   "Codigo": "GW",
+   "Nombre": "Galón por mil pies cúbicos"
+ },
+ {
+   "Codigo": "GWH",
+   "Nombre": "Gigawatt hora"
+ },
+ {
+   "Codigo": "GY",
+   "Nombre": "Patio grueso"
+ },
+ {
+   "Codigo": "GZ",
+   "Nombre": "Sistema de calibración"
+ },
+ {
+   "Codigo": "H03",
+   "Nombre": "Henry por kiloOhm"
+ },
+ {
+   "Codigo": "H04",
+   "Nombre": "Henry por Ohm"
+ },
+ {
+   "Codigo": "H05",
+   "Nombre": "Milihenry por kiloOhm"
+ },
+ {
+   "Codigo": "H06",
+   "Nombre": "Milihenry por Ohm"
+ },
+ {
+   "Codigo": "H07",
+   "Nombre": "Pascal segundo por bar"
+ },
+ {
+   "Codigo": "H08",
+   "Nombre": "Microbequerel"
+ },
+ {
+   "Codigo": "H09",
+   "Nombre": "Año recíproco"
+ },
+ {
+   "Codigo": "H1",
+   "Nombre": "Media página - electrónica"
+ },
+ {
+   "Codigo": "H10",
+   "Nombre": "Hora recíproca"
+ },
+ {
+   "Codigo": "H11",
+   "Nombre": "Mes recíproco"
+ },
+ {
+   "Codigo": "H12",
+   "Nombre": "Grado celsius por hora"
+ },
+ {
+   "Codigo": "H13",
+   "Nombre": "Grado celsius por minuto"
+ },
+ {
+   "Codigo": "H14",
+   "Nombre": "Grado celsius por segundo"
+ },
+ {
+   "Codigo": "H15",
+   "Nombre": "Centímetro cudrado por gramo"
+ },
+ {
+   "Codigo": "H16",
+   "Nombre": "Decámetro cuadrado"
+ },
+ {
+   "Codigo": "H18",
+   "Nombre": "Hectómetro cuadrado"
+ },
+ {
+   "Codigo": "H19",
+   "Nombre": "Hectómetro cúbico"
+ },
+ {
+   "Codigo": "H2",
+   "Nombre": "Medio litro"
+ },
+ {
+   "Codigo": "H20",
+   "Nombre": "Kilómetro cúbico"
+ },
+ {
+   "Codigo": "H21",
+   "Nombre": "Blanco"
+ },
+ {
+   "Codigo": "H22",
+   "Nombre": "Voltio pulgada cuadrada por libra fuerza"
+ },
+ {
+   "Codigo": "H23",
+   "Nombre": "Voltio por pulgada"
+ },
+ {
+   "Codigo": "H24",
+   "Nombre": "Voltio por microsegundo"
+ },
+ {
+   "Codigo": "H25",
+   "Nombre": "Por ciento por kelvin"
+ },
+ {
+   "Codigo": "H26",
+   "Nombre": "Ohm por metro"
+ },
+ {
+   "Codigo": "H27",
+   "Nombre": "Grado por metro"
+ },
+ {
+   "Codigo": "H28",
+   "Nombre": "Microfaradio por kilómetro"
+ },
+ {
+   "Codigo": "H29",
+   "Nombre": "Microgramo por litro"
+ },
+ {
+   "Codigo": "H30",
+   "Nombre": "Micrómetro cuadrado"
+ },
+ {
+   "Codigo": "H31",
+   "Nombre": "Amperio por kilogramo"
+ },
+ {
+   "Codigo": "H32",
+   "Nombre": "Amperio cuadrado segundo"
+ },
+ {
+   "Codigo": "H33",
+   "Nombre": "Faradio por kilómetro"
+ },
+ {
+   "Codigo": "H34",
+   "Nombre": "Hertz metro"
+ },
+ {
+   "Codigo": "H35",
+   "Nombre": "Kelvin metro por watt"
+ },
+ {
+   "Codigo": "H36",
+   "Nombre": "MegaOhm por kilómetro"
+ },
+ {
+   "Codigo": "H37",
+   "Nombre": "MegaOhm por metro"
+ },
+ {
+   "Codigo": "H38",
+   "Nombre": "Megaamperio"
+ },
+ {
+   "Codigo": "H39",
+   "Nombre": "Megahertz kilómetro"
+ },
+ {
+   "Codigo": "H40",
+   "Nombre": "Newton por amperio"
+ },
+ {
+   "Codigo": "H41",
+   "Nombre": "Newton metro watts elevado a la potencia menos 0.5"
+ },
+ {
+   "Codigo": "H42",
+   "Nombre": "Pascal por metro"
+ },
+ {
+   "Codigo": "H43",
+   "Nombre": "Siemens por centímetro"
+ },
+ {
+   "Codigo": "H44",
+   "Nombre": "TeraOhm"
+ },
+ {
+   "Codigo": "H45",
+   "Nombre": "Voltio segundo por metro"
+ },
+ {
+   "Codigo": "H46",
+   "Nombre": "Voltio por segundo"
+ },
+ {
+   "Codigo": "H47",
+   "Nombre": "Watt por metro cúbico"
+ },
+ {
+   "Codigo": "H48",
+   "Nombre": "Attofarad"
+ },
+ {
+   "Codigo": "H49",
+   "Nombre": "Centímetro por hora"
+ },
+ {
+   "Codigo": "H50",
+   "Nombre": "Reciprocidad del centimetro cúbico"
+ },
+ {
+   "Codigo": "H51",
+   "Nombre": "Decibel per kilometro"
+ },
+ {
+   "Codigo": "H52",
+   "Nombre": "Decibel per metro"
+ },
+ {
+   "Codigo": "H53",
+   "Nombre": "Kilogramo por bar"
+ },
+ {
+   "Codigo": "H54",
+   "Nombre": "Kilogramo por decímetro cúbico kelvin"
+ },
+ {
+   "Codigo": "H55",
+   "Nombre": "Kilogramo por decímetro cúbico bar"
+ },
+ {
+   "Codigo": "H56",
+   "Nombre": "Kilogramo por metro cuadrado segundo"
+ },
+ {
+   "Codigo": "H57",
+   "Nombre": "Pulgada por dos pi por radián"
+ },
+ {
+   "Codigo": "H58",
+   "Nombre": "Metro por voltio segundo"
+ },
+ {
+   "Codigo": "H59",
+   "Nombre": "Metro cuadrado por newton"
+ },
+ {
+   "Codigo": "H60",
+   "Nombre": "Metro cúbico por metro cúbico"
+ },
+ {
+   "Codigo": "H61",
+   "Nombre": "Milisiemens por centímetro"
+ },
+ {
+   "Codigo": "H62",
+   "Nombre": "Milivoltio por minuto"
+ },
+ {
+   "Codigo": "H63",
+   "Nombre": "Miligramo por centímetro cuadrado"
+ },
+ {
+   "Codigo": "H64",
+   "Nombre": "Miligramo por gramo"
+ },
+ {
+   "Codigo": "H65",
+   "Nombre": "Mililitro por metro cúbico"
+ },
+ {
+   "Codigo": "H66",
+   "Nombre": "Milímetro por año"
+ },
+ {
+   "Codigo": "H67",
+   "Nombre": "Milímetro por hora"
+ },
+ {
+   "Codigo": "H68",
+   "Nombre": "MiliMol por gram"
+ },
+ {
+   "Codigo": "H69",
+   "Nombre": "Picopascal por kilometro"
+ },
+ {
+   "Codigo": "H70",
+   "Nombre": "Picosegundo"
+ },
+ {
+   "Codigo": "H71",
+   "Nombre": "Por ciento al mes"
+ },
+ {
+   "Codigo": "H72",
+   "Nombre": "Por ciento por hectobar"
+ },
+ {
+   "Codigo": "H73",
+   "Nombre": "Por ciento por decakelvin"
+ },
+ {
+   "Codigo": "H74",
+   "Nombre": "Watt por metro"
+ },
+ {
+   "Codigo": "H75",
+   "Nombre": "Decapascal"
+ },
+ {
+   "Codigo": "H76",
+   "Nombre": "Gramo por milímetro"
+ },
+ {
+   "Codigo": "H77",
+   "Nombre": "Anchura del módulo"
+ },
+ {
+   "Codigo": "H78",
+   "Nombre": "Centímetro convencional de agua"
+ },
+ {
+   "Codigo": "H79",
+   "Nombre": "Escala francesa"
+ },
+ {
+   "Codigo": "H80",
+   "Nombre": "Unidad de bastidor"
+ },
+ {
+   "Codigo": "H81",
+   "Nombre": "Milímetro por minuto"
+ },
+ {
+   "Codigo": "H82",
+   "Nombre": "Punto grande"
+ },
+ {
+   "Codigo": "H83",
+   "Nombre": "Litro por kilogramo"
+ },
+ {
+   "Codigo": "H84",
+   "Nombre": "Gramos milímetro"
+ },
+ {
+   "Codigo": "H85",
+   "Nombre": "Semana recíproca"
+ },
+ {
+   "Codigo": "H87",
+   "Nombre": "Pieza"
+ },
+ {
+   "Codigo": "H88",
+   "Nombre": "MegaOhm kilómetro"
+ },
+ {
+   "Codigo": "H89",
+   "Nombre": "Por ciento por Ohmio"
+ },
+ {
+   "Codigo": "H90",
+   "Nombre": "Porcentaje por grado"
+ },
+ {
+   "Codigo": "H91",
+   "Nombre": "Por ciento por cada diez mil"
+ },
+ {
+   "Codigo": "H92",
+   "Nombre": "Ciento por cien mil"
+ },
+ {
+   "Codigo": "H93",
+   "Nombre": "Porcentaje por cien"
+ },
+ {
+   "Codigo": "H94",
+   "Nombre": "Por ciento por mil"
+ },
+ {
+   "Codigo": "H95",
+   "Nombre": "Por ciento por voltio"
+ },
+ {
+   "Codigo": "H96",
+   "Nombre": "Tanto por ciento por bar"
+ },
+ {
+   "Codigo": "H98",
+   "Nombre": "Por ciento por pulgada"
+ },
+ {
+   "Codigo": "H99",
+   "Nombre": "Por ciento por metro"
+ },
+ {
+   "Codigo": "HA",
+   "Nombre": "Madeja"
+ },
+ {
+   "Codigo": "HAR",
+   "Nombre": "hectárea"
+ },
+ {
+   "Codigo": "HBA",
+   "Nombre": "Hectobar"
+ },
+ {
+   "Codigo": "HBX",
+   "Nombre": "Ciento de cajas"
+ },
+ {
+   "Codigo": "HC",
+   "Nombre": "Conteo en cientos"
+ },
+ {
+   "Codigo": "HD",
+   "Nombre": "Media docena"
+ },
+ {
+   "Codigo": "HDW",
+   "Nombre": "Cien kilogramos, peso seco"
+ },
+ {
+   "Codigo": "HE",
+   "Nombre": "Centésima de un quilate"
+ },
+ {
+   "Codigo": "HEA",
+   "Nombre": "Cabeza"
+ },
+ {
+   "Codigo": "HF",
+   "Nombre": "Cien pies"
+ },
+ {
+   "Codigo": "HGM",
+   "Nombre": "Héctogramo"
+ },
+ {
+   "Codigo": "HH",
+   "Nombre": "Cien pies cúbicos"
+ },
+ {
+   "Codigo": "HI",
+   "Nombre": "Cien hojas"
+ },
+ {
+   "Codigo": "HIU",
+   "Nombre": "Unidad internacional de cien"
+ },
+ {
+   "Codigo": "HJ",
+   "Nombre": "Potencia métrica"
+ },
+ {
+   "Codigo": "HK",
+   "Nombre": "Cien kilogramos"
+ },
+ {
+   "Codigo": "HKM",
+   "Nombre": "Cien kilogramos, masa neta"
+ },
+ {
+   "Codigo": "HL",
+   "Nombre": "Cien pies (lineal)"
+ },
+ {
+   "Codigo": "HLT",
+   "Nombre": "Hectolitro"
+ },
+ {
+   "Codigo": "HM",
+   "Nombre": "Milla por hora (milla estatal)"
+ },
+ {
+   "Codigo": "HMQ",
+   "Nombre": "Millones de metros cúbicos"
+ },
+ {
+   "Codigo": "HMT",
+   "Nombre": "Hectómetro"
+ },
+ {
+   "Codigo": "HN",
+   "Nombre": "Milímetro convencional de mercurio"
+ },
+ {
+   "Codigo": "HO",
+   "Nombre": "Cien onzas troy"
+ },
+ {
+   "Codigo": "HP",
+   "Nombre": "Milímetro convencional de agua"
+ },
+ {
+   "Codigo": "HPA",
+   "Nombre": "Hectolitro de alcohol puro"
+ },
+ {
+   "Codigo": "HS",
+   "Nombre": "Cien pies cuadrados"
+ },
+ {
+   "Codigo": "HT",
+   "Nombre": "media hora"
+ },
+ {
+   "Codigo": "HTZ",
+   "Nombre": "Hertz"
+ },
+ {
+   "Codigo": "HUR",
+   "Nombre": "Hora"
+ },
+ {
+   "Codigo": "HY",
+   "Nombre": "Cien yardas"
+ },
+ {
+   "Codigo": "IA",
+   "Nombre": "Pulgada libra"
+ },
+ {
+   "Codigo": "IC",
+   "Nombre": "Contar por pulgada"
+ },
+ {
+   "Codigo": "IE",
+   "Nombre": "Personas"
+ },
+ {
+   "Codigo": "IF",
+   "Nombre": "Pulgadas de agua"
+ },
+ {
+   "Codigo": "II",
+   "Nombre": "Columna pulgada"
+ },
+ {
+   "Codigo": "IM",
+   "Nombre": "Impresión"
+ },
+ {
+   "Codigo": "INH",
+   "Nombre": "Pulgada"
+ },
+ {
+   "Codigo": "INK",
+   "Nombre": "Pulgada cuadrada"
+ },
+ {
+   "Codigo": "INQ",
+   "Nombre": "Pulgada cúbica"
+ },
+ {
+   "Codigo": "IP",
+   "Nombre": "póliza de seguros"
+ },
+ {
+   "Codigo": "ISD",
+   "Nombre": "Grado internacional de azúcar"
+ },
+ {
+   "Codigo": "IT",
+   "Nombre": "Recuento por centímetro"
+ },
+ {
+   "Codigo": "IU",
+   "Nombre": "Pulgada por segundo"
+ },
+ {
+   "Codigo": "IV",
+   "Nombre": "Pulgada por segundo al cuadrado"
+ },
+ {
+   "Codigo": "J10",
+   "Nombre": "Por ciento por milímetro"
+ },
+ {
+   "Codigo": "J12",
+   "Nombre": "Por mille por psi"
+ },
+ {
+   "Codigo": "J13",
+   "Nombre": "Grado api"
+ },
+ {
+   "Codigo": "J14",
+   "Nombre": "Grado baume (escala de origen)"
+ },
+ {
+   "Codigo": "J15",
+   "Nombre": "Grado baume (us pesado)"
+ },
+ {
+   "Codigo": "J16",
+   "Nombre": "Grado baume (luz de los EUA)"
+ },
+ {
+   "Codigo": "J17",
+   "Nombre": "Grado balling"
+ },
+ {
+   "Codigo": "J18",
+   "Nombre": "Grado brix"
+ },
+ {
+   "Codigo": "J19",
+   "Nombre": "Grado fahrenheit hora pie cuadrado por unidad térmica británica (termoquímico)."
+ },
+ {
+   "Codigo": "J2",
+   "Nombre": "Joule por kilogramo"
+ },
+ {
+   "Codigo": "J20",
+   "Nombre": "Grado fahrenheit por kelvin"
+ },
+ {
+   "Codigo": "J21",
+   "Nombre": "Grado fahrenheit por bar"
+ },
+ {
+   "Codigo": "J22",
+   "Nombre": "Grado fahrenheit hora pie cuadrado por unidad térmica británica (tabla internacional)."
+ },
+ {
+   "Codigo": "J23",
+   "Nombre": "Grado fahrenheit por hora"
+ },
+ {
+   "Codigo": "J24",
+   "Nombre": "Grado fahrenheit por minuto"
+ },
+ {
+   "Codigo": "J25",
+   "Nombre": "Grado fahrenheit por segundo"
+ },
+ {
+   "Codigo": "J26",
+   "Nombre": "Reciprocidad grado fahrenheit"
+ },
+ {
+   "Codigo": "J27",
+   "Nombre": "Grado oechsle"
+ },
+ {
+   "Codigo": "J28",
+   "Nombre": "Grado rankine por hora"
+ },
+ {
+   "Codigo": "J29",
+   "Nombre": "Grado rankine por minuto"
+ },
+ {
+   "Codigo": "J30",
+   "Nombre": "Grado rankine por segundo"
+ },
+ {
+   "Codigo": "J31",
+   "Nombre": "Grado twaddel."
+ },
+ {
+   "Codigo": "J32",
+   "Nombre": "Micropoise"
+ },
+ {
+   "Codigo": "J33",
+   "Nombre": "Microgramo por kilogramo"
+ },
+ {
+   "Codigo": "J34",
+   "Nombre": "Microgramo por metro cúbico kelvin"
+ },
+ {
+   "Codigo": "J35",
+   "Nombre": "Microgramo por metro cúbico bar"
+ },
+ {
+   "Codigo": "J36",
+   "Nombre": "Microlitro por litro"
+ },
+ {
+   "Codigo": "J38",
+   "Nombre": "Baud"
+ },
+ {
+   "Codigo": "J39",
+   "Nombre": "Unidad térmica británica (significado)"
+ },
+ {
+   "Codigo": "J40",
+   "Nombre": "Unidad térmica británica (tabla internacional) pie por hora pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "J41",
+   "Nombre": "Unidad térmica británica (tabla internacional) pulgada por hora pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "J42",
+   "Nombre": "Unidad térmica británica (tabla internacional) pulgada por segundo pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "J43",
+   "Nombre": "Unidad térmica británica (tabla internacional) por libra grado fahrenheit"
+ },
+ {
+   "Codigo": "J44",
+   "Nombre": "Unidad térmica británica (tabla internacional) por minuto"
+ },
+ {
+   "Codigo": "J45",
+   "Nombre": "Unidad térmica británica (tabla internacional) por segundo"
+ },
+ {
+   "Codigo": "J46",
+   "Nombre": "Unidad térmica británica (termoquímico) pie por hora pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "J47",
+   "Nombre": "Unidad térmica británica (termoquímica) por hora"
+ },
+ {
+   "Codigo": "J48",
+   "Nombre": "Unidad térmica británica (termoquímico) pulgada por hora pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "J49",
+   "Nombre": "Unidad térmica británica (termoquímico) pulgada por segundo pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "J50",
+   "Nombre": "Unidad térmica británica (termoquímico) por libra grado fahrenheit"
+ },
+ {
+   "Codigo": "J51",
+   "Nombre": "Unidad térmica británica (termoquímica) por minuto"
+ },
+ {
+   "Codigo": "J52",
+   "Nombre": "Unidad térmica británica (termoquímica) por segundo"
+ },
+ {
+   "Codigo": "J53",
+   "Nombre": "Culombio metro cuadrado por kilogramo"
+ },
+ {
+   "Codigo": "J54",
+   "Nombre": "Megabaud"
+ },
+ {
+   "Codigo": "J55",
+   "Nombre": "Watt segundo"
+ },
+ {
+   "Codigo": "J56",
+   "Nombre": "Bar por bar"
+ },
+ {
+   "Codigo": "J57",
+   "Nombre": "Barril (uk petróleo)"
+ },
+ {
+   "Codigo": "J58",
+   "Nombre": "Barril (petróleo UK) por minuto"
+ },
+ {
+   "Codigo": "J59",
+   "Nombre": "Barril (petróleo UK) por día"
+ },
+ {
+   "Codigo": "J60",
+   "Nombre": "Barril (petróleo UK) por hora"
+ },
+ {
+   "Codigo": "J61",
+   "Nombre": "Barril (petróleo UK) por segundo"
+ },
+ {
+   "Codigo": "J62",
+   "Nombre": "Barril (petróleo estados unidos) por hora"
+ },
+ {
+   "Codigo": "J63",
+   "Nombre": "Barril (petróleo estados unidos) por segundo"
+ },
+ {
+   "Codigo": "J64",
+   "Nombre": "Bushel (UK) por día"
+ },
+ {
+   "Codigo": "J65",
+   "Nombre": "Bushel (UK) por hora"
+ },
+ {
+   "Codigo": "J66",
+   "Nombre": "Bushel (UK) por minuto"
+ },
+ {
+   "Codigo": "J67",
+   "Nombre": "Bushel (UK) por segundo"
+ },
+ {
+   "Codigo": "J68",
+   "Nombre": "Bushel (seco,estados unidos) por día"
+ },
+ {
+   "Codigo": "J69",
+   "Nombre": "Bushel (seco,estados unidos) por hora"
+ },
+ {
+   "Codigo": "J70",
+   "Nombre": "Bushel (seco,estados unidos) por minuto"
+ },
+ {
+   "Codigo": "J71",
+   "Nombre": "Bushel (seco,estados unidos) por segundo"
+ },
+ {
+   "Codigo": "J72",
+   "Nombre": "Centinewton metro"
+ },
+ {
+   "Codigo": "J73",
+   "Nombre": "Centipoise por kelvin"
+ },
+ {
+   "Codigo": "J74",
+   "Nombre": "Centipoise por bar"
+ },
+ {
+   "Codigo": "J75",
+   "Nombre": "Caloría"
+ },
+ {
+   "Codigo": "J76",
+   "Nombre": "Caloría (tabla internacional) por gramo gadro celsius"
+ },
+ {
+   "Codigo": "J78",
+   "Nombre": "Caloría (termoquímica) por centímetro segundo grado celsius"
+ },
+ {
+   "Codigo": "J79",
+   "Nombre": "Caloría (termoquímico) por gramo gadro celsius"
+ },
+ {
+   "Codigo": "J81",
+   "Nombre": "Caloría (termoquímica) por minuto"
+ },
+ {
+   "Codigo": "J82",
+   "Nombre": "Caloría (termoquímica) por segundo"
+ },
+ {
+   "Codigo": "J83",
+   "Nombre": "Clo"
+ },
+ {
+   "Codigo": "J84",
+   "Nombre": "Centímetro por segundo kelvin"
+ },
+ {
+   "Codigo": "J85",
+   "Nombre": "Centímetro por segundo bar"
+ },
+ {
+   "Codigo": "J87",
+   "Nombre": "Centímetro cúbico por metro cúbico"
+ },
+ {
+   "Codigo": "J89",
+   "Nombre": "Centímetro de mercurio"
+ },
+ {
+   "Codigo": "J90",
+   "Nombre": "Decímetro cúbico por día"
+ },
+ {
+   "Codigo": "J91",
+   "Nombre": "Decímetro cúbico por metro cúbico"
+ },
+ {
+   "Codigo": "J92",
+   "Nombre": "Decímetro cúbico por minuto"
+ },
+ {
+   "Codigo": "J93",
+   "Nombre": "Decímetro cúbico por segundo"
+ },
+ {
+   "Codigo": "J94",
+   "Nombre": "Dina centímetro"
+ },
+ {
+   "Codigo": "J95",
+   "Nombre": "Onza (fluido, UK) por día"
+ },
+ {
+   "Codigo": "J96",
+   "Nombre": "Onza (fluido, UK) por hora"
+ },
+ {
+   "Codigo": "J97",
+   "Nombre": "Onza (fluido, UK) por minuto"
+ },
+ {
+   "Codigo": "J98",
+   "Nombre": "Onza (fluido, UK) por segundo"
+ },
+ {
+   "Codigo": "J99",
+   "Nombre": "Onza (fluido, estados unidos) por día"
+ },
+ {
+   "Codigo": "JB",
+   "Nombre": "Jumbo"
+ },
+ {
+   "Codigo": "JE",
+   "Nombre": "Joule por kelvin"
+ },
+ {
+   "Codigo": "JK",
+   "Nombre": "Megajoule por kilogramo"
+ },
+ {
+   "Codigo": "JM",
+   "Nombre": "Megajoule por metro cúbico"
+ },
+ {
+   "Codigo": "JNT",
+   "Nombre": "Junta de tubería"
+ },
+ {
+   "Codigo": "Jo",
+   "Nombre": "Articulación"
+ },
+ {
+   "Codigo": "JOU",
+   "Nombre": "Joule"
+ },
+ {
+   "Codigo": "JPS",
+   "Nombre": "Cien metros"
+ },
+ {
+   "Codigo": "JWL",
+   "Nombre": "Número de joyas"
+ },
+ {
+   "Codigo": "K1",
+   "Nombre": "Demanda de kilowatt"
+ },
+ {
+   "Codigo": "K10",
+   "Nombre": "Onza (fluido, estados unidos) por hora"
+ },
+ {
+   "Codigo": "K11",
+   "Nombre": "Onza (fluido, estados unidos) por minuto"
+ },
+ {
+   "Codigo": "K12",
+   "Nombre": "Onza (fluido, estados unidos) por segundo"
+ },
+ {
+   "Codigo": "K13",
+   "Nombre": "Pie por grado fahrenheit"
+ },
+ {
+   "Codigo": "K14",
+   "Nombre": "Pie por hora"
+ },
+ {
+   "Codigo": "K15",
+   "Nombre": "Pie libra-fuerza por hora"
+ },
+ {
+   "Codigo": "K16",
+   "Nombre": "Pie libra-fuerza por minuto"
+ },
+ {
+   "Codigo": "K17",
+   "Nombre": "Pie por psi (libra por pulgada cuadrada)"
+ },
+ {
+   "Codigo": "K18",
+   "Nombre": "Pie por segundo grado fahrenheit"
+ },
+ {
+   "Codigo": "K19",
+   "Nombre": "Pie por segundo psi (libra por pulgada cuadrada)"
+ },
+ {
+   "Codigo": "K2",
+   "Nombre": "Kilovoltios amperios demanda reactiva"
+ },
+ {
+   "Codigo": "K20",
+   "Nombre": "Reciprocidad del pie cuadrado"
+ },
+ {
+   "Codigo": "K21",
+   "Nombre": "Pie cúbico por grado fahrenheit"
+ },
+ {
+   "Codigo": "K22",
+   "Nombre": "Pie cúbico por día"
+ },
+ {
+   "Codigo": "K23",
+   "Nombre": "Pie cúbico por psi (libra por pulgada cuadrada)"
+ },
+ {
+   "Codigo": "K24",
+   "Nombre": "Pie de agua"
+ },
+ {
+   "Codigo": "K25",
+   "Nombre": "Pie de mercurio"
+ },
+ {
+   "Codigo": "K26",
+   "Nombre": "Galón (UK) por día"
+ },
+ {
+   "Codigo": "K27",
+   "Nombre": "Galón (UK) por hora"
+ },
+ {
+   "Codigo": "K28",
+   "Nombre": "Galón (UK) por segundo"
+ },
+ {
+   "Codigo": "K3",
+   "Nombre": "Kilovoltio amperio hora reactivo"
+ },
+ {
+   "Codigo": "K30",
+   "Nombre": "Galón (líquido, EUA) por segundo"
+ },
+ {
+   "Codigo": "K31",
+   "Nombre": "Gramo-fuerza por centímetro cuadrado"
+ },
+ {
+   "Codigo": "K32",
+   "Nombre": "Gill (UK) por día"
+ },
+ {
+   "Codigo": "K33",
+   "Nombre": "Gill (UK) por hora"
+ },
+ {
+   "Codigo": "K34",
+   "Nombre": "Gill (UK) por minuto"
+ },
+ {
+   "Codigo": "K35",
+   "Nombre": "Gill (UK) por segundo"
+ },
+ {
+   "Codigo": "K36",
+   "Nombre": "Gill (estados unidos) por día"
+ },
+ {
+   "Codigo": "K37",
+   "Nombre": "Gill (estados unidos) por hora"
+ },
+ {
+   "Codigo": "K38",
+   "Nombre": "Gill (estados unidos) por minuto"
+ },
+ {
+   "Codigo": "K39",
+   "Nombre": "Gill (estados unidos) por segundo"
+ },
+ {
+   "Codigo": "K40",
+   "Nombre": "Aceleración estándar de la caída libre"
+ },
+ {
+   "Codigo": "K41",
+   "Nombre": "Grano por galón (EUA)"
+ },
+ {
+   "Codigo": "K42",
+   "Nombre": "Caballo de fuerza de caldera"
+ },
+ {
+   "Codigo": "K43",
+   "Nombre": "Caballo de fuerza (eléctrico)"
+ },
+ {
+   "Codigo": "K45",
+   "Nombre": "Pulgada por grado fahrenheit"
+ },
+ {
+   "Codigo": "K46",
+   "Nombre": "Pulgada por psi (libra por pulgada cuadrada)"
+ },
+ {
+   "Codigo": "K47",
+   "Nombre": "Pulgada por segundo grado fahrenheit"
+ },
+ {
+   "Codigo": "K48",
+   "Nombre": "Pulgada por segundo psi (libra por pulgada cuadrada)"
+ },
+ {
+   "Codigo": "K49",
+   "Nombre": "Reciprocidad de la pulgada cuadrada"
+ },
+ {
+   "Codigo": "K5",
+   "Nombre": "Kilovoltios amperios (reactivos)"
+ },
+ {
+   "Codigo": "K50",
+   "Nombre": "Kilobaud"
+ },
+ {
+   "Codigo": "K51",
+   "Nombre": "Kilocaloría (significado)"
+ },
+ {
+   "Codigo": "K52",
+   "Nombre": "Kilocaloría (tabla internacional) por hora metro grado celsius"
+ },
+ {
+   "Codigo": "K53",
+   "Nombre": "Kilocaloría (termoquímico)"
+ },
+ {
+   "Codigo": "K54",
+   "Nombre": "Kilocaloría (termoquímica) por minuto"
+ },
+ {
+   "Codigo": "K55",
+   "Nombre": "Kilocaloría (termoquímica) por segundo"
+ },
+ {
+   "Codigo": "K58",
+   "Nombre": "KiloMol por hora"
+ },
+ {
+   "Codigo": "K59",
+   "Nombre": "KiloMol por metro cúbico kelvin"
+ },
+ {
+   "Codigo": "K6",
+   "Nombre": "Kilolitro"
+ },
+ {
+   "Codigo": "K60",
+   "Nombre": "KiloMol por metro cúbico bar"
+ },
+ {
+   "Codigo": "K61",
+   "Nombre": "KiloMol por minuto"
+ },
+ {
+   "Codigo": "K62",
+   "Nombre": "Litro por litro"
+ },
+ {
+   "Codigo": "K63",
+   "Nombre": "Reciprocidad del litro"
+ },
+ {
+   "Codigo": "K64",
+   "Nombre": "Libra (avoirdupois) por grado fahrenheit"
+ },
+ {
+   "Codigo": "K65",
+   "Nombre": "Libra (avoirdupois) pie cuadrado"
+ },
+ {
+   "Codigo": "K66",
+   "Nombre": "Libra (avoirdupois) por día"
+ },
+ {
+   "Codigo": "K67",
+   "Nombre": "Libra por pie hora"
+ },
+ {
+   "Codigo": "K68",
+   "Nombre": "Libra por pie segundo"
+ },
+ {
+   "Codigo": "K69",
+   "Nombre": "Libra (avoirdupois) por pie cúbico grado fahrenheit"
+ },
+ {
+   "Codigo": "K70",
+   "Nombre": "Libra (avoirdupois) por pie cúbico psi"
+ },
+ {
+   "Codigo": "K71",
+   "Nombre": "Libra (avoirdupois) por galón (UK)"
+ },
+ {
+   "Codigo": "K73",
+   "Nombre": "Libra (avoirdupois) por hora grados fahrenheit"
+ },
+ {
+   "Codigo": "K74",
+   "Nombre": "Libra (avoirdupois) por hora libra-fuerza por pulgada cuadrada"
+ },
+ {
+   "Codigo": "K75",
+   "Nombre": "Libra (avoirdupois) por pulgada cúbica grado fahrenheit"
+ },
+ {
+   "Codigo": "K76",
+   "Nombre": "Libra (avoirdupois) por pulgada cúbica psi"
+ },
+ {
+   "Codigo": "K77",
+   "Nombre": "Libra (avoirdupois) por psi"
+ },
+ {
+   "Codigo": "K78",
+   "Nombre": "Libra (avoirdupois) por minuto"
+ },
+ {
+   "Codigo": "K79",
+   "Nombre": "Libra (avoirdupois) por minuto grados fahrenheit"
+ },
+ {
+   "Codigo": "K80",
+   "Nombre": "Libra (avoirdupois) por minuto libra-fuerza por pulgada cuadrada"
+ },
+ {
+   "Codigo": "K81",
+   "Nombre": "Libra (avoirdupois) por segundo"
+ },
+ {
+   "Codigo": "K82",
+   "Nombre": "Libra (avoirdupois)por segundo grados fahrenheit"
+ },
+ {
+   "Codigo": "K83",
+   "Nombre": "Libra (avoirdupois) por segundo libra-fuerza por pulgada cuadrada"
+ },
+ {
+   "Codigo": "K84",
+   "Nombre": "Libra por yarda cúbica"
+ },
+ {
+   "Codigo": "K85",
+   "Nombre": "Libra-fuerza por pie cuadrado"
+ },
+ {
+   "Codigo": "K86",
+   "Nombre": "Libra-fuerza por pulgada cuadrada grados fahrenheit"
+ },
+ {
+   "Codigo": "K87",
+   "Nombre": "Libra-fuerza por pulgada cuadrada pulgada cúbica por segundo"
+ },
+ {
+   "Codigo": "K88",
+   "Nombre": "Libra-fuerza por pulgada cuadrada litro por segundo"
+ },
+ {
+   "Codigo": "K89",
+   "Nombre": "Libra-fuerza por pulgada cuadrada metro cúbico por segundo"
+ },
+ {
+   "Codigo": "K90",
+   "Nombre": "Libra-fuerza por pulgada cuadrada yarda cúbica por segundo"
+ },
+ {
+   "Codigo": "K91",
+   "Nombre": "Libra-fuerza segundo por pie cuadrado"
+ },
+ {
+   "Codigo": "K92",
+   "Nombre": "Libra-fuerza segundo por pulgada cuadrada"
+ },
+ {
+   "Codigo": "K93",
+   "Nombre": "Reciprocidad psi"
+ },
+ {
+   "Codigo": "K94",
+   "Nombre": "Cuarto (líquido, UK) por día"
+ },
+ {
+   "Codigo": "K95",
+   "Nombre": "Cuarto (líquido, UK) por hora"
+ },
+ {
+   "Codigo": "K96",
+   "Nombre": "Cuarto (líquido, UK) por minuto"
+ },
+ {
+   "Codigo": "K97",
+   "Nombre": "Cuarto (líquido, UK) por segundo"
+ },
+ {
+   "Codigo": "K98",
+   "Nombre": "Cuarto (líquido, estados unidos) por día"
+ },
+ {
+   "Codigo": "K99",
+   "Nombre": "Cuarto (líquido, estados unidos) por hora"
+ },
+ {
+   "Codigo": "KA",
+   "Nombre": "Pastel"
+ },
+ {
+   "Codigo": "KAT",
+   "Nombre": "Katal"
+ },
+ {
+   "Codigo": "KB",
+   "Nombre": "Kilocaracter"
+ },
+ {
+   "Codigo": "KBA",
+   "Nombre": "Kilobar"
+ },
+ {
+   "Codigo": "KCC",
+   "Nombre": "Kilogramo de cloruro de colina"
+ },
+ {
+   "Codigo": "KD",
+   "Nombre": "Kilogram decimal"
+ },
+ {
+   "Codigo": "KDW",
+   "Nombre": "Kilogramo de peso neto drenado"
+ },
+ {
+   "Codigo": "KEL",
+   "Nombre": "Kelvin"
+ },
+ {
+   "Codigo": "KF",
+   "Nombre": "Kilopacket"
+ },
+ {
+   "Codigo": "KGM",
+   "Nombre": "Kilogramo"
+ },
+ {
+   "Codigo": "KGS",
+   "Nombre": "Kilogramo por segundo"
+ },
+ {
+   "Codigo": "KHY",
+   "Nombre": "Kilogramo de peróxido de hidrógeno"
+ },
+ {
+   "Codigo": "KHZ",
+   "Nombre": "Kilohertz"
+ },
+ {
+   "Codigo": "KI",
+   "Nombre": "Kilogramo por milímetro de ancho"
+ },
+ {
+   "Codigo": "KIC",
+   "Nombre": "Kilogramo, incluyendo el contenedor"
+ },
+ {
+   "Codigo": "KIP",
+   "Nombre": "Kilogramo, incluyendo el empaquetado interno"
+ },
+ {
+   "Codigo": "KJ",
+   "Nombre": "Kilosegmento"
+ },
+ {
+   "Codigo": "KJO",
+   "Nombre": "Kilojoule"
+ },
+ {
+   "Codigo": "KL",
+   "Nombre": "Kilogramo por metro"
+ },
+ {
+   "Codigo": "KLK",
+   "Nombre": "Porcentaje de material seco láctico"
+ },
+ {
+   "Codigo": "KLX",
+   "Nombre": "Kilolux"
+ },
+ {
+   "Codigo": "KMA",
+   "Nombre": "Kilogramo de metilamina"
+ },
+ {
+   "Codigo": "KMH",
+   "Nombre": "Kilómetro por hora"
+ },
+ {
+   "Codigo": "KMK",
+   "Nombre": "Kilómetro cuadrado"
+ },
+ {
+   "Codigo": "KMQ",
+   "Nombre": "Kilogramo por metro cúbico"
+ },
+ {
+   "Codigo": "KMT",
+   "Nombre": "Kilómetro"
+ },
+ {
+   "Codigo": "KNI",
+   "Nombre": "Kilogramo de nitrógeno"
+ },
+ {
+   "Codigo": "KNM",
+   "Nombre": "Kolonewton por metro cuadrado"
+ },
+ {
+   "Codigo": "KNS",
+   "Nombre": "Kilogram sustancia nombrada"
+ },
+ {
+   "Codigo": "KNT",
+   "Nombre": "Nudo"
+ },
+ {
+   "Codigo": "KO",
+   "Nombre": "Miliequivalentes de potasa cáustica por gramo de producto"
+ },
+ {
+   "Codigo": "KPA",
+   "Nombre": "Kilopascal"
+ },
+ {
+   "Codigo": "KPH",
+   "Nombre": "Kilogramo de hidróxido de potasio (potasa cáustica)"
+ },
+ {
+   "Codigo": "KPO",
+   "Nombre": "Kilogramo de óxido de potasio"
+ },
+ {
+   "Codigo": "KPP",
+   "Nombre": "Kilogramo de pentóxido de fósforo (anhídrido fosfórico)"
+ },
+ {
+   "Codigo": "KR",
+   "Nombre": "Kiloroentgen"
+ },
+ {
+   "Codigo": "KS",
+   "Nombre": "Mil libras por pulgada cuadrada"
+ },
+ {
+   "Codigo": "KSD",
+   "Nombre": "Kilogramo de sustancia 90% seco"
+ },
+ {
+   "Codigo": "KSH",
+   "Nombre": "Kilogramo de hidróxido de sodio (sodio cáustica)"
+ },
+ {
+   "Codigo": "KT",
+   "Nombre": "Kit"
+ },
+ {
+   "Codigo": "KTN",
+   "Nombre": "Kilotonelada Métrica"
+ },
+ {
+   "Codigo": "KUR",
+   "Nombre": "Kilogramo de uranio"
+ },
+ {
+   "Codigo": "KVA",
+   "Nombre": "Kilovoltio - amperio"
+ },
+ {
+   "Codigo": "KVR",
+   "Nombre": "Kilovar"
+ },
+ {
+   "Codigo": "KVT",
+   "Nombre": "Kilovoltio"
+ },
+ {
+   "Codigo": "KW",
+   "Nombre": "Kilogramo por milímetro"
+ },
+ {
+   "Codigo": "KWH",
+   "Nombre": "Kilowatt hora"
+ },
+ {
+   "Codigo": "KWN",
+   "Nombre": "Kilowatt hora por metro cúbico normalizado"
+ },
+ {
+   "Codigo": "KWO",
+   "Nombre": "Kilogramo de trióxido de tungsteno"
+ },
+ {
+   "Codigo": "KWS",
+   "Nombre": "Kilowatt hora por metro cúbico estándar"
+ },
+ {
+   "Codigo": "KWT",
+   "Nombre": "Kilowatt"
+ },
+ {
+   "Codigo": "KX",
+   "Nombre": "Mililitro por kilogramo"
+ },
+ {
+   "Codigo": "L10",
+   "Nombre": "Cuarto (líquido, estados unidos) por minuto"
+ },
+ {
+   "Codigo": "L11",
+   "Nombre": "Cuarto (líquido, estados unidos) por segundo"
+ },
+ {
+   "Codigo": "L12",
+   "Nombre": "Metro por segundo kelvin"
+ },
+ {
+   "Codigo": "L13",
+   "Nombre": "Metro por segundo bar"
+ },
+ {
+   "Codigo": "L14",
+   "Nombre": "Metro cuadrado hora grado celsius por kilocaloría (tabla internacional)"
+ },
+ {
+   "Codigo": "L15",
+   "Nombre": "Milipascal segundo por kelvin"
+ },
+ {
+   "Codigo": "L16",
+   "Nombre": "Milipascal segundo por bar"
+ },
+ {
+   "Codigo": "L17",
+   "Nombre": "Miligramo por metro cúbico kelvin"
+ },
+ {
+   "Codigo": "L18",
+   "Nombre": "Miligramo por metro cúbico bar"
+ },
+ {
+   "Codigo": "L19",
+   "Nombre": "Mililitro por litro"
+ },
+ {
+   "Codigo": "L2",
+   "Nombre": "Litro por minuto"
+ },
+ {
+   "Codigo": "L20",
+   "Nombre": "Reciprocidad del milimetro cúbico"
+ },
+ {
+   "Codigo": "L21",
+   "Nombre": "Milimetro cúbico por metro cúbico"
+ },
+ {
+   "Codigo": "L23",
+   "Nombre": "Mol por hora"
+ },
+ {
+   "Codigo": "L24",
+   "Nombre": "Mol por kilogramo kelvin"
+ },
+ {
+   "Codigo": "L25",
+   "Nombre": "Mol por kilogramo bar"
+ },
+ {
+   "Codigo": "L26",
+   "Nombre": "Mol por litreo kelvin"
+ },
+ {
+   "Codigo": "L27",
+   "Nombre": "Mol por litro bar"
+ },
+ {
+   "Codigo": "L28",
+   "Nombre": "Mol por metro cúbico kelvin"
+ },
+ {
+   "Codigo": "L29",
+   "Nombre": "Mol por metro cúbico bar"
+ },
+ {
+   "Codigo": "L30",
+   "Nombre": "Mol por minuto"
+ },
+ {
+   "Codigo": "L31",
+   "Nombre": "Milliroentgen aequivalent men"
+ },
+ {
+   "Codigo": "L32",
+   "Nombre": "Nanogramo por kilogramo"
+ },
+ {
+   "Codigo": "L33",
+   "Nombre": "Onza (avoirdupois) por día"
+ },
+ {
+   "Codigo": "L34",
+   "Nombre": "Onza (avoirdupois) por hora"
+ },
+ {
+   "Codigo": "L35",
+   "Nombre": "Onza (avoirdupois) por minuto"
+ },
+ {
+   "Codigo": "L36",
+   "Nombre": "Onza (avoirdupois) por segundo"
+ },
+ {
+   "Codigo": "L37",
+   "Nombre": "Onza (avoirdupois) por galón (UK)"
+ },
+ {
+   "Codigo": "L38",
+   "Nombre": "Onza (avoirdupois) por galón (EUA)"
+ },
+ {
+   "Codigo": "L39",
+   "Nombre": "Onza (avoirdupois) por pulgada cúbica"
+ },
+ {
+   "Codigo": "L40",
+   "Nombre": "Onza fuerza"
+ },
+ {
+   "Codigo": "L41",
+   "Nombre": "Onza (avoirdupois) fuerza pulgada"
+ },
+ {
+   "Codigo": "L42",
+   "Nombre": "Picosiemens por metro"
+ },
+ {
+   "Codigo": "L43",
+   "Nombre": "Peck (UK)"
+ },
+ {
+   "Codigo": "L44",
+   "Nombre": "Peck (UK) por día"
+ },
+ {
+   "Codigo": "L45",
+   "Nombre": "Peck (UK) por hora"
+ },
+ {
+   "Codigo": "L46",
+   "Nombre": "Peck (UK) por minuto"
+ },
+ {
+   "Codigo": "L47",
+   "Nombre": "Peck (UK) por segundo"
+ },
+ {
+   "Codigo": "L48",
+   "Nombre": "Peck (seco, estados unidos) por día"
+ },
+ {
+   "Codigo": "L49",
+   "Nombre": "Peck (seco, estados unidos) por hora"
+ },
+ {
+   "Codigo": "L50",
+   "Nombre": "Peck (seco, estados unidos) por minuto"
+ },
+ {
+   "Codigo": "L51",
+   "Nombre": "Peck (seco, estados unidos) por segundo"
+ },
+ {
+   "Codigo": "L52",
+   "Nombre": "Libra.fuerza por pulgada cuadrada por libra fuerza por pulgada cuadrada"
+ },
+ {
+   "Codigo": "L53",
+   "Nombre": "Pinta (UK) por día"
+ },
+ {
+   "Codigo": "L54",
+   "Nombre": "Pinta (UK) por hora"
+ },
+ {
+   "Codigo": "L55",
+   "Nombre": "Pinta (UK) por minuto"
+ },
+ {
+   "Codigo": "L56",
+   "Nombre": "Pinta (UK) por segundo"
+ },
+ {
+   "Codigo": "L57",
+   "Nombre": "Pinta (líquido, estados unidos) por día"
+ },
+ {
+   "Codigo": "L58",
+   "Nombre": "Pinta (líquido, estados unidos) por hora"
+ },
+ {
+   "Codigo": "L59",
+   "Nombre": "Pinta (líquido, estados unidos) por minuto"
+ },
+ {
+   "Codigo": "L60",
+   "Nombre": "Pinta (líquido, estados unidos) por segundo"
+ },
+ {
+   "Codigo": "L61",
+   "Nombre": "Pinta (US seco)"
+ },
+ {
+   "Codigo": "L62",
+   "Nombre": "Cuarto de galón (seco de los EUA)"
+ },
+ {
+   "Codigo": "L63",
+   "Nombre": "Slug por día"
+ },
+ {
+   "Codigo": "L64",
+   "Nombre": "Slug por pie segundo"
+ },
+ {
+   "Codigo": "L65",
+   "Nombre": "Slug por pie cúbico"
+ },
+ {
+   "Codigo": "L66",
+   "Nombre": "Slug por hora"
+ },
+ {
+   "Codigo": "L67",
+   "Nombre": "Slug por minuto"
+ },
+ {
+   "Codigo": "L68",
+   "Nombre": "Slug por segundo"
+ },
+ {
+   "Codigo": "L69",
+   "Nombre": "Tonelada por kelvin"
+ },
+ {
+   "Codigo": "L70",
+   "Nombre": "Tonelada por bar"
+ },
+ {
+   "Codigo": "L71",
+   "Nombre": "Tonelada por día"
+ },
+ {
+   "Codigo": "L72",
+   "Nombre": "Tonelada por día kelvin"
+ },
+ {
+   "Codigo": "L73",
+   "Nombre": "Tonelada por día bar"
+ },
+ {
+   "Codigo": "L74",
+   "Nombre": "Tonelada por hora kelvin"
+ },
+ {
+   "Codigo": "L75",
+   "Nombre": "Tonelada por hora bar"
+ },
+ {
+   "Codigo": "L76",
+   "Nombre": "Tonelada por metro cúbico kelvin"
+ },
+ {
+   "Codigo": "L77",
+   "Nombre": "Tonelada por metro cúbico bar"
+ },
+ {
+   "Codigo": "L78",
+   "Nombre": "Tonelada por minuto"
+ },
+ {
+   "Codigo": "L79",
+   "Nombre": "Tonelada por minuto kelvin"
+ },
+ {
+   "Codigo": "L80",
+   "Nombre": "Tonelada por minuto bar"
+ },
+ {
+   "Codigo": "L81",
+   "Nombre": "Tonelada por segundo"
+ },
+ {
+   "Codigo": "L82",
+   "Nombre": "Tonelada por segundo kelvin"
+ },
+ {
+   "Codigo": "L83",
+   "Nombre": "Tonelada por segundo bar"
+ },
+ {
+   "Codigo": "L84",
+   "Nombre": "Tonelada (flota UK)"
+ },
+ {
+   "Codigo": "L85",
+   "Nombre": "Tonelada larga por día"
+ },
+ {
+   "Codigo": "L86",
+   "Nombre": "Tonelada (flota estados unidos)"
+ },
+ {
+   "Codigo": "L87",
+   "Nombre": "Tonelada corta por grado fahrenheit"
+ },
+ {
+   "Codigo": "L88",
+   "Nombre": "Tonelada corta por día"
+ },
+ {
+   "Codigo": "L89",
+   "Nombre": "Tonelada corta por hora grados fahrenheit"
+ },
+ {
+   "Codigo": "L90",
+   "Nombre": "Tonelada corta por hora libra-fuerza por pulgada cuadrada"
+ },
+ {
+   "Codigo": "L91",
+   "Nombre": "Tonelada corta por psi"
+ },
+ {
+   "Codigo": "L92",
+   "Nombre": "Tonelada larga (UK) por yarda cúbica"
+ },
+ {
+   "Codigo": "L93",
+   "Nombre": "Tonelada corta (estados unidos) por yarda cúbica"
+ },
+ {
+   "Codigo": "L94",
+   "Nombre": "Tonelada fuerza"
+ },
+ {
+   "Codigo": "L95",
+   "Nombre": "Año común"
+ },
+ {
+   "Codigo": "L96",
+   "Nombre": "Año sideral"
+ },
+ {
+   "Codigo": "L98",
+   "Nombre": "Yarda por grado fahrenheit"
+ },
+ {
+   "Codigo": "L99",
+   "Nombre": "Yarda por psi (libra por pulgada cuadrada)"
+ },
+ {
+   "Codigo": "LA",
+   "Nombre": "Libra por pulgada cúbica"
+ },
+ {
+   "Codigo": "LAC",
+   "Nombre": "Porcentaje de exceso de lactosa"
+ },
+ {
+   "Codigo": "LBR",
+   "Nombre": "Libra"
+ },
+ {
+   "Codigo": "LBT",
+   "Nombre": "Troy pound"
+ },
+ {
+   "Codigo": "LC",
+   "Nombre": "Centímetro lineal"
+ },
+ {
+   "Codigo": "LD",
+   "Nombre": "Litro por día"
+ },
+ {
+   "Codigo": "LE",
+   "Nombre": "Lite"
+ },
+ {
+   "Codigo": "LEF",
+   "Nombre": "Hoja"
+ },
+ {
+   "Codigo": "LF",
+   "Nombre": "Pie lineal"
+ },
+ {
+   "Codigo": "LH",
+   "Nombre": "Hora de trabajo"
+ },
+ {
+   "Codigo": "LI",
+   "Nombre": "Pulgada lineal"
+ },
+ {
+   "Codigo": "LJ",
+   "Nombre": "Spray grande"
+ },
+ {
+   "Codigo": "LK",
+   "Nombre": "Enlazar"
+ },
+ {
+   "Codigo": "LM",
+   "Nombre": "Metro lineal"
+ },
+ {
+   "Codigo": "LN",
+   "Nombre": "Longitud"
+ },
+ {
+   "Codigo": "LO",
+   "Nombre": "Lote [unidad de adquisición]"
+ },
+ {
+   "Codigo": "LP",
+   "Nombre": "Libra líquida"
+ },
+ {
+   "Codigo": "LPA",
+   "Nombre": "Litro de alcohol puro"
+ },
+ {
+   "Codigo": "LR",
+   "Nombre": "Capa"
+ },
+ {
+   "Codigo": "LS",
+   "Nombre": "Suma global"
+ },
+ {
+   "Codigo": "LTN",
+   "Nombre": "Tonelada (UK) o tonelada larga (estados unidos)"
+ },
+ {
+   "Codigo": "LTR",
+   "Nombre": "Litro"
+ },
+ {
+   "Codigo": "LUB",
+   "Nombre": "Tonelada métrica, aceite lubricante"
+ },
+ {
+   "Codigo": "LUM",
+   "Nombre": "Lumen"
+ },
+ {
+   "Codigo": "LUX",
+   "Nombre": "Lux"
+ },
+ {
+   "Codigo": "LX",
+   "Nombre": "Yarda lineal por libra"
+ },
+ {
+   "Codigo": "LY",
+   "Nombre": "Yarda lineal"
+ },
+ {
+   "Codigo": "M0",
+   "Nombre": "cinta magnética"
+ },
+ {
+   "Codigo": "M1",
+   "Nombre": "Miligramo por litro"
+ },
+ {
+   "Codigo": "M10",
+   "Nombre": "Reciprocidad de la yarda cuadrada"
+ },
+ {
+   "Codigo": "M11",
+   "Nombre": "Yarda cúbica por grado fahrenheit"
+ },
+ {
+   "Codigo": "M12",
+   "Nombre": "Yarda cúbica por día"
+ },
+ {
+   "Codigo": "M13",
+   "Nombre": "Yarda cúbica por hora"
+ },
+ {
+   "Codigo": "M14",
+   "Nombre": "Yarda cúbica por psi (libra por pulgada cuadrada)"
+ },
+ {
+   "Codigo": "M15",
+   "Nombre": "Yarda cúbica por minuto"
+ },
+ {
+   "Codigo": "M16",
+   "Nombre": "Yarda cúbica por segundo"
+ },
+ {
+   "Codigo": "M17",
+   "Nombre": "Kilohertz metro"
+ },
+ {
+   "Codigo": "M18",
+   "Nombre": "Gigahertz metro"
+ },
+ {
+   "Codigo": "M19",
+   "Nombre": "Beaufort"
+ },
+ {
+   "Codigo": "M20",
+   "Nombre": "Recíproco de megakelvin ó megakelvin a la potencia menos 1"
+ },
+ {
+   "Codigo": "M21",
+   "Nombre": "Kilovoltio-amperio hora recíprocidad"
+ },
+ {
+   "Codigo": "M22",
+   "Nombre": "Milímetro por centímetro cuadrado minuto"
+ },
+ {
+   "Codigo": "M23",
+   "Nombre": "Newton por centímetro"
+ },
+ {
+   "Codigo": "M24",
+   "Nombre": "Ohm kilómetro"
+ },
+ {
+   "Codigo": "M25",
+   "Nombre": "Porcentaje por grado celsius"
+ },
+ {
+   "Codigo": "M26",
+   "Nombre": "GigaOhm por metro"
+ },
+ {
+   "Codigo": "M27",
+   "Nombre": "Megahertz metro"
+ },
+ {
+   "Codigo": "M29",
+   "Nombre": "Kilogramo por kilogramo"
+ },
+ {
+   "Codigo": "M30",
+   "Nombre": "voltio-amperio segundo recíprocidad"
+ },
+ {
+   "Codigo": "M31",
+   "Nombre": "Kilogramo por kilómetro"
+ },
+ {
+   "Codigo": "M32",
+   "Nombre": "Segundos pascal por litro"
+ },
+ {
+   "Codigo": "M33",
+   "Nombre": "MiliMol por litro"
+ },
+ {
+   "Codigo": "M34",
+   "Nombre": "Newton metro por metro cuadrado"
+ },
+ {
+   "Codigo": "M35",
+   "Nombre": "Milivoltio - amperio"
+ },
+ {
+   "Codigo": "M36",
+   "Nombre": "Mes de 30 días"
+ },
+ {
+   "Codigo": "M37",
+   "Nombre": "Actual 360"
+ },
+ {
+   "Codigo": "M38",
+   "Nombre": "Kilómetro por segundo cuadrado"
+ },
+ {
+   "Codigo": "M39",
+   "Nombre": "Centímetro por segundo cuadrado"
+ },
+ {
+   "Codigo": "M4",
+   "Nombre": "Valor monetario"
+ },
+ {
+   "Codigo": "M40",
+   "Nombre": "Yarda por segundo cuadrado"
+ },
+ {
+   "Codigo": "M41",
+   "Nombre": "Milímetro por segundo cuadrado"
+ },
+ {
+   "Codigo": "M42",
+   "Nombre": "Milla (milla estatal) por segundo cuadrado"
+ },
+ {
+   "Codigo": "M43",
+   "Nombre": "Mil (unidad de Medida Militar)"
+ },
+ {
+   "Codigo": "M44",
+   "Nombre": "Revolución"
+ },
+ {
+   "Codigo": "M45",
+   "Nombre": "Grado por segundo cuadrado"
+ },
+ {
+   "Codigo": "M46",
+   "Nombre": "Revolución por minuto"
+ },
+ {
+   "Codigo": "M47",
+   "Nombre": "Circular Mil"
+ },
+ {
+   "Codigo": "M48",
+   "Nombre": "Milla cuadrada (basado en u.s survey foot)"
+ },
+ {
+   "Codigo": "M49",
+   "Nombre": "Cadena"
+ },
+ {
+   "Codigo": "M5",
+   "Nombre": "Microcurie"
+ },
+ {
+   "Codigo": "M50",
+   "Nombre": "Estadio"
+ },
+ {
+   "Codigo": "M51",
+   "Nombre": "Pie (Topografía UEA)"
+ },
+ {
+   "Codigo": "M52",
+   "Nombre": "Milla"
+ },
+ {
+   "Codigo": "M53",
+   "Nombre": "Metro por pascal"
+ },
+ {
+   "Codigo": "M55",
+   "Nombre": "Metro por radián"
+ },
+ {
+   "Codigo": "M56",
+   "Nombre": "Shake"
+ },
+ {
+   "Codigo": "M57",
+   "Nombre": "Milla por minuto"
+ },
+ {
+   "Codigo": "M58",
+   "Nombre": "Milla por segundo"
+ },
+ {
+   "Codigo": "M59",
+   "Nombre": "Metro por segundo pascal"
+ },
+ {
+   "Codigo": "M60",
+   "Nombre": "Metro por hora"
+ },
+ {
+   "Codigo": "M61",
+   "Nombre": "Pulgada por año"
+ },
+ {
+   "Codigo": "M62",
+   "Nombre": "Kilómetro por segundo"
+ },
+ {
+   "Codigo": "M63",
+   "Nombre": "Pulgada por minuto"
+ },
+ {
+   "Codigo": "M64",
+   "Nombre": "Yarda por segundo"
+ },
+ {
+   "Codigo": "M65",
+   "Nombre": "Yarda por minuto"
+ },
+ {
+   "Codigo": "M66",
+   "Nombre": "Yarda por hora"
+ },
+ {
+   "Codigo": "M67",
+   "Nombre": "Acre-pie"
+ },
+ {
+   "Codigo": "M68",
+   "Nombre": "Cordón"
+ },
+ {
+   "Codigo": "M69",
+   "Nombre": "Milla cúbica (reinounido)"
+ },
+ {
+   "Codigo": "M7",
+   "Nombre": "Micro-pulgada"
+ },
+ {
+   "Codigo": "M70",
+   "Nombre": "Unidad tradicional de capacidad de carga"
+ },
+ {
+   "Codigo": "M71",
+   "Nombre": "Metro cúbico por pascal (joules)"
+ },
+ {
+   "Codigo": "M72",
+   "Nombre": "Bel"
+ },
+ {
+   "Codigo": "M73",
+   "Nombre": "Kilogramo por metro cúbico pascal"
+ },
+ {
+   "Codigo": "M74",
+   "Nombre": "Kilogramo por pascal"
+ },
+ {
+   "Codigo": "M75",
+   "Nombre": "Kilolibra fuerza"
+ },
+ {
+   "Codigo": "M76",
+   "Nombre": "Poundal"
+ },
+ {
+   "Codigo": "M77",
+   "Nombre": "Kilogramo metro por segundo cuadrado"
+ },
+ {
+   "Codigo": "M78",
+   "Nombre": "Pond"
+ },
+ {
+   "Codigo": "M79",
+   "Nombre": "Pie cuadrado por hora"
+ },
+ {
+   "Codigo": "M80",
+   "Nombre": "Stokes por pascal"
+ },
+ {
+   "Codigo": "M81",
+   "Nombre": "Centímetro cuadrado por segundo"
+ },
+ {
+   "Codigo": "M82",
+   "Nombre": "Metro cuadrado por segundo pascal"
+ },
+ {
+   "Codigo": "M83",
+   "Nombre": "Denier"
+ },
+ {
+   "Codigo": "M84",
+   "Nombre": "Libra por yarda"
+ },
+ {
+   "Codigo": "M85",
+   "Nombre": "Tonelada, ensayo"
+ },
+ {
+   "Codigo": "M86",
+   "Nombre": "Libra Alemana"
+ },
+ {
+   "Codigo": "M87",
+   "Nombre": "Kilogramo por segundo pascal"
+ },
+ {
+   "Codigo": "M88",
+   "Nombre": "Tonelada por mes"
+ },
+ {
+   "Codigo": "M89",
+   "Nombre": "Tonelada por año"
+ },
+ {
+   "Codigo": "M9",
+   "Nombre": "Millones de btu por 1000 pies cúbicos"
+ },
+ {
+   "Codigo": "M90",
+   "Nombre": "Kilolibra por hora"
+ },
+ {
+   "Codigo": "M91",
+   "Nombre": "Libra por libra"
+ },
+ {
+   "Codigo": "M92",
+   "Nombre": "Libra fuerza pie"
+ },
+ {
+   "Codigo": "M93",
+   "Nombre": "Newton metro por radián"
+ },
+ {
+   "Codigo": "M94",
+   "Nombre": "Kilogramo metro"
+ },
+ {
+   "Codigo": "M95",
+   "Nombre": "Poundal pie"
+ },
+ {
+   "Codigo": "M96",
+   "Nombre": "Poundal pulgada"
+ },
+ {
+   "Codigo": "M97",
+   "Nombre": "Dina metro"
+ },
+ {
+   "Codigo": "M98",
+   "Nombre": "Kilogramo centímetro por segundo"
+ },
+ {
+   "Codigo": "M99",
+   "Nombre": "Gramo centímetro por segundo"
+ },
+ {
+   "Codigo": "MA",
+   "Nombre": "Máquina por unidad"
+ },
+ {
+   "Codigo": "MAH",
+   "Nombre": "Megavoltio amperio reactivo hora"
+ },
+ {
+   "Codigo": "MAL",
+   "Nombre": "Megalitro"
+ },
+ {
+   "Codigo": "MAM",
+   "Nombre": "Megametro"
+ },
+ {
+   "Codigo": "MAR",
+   "Nombre": "Megavar"
+ },
+ {
+   "Codigo": "MAW",
+   "Nombre": "Megawatt"
+ },
+ {
+   "Codigo": "MBE",
+   "Nombre": "Mil equivalente de ladrillo estándar"
+ },
+ {
+   "Codigo": "MBF",
+   "Nombre": "Mil pies de tabla"
+ },
+ {
+   "Codigo": "MBR",
+   "Nombre": "Milibar"
+ },
+ {
+   "Codigo": "MC",
+   "Nombre": "Microgramo"
+ },
+ {
+   "Codigo": "MCU",
+   "Nombre": "Milicurie"
+ },
+ {
+   "Codigo": "MD",
+   "Nombre": "Tonelada métrica seca al aire"
+ },
+ {
+   "Codigo": "MF",
+   "Nombre": "Miligramo por pie cuadrado por lado"
+ },
+ {
+   "Codigo": "MGM",
+   "Nombre": "Miligramo"
+ },
+ {
+   "Codigo": "MHZ",
+   "Nombre": "Megahertz"
+ },
+ {
+   "Codigo": "MIK",
+   "Nombre": "Milla cuadrada (milla estatal)"
+ },
+ {
+   "Codigo": "MIL",
+   "Nombre": "Mil"
+ },
+ {
+   "Codigo": "MIN",
+   "Nombre": "Minuto [unidad de tiempo]"
+ },
+ {
+   "Codigo": "MIO",
+   "Nombre": "Millon"
+ },
+ {
+   "Codigo": "MIU",
+   "Nombre": "Unidad internacional de millon"
+ },
+ {
+   "Codigo": "MK",
+   "Nombre": "Miligramo por pulgada cuadrada"
+ },
+ {
+   "Codigo": "MLD",
+   "Nombre": "Mil millones"
+ },
+ {
+   "Codigo": "MLT",
+   "Nombre": "Mililitro"
+ },
+ {
+   "Codigo": "MMK",
+   "Nombre": "Milímetro cuadrado"
+ },
+ {
+   "Codigo": "MMQ",
+   "Nombre": "Milímetro cúbico"
+ },
+ {
+   "Codigo": "MMT",
+   "Nombre": "Milímetro"
+ },
+ {
+   "Codigo": "MND",
+   "Nombre": "Kilogramo, peso seco"
+ },
+ {
+   "Codigo": "MON",
+   "Nombre": "Mes"
+ },
+ {
+   "Codigo": "MPA",
+   "Nombre": "Megapascal"
+ },
+ {
+   "Codigo": "MQ",
+   "Nombre": "Mil metros"
+ },
+ {
+   "Codigo": "MQH",
+   "Nombre": "Metro cúbico por hora"
+ },
+ {
+   "Codigo": "MQS",
+   "Nombre": "Metro cúbico por segundo"
+ },
+ {
+   "Codigo": "MSK",
+   "Nombre": "Metro por segundo cuadrado"
+ },
+ {
+   "Codigo": "MTK",
+   "Nombre": "Metro cuadrado"
+ },
+ {
+   "Codigo": "MTQ",
+   "Nombre": "Metro cúbico"
+ },
+ {
+   "Codigo": "MTR",
+   "Nombre": "Metro"
+ },
+ {
+   "Codigo": "MTS",
+   "Nombre": "Metro por segundo"
+ },
+ {
+   "Codigo": "MV",
+   "Nombre": "Número de mults"
+ },
+ {
+   "Codigo": "MVA",
+   "Nombre": "Megavoltio - amperio"
+ },
+ {
+   "Codigo": "MWH",
+   "Nombre": "Megawatt hora"
+ },
+ {
+   "Codigo": "N1",
+   "Nombre": "Pluma calórica"
+ },
+ {
+   "Codigo": "N10",
+   "Nombre": "Libra pie por segundo"
+ },
+ {
+   "Codigo": "N11",
+   "Nombre": "Libra pulgada por segundo"
+ },
+ {
+   "Codigo": "N12",
+   "Nombre": "Pferdestaerke"
+ },
+ {
+   "Codigo": "N13",
+   "Nombre": "Centímetro de mercurio (0°)"
+ },
+ {
+   "Codigo": "N14",
+   "Nombre": "Centímetro de agua (4°)"
+ },
+ {
+   "Codigo": "N15",
+   "Nombre": "Pie de agua (39.2 °f)"
+ },
+ {
+   "Codigo": "N16",
+   "Nombre": "Pulgada de mercurio (32 °f)"
+ },
+ {
+   "Codigo": "N17",
+   "Nombre": "Pulgada de mercurio (60 °f)"
+ },
+ {
+   "Codigo": "N18",
+   "Nombre": "Pulgada de agua (39.2 °f)"
+ },
+ {
+   "Codigo": "N19",
+   "Nombre": "Pulgada de agua (60 °f)"
+ },
+ {
+   "Codigo": "N2",
+   "Nombre": "número de líneas"
+ },
+ {
+   "Codigo": "N20",
+   "Nombre": "Kip por pulgada cuadrada"
+ },
+ {
+   "Codigo": "N21",
+   "Nombre": "Poundal por pie cuadrado"
+ },
+ {
+   "Codigo": "N22",
+   "Nombre": "Onza (avoirdupois) por pulgada cuadrada"
+ },
+ {
+   "Codigo": "N23",
+   "Nombre": "Metro convencional de agua"
+ },
+ {
+   "Codigo": "N24",
+   "Nombre": "Gramo por milímetro cuadrado"
+ },
+ {
+   "Codigo": "N25",
+   "Nombre": "Libra por yarda cuadrada"
+ },
+ {
+   "Codigo": "N26",
+   "Nombre": "Poundal por pulgada cuadrada"
+ },
+ {
+   "Codigo": "N27",
+   "Nombre": "Pie a la cuarta potencia"
+ },
+ {
+   "Codigo": "N28",
+   "Nombre": "Decímetro cúbico por kilogramo"
+ },
+ {
+   "Codigo": "N29",
+   "Nombre": "Pie cúbico por libra"
+ },
+ {
+   "Codigo": "N3",
+   "Nombre": "Impresión de punto"
+ },
+ {
+   "Codigo": "N30",
+   "Nombre": "Pulgada cúbica por libra"
+ },
+ {
+   "Codigo": "N31",
+   "Nombre": "Kilonewton por metro"
+ },
+ {
+   "Codigo": "N32",
+   "Nombre": "Poundal por pulgada"
+ },
+ {
+   "Codigo": "N33",
+   "Nombre": "Libra-fuerza por yarda"
+ },
+ {
+   "Codigo": "N34",
+   "Nombre": "Poundal segundo por pie cuadrado"
+ },
+ {
+   "Codigo": "N35",
+   "Nombre": "Poise por pascal"
+ },
+ {
+   "Codigo": "N36",
+   "Nombre": "Newton segundo por metro cuadrado"
+ },
+ {
+   "Codigo": "N37",
+   "Nombre": "Kilogramo por metro segundo"
+ },
+ {
+   "Codigo": "N38",
+   "Nombre": "Kilogramo por metro minuto"
+ },
+ {
+   "Codigo": "N39",
+   "Nombre": "Kilogramo por metro día"
+ },
+ {
+   "Codigo": "N40",
+   "Nombre": "Kilogramo por metro hora"
+ },
+ {
+   "Codigo": "N41",
+   "Nombre": "Gramo por centímetro segundo"
+ },
+ {
+   "Codigo": "N42",
+   "Nombre": "Poundal segundo por pulgada cuadrada"
+ },
+ {
+   "Codigo": "N43",
+   "Nombre": "Libra por pie minuto"
+ },
+ {
+   "Codigo": "N44",
+   "Nombre": "Libra por pie día"
+ },
+ {
+   "Codigo": "N45",
+   "Nombre": "Metro cúbico por segundo pascal"
+ },
+ {
+   "Codigo": "N46",
+   "Nombre": "Pie poundal"
+ },
+ {
+   "Codigo": "N47",
+   "Nombre": "Pulgada poundal"
+ },
+ {
+   "Codigo": "N48",
+   "Nombre": "Watt por centímetro cuadrado"
+ },
+ {
+   "Codigo": "N49",
+   "Nombre": "Watt por pulgada cuadrada"
+ },
+ {
+   "Codigo": "N50",
+   "Nombre": "Unidad térmica británica (tabla internacional) por pie cuadrado hora."
+ },
+ {
+   "Codigo": "N51",
+   "Nombre": "Unidad térmica británica (termoquímica) por pie cuadrado hora."
+ },
+ {
+   "Codigo": "N52",
+   "Nombre": "Unidad térmica británica (termoquímico) por pie cuadrado minuto."
+ },
+ {
+   "Codigo": "N53",
+   "Nombre": "Unidad térmica británica (tabla internacional) por pie cuadrado segundo."
+ },
+ {
+   "Codigo": "N54",
+   "Nombre": "Unidad térmica británica (termoquímica) por pie cuadrado segundo."
+ },
+ {
+   "Codigo": "N55",
+   "Nombre": "Unidad térmica británica (tabla internacional) por pulgada cuadrada segundo."
+ },
+ {
+   "Codigo": "N56",
+   "Nombre": "Caloría (termoquímica) por centímetro cuadrado minuto"
+ },
+ {
+   "Codigo": "N57",
+   "Nombre": "Caloría (termoquímica) por centímetro cuadrado segundo"
+ },
+ {
+   "Codigo": "N58",
+   "Nombre": "Unidad térmica británica (tabla internacional) por pie cúbico"
+ },
+ {
+   "Codigo": "N59",
+   "Nombre": "Unidad térmica británica (termoquímica) por pie cúbico"
+ },
+ {
+   "Codigo": "N60",
+   "Nombre": "Unidad térmica británica (tabla internacional) por grado fahrenheit"
+ },
+ {
+   "Codigo": "N61",
+   "Nombre": "Unidad térmica británica (termoquímico) por grado fahrenheit"
+ },
+ {
+   "Codigo": "N62",
+   "Nombre": "Unidad térmica británica (tabla internacional) por grado rankine"
+ },
+ {
+   "Codigo": "N63",
+   "Nombre": "Unidad térmica británica (termoquímico) por grado rankine"
+ },
+ {
+   "Codigo": "N64",
+   "Nombre": "Unidad térmica británica (termoquímico) por libra grado rankine"
+ },
+ {
+   "Codigo": "N65",
+   "Nombre": "Kilocaloría (tabla internacional) por gramo kelvin"
+ },
+ {
+   "Codigo": "N66",
+   "Nombre": "Unidad térmica británica (39 °f)"
+ },
+ {
+   "Codigo": "N67",
+   "Nombre": "Unidad térmica británica (59 °f)"
+ },
+ {
+   "Codigo": "N68",
+   "Nombre": "Unidad térmica británica (60 °f)"
+ },
+ {
+   "Codigo": "N69",
+   "Nombre": "Caloría (20 °c)"
+ },
+ {
+   "Codigo": "N70",
+   "Nombre": "Quad"
+ },
+ {
+   "Codigo": "N71",
+   "Nombre": "Termia (energía comercial)"
+ },
+ {
+   "Codigo": "N72",
+   "Nombre": "Termia (UEA)"
+ },
+ {
+   "Codigo": "N73",
+   "Nombre": "Unidad térmica británica (termoquímica) por libra"
+ },
+ {
+   "Codigo": "N74",
+   "Nombre": "Unidad térmica británica (tabla internacional) por hora pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "N75",
+   "Nombre": "Unidad térmica británica (termoquímico) por hora pie cuadrado grado farenheit."
+ },
+ {
+   "Codigo": "N76",
+   "Nombre": "Unidad térmica británica (tabla internacional) por segundo pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "N77",
+   "Nombre": "Unidad térmica británica (termoquímico) por segundo pie cuadrado grado fahrenheit."
+ },
+ {
+   "Codigo": "N78",
+   "Nombre": "Kilowatt por metro cuadrado kelvin"
+ },
+ {
+   "Codigo": "N79",
+   "Nombre": "Kelvin por pascal"
+ },
+ {
+   "Codigo": "N80",
+   "Nombre": "Watt por metro grado celsius"
+ },
+ {
+   "Codigo": "N81",
+   "Nombre": "Kilowatt por metro kelvin"
+ },
+ {
+   "Codigo": "N82",
+   "Nombre": "Kilowatt por metro grado celsius"
+ },
+ {
+   "Codigo": "N83",
+   "Nombre": "Metro por grado celsius metro"
+ },
+ {
+   "Codigo": "N84",
+   "Nombre": "Grado fahrenheit hora por unidad térmica británica (tabla internacional)"
+ },
+ {
+   "Codigo": "N85",
+   "Nombre": "Grado fahrenheit hora por unidad térmica británica (termoquímico)"
+ },
+ {
+   "Codigo": "N86",
+   "Nombre": "Grado fahrenheit segundo por unidad térmica británica (tabla internacional)"
+ },
+ {
+   "Codigo": "N87",
+   "Nombre": "Grago fahrenheit segundo por unidad térmica británica (termoquímico)"
+ },
+ {
+   "Codigo": "N88",
+   "Nombre": "Grado fahrenheit hora pie cuadrado por unidad térmica británica (tabla internacional) pulgada"
+ },
+ {
+   "Codigo": "N89",
+   "Nombre": "Grado fahrenheit hora pie cuadrado por unidad térmica británica (termoquímico) pulgada."
+ },
+ {
+   "Codigo": "N90",
+   "Nombre": "Kilofaradio"
+ },
+ {
+   "Codigo": "N91",
+   "Nombre": "Joule recíproco"
+ },
+ {
+   "Codigo": "N92",
+   "Nombre": "Picosiemens"
+ },
+ {
+   "Codigo": "N93",
+   "Nombre": "Amperio por pascal"
+ },
+ {
+   "Codigo": "N94",
+   "Nombre": "Franklin"
+ },
+ {
+   "Codigo": "N95",
+   "Nombre": "Amperio minuto"
+ },
+ {
+   "Codigo": "N96",
+   "Nombre": "Biot"
+ },
+ {
+   "Codigo": "N97",
+   "Nombre": "Gilbert"
+ },
+ {
+   "Codigo": "N98",
+   "Nombre": "Voltio por pascal"
+ },
+ {
+   "Codigo": "N99",
+   "Nombre": "Picovoltio"
+ },
+ {
+   "Codigo": "NA",
+   "Nombre": "Miligramo por kilogramo"
+ },
+ {
+   "Codigo": "NAR",
+   "Nombre": "Número de artículos"
+ },
+ {
+   "Codigo": "NB",
+   "Nombre": "barcaza"
+ },
+ {
+   "Codigo": "NBB",
+   "Nombre": "Número de bobinas"
+ },
+ {
+   "Codigo": "NC",
+   "Nombre": "Carro"
+ },
+ {
+   "Codigo": "NCL",
+   "Nombre": "Número de celulas"
+ },
+ {
+   "Codigo": "ND",
+   "Nombre": "Barril neto"
+ },
+ {
+   "Codigo": "NE",
+   "Nombre": "Litro neto"
+ },
+ {
+   "Codigo": "NEW",
+   "Nombre": "Newton"
+ },
+ {
+   "Codigo": "NF",
+   "Nombre": "Mensaje"
+ },
+ {
+   "Codigo": "NG",
+   "Nombre": "Galón neto (us)"
+ },
+ {
+   "Codigo": "NH",
+   "Nombre": "Hora del mensaje"
+ },
+ {
+   "Codigo": "NI",
+   "Nombre": "Galón imperial neto"
+ },
+ {
+   "Codigo": "NIL",
+   "Nombre": "Nil"
+ },
+ {
+   "Codigo": "NIU",
+   "Nombre": "Número de unidades internacionales"
+ },
+ {
+   "Codigo": "NJ",
+   "Nombre": "Número de pantallas"
+ },
+ {
+   "Codigo": "NL",
+   "Nombre": "Carga"
+ },
+ {
+   "Codigo": "NM3",
+   "Nombre": "Metro cúbico normalizado"
+ },
+ {
+   "Codigo": "NMI",
+   "Nombre": "Milla náutica"
+ },
+ {
+   "Codigo": "NMP",
+   "Nombre": "Número de paquetes"
+ },
+ {
+   "Codigo": "NN",
+   "Nombre": "tren"
+ },
+ {
+   "Codigo": "NPR",
+   "Nombre": "Número de parejas"
+ },
+ {
+   "Codigo": "NPT",
+   "Nombre": "Número de partes"
+ },
+ {
+   "Codigo": "NQ",
+   "Nombre": "Mho"
+ },
+ {
+   "Codigo": "NR",
+   "Nombre": "Micromho"
+ },
+ {
+   "Codigo": "NT",
+   "Nombre": "Tonelada neta"
+ },
+ {
+   "Codigo": "NTT",
+   "Nombre": "Tonelada de registro neto"
+ },
+ {
+   "Codigo": "NV",
+   "Nombre": "vehículo"
+ },
+ {
+   "Codigo": "NX",
+   "Nombre": "Parte por mil"
+ },
+ {
+   "Codigo": "NY",
+   "Nombre": "Libra por tonelada métrica al aire seco"
+ },
+ {
+   "Codigo": "OA",
+   "Nombre": "Panel"
+ },
+ {
+   "Codigo": "ODE",
+   "Nombre": "Equvalente de agotamiento del ozona"
+ },
+ {
+   "Codigo": "Ohm",
+   "Nombre": "Ohm"
+ },
+ {
+   "Codigo": "ON",
+   "Nombre": "Onza por yarda cuadrada"
+ },
+ {
+   "Codigo": "ONZ",
+   "Nombre": "Onza (avoirdupois)"
+ },
+ {
+   "Codigo": "OP",
+   "Nombre": "Dos paquetes"
+ },
+ {
+   "Codigo": "OPM",
+   "Nombre": "Oscilaciones por minuto"
+ },
+ {
+   "Codigo": "OT",
+   "Nombre": "Hora extra"
+ },
+ {
+   "Codigo": "OZ",
+   "Nombre": "Onza AV"
+ },
+ {
+   "Codigo": "OZA",
+   "Nombre": "Onza líquida (estados unidos)"
+ },
+ {
+   "Codigo": "OZI",
+   "Nombre": "Onza líquida (UK)"
+ },
+ {
+   "Codigo": "P0",
+   "Nombre": "Página electrónica"
+ },
+ {
+   "Codigo": "P1",
+   "Nombre": "Tanto por ciento"
+ },
+ {
+   "Codigo": "P10",
+   "Nombre": "Culombio por metro"
+ },
+ {
+   "Codigo": "P11",
+   "Nombre": "Kiloweber"
+ },
+ {
+   "Codigo": "P12",
+   "Nombre": "Gamma"
+ },
+ {
+   "Codigo": "P13",
+   "Nombre": "Kilotesla"
+ },
+ {
+   "Codigo": "P14",
+   "Nombre": "Joule por segundo"
+ },
+ {
+   "Codigo": "P15",
+   "Nombre": "Joule por minuto"
+ },
+ {
+   "Codigo": "P16",
+   "Nombre": "Joule por hora"
+ },
+ {
+   "Codigo": "P17",
+   "Nombre": "Joule por día"
+ },
+ {
+   "Codigo": "P18",
+   "Nombre": "Kilojoule por segundo"
+ },
+ {
+   "Codigo": "P19",
+   "Nombre": "Kilojoule por minuto"
+ },
+ {
+   "Codigo": "P2",
+   "Nombre": "Libra por pie"
+ },
+ {
+   "Codigo": "P20",
+   "Nombre": "Kilojoule por hora"
+ },
+ {
+   "Codigo": "P21",
+   "Nombre": "Kilojoule por dia"
+ },
+ {
+   "Codigo": "P22",
+   "Nombre": "NanoOhm"
+ },
+ {
+   "Codigo": "P23",
+   "Nombre": "Ohm circular-mil por pie"
+ },
+ {
+   "Codigo": "P24",
+   "Nombre": "Kilohenry"
+ },
+ {
+   "Codigo": "P25",
+   "Nombre": "Lumen por pie cuadrado"
+ },
+ {
+   "Codigo": "P26",
+   "Nombre": "Foto"
+ },
+ {
+   "Codigo": "P27",
+   "Nombre": "Vela (medida)"
+ },
+ {
+   "Codigo": "P28",
+   "Nombre": "Candela por pulgada cuadrada"
+ },
+ {
+   "Codigo": "P29",
+   "Nombre": "Footlambert"
+ },
+ {
+   "Codigo": "P3",
+   "Nombre": "Tres paquetes"
+ },
+ {
+   "Codigo": "P30",
+   "Nombre": "Lambert"
+ },
+ {
+   "Codigo": "P31",
+   "Nombre": "Stilb"
+ },
+ {
+   "Codigo": "P32",
+   "Nombre": "Candela por pie cuadrado"
+ },
+ {
+   "Codigo": "P33",
+   "Nombre": "Kilocandela"
+ },
+ {
+   "Codigo": "P34",
+   "Nombre": "Milicandela"
+ },
+ {
+   "Codigo": "P35",
+   "Nombre": "Hefner-kerze"
+ },
+ {
+   "Codigo": "P36",
+   "Nombre": "Candela internacional"
+ },
+ {
+   "Codigo": "P37",
+   "Nombre": "Unidad térmica británica (tabla internacional) por pie cuadrado"
+ },
+ {
+   "Codigo": "P38",
+   "Nombre": "Unidad térmica británica (termoquímica) por pie cuadrado"
+ },
+ {
+   "Codigo": "P39",
+   "Nombre": "Caloría (termoquímica) por centímetro cuadrado"
+ },
+ {
+   "Codigo": "P4",
+   "Nombre": "paquete de cuatro"
+ },
+ {
+   "Codigo": "P40",
+   "Nombre": "Langley"
+ },
+ {
+   "Codigo": "P41",
+   "Nombre": "Década (logaritmica)"
+ },
+ {
+   "Codigo": "P42",
+   "Nombre": "Pascal por segundo cuadrado"
+ },
+ {
+   "Codigo": "P43",
+   "Nombre": "Bel por metro"
+ },
+ {
+   "Codigo": "P44",
+   "Nombre": "Libra Mol"
+ },
+ {
+   "Codigo": "P45",
+   "Nombre": "Libra de Mol por segundo"
+ },
+ {
+   "Codigo": "P46",
+   "Nombre": "Libra Mol por minuto"
+ },
+ {
+   "Codigo": "P47",
+   "Nombre": "KiloMol por kilogramo"
+ },
+ {
+   "Codigo": "P48",
+   "Nombre": "Libra de Mol por libra"
+ },
+ {
+   "Codigo": "P49",
+   "Nombre": "Newton metro cuadrado por amperio"
+ },
+ {
+   "Codigo": "P5",
+   "Nombre": "Paquete de cinco"
+ },
+ {
+   "Codigo": "P50",
+   "Nombre": "Metro weber"
+ },
+ {
+   "Codigo": "P51",
+   "Nombre": "Mol por kilogramo pascal"
+ },
+ {
+   "Codigo": "P52",
+   "Nombre": "Mol por metro cúbico pascal"
+ },
+ {
+   "Codigo": "P53",
+   "Nombre": "Unit por segundo"
+ },
+ {
+   "Codigo": "P54",
+   "Nombre": "MiliGray por segundo"
+ },
+ {
+   "Codigo": "P55",
+   "Nombre": "MicroGray por segundo"
+ },
+ {
+   "Codigo": "P56",
+   "Nombre": "NanoGray por segundo"
+ },
+ {
+   "Codigo": "P57",
+   "Nombre": "Gray por minuto"
+ },
+ {
+   "Codigo": "P58",
+   "Nombre": "MiliGray por minuto"
+ },
+ {
+   "Codigo": "P59",
+   "Nombre": "Microgray por minuto"
+ },
+ {
+   "Codigo": "P6",
+   "Nombre": "paquete de seis"
+ },
+ {
+   "Codigo": "P60",
+   "Nombre": "Nanogray por minuto"
+ },
+ {
+   "Codigo": "P61",
+   "Nombre": "Gray por hora"
+ },
+ {
+   "Codigo": "P62",
+   "Nombre": "MiliGray por hora"
+ },
+ {
+   "Codigo": "P63",
+   "Nombre": "Micro gray por hora"
+ },
+ {
+   "Codigo": "P64",
+   "Nombre": "Nanogray por hora"
+ },
+ {
+   "Codigo": "P65",
+   "Nombre": "Sievert por segundo"
+ },
+ {
+   "Codigo": "P66",
+   "Nombre": "MilliSievert por segundo"
+ },
+ {
+   "Codigo": "P67",
+   "Nombre": "MicroSievert por segundo"
+ },
+ {
+   "Codigo": "P68",
+   "Nombre": "NanoSievert por segundo"
+ },
+ {
+   "Codigo": "P69",
+   "Nombre": "Rem por segundo"
+ },
+ {
+   "Codigo": "P7",
+   "Nombre": "Paquete de siete"
+ },
+ {
+   "Codigo": "P70",
+   "Nombre": "Sievert por hora"
+ },
+ {
+   "Codigo": "P71",
+   "Nombre": "MilliSievert por hora"
+ },
+ {
+   "Codigo": "P72",
+   "Nombre": "Micro Sievert por hora"
+ },
+ {
+   "Codigo": "P73",
+   "Nombre": "NanoSievert por hora"
+ },
+ {
+   "Codigo": "P74",
+   "Nombre": "Sievert por minuto"
+ },
+ {
+   "Codigo": "P75",
+   "Nombre": "MilliSievert por minuto"
+ },
+ {
+   "Codigo": "P76",
+   "Nombre": "MicroSievert por minuto"
+ },
+ {
+   "Codigo": "P77",
+   "Nombre": "NanoSievert pominut"
+ },
+ {
+   "Codigo": "P78",
+   "Nombre": "Reciprocidad por segundo"
+ },
+ {
+   "Codigo": "P79",
+   "Nombre": "Pascal metro cuadrado por kilogramo"
+ },
+ {
+   "Codigo": "P8",
+   "Nombre": "Paquete de ocho"
+ },
+ {
+   "Codigo": "P80",
+   "Nombre": "Milipascal por metro."
+ },
+ {
+   "Codigo": "P81",
+   "Nombre": "Kilopascal por metro."
+ },
+ {
+   "Codigo": "P82",
+   "Nombre": "Hectopascal por metro."
+ },
+ {
+   "Codigo": "P83",
+   "Nombre": "Admosfera estandar por metro."
+ },
+ {
+   "Codigo": "P84",
+   "Nombre": "Admosfera tecnica por metro."
+ },
+ {
+   "Codigo": "P85",
+   "Nombre": "Torr por metro."
+ },
+ {
+   "Codigo": "P86",
+   "Nombre": "Psi por pulgada"
+ },
+ {
+   "Codigo": "P87",
+   "Nombre": "Metro cúbico por segundo de metro cuadrado"
+ },
+ {
+   "Codigo": "P88",
+   "Nombre": "Rhe"
+ },
+ {
+   "Codigo": "P89",
+   "Nombre": "Libra por metro cúbico de pulgada"
+ },
+ {
+   "Codigo": "P9",
+   "Nombre": "Nueve paquetes"
+ },
+ {
+   "Codigo": "P90",
+   "Nombre": "Libra-fuerza por pulgada cuadrada"
+ },
+ {
+   "Codigo": "P91",
+   "Nombre": "Permanente (0°c)"
+ },
+ {
+   "Codigo": "P92",
+   "Nombre": "Permanente (23°c)"
+ },
+ {
+   "Codigo": "P93",
+   "Nombre": "Byte por segundo"
+ },
+ {
+   "Codigo": "P94",
+   "Nombre": "Kilobyte por segundo"
+ },
+ {
+   "Codigo": "P95",
+   "Nombre": "Megabite por segundo"
+ },
+ {
+   "Codigo": "P96",
+   "Nombre": "Recíproco de la unidad si deriva voltio"
+ },
+ {
+   "Codigo": "P97",
+   "Nombre": "Reciprocidad de Radian"
+ },
+ {
+   "Codigo": "P98",
+   "Nombre": "Pascal a la suma de potencia de los números estequimetricos"
+ },
+ {
+   "Codigo": "P99",
+   "Nombre": "Mols por metro cúbico a la suma de potencia de los números estequimetricos"
+ },
+ {
+   "Codigo": "PAL",
+   "Nombre": "Pascal"
+ },
+ {
+   "Codigo": "PB",
+   "Nombre": "Par de la pulgada"
+ },
+ {
+   "Codigo": "PD",
+   "Nombre": "Almohadilla"
+ },
+ {
+   "Codigo": "PE",
+   "Nombre": "Libra equivalente"
+ },
+ {
+   "Codigo": "PFL",
+   "Nombre": "Litro de prueba"
+ },
+ {
+   "Codigo": "PGL",
+   "Nombre": "Galón de prueba"
+ },
+ {
+   "Codigo": "PI",
+   "Nombre": "Tono"
+ },
+ {
+   "Codigo": "PLA",
+   "Nombre": "Grado de platón"
+ },
+ {
+   "Codigo": "PM",
+   "Nombre": "Porcentaje de libra"
+ },
+ {
+   "Codigo": "PO",
+   "Nombre": "Libra por pulgada"
+ },
+ {
+   "Codigo": "PQ",
+   "Nombre": "Página por pulgada"
+ },
+ {
+   "Codigo": "PR",
+   "Nombre": "Par"
+ },
+ {
+   "Codigo": "PS",
+   "Nombre": "Libra fuerza por pulgada cuadrada"
+ },
+ {
+   "Codigo": "PT",
+   "Nombre": "Pinta (US)"
+ },
+ {
+   "Codigo": "PTD",
+   "Nombre": "Pinta seca (estados unidos)"
+ },
+ {
+   "Codigo": "PTI",
+   "Nombre": "Pint (uk)"
+ },
+ {
+   "Codigo": "PTL",
+   "Nombre": "Pinta líquida (estados unidos)"
+ },
+ {
+   "Codigo": "PTN",
+   "Nombre": "Parte"
+ },
+ {
+   "Codigo": "PV",
+   "Nombre": "Media pinta (US)"
+ },
+ {
+   "Codigo": "PW",
+   "Nombre": "Libra por pulgada de ancho"
+ },
+ {
+   "Codigo": "PY",
+   "Nombre": "Pico seco (EUA)"
+ },
+ {
+   "Codigo": "PZ",
+   "Nombre": "Peck dry (UK)"
+ },
+ {
+   "Codigo": "Q10",
+   "Nombre": "Joule por tesla"
+ },
+ {
+   "Codigo": "Q11",
+   "Nombre": "Erlang"
+ },
+ {
+   "Codigo": "Q12",
+   "Nombre": "Octeto"
+ },
+ {
+   "Codigo": "Q13",
+   "Nombre": "Octeto por segundo"
+ },
+ {
+   "Codigo": "Q14",
+   "Nombre": "Shannon"
+ },
+ {
+   "Codigo": "Q15",
+   "Nombre": "Hartley"
+ },
+ {
+   "Codigo": "Q16",
+   "Nombre": "Unidad natural de información"
+ },
+ {
+   "Codigo": "Q17",
+   "Nombre": "Shannon por segundo"
+ },
+ {
+   "Codigo": "Q18",
+   "Nombre": "Hartley por segundo"
+ },
+ {
+   "Codigo": "Q19",
+   "Nombre": "Unidad natural de información por segundo"
+ },
+ {
+   "Codigo": "Q20",
+   "Nombre": "Segundo por kilogramo"
+ },
+ {
+   "Codigo": "Q21",
+   "Nombre": "Watt metro cuadrado"
+ },
+ {
+   "Codigo": "Q22",
+   "Nombre": "Segundo por metro cúbicos de radianes"
+ },
+ {
+   "Codigo": "Q23",
+   "Nombre": "Weber a la potencia menos uno"
+ },
+ {
+   "Codigo": "Q24",
+   "Nombre": "Reciprocidad de Pulgada"
+ },
+ {
+   "Codigo": "Q25",
+   "Nombre": "Dioptría"
+ },
+ {
+   "Codigo": "Q26",
+   "Nombre": "Uno por uno"
+ },
+ {
+   "Codigo": "Q27",
+   "Nombre": "Newtons metros por metro"
+ },
+ {
+   "Codigo": "Q28",
+   "Nombre": "Kilograma por metro cuadrado pascal segundo"
+ },
+ {
+   "Codigo": "Q29",
+   "Nombre": "Microgramo por hectogramo"
+ },
+ {
+   "Codigo": "Q3",
+   "Nombre": "Comida"
+ },
+ {
+   "Codigo": "Q30",
+   "Nombre": "Ph (potencial de hidrogeno)"
+ },
+ {
+   "Codigo": "Q31",
+   "Nombre": "Kilojoule por gramo"
+ },
+ {
+   "Codigo": "Q32",
+   "Nombre": "Femtolitro"
+ },
+ {
+   "Codigo": "Q33",
+   "Nombre": "Picolitro"
+ },
+ {
+   "Codigo": "Q34",
+   "Nombre": "Nanolitro"
+ },
+ {
+   "Codigo": "Q35",
+   "Nombre": "Megawatts por minuto"
+ },
+ {
+   "Codigo": "Q36",
+   "Nombre": "Metro cuadrado por metro cúbico"
+ },
+ {
+   "Codigo": "Q37",
+   "Nombre": "Metro cúbico estándar por día"
+ },
+ {
+   "Codigo": "Q38",
+   "Nombre": "Metro cúbico estándar por hora"
+ },
+ {
+   "Codigo": "Q39",
+   "Nombre": "Metro cúbico normalizado por día"
+ },
+ {
+   "Codigo": "Q40",
+   "Nombre": "Metro cúbico normalizado por hora"
+ },
+ {
+   "Codigo": "Q41",
+   "Nombre": "Joule por metro cúbico normalizado"
+ },
+ {
+   "Codigo": "Q42",
+   "Nombre": "Joule por metro cúbico estándar"
+ },
+ {
+   "Codigo": "QA",
+   "Nombre": "Página-fascimil"
+ },
+ {
+   "Codigo": "QAN",
+   "Nombre": "Cuarto (de un año)"
+ },
+ {
+   "Codigo": "QB",
+   "Nombre": "Página, copia impresa"
+ },
+ {
+   "Codigo": "QD",
+   "Nombre": "Cuarta docena"
+ },
+ {
+   "Codigo": "QH",
+   "Nombre": "Un cuarto de hora"
+ },
+ {
+   "Codigo": "QK",
+   "Nombre": "Cuarto de kilogramo"
+ },
+ {
+   "Codigo": "QR",
+   "Nombre": "Mano de papel"
+ },
+ {
+   "Codigo": "QT",
+   "Nombre": "Cuarto (EUA)"
+ },
+ {
+   "Codigo": "QTD",
+   "Nombre": "Cuarto seco (estados unidos)"
+ },
+ {
+   "Codigo": "QTI",
+   "Nombre": "Cuarto (UK)"
+ },
+ {
+   "Codigo": "QTL",
+   "Nombre": "Cuarto de líquido (estadis unidos)"
+ },
+ {
+   "Codigo": "QTR",
+   "Nombre": "Cuarto"
+ },
+ {
+   "Codigo": "R1",
+   "Nombre": "Pica"
+ },
+ {
+   "Codigo": "R9",
+   "Nombre": "Mil metros cúbicos"
+ },
+ {
+   "Codigo": "RH",
+   "Nombre": "Hora de funcionamiento"
+ },
+ {
+   "Codigo": "RK",
+   "Nombre": "Medida métrica de rollo"
+ },
+ {
+   "Codigo": "RM",
+   "Nombre": "Resma"
+ },
+ {
+   "Codigo": "RN",
+   "Nombre": "Medida métrica de Hojas (resma)"
+ },
+ {
+   "Codigo": "ROM",
+   "Nombre": "Habitación"
+ },
+ {
+   "Codigo": "RP",
+   "Nombre": "Libra por resma"
+ },
+ {
+   "Codigo": "RPM",
+   "Nombre": "Revoluciones por minuto"
+ },
+ {
+   "Codigo": "RPS",
+   "Nombre": "Revoluciones por segundo"
+ },
+ {
+   "Codigo": "RS",
+   "Nombre": "Reiniciar"
+ },
+ {
+   "Codigo": "RT",
+   "Nombre": "Milla de toneladas de ingresos"
+ },
+ {
+   "Codigo": "RU",
+   "Nombre": "correr"
+ },
+ {
+   "Codigo": "S3",
+   "Nombre": "Pie cuadrado por segundo"
+ },
+ {
+   "Codigo": "S4",
+   "Nombre": "Metro cuadrado por segundo"
+ },
+ {
+   "Codigo": "S5",
+   "Nombre": "Sesenta cuartos de pulgada"
+ },
+ {
+   "Codigo": "S6",
+   "Nombre": "Sesión"
+ },
+ {
+   "Codigo": "S7",
+   "Nombre": "unidad de almacenamiento"
+ },
+ {
+   "Codigo": "S8",
+   "Nombre": "Unidad de publicidad estándar"
+ },
+ {
+   "Codigo": "SAN",
+   "Nombre": "Medio año"
+ },
+ {
+   "Codigo": "SCO",
+   "Nombre": "Puntuación"
+ },
+ {
+   "Codigo": "SCR",
+   "Nombre": "Escrúpulo"
+ },
+ {
+   "Codigo": "SD",
+   "Nombre": "Libra sólida"
+ },
+ {
+   "Codigo": "SE",
+   "Nombre": "Sección"
+ },
+ {
+   "Codigo": "SEC",
+   "Nombre": "Segundo [unidad de tiempo]"
+ },
+ {
+   "Codigo": "SET",
+   "Nombre": "Conjunto"
+ },
+ {
+   "Codigo": "SG",
+   "Nombre": "Segmento"
+ },
+ {
+   "Codigo": "SHT",
+   "Nombre": "Tonelada de envíos"
+ },
+ {
+   "Codigo": "SIE",
+   "Nombre": "Siemens"
+ },
+ {
+   "Codigo": "SK",
+   "Nombre": "Camión cisterna con división"
+ },
+ {
+   "Codigo": "SM3",
+   "Nombre": "Metro cúbico estándar"
+ },
+ {
+   "Codigo": "SMI",
+   "Nombre": "Milla (milla estatal)"
+ },
+ {
+   "Codigo": "SN",
+   "Nombre": "Barra cuadrada"
+ },
+ {
+   "Codigo": "SQ",
+   "Nombre": "Cuadrado"
+ },
+ {
+   "Codigo": "SQR",
+   "Nombre": "Cuadrado y techado"
+ },
+ {
+   "Codigo": "SR",
+   "Nombre": "Tira"
+ },
+ {
+   "Codigo": "SS",
+   "Nombre": "Medida métrica de hoja"
+ },
+ {
+   "Codigo": "SST",
+   "Nombre": "Estandar corto (7200 partidos)"
+ },
+ {
+   "Codigo": "STC",
+   "Nombre": "Palo"
+ },
+ {
+   "Codigo": "STI",
+   "Nombre": "Estone (UK)"
+ },
+ {
+   "Codigo": "STK",
+   "Nombre": "Palo, cigarrillo"
+ },
+ {
+   "Codigo": "STL",
+   "Nombre": "Litro estándar"
+ },
+ {
+   "Codigo": "STN",
+   "Nombre": "Tonelada (estados unidos) o tonelada corta (UK y estados unidos)"
+ },
+ {
+   "Codigo": "STW",
+   "Nombre": "Paja"
+ },
+ {
+   "Codigo": "SW",
+   "Nombre": "Número de madejas"
+ },
+ {
+   "Codigo": "SX",
+   "Nombre": "Envío"
+ },
+ {
+   "Codigo": "SYR",
+   "Nombre": "Jeringuilla"
+ },
+ {
+   "Codigo": "T0",
+   "Nombre": "Linea de telecomunicaciones en servicio"
+ },
+ {
+   "Codigo": "T1",
+   "Nombre": "Mil libras"
+ },
+ {
+   "Codigo": "T3",
+   "Nombre": "Mil pedazos"
+ },
+ {
+   "Codigo": "T4",
+   "Nombre": "Bolsa de mil"
+ },
+ {
+   "Codigo": "T5",
+   "Nombre": "Mil envolturas"
+ },
+ {
+   "Codigo": "T6",
+   "Nombre": "Mil galones (US)"
+ },
+ {
+   "Codigo": "T7",
+   "Nombre": "Impresión de mil"
+ },
+ {
+   "Codigo": "T8",
+   "Nombre": "Mil pulgadas lineales"
+ },
+ {
+   "Codigo": "TA",
+   "Nombre": "Décimo de pie cúbico"
+ },
+ {
+   "Codigo": "TAB",
+   "Nombre": "Tonelada de registro bruto"
+ },
+ {
+   "Codigo": "TAH",
+   "Nombre": "Kiloamperio-hora (milamperio-hora)"
+ },
+ {
+   "Codigo": "TAN",
+   "Nombre": "Número de acido total"
+ },
+ {
+   "Codigo": "TC",
+   "Nombre": "Camión"
+ },
+ {
+   "Codigo": "TD",
+   "Nombre": "Termico"
+ },
+ {
+   "Codigo": "TE",
+   "Nombre": "Totalizador"
+ },
+ {
+   "Codigo": "TF",
+   "Nombre": "Diez yardas cuadradas"
+ },
+ {
+   "Codigo": "TI",
+   "Nombre": "Mil pulgadas cuadradas"
+ },
+ {
+   "Codigo": "TIC",
+   "Nombre": "Tonelada métrica, incluido el contenedor"
+ },
+ {
+   "Codigo": "TIP",
+   "Nombre": "Tonelada métrica, incluido el embalaje interior"
+ },
+ {
+   "Codigo": "TJ",
+   "Nombre": "Mil centímetros cuadrados"
+ },
+ {
+   "Codigo": "TKM",
+   "Nombre": "Tonelada kilometro"
+ },
+ {
+   "Codigo": "TL",
+   "Nombre": "Mil pies (lineal)"
+ },
+ {
+   "Codigo": "TMS",
+   "Nombre": "Kilogramo de carne importada, menos despojos"
+ },
+ {
+   "Codigo": "TNE",
+   "Nombre": "Tonelada (tonelada métrica)"
+ },
+ {
+   "Codigo": "TP",
+   "Nombre": "Paquete de diez"
+ },
+ {
+   "Codigo": "TPI",
+   "Nombre": "Dientes por pulgada"
+ },
+ {
+   "Codigo": "TPR",
+   "Nombre": "Decenas de pares"
+ },
+ {
+   "Codigo": "TQ",
+   "Nombre": "Mil pies"
+ },
+ {
+   "Codigo": "TQD",
+   "Nombre": "Mil metros cúbicos por día"
+ },
+ {
+   "Codigo": "TR",
+   "Nombre": "Diez pies cuadrados"
+ },
+ {
+   "Codigo": "TRL",
+   "Nombre": "Trillones (eur)"
+ },
+ {
+   "Codigo": "Ts",
+   "Nombre": "Mil pies cuadrados"
+ },
+ {
+   "Codigo": "TSD",
+   "Nombre": "Tonelada de sustancia 90% seca"
+ },
+ {
+   "Codigo": "TSH",
+   "Nombre": "Tonelada de vapor por hora"
+ },
+ {
+   "Codigo": "TST",
+   "Nombre": "Decena de conjuntos"
+ },
+ {
+   "Codigo": "TT",
+   "Nombre": "Mil metros lineales"
+ },
+ {
+   "Codigo": "TTS",
+   "Nombre": "Decenas de millar de pegatinas"
+ },
+ {
+   "Codigo": "Tu",
+   "Nombre": "Contenedor externo"
+ },
+ {
+   "Codigo": "TV",
+   "Nombre": "Mil kilogramos"
+ },
+ {
+   "Codigo": "TW",
+   "Nombre": "Mil hojas"
+ },
+ {
+   "Codigo": "U1",
+   "Nombre": "Tratamiento"
+ },
+ {
+   "Codigo": "U2",
+   "Nombre": "Número de tabletas"
+ },
+ {
+   "Codigo": "UA",
+   "Nombre": "Torr"
+ },
+ {
+   "Codigo": "UB",
+   "Nombre": "Linea de telecomunicaciones en servicio promedio"
+ },
+ {
+   "Codigo": "UC",
+   "Nombre": "Puerto de telecomunicaciones"
+ },
+ {
+   "Codigo": "UD",
+   "Nombre": "Décimo minuto"
+ },
+ {
+   "Codigo": "UE",
+   "Nombre": "Hora de décimo"
+ },
+ {
+   "Codigo": "UF",
+   "Nombre": "Uso por línea de telecomunicaciones promedio"
+ },
+ {
+   "Codigo": "UH",
+   "Nombre": "Diez mil yardas"
+ },
+ {
+   "Codigo": "UM",
+   "Nombre": "Millón de unidades"
+ },
+ {
+   "Codigo": "UN",
+   "Nombre": "Newton metro"
+ },
+ {
+   "Codigo": "VA",
+   "Nombre": "Voltio-amperio por kilogramo"
+ },
+ {
+   "Codigo": "VLT",
+   "Nombre": "Voltio"
+ },
+ {
+   "Codigo": "VP",
+   "Nombre": "Volumen porcentual"
+ },
+ {
+   "Codigo": "VS",
+   "Nombre": "Visita"
+ },
+ {
+   "Codigo": "W2",
+   "Nombre": "Kilo húmedo"
+ },
+ {
+   "Codigo": "W4",
+   "Nombre": "Dos semanas"
+ },
+ {
+   "Codigo": "WA",
+   "Nombre": "Watt por kilogramo"
+ },
+ {
+   "Codigo": "WB",
+   "Nombre": "Libra húmeda"
+ },
+ {
+   "Codigo": "WCD",
+   "Nombre": "Cable"
+ },
+ {
+   "Codigo": "WE",
+   "Nombre": "Tonelada húmeda"
+ },
+ {
+   "Codigo": "WEB",
+   "Nombre": "Weber"
+ },
+ {
+   "Codigo": "WEE",
+   "Nombre": "Semana"
+ },
+ {
+   "Codigo": "WG",
+   "Nombre": "Galón de vino"
+ },
+ {
+   "Codigo": "WH",
+   "Nombre": "Rueda"
+ },
+ {
+   "Codigo": "WHR",
+   "Nombre": "Watt hora"
+ },
+ {
+   "Codigo": "WI",
+   "Nombre": "Peso por pulgada cuadrada"
+ },
+ {
+   "Codigo": "WM",
+   "Nombre": "Mes de trabajo"
+ },
+ {
+   "Codigo": "WR",
+   "Nombre": "Envolver"
+ },
+ {
+   "Codigo": "WSD",
+   "Nombre": "Estándar"
+ },
+ {
+   "Codigo": "WTT",
+   "Nombre": "Watt"
+ },
+ {
+   "Codigo": "WW",
+   "Nombre": "Mililitro de agua"
+ },
+ {
+   "Codigo": "X1",
+   "Nombre": "Cadena de gunter"
+ },
+ {
+   "Codigo": "X1A",
+   "Nombre": "Tambor de acero"
+ },
+ {
+   "Codigo": "X1B",
+   "Nombre": "Tambor de aluminio"
+ },
+ {
+   "Codigo": "X1D",
+   "Nombre": "Tambor contrachapado"
+ },
+ {
+   "Codigo": "X1F",
+   "Nombre": "Contenedor flexible"
+ },
+ {
+   "Codigo": "X1G",
+   "Nombre": "Tambor de fibra"
+ },
+ {
+   "Codigo": "X1w",
+   "Nombre": "Tambor de madera"
+ },
+ {
+   "Codigo": "X2C",
+   "Nombre": "Barril de madera"
+ },
+ {
+   "Codigo": "X3A",
+   "Nombre": "Bidón de acero"
+ },
+ {
+   "Codigo": "X3H",
+   "Nombre": "Bidón de plástico"
+ },
+ {
+   "Codigo": "X43",
+   "Nombre": "Bolsa de gran tamaño"
+ },
+ {
+   "Codigo": "X44",
+   "Nombre": "Bolsa de plastico"
+ },
+ {
+   "Codigo": "X4A",
+   "Nombre": "Caja de acero"
+ },
+ {
+   "Codigo": "X4B",
+   "Nombre": "Caja de aluminio"
+ },
+ {
+   "Codigo": "X4C",
+   "Nombre": "Caja de madera natural"
+ },
+ {
+   "Codigo": "X4D",
+   "Nombre": "Caja de contrachapado"
+ },
+ {
+   "Codigo": "X4F",
+   "Nombre": "Caja de madera reconstituida"
+ },
+ {
+   "Codigo": "X4G",
+   "Nombre": "Caja de cartón"
+ },
+ {
+   "Codigo": "X4H",
+   "Nombre": "Caja de plástico"
+ },
+ {
+   "Codigo": "X5H",
+   "Nombre": "Bolsa de plástico tejido"
+ },
+ {
+   "Codigo": "X5L",
+   "Nombre": "Bolsa textil"
+ },
+ {
+   "Codigo": "X5M",
+   "Nombre": "Bolsa de papel"
+ },
+ {
+   "Codigo": "X6H",
+   "Nombre": "Recipiente de plástico, Contenedor compuesto."
+ },
+ {
+   "Codigo": "X6P",
+   "Nombre": "Recipiente de vidrio, Contenedor compuesto."
+ },
+ {
+   "Codigo": "X7A",
+   "Nombre": "Estuche para carro"
+ },
+ {
+   "Codigo": "X7B",
+   "Nombre": "Estuche de madera"
+ },
+ {
+   "Codigo": "X8A",
+   "Nombre": "Pallet de madera"
+ },
+ {
+   "Codigo": "X8B",
+   "Nombre": "Cajón de madera"
+ },
+ {
+   "Codigo": "X8C",
+   "Nombre": "Madera flejada"
+ },
+ {
+   "Codigo": "XAA",
+   "Nombre": "Contenedor intermedio para gráneles de plástico rígido"
+ },
+ {
+   "Codigo": "XAB",
+   "Nombre": "Contenedor de fibra"
+ },
+ {
+   "Codigo": "XAC",
+   "Nombre": "Contenedor de papel"
+ },
+ {
+   "Codigo": "XAD",
+   "Nombre": "Contenedor de madera"
+ },
+ {
+   "Codigo": "XAE",
+   "Nombre": "Aerosol"
+ },
+ {
+   "Codigo": "XAF",
+   "Nombre": "Pallet modular con collares, 80cms * 60cms"
+ },
+ {
+   "Codigo": "XAG",
+   "Nombre": "Pallet o empaquetado"
+ },
+ {
+   "Codigo": "XAH",
+   "Nombre": "Pallet, 100cms X 110cms"
+ },
+ {
+   "Codigo": "XAI",
+   "Nombre": "Contenedor tipo concha"
+ },
+ {
+   "Codigo": "XAJ",
+   "Nombre": "Cono"
+ },
+ {
+   "Codigo": "XAL",
+   "Nombre": "Esféra"
+ },
+ {
+   "Codigo": "XAM",
+   "Nombre": "Ampolleta no protegida"
+ },
+ {
+   "Codigo": "XAP",
+   "Nombre": "Ampolleta protegida"
+ },
+ {
+   "Codigo": "XAT",
+   "Nombre": "Atomizador"
+ },
+ {
+   "Codigo": "XAV",
+   "Nombre": "Cápsula"
+ },
+ {
+   "Codigo": "XB4",
+   "Nombre": "Cinturón"
+ },
+ {
+   "Codigo": "XBA",
+   "Nombre": "Barril"
+ },
+ {
+   "Codigo": "XBB",
+   "Nombre": "Bobina"
+ },
+ {
+   "Codigo": "XBC",
+   "Nombre": "Cajón para botellas / Estante para botellas"
+ },
+ {
+   "Codigo": "XBD",
+   "Nombre": "Tablero"
+ },
+ {
+   "Codigo": "XBE",
+   "Nombre": "Flejado"
+ },
+ {
+   "Codigo": "XBF",
+   "Nombre": "Globo no protegido"
+ },
+ {
+   "Codigo": "XBG",
+   "Nombre": "Bolso"
+ },
+ {
+   "Codigo": "XBH",
+   "Nombre": "Manojo"
+ },
+ {
+   "Codigo": "XBI",
+   "Nombre": "Compartimiento"
+ },
+ {
+   "Codigo": "XBJ",
+   "Nombre": "Cubeta"
+ },
+ {
+   "Codigo": "XBK",
+   "Nombre": "Cesta"
+ },
+ {
+   "Codigo": "XBL",
+   "Nombre": "Paca comprimida"
+ },
+ {
+   "Codigo": "XBM",
+   "Nombre": "Cuenco"
+ },
+ {
+   "Codigo": "XBN",
+   "Nombre": "Paca no comprimida"
+ },
+ {
+   "Codigo": "XBO",
+   "Nombre": "Botella no-protegida y cilíndrica"
+ },
+ {
+   "Codigo": "XBP",
+   "Nombre": "Globo protegido"
+ },
+ {
+   "Codigo": "XBQ",
+   "Nombre": "Botella cilíndrica protegida"
+ },
+ {
+   "Codigo": "XBR",
+   "Nombre": "Barra"
+ },
+ {
+   "Codigo": "XBS",
+   "Nombre": "Botella, no-protegida en forma de bulbo"
+ },
+ {
+   "Codigo": "XBT",
+   "Nombre": "Rollo de tela"
+ },
+ {
+   "Codigo": "XBU",
+   "Nombre": "Butt"
+ },
+ {
+   "Codigo": "XBV",
+   "Nombre": "Botella de bulbo protegido"
+ },
+ {
+   "Codigo": "XBW",
+   "Nombre": "Caja para líquidos"
+ },
+ {
+   "Codigo": "XBX",
+   "Nombre": "Caja"
+ },
+ {
+   "Codigo": "XBY",
+   "Nombre": "Tablero, con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XBZ",
+   "Nombre": "Barras, con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XCA",
+   "Nombre": "Lata rectangular"
+ },
+ {
+   "Codigo": "XCB",
+   "Nombre": "Cajón para cerveza"
+ },
+ {
+   "Codigo": "XCC",
+   "Nombre": "Mantequera"
+ },
+ {
+   "Codigo": "XCD",
+   "Nombre": "Lata con mango y boquilla"
+ },
+ {
+   "Codigo": "XCE",
+   "Nombre": "Cesto tejido"
+ },
+ {
+   "Codigo": "XCF",
+   "Nombre": "Cofre"
+ },
+ {
+   "Codigo": "XCG",
+   "Nombre": "Contenedor tipo Jaula"
+ },
+ {
+   "Codigo": "XCH",
+   "Nombre": "Cajonera"
+ },
+ {
+   "Codigo": "XCI",
+   "Nombre": "Frasco"
+ },
+ {
+   "Codigo": "XCJ",
+   "Nombre": "Ataúd"
+ },
+ {
+   "Codigo": "XCK",
+   "Nombre": "Barrica"
+ },
+ {
+   "Codigo": "XCL",
+   "Nombre": "Espiral"
+ },
+ {
+   "Codigo": "XCM",
+   "Nombre": "Paquete de tarjetas"
+ },
+ {
+   "Codigo": "XCN",
+   "Nombre": "Contenedor, no especificado como equipo de transporte"
+ },
+ {
+   "Codigo": "XCO",
+   "Nombre": "Garrafón no protegido"
+ },
+ {
+   "Codigo": "XCP",
+   "Nombre": "Garrafón protegido"
+ },
+ {
+   "Codigo": "XCQ",
+   "Nombre": "Cartucho"
+ },
+ {
+   "Codigo": "XCR",
+   "Nombre": "Cajón"
+ },
+ {
+   "Codigo": "XCS",
+   "Nombre": "Estuche"
+ },
+ {
+   "Codigo": "XCT",
+   "Nombre": "Cartón"
+ },
+ {
+   "Codigo": "XCU",
+   "Nombre": "Vaso"
+ },
+ {
+   "Codigo": "XCV",
+   "Nombre": "Cubierta"
+ },
+ {
+   "Codigo": "XCW",
+   "Nombre": "Jaula estilo rodillo"
+ },
+ {
+   "Codigo": "XCX",
+   "Nombre": "Lata cilíndrica"
+ },
+ {
+   "Codigo": "XCY",
+   "Nombre": "Cilindro"
+ },
+ {
+   "Codigo": "XCZ",
+   "Nombre": "Lona"
+ },
+ {
+   "Codigo": "XDA",
+   "Nombre": "Cajón multicapa de plástico"
+ },
+ {
+   "Codigo": "XDB",
+   "Nombre": "Cajón de varias capas de madera"
+ },
+ {
+   "Codigo": "XDC",
+   "Nombre": "Cajón multicapa de cartón"
+ },
+ {
+   "Codigo": "XDG",
+   "Nombre": "Jaula, Según la clasificación de la compañía (Commonwealth Handling Equipment Pool (CHEP))"
+ },
+ {
+   "Codigo": "XDH",
+   "Nombre": "Caja, Según la clasificación de la compañía (CHEP), Eurobox"
+ },
+ {
+   "Codigo": "XDI",
+   "Nombre": "Tambor de hierro"
+ },
+ {
+   "Codigo": "XDJ",
+   "Nombre": "damajuana o garrafa, no protegido"
+ },
+ {
+   "Codigo": "XDK",
+   "Nombre": "Cajón a granel, cartón"
+ },
+ {
+   "Codigo": "XDL",
+   "Nombre": "Cajas de plástico"
+ },
+ {
+   "Codigo": "XDM",
+   "Nombre": "Cajones a granel de madera"
+ },
+ {
+   "Codigo": "XDN",
+   "Nombre": "Dispensador"
+ },
+ {
+   "Codigo": "XDP",
+   "Nombre": "damajuana o garrafa, protegido"
+ },
+ {
+   "Codigo": "XDR",
+   "Nombre": "Tambor"
+ },
+ {
+   "Codigo": "XDS",
+   "Nombre": "Bandeja de una capa sin cubierta y de plástico"
+ },
+ {
+   "Codigo": "XDT",
+   "Nombre": "Bandeja de una capa sin cubierta y de madera"
+ },
+ {
+   "Codigo": "XDU",
+   "Nombre": "Bandeja de una capa sin cubierta y poliestireno"
+ },
+ {
+   "Codigo": "XDV",
+   "Nombre": "Bandeja de una capa sin cubierta y de cartón"
+ },
+ {
+   "Codigo": "XDW",
+   "Nombre": "Bandeja de dos capas sin tapa y con bandeja de plástico"
+ },
+ {
+   "Codigo": "XDX",
+   "Nombre": "Bandeja de dos capas sin cubierta y de madera"
+ },
+ {
+   "Codigo": "XDY",
+   "Nombre": "Bandeja de dos capas sin cubierta y de cartón"
+ },
+ {
+   "Codigo": "XEC",
+   "Nombre": "Bolsa de plástico"
+ },
+ {
+   "Codigo": "XED",
+   "Nombre": "Estuche, con pallet de base"
+ },
+ {
+   "Codigo": "XEE",
+   "Nombre": "Estuche, con pallet base de madera"
+ },
+ {
+   "Codigo": "XEF",
+   "Nombre": "Estuche, con pallet base de cartón"
+ },
+ {
+   "Codigo": "XEG",
+   "Nombre": "Estuche, con pallet base de plástico"
+ },
+ {
+   "Codigo": "XEH",
+   "Nombre": "Estuche, con pallet base de metal"
+ },
+ {
+   "Codigo": "XEI",
+   "Nombre": "Estuche isotérmico"
+ },
+ {
+   "Codigo": "XEN",
+   "Nombre": "Sobre"
+ },
+ {
+   "Codigo": "XFB",
+   "Nombre": "Bolsa flexible"
+ },
+ {
+   "Codigo": "XFC",
+   "Nombre": "Cajón para fruta"
+ },
+ {
+   "Codigo": "XFD",
+   "Nombre": "Cajón enmarcado"
+ },
+ {
+   "Codigo": "XFE",
+   "Nombre": "Tanque flexible"
+ },
+ {
+   "Codigo": "XFI",
+   "Nombre": "Firkin"
+ },
+ {
+   "Codigo": "XFL",
+   "Nombre": "Matraz"
+ },
+ {
+   "Codigo": "XFO",
+   "Nombre": "Cajón para zapatos"
+ },
+ {
+   "Codigo": "XFP",
+   "Nombre": "Caja auxiliar para película fotográfica"
+ },
+ {
+   "Codigo": "XFR",
+   "Nombre": "Marco"
+ },
+ {
+   "Codigo": "XFT",
+   "Nombre": "Contenedor para alimentos"
+ },
+ {
+   "Codigo": "XFW",
+   "Nombre": "Carro de cama plana"
+ },
+ {
+   "Codigo": "XFX",
+   "Nombre": "Bolsa flexible tipo contenedor"
+ },
+ {
+   "Codigo": "XGB",
+   "Nombre": "Botella para gas"
+ },
+ {
+   "Codigo": "XGI",
+   "Nombre": "Viga"
+ },
+ {
+   "Codigo": "XGL",
+   "Nombre": "Contenedor tipo galón"
+ },
+ {
+   "Codigo": "XGR",
+   "Nombre": "Recipiente de vidrio"
+ },
+ {
+   "Codigo": "XGU",
+   "Nombre": "Bandeja contenedor para apilar horizontalmente objetos planos"
+ },
+ {
+   "Codigo": "XGY",
+   "Nombre": "Costal de Yute"
+ },
+ {
+   "Codigo": "XGZ",
+   "Nombre": "Vigas con correas o agrupadas"
+ },
+ {
+   "Codigo": "XHA",
+   "Nombre": "Cesta con mango y de plástico"
+ },
+ {
+   "Codigo": "XHB",
+   "Nombre": "Cesta con mango y de madera"
+ },
+ {
+   "Codigo": "XHC",
+   "Nombre": "Cesta con asa y de cartón"
+ },
+ {
+   "Codigo": "XHG",
+   "Nombre": "Hogshead"
+ },
+ {
+   "Codigo": "XHN",
+   "Nombre": "Gancho"
+ },
+ {
+   "Codigo": "XHR",
+   "Nombre": "Cesto"
+ },
+ {
+   "Codigo": "XIA",
+   "Nombre": "Paquete con pantalla y de madera"
+ },
+ {
+   "Codigo": "XIB",
+   "Nombre": "Paquete con pantalla y de cartón"
+ },
+ {
+   "Codigo": "XIC",
+   "Nombre": "Paquete con pantalla y de plástico"
+ },
+ {
+   "Codigo": "XID",
+   "Nombre": "Paquete con pantalla y de metal"
+ },
+ {
+   "Codigo": "XIE",
+   "Nombre": "Paquete de mostrador."
+ },
+ {
+   "Codigo": "XIF",
+   "Nombre": "Envase para alimentos"
+ },
+ {
+   "Codigo": "XIG",
+   "Nombre": "Paquete envuelto en papel"
+ },
+ {
+   "Codigo": "XIH",
+   "Nombre": "Tambor de plástico"
+ },
+ {
+   "Codigo": "XIK",
+   "Nombre": "Paquete de cartón con los agujeros para botellas"
+ },
+ {
+   "Codigo": "XIL",
+   "Nombre": "Bandeja rígida con tapa y apilable (CEN TS 14482: 2002)"
+ },
+ {
+   "Codigo": "XIN",
+   "Nombre": "Lingote"
+ },
+ {
+   "Codigo": "XIZ",
+   "Nombre": "Lingotes con correas/ agrupados"
+ },
+ {
+   "Codigo": "XJB",
+   "Nombre": "Bolsa jumbo"
+ },
+ {
+   "Codigo": "XJC",
+   "Nombre": "Bidón rectangular"
+ },
+ {
+   "Codigo": "XJG",
+   "Nombre": "Jarra"
+ },
+ {
+   "Codigo": "XJR",
+   "Nombre": "Tarro"
+ },
+ {
+   "Codigo": "XJT",
+   "Nombre": "Bolsa de yute"
+ },
+ {
+   "Codigo": "XJY",
+   "Nombre": "Bidón, cilíndrico"
+ },
+ {
+   "Codigo": "XKG",
+   "Nombre": "Barrilete"
+ },
+ {
+   "Codigo": "XKI",
+   "Nombre": "Kit (Conjunto de piezas)"
+ },
+ {
+   "Codigo": "XLE",
+   "Nombre": "Valijas"
+ },
+ {
+   "Codigo": "XLG",
+   "Nombre": "Bitacora"
+ },
+ {
+   "Codigo": "XLT",
+   "Nombre": "Lote"
+ },
+ {
+   "Codigo": "XLU",
+   "Nombre": "Caja de arrastre"
+ },
+ {
+   "Codigo": "XLV",
+   "Nombre": "Contenedor pequeño"
+ },
+ {
+   "Codigo": "XLZ",
+   "Nombre": "Registros con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XMA",
+   "Nombre": "Cajón metálico"
+ },
+ {
+   "Codigo": "XMB",
+   "Nombre": "Múltiplo de bolsas"
+ },
+ {
+   "Codigo": "XMC",
+   "Nombre": "Cajón para leche"
+ },
+ {
+   "Codigo": "XME",
+   "Nombre": "Contenedor de metal"
+ },
+ {
+   "Codigo": "XMR",
+   "Nombre": "Recipiente de metal"
+ },
+ {
+   "Codigo": "XMS",
+   "Nombre": "Saco milti-pared"
+ },
+ {
+   "Codigo": "XMT",
+   "Nombre": "Tapete"
+ },
+ {
+   "Codigo": "XMW",
+   "Nombre": "Contenedor envuelto en plástico"
+ },
+ {
+   "Codigo": "XMX",
+   "Nombre": "Caja pequeña de cerillos"
+ },
+ {
+   "Codigo": "XNA",
+   "Nombre": "No disponible"
+ },
+ {
+   "Codigo": "XNE",
+   "Nombre": "Sin empaque o no empaquetado"
+ },
+ {
+   "Codigo": "XNF",
+   "Nombre": "Sin empaque o no empaquetado, unidad simple"
+ },
+ {
+   "Codigo": "XNG",
+   "Nombre": "Sin empaque o no empaquetado, unidades múltiples"
+ },
+ {
+   "Codigo": "XNS",
+   "Nombre": "Caja nido"
+ },
+ {
+   "Codigo": "XNT",
+   "Nombre": "Red"
+ },
+ {
+   "Codigo": "XNU",
+   "Nombre": "Red de plástico con tubo"
+ },
+ {
+   "Codigo": "XNV",
+   "Nombre": "Red textil con tubo"
+ },
+ {
+   "Codigo": "XOA",
+   "Nombre": "Pallet, Según la clasificación de la compañía (Commonwealth Handling Equipment Pool (CHEP) 40 cm x 60 cm"
+ },
+ {
+   "Codigo": "XOB",
+   "Nombre": "Pallet, Según la clasificación de la compañía (Commonwealth Handling Equipment Pool (CHEP) 80 cm x 120 cm"
+ },
+ {
+   "Codigo": "XOC",
+   "Nombre": "Pallet, Según la clasificación de la compañía (Commonwealth Handling Equipment Pool (CHEP) 100 cm x 120 cm"
+ },
+ {
+   "Codigo": "XOD",
+   "Nombre": "Pallet, AS 4068-1993"
+ },
+ {
+   "Codigo": "XOE",
+   "Nombre": "Pallet, ISO T11"
+ },
+ {
+   "Codigo": "XOF",
+   "Nombre": "Plataforma, peso o dimensión no especificada"
+ },
+ {
+   "Codigo": "XOK",
+   "Nombre": "Bloque"
+ },
+ {
+   "Codigo": "XOT",
+   "Nombre": "Octabin"
+ },
+ {
+   "Codigo": "XP2",
+   "Nombre": "Charola"
+ },
+ {
+   "Codigo": "XPA",
+   "Nombre": "Cajetilla"
+ },
+ {
+   "Codigo": "XPB",
+   "Nombre": "Pallet, Caja combinada y abierta con caja y pallet."
+ },
+ {
+   "Codigo": "XPC",
+   "Nombre": "Paquete postal"
+ },
+ {
+   "Codigo": "XPD",
+   "Nombre": "Pallet modular con collares (80cms * 100cms)"
+ },
+ {
+   "Codigo": "XPE",
+   "Nombre": "Pallet modular con collares (80cms * 120cms)"
+ },
+ {
+   "Codigo": "XPF",
+   "Nombre": "Corral"
+ },
+ {
+   "Codigo": "XPG",
+   "Nombre": "Placa"
+ },
+ {
+   "Codigo": "XPH",
+   "Nombre": "Cantaro"
+ },
+ {
+   "Codigo": "XPI",
+   "Nombre": "Pleca"
+ },
+ {
+   "Codigo": "XPJ",
+   "Nombre": "Canastilla"
+ },
+ {
+   "Codigo": "XPK",
+   "Nombre": "Paquete"
+ },
+ {
+   "Codigo": "XPL",
+   "Nombre": "Balde"
+ },
+ {
+   "Codigo": "XPN",
+   "Nombre": "Tablón"
+ },
+ {
+   "Codigo": "XPO",
+   "Nombre": "Bolsa pequeña"
+ },
+ {
+   "Codigo": "XPR",
+   "Nombre": "Contenedor de plástico"
+ },
+ {
+   "Codigo": "XPT",
+   "Nombre": "Maceta"
+ },
+ {
+   "Codigo": "XPU",
+   "Nombre": "Cacerola"
+ },
+ {
+   "Codigo": "XPV",
+   "Nombre": "Tubos, con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XPX",
+   "Nombre": "Pallet"
+ },
+ {
+   "Codigo": "XPY",
+   "Nombre": "Placas con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XPZ",
+   "Nombre": "Tablones con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XQA",
+   "Nombre": "Tambor de acero con cabeza no desmontable"
+ },
+ {
+   "Codigo": "XQB",
+   "Nombre": "Tambor de acero con cabeza extraíble"
+ },
+ {
+   "Codigo": "XQC",
+   "Nombre": "Tambor de aluminio con cabeza no extraíble"
+ },
+ {
+   "Codigo": "XQD",
+   "Nombre": "Tambor de aluminio con cabeza extraíble"
+ },
+ {
+   "Codigo": "XQF",
+   "Nombre": "Tambor, plástico con cabeza no desmontable"
+ },
+ {
+   "Codigo": "XQG",
+   "Nombre": "Tambor, plástico, cabeza extraíble"
+ },
+ {
+   "Codigo": "XQH",
+   "Nombre": "Barril de madera con tapón"
+ },
+ {
+   "Codigo": "XQJ",
+   "Nombre": "Barril de madera con cabeza desprendible"
+ },
+ {
+   "Codigo": "XQK",
+   "Nombre": "Bidón de acero con cabeza no desmontable"
+ },
+ {
+   "Codigo": "XQL",
+   "Nombre": "Bidón de acero con cabeza desmontable"
+ },
+ {
+   "Codigo": "XQM",
+   "Nombre": "Bidón de plástico con cabeza no desmontable"
+ },
+ {
+   "Codigo": "XQN",
+   "Nombre": "Bidón de plástico con cabeza extraíble"
+ },
+ {
+   "Codigo": "XQP",
+   "Nombre": "Caja de madera natural estándar"
+ },
+ {
+   "Codigo": "XQQ",
+   "Nombre": "Caja de madera natural con muros a prueba de filtraciones"
+ },
+ {
+   "Codigo": "XQR",
+   "Nombre": "Caja de plástico expandida"
+ },
+ {
+   "Codigo": "XQS",
+   "Nombre": "Caja de plástico sólida"
+ },
+ {
+   "Codigo": "XRD",
+   "Nombre": "Rod"
+ },
+ {
+   "Codigo": "XRG",
+   "Nombre": "Anillo"
+ },
+ {
+   "Codigo": "XRJ",
+   "Nombre": "Estante, Perchero para ropa"
+ },
+ {
+   "Codigo": "XRK",
+   "Nombre": "Estante"
+ },
+ {
+   "Codigo": "XRL",
+   "Nombre": "Carrete"
+ },
+ {
+   "Codigo": "XRO",
+   "Nombre": "Rollo"
+ },
+ {
+   "Codigo": "XRT",
+   "Nombre": "Red Roja"
+ },
+ {
+   "Codigo": "XRZ",
+   "Nombre": "Varillas con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XSA",
+   "Nombre": "Saco"
+ },
+ {
+   "Codigo": "XSB",
+   "Nombre": "Losa"
+ },
+ {
+   "Codigo": "XSC",
+   "Nombre": "Cajón poco profundo"
+ },
+ {
+   "Codigo": "XSD",
+   "Nombre": "Huso"
+ },
+ {
+   "Codigo": "XSE",
+   "Nombre": "Baúl"
+ },
+ {
+   "Codigo": "XSH",
+   "Nombre": "Bolsa pequeña hermética"
+ },
+ {
+   "Codigo": "XSI",
+   "Nombre": "Patín"
+ },
+ {
+   "Codigo": "XSK",
+   "Nombre": "Carcasa esqueleto"
+ },
+ {
+   "Codigo": "XSL",
+   "Nombre": "Hoja de deslizamiento"
+ },
+ {
+   "Codigo": "XSM",
+   "Nombre": "Hoja de metal"
+ },
+ {
+   "Codigo": "XSO",
+   "Nombre": "Carrete pequeño"
+ },
+ {
+   "Codigo": "XSP",
+   "Nombre": "Hoja de empaque de plástico"
+ },
+ {
+   "Codigo": "XSS",
+   "Nombre": "Cajón de acero"
+ },
+ {
+   "Codigo": "XSU",
+   "Nombre": "Maleta"
+ },
+ {
+   "Codigo": "XSV",
+   "Nombre": "Sobre de acero"
+ },
+ {
+   "Codigo": "XSW",
+   "Nombre": "Envoltorio"
+ },
+ {
+   "Codigo": "XSY",
+   "Nombre": "Manga"
+ },
+ {
+   "Codigo": "XSZ",
+   "Nombre": "Hojas con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XT1",
+   "Nombre": "Tableta"
+ },
+ {
+   "Codigo": "XTB",
+   "Nombre": "Tina"
+ },
+ {
+   "Codigo": "XTC",
+   "Nombre": "Caja para té"
+ },
+ {
+   "Codigo": "XTD",
+   "Nombre": "Tubo plegable"
+ },
+ {
+   "Codigo": "XTG",
+   "Nombre": "Contenedor de tanque genérico"
+ },
+ {
+   "Codigo": "XTI",
+   "Nombre": "Tierce"
+ },
+ {
+   "Codigo": "XTK",
+   "Nombre": "Tanque rectangular"
+ },
+ {
+   "Codigo": "XTL",
+   "Nombre": "Tina con tapa"
+ },
+ {
+   "Codigo": "XTN",
+   "Nombre": "Hojalata"
+ },
+ {
+   "Codigo": "XTO",
+   "Nombre": "Tonel"
+ },
+ {
+   "Codigo": "XTR",
+   "Nombre": "Maletero"
+ },
+ {
+   "Codigo": "XTS",
+   "Nombre": "Estructura"
+ },
+ {
+   "Codigo": "XTT",
+   "Nombre": "Bolsa de mano"
+ },
+ {
+   "Codigo": "XTU",
+   "Nombre": "Tubo"
+ },
+ {
+   "Codigo": "XTV",
+   "Nombre": "Tubo con boquilla"
+ },
+ {
+   "Codigo": "XTW",
+   "Nombre": "Pallet tricapa"
+ },
+ {
+   "Codigo": "XTY",
+   "Nombre": "Tanque cilíndrico"
+ },
+ {
+   "Codigo": "XTZ",
+   "Nombre": "Tubos con fleje/ agrupados/ armados"
+ },
+ {
+   "Codigo": "XUC",
+   "Nombre": "Sin empaque"
+ },
+ {
+   "Codigo": "XUN",
+   "Nombre": "Nombre"
+ },
+ {
+   "Codigo": "XVA",
+   "Nombre": "Tanque"
+ },
+ {
+   "Codigo": "XVG",
+   "Nombre": "Tanque de gas (a 1,031 mbar y 15° C)"
+ },
+ {
+   "Codigo": "XVI",
+   "Nombre": "Frasco pequeño"
+ },
+ {
+   "Codigo": "XVK",
+   "Nombre": "Paquete transportable"
+ },
+ {
+   "Codigo": "XVL",
+   "Nombre": "Contenedor para líquidos a granel"
+ },
+ {
+   "Codigo": "XVN",
+   "Nombre": "Vehículo"
+ },
+ {
+   "Codigo": "XVO",
+   "Nombre": "Contenedor para sólido de partículas grandes a granel (\"nódulos\")"
+ },
+ {
+   "Codigo": "XVP",
+   "Nombre": "Envasado al vacío"
+ },
+ {
+   "Codigo": "XVQ",
+   "Nombre": "Tanque para Gas licuado (a temperatura / presión anormal)"
+ },
+ {
+   "Codigo": "XVR",
+   "Nombre": "Contenedor para sólidos de partículas granulares a granel (Granos)"
+ },
+ {
+   "Codigo": "XVS",
+   "Nombre": "Contenedor de chatarra a granel"
+ },
+ {
+   "Codigo": "XVY",
+   "Nombre": "Contenedor para sólido de partículas finas a granel (\"polvos\")"
+ },
+ {
+   "Codigo": "XWA",
+   "Nombre": "Contenedor de granel intermedio"
+ },
+ {
+   "Codigo": "XWB",
+   "Nombre": "Botella de mimbre"
+ },
+ {
+   "Codigo": "XWC",
+   "Nombre": "Contenedor intermedio para gráneles y de acero"
+ },
+ {
+   "Codigo": "XWD",
+   "Nombre": "Contenedor intermedio para gráneles y de aluminio"
+ },
+ {
+   "Codigo": "XWF",
+   "Nombre": "Contenedor intermedio para gráneles y de metal"
+ },
+ {
+   "Codigo": "XWG",
+   "Nombre": "Contenedor intermedio para gráneles y de acero presurizado menor a 10 kpa"
+ },
+ {
+   "Codigo": "XWH",
+   "Nombre": "Contenedor intermedio para gráneles y de aluminio, presurizado menor a 10 kpa"
+ },
+ {
+   "Codigo": "XWJ",
+   "Nombre": "Contenedor intermedio para gráneles y de metal con una presión de 10 kpa"
+ },
+ {
+   "Codigo": "XWK",
+   "Nombre": "Contenedor intermedio para gráneles y de acero para líquido"
+ },
+ {
+   "Codigo": "XWL",
+   "Nombre": "Contenedor intermedio para gráneles y de aluminio para líquido"
+ },
+ {
+   "Codigo": "XWM",
+   "Nombre": "Contenedor intermedio para gráneles y de metal para líquido"
+ },
+ {
+   "Codigo": "XWN",
+   "Nombre": "Contenedor intermedio para gráneles con tejido plástico sin capa con revestimiento"
+ },
+ {
+   "Codigo": "XWP",
+   "Nombre": "Contenedor intermedio para gráneles con tejido plástico y recubierto"
+ },
+ {
+   "Codigo": "XWQ",
+   "Nombre": "Contenedor intermedio para gráneles con tejido plástico con revestimiento"
+ },
+ {
+   "Codigo": "XWR",
+   "Nombre": "Contenedor intermedio para gráneles con tejido plástico, revestido y con forro"
+ },
+ {
+   "Codigo": "XWS",
+   "Nombre": "Contenedor intermedio para gráneles con película de plástico"
+ },
+ {
+   "Codigo": "XWT",
+   "Nombre": "Contenedor intermedio para gráneles textil sin capa / forro"
+ },
+ {
+   "Codigo": "XWU",
+   "Nombre": "Contenedor intermedio para gráneles de madera natural con forro interior"
+ },
+ {
+   "Codigo": "XWV",
+   "Nombre": "Contenedor intermedio para gráneles textil recubierto"
+ },
+ {
+   "Codigo": "XWW",
+   "Nombre": "Contenedor intermedio para gráneles textil con revestimiento"
+ },
+ {
+   "Codigo": "XWX",
+   "Nombre": "Contenedor intermedio para gráneles textil recubierto y con forro"
+ },
+ {
+   "Codigo": "XWY",
+   "Nombre": "Contenedor intermedio para gráneles contrachapado con revestimiento interior"
+ },
+ {
+   "Codigo": "XWZ",
+   "Nombre": "Contenedor intermedio para gráneles de madera reconstituida con revestimiento interior"
+ },
+ {
+   "Codigo": "XXA",
+   "Nombre": "Bolsa de tejido plástico, sin abrigo interior ni forro"
+ },
+ {
+   "Codigo": "XXB",
+   "Nombre": "Bolsa de tejido plástico a prueba de filtraciones"
+ },
+ {
+   "Codigo": "XXC",
+   "Nombre": "Bolsa de tejido plástico resistente al agua"
+ },
+ {
+   "Codigo": "XXD",
+   "Nombre": "Bolsa con película de plástico"
+ },
+ {
+   "Codigo": "XXF",
+   "Nombre": "Bolsa textil sin capa ni forro interior"
+ },
+ {
+   "Codigo": "XXG",
+   "Nombre": "Bolsa textil a prueba de filtraciones"
+ },
+ {
+   "Codigo": "XXH",
+   "Nombre": "Bolsa textil resistente al agua"
+ },
+ {
+   "Codigo": "XXJ",
+   "Nombre": "Bolsa de papel multi-pared"
+ },
+ {
+   "Codigo": "XXK",
+   "Nombre": "Bolsa de papel multi-pared, resistente al agua"
+ },
+ {
+   "Codigo": "XYA",
+   "Nombre": "Empaque compuesto, recipiente de plástico en tambor de acero"
+ },
+ {
+   "Codigo": "XYB",
+   "Nombre": "Empaque compuesto, recipiente de plástico en cajas de acero"
+ },
+ {
+   "Codigo": "XYC",
+   "Nombre": "Empaque compuesto, recipiente de plástico en tambor de aluminio"
+ },
+ {
+   "Codigo": "XYD",
+   "Nombre": "Empaque compuesto, recipiente de plástico en cajón de aluminio"
+ },
+ {
+   "Codigo": "XYF",
+   "Nombre": "Empaque compuesto, recipiente de plástico en caja de madera"
+ },
+ {
+   "Codigo": "XYG",
+   "Nombre": "Empaque compuesto, recipiente de plástico en tambor de madera contrachapada"
+ },
+ {
+   "Codigo": "XYH",
+   "Nombre": "Empaque compuesto, recipiente de plástico en caja de madera contrachapada"
+ },
+ {
+   "Codigo": "XYJ",
+   "Nombre": "Empaque compuesto, recipiente de plástico en tambor de fibra"
+ },
+ {
+   "Codigo": "XYK",
+   "Nombre": "Empaque compuesto, recipiente de plástico en caja de cartón"
+ },
+ {
+   "Codigo": "XYL",
+   "Nombre": "Empaque compuesto, recipiente de plástico en el tambor de plástico"
+ },
+ {
+   "Codigo": "XYM",
+   "Nombre": "Empaque compuesto, recipiente de plástico en caja de plástico sólido"
+ },
+ {
+   "Codigo": "XYN",
+   "Nombre": "Empaque compuesto, receptáculo de vidrio en tambor de acero"
+ },
+ {
+   "Codigo": "XYP",
+   "Nombre": "Empaque compuesto, receptáculo de vidrio en caja de cajas de acero"
+ },
+ {
+   "Codigo": "XYQ",
+   "Nombre": "Empaque compuesto, recipiente de vidrio en tambor de aluminio"
+ },
+ {
+   "Codigo": "XYR",
+   "Nombre": "Empaque compuesto, receptáculo de vidrio en caja de aluminio"
+ },
+ {
+   "Codigo": "XYS",
+   "Nombre": "Empaque compuesto, recipiente de vidrio en caja de madera"
+ },
+ {
+   "Codigo": "XYT",
+   "Nombre": "Empaque compuesto, recipiente de vidrio en tambor de madera contrachapada"
+ },
+ {
+   "Codigo": "Xyv",
+   "Nombre": "Empaque compuesto, recipiente de vidrio en el cesto de mimbre"
+ },
+ {
+   "Codigo": "XYW",
+   "Nombre": "Empaque compuesto, recipiente de vidrio en tambor de fibra"
+ },
+ {
+   "Codigo": "XYX",
+   "Nombre": "Empaque compuesto, recipiente de vidrio en caja de cartón"
+ },
+ {
+   "Codigo": "XYY",
+   "Nombre": "Empaque compuesto, recipiente de vidrio en paquete de plástico expandible"
+ },
+ {
+   "Codigo": "XYZ",
+   "Nombre": "Empaque compuesto, recipiente de vidrio en paquete de plástico sólido"
+ },
+ {
+   "Codigo": "XZA",
+   "Nombre": "Contenedor de granel intermedio, papel, multi-pared"
+ },
+ {
+   "Codigo": "XZB",
+   "Nombre": "Bolsa grande"
+ },
+ {
+   "Codigo": "XZC",
+   "Nombre": "Contenedor intermedio para gráneles de papel, multi-pared y resistente al agua"
+ },
+ {
+   "Codigo": "XZD",
+   "Nombre": "Contenedor intermedio para gráneles de plástico rígido, con equipo estructural para sólidos"
+ },
+ {
+   "Codigo": "XZF",
+   "Nombre": "Contenedor intermedio para gráneles de plástico rígido, autoportante para sólidos"
+ },
+ {
+   "Codigo": "XZG",
+   "Nombre": "Contenedor intermedio para gráneles de plástico rígido, con equipo estructural, presurizado"
+ },
+ {
+   "Codigo": "XZH",
+   "Nombre": "Contenedor intermedio para gráneles de plástico rígido, autoportante y presurizado"
+ },
+ {
+   "Codigo": "XZJ",
+   "Nombre": "Contenedor intermedio para gráneles de plástico rígido, con equipo estructural para líquidos"
+ },
+ {
+   "Codigo": "XZK",
+   "Nombre": "Contenedor intermedio para gráneles de plástico rígido, autoportante, líquidos"
+ },
+ {
+   "Codigo": "XZL",
+   "Nombre": "Contenedor intermedio para gráneles, compuesto y de plástico rígido, sólidos"
+ },
+ {
+   "Codigo": "XZM",
+   "Nombre": "Contenedor intermedio para gráneles, compuesto y de plástico flexible, sólidos"
+ },
+ {
+   "Codigo": "XZN",
+   "Nombre": "Contenedor intermedio para gráneles, compuesto y de plástico rígido, presurizado"
+ },
+ {
+   "Codigo": "XZP",
+   "Nombre": "Contenedor intermedio para gráneles, compuesto y de plástico flexible, presurizado"
+ },
+ {
+   "Codigo": "XZQ",
+   "Nombre": "Contenedor intermedio para gráneles, compuesto y de plástico rígido, líquidos"
+ },
+ {
+   "Codigo": "XZR",
+   "Nombre": "Contenedor intermedio para gráneles, compuesto y de plástico flexible para líquidos"
+ },
+ {
+   "Codigo": "XZS",
+   "Nombre": "Contenedor intermedio para gráneles, compuesto"
+ },
+ {
+   "Codigo": "XZT",
+   "Nombre": "Contenedor intermedio para gráneles con tablero de fibras"
+ },
+ {
+   "Codigo": "XZU",
+   "Nombre": "Contenedor intermedio para gráneles flexible"
+ },
+ {
+   "Codigo": "XZV",
+   "Nombre": "Contenedor intermedio para gráneles de metal, distinto del acero"
+ },
+ {
+   "Codigo": "XZW",
+   "Nombre": "Contenedor intermedio para gráneles, de madera natural"
+ },
+ {
+   "Codigo": "XZX",
+   "Nombre": "Contenedor intermedio para gráneles, de contrachapado"
+ },
+ {
+   "Codigo": "XZY",
+   "Nombre": "Contenedor intermedio para gráneles, de madera reconstituida"
+ },
+ {
+   "Codigo": "YDK",
+   "Nombre": "Yarda cuadrada"
+ },
+ {
+   "Codigo": "YDQ",
+   "Nombre": "Yarda cúbica"
+ },
+ {
+   "Codigo": "YL",
+   "Nombre": "Cien yardas lineales"
+ },
+ {
+   "Codigo": "YRD",
+   "Nombre": "Yarda"
+ },
+ {
+   "Codigo": "YT",
+   "Nombre": "Diez yardas"
+ },
+ {
+   "Codigo": "Z1",
+   "Nombre": "Furgoneta"
+ },
+ {
+   "Codigo": "Z11",
+   "Nombre": "Contenedor colgante"
+ },
+ {
+   "Codigo": "Z5",
+   "Nombre": "Arrastre"
+ },
+ {
+   "Codigo": "Z6",
+   "Nombre": "Punto de conferencia"
+ },
+ {
+   "Codigo": "Z8",
+   "Nombre": "Página de noticias"
+ },
+ {
+   "Codigo": "ZP",
+   "Nombre": "Páginas"
+ },
+ {
+   "Codigo": "ZZ",
+   "Nombre": "Mutuamente definido"
+ }
+]
