@@ -83,7 +83,7 @@
   </wsdl:binding>
   <wsdl:service name="consultarArchivos">
     <wsdl:port name="ConsultarArchivosPort" binding="tns:consultarArchivosSoapBinding">
-      <soap:address location="http://172.17.0.3:8080/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos" />
+      <soap:address location="https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

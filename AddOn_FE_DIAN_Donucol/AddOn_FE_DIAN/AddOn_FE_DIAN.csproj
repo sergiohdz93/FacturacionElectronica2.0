@@ -270,14 +270,14 @@
     <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.UploadSyncResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\consultarArchivosDispape\AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse1.datasource">
+    <None Include="Service References\consultarArchivosDispape\AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\consultarArchivosDispape\AddOn_FE_DIAN.consultarArchivosDispape.felRepuestaDescargaDocumentos1.datasource">
+    <None Include="Service References\consultarArchivosDispape\AddOn_FE_DIAN.consultarArchivosDispape.felRepuestaDescargaDocumentos.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\consultarArchivosDispape\consultarArchivos.wsdl" />
-    <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoFacturaResponse.datasource">
+    <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.felRespuestaEstado.datasource">
@@ -331,15 +331,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\consultarArchivosDispape\configuration91.svcinfo" />
-    <None Include="Service References\consultarArchivosDispape\configuration.svcinfo" />
-    <None Include="Service References\consultarArchivosDispape\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\consultarEstadoDispape\configuration91.svcinfo" />
     <None Include="Service References\consultarEstadoDispape\configuration.svcinfo" />
     <None Include="Service References\consultarEstadoDispape\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\consultarArchivosDispape\configuration91.svcinfo" />
+    <None Include="Service References\consultarArchivosDispape\configuration.svcinfo" />
+    <None Include="Service References\consultarArchivosDispape\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

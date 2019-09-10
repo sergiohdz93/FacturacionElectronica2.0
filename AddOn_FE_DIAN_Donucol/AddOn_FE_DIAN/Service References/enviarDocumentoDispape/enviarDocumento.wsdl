@@ -53,7 +53,6 @@
           <xs:element minOccurs="0" name="barioLocalidad" type="xs:string" />
           <xs:element minOccurs="0" name="ciudad" type="xs:string" />
           <xs:element minOccurs="0" name="codigoCIUU" type="xs:string" />
-          <xs:element minOccurs="0" name="codigoCiudad" type="xs:string" />
           <xs:element minOccurs="0" name="codigoPostal" type="xs:string" />
           <xs:element minOccurs="0" name="departamento" type="xs:string" />
           <xs:element minOccurs="0" name="descripcionCiudad" type="xs:string" />
@@ -270,6 +269,7 @@
           <xs:element minOccurs="0" name="cufe" type="xs:string" />
           <xs:element minOccurs="0" name="descripcionProceso" type="xs:string" />
           <xs:element name="estadoProceso" type="xs:int" />
+          <xs:element minOccurs="0" name="fechaExpedicion" type="xs:dateTime" />
           <xs:element minOccurs="0" name="fechaFactura" type="xs:dateTime" />
           <xs:element minOccurs="0" name="fechaRespuesta" type="xs:dateTime" />
           <xs:element minOccurs="0" name="firmaDelDocumento" type="xs:string" />
@@ -315,7 +315,7 @@
   </wsdl:binding>
   <wsdl:service name="enviarDocumento">
     <wsdl:port name="WsEnviarDocumentoPort" binding="tns:enviarDocumentoSoapBinding">
-      <soap:address location="http://enviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento" />
+      <soap:address location="https://enviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

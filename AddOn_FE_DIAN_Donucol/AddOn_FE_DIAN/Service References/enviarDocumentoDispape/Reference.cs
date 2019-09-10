@@ -575,8 +575,6 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         
         private string codigoCIUUField;
         
-        private string codigoCiudadField;
-        
         private string codigoPostalField;
         
         private string departamentoField;
@@ -653,18 +651,6 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string codigoCiudad {
-            get {
-                return this.codigoCiudadField;
-            }
-            set {
-                this.codigoCiudadField = value;
-                this.RaisePropertyChanged("codigoCiudad");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string codigoPostal {
             get {
                 return this.codigoPostalField;
@@ -676,7 +662,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string departamento {
             get {
                 return this.departamentoField;
@@ -688,7 +674,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public string descripcionCiudad {
             get {
                 return this.descripcionCiudadField;
@@ -700,7 +686,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public string digitoverificacion {
             get {
                 return this.digitoverificacionField;
@@ -712,7 +698,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public string direccion {
             get {
                 return this.direccionField;
@@ -724,7 +710,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string email {
             get {
                 return this.emailField;
@@ -736,7 +722,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public string envioPorEmailPlataforma {
             get {
                 return this.envioPorEmailPlataformaField;
@@ -748,7 +734,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public string matriculaMercantil {
             get {
                 return this.matriculaMercantilField;
@@ -760,7 +746,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
         public string nitProveedorTecnologico {
             get {
                 return this.nitProveedorTecnologicoField;
@@ -772,7 +758,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public string nombreCompleto {
             get {
                 return this.nombreCompletoField;
@@ -784,7 +770,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
         public string nombredepartamento {
             get {
                 return this.nombredepartamentoField;
@@ -796,7 +782,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
         public string numeroIdentificacion {
             get {
                 return this.numeroIdentificacionField;
@@ -808,7 +794,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
         public string pais {
             get {
                 return this.paisField;
@@ -820,7 +806,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
         public string paisnombre {
             get {
                 return this.paisnombreField;
@@ -832,7 +818,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
         public string regimen {
             get {
                 return this.regimenField;
@@ -844,7 +830,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
         public string telefono {
             get {
                 return this.telefonoField;
@@ -856,7 +842,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
         public int tipoIdentificacion {
             get {
                 return this.tipoIdentificacionField;
@@ -868,7 +854,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
         public string tipoPersona {
             get {
                 return this.tipoPersonaField;
@@ -880,7 +866,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
         public string tipoobligacion {
             get {
                 return this.tipoobligacionField;
@@ -981,6 +967,10 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         
         private int estadoProcesoField;
         
+        private System.DateTime fechaExpedicionField;
+        
+        private bool fechaExpedicionFieldSpecified;
+        
         private System.DateTime fechaFacturaField;
         
         private bool fechaFacturaFieldSpecified;
@@ -1075,6 +1065,30 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public System.DateTime fechaExpedicion {
+            get {
+                return this.fechaExpedicionField;
+            }
+            set {
+                this.fechaExpedicionField = value;
+                this.RaisePropertyChanged("fechaExpedicion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaExpedicionSpecified {
+            get {
+                return this.fechaExpedicionFieldSpecified;
+            }
+            set {
+                this.fechaExpedicionFieldSpecified = value;
+                this.RaisePropertyChanged("fechaExpedicionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public System.DateTime fechaFactura {
             get {
                 return this.fechaFacturaField;
@@ -1098,7 +1112,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public System.DateTime fechaRespuesta {
             get {
                 return this.fechaRespuestaField;
@@ -1122,7 +1136,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string firmaDelDocumento {
             get {
                 return this.firmaDelDocumentoField;
@@ -1134,7 +1148,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public string idErp {
             get {
                 return this.idErpField;
@@ -1146,7 +1160,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("listaMensajesProceso", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute("listaMensajesProceso", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=10)]
         public felMensajesProceso[] listaMensajesProceso {
             get {
                 return this.listaMensajesProcesoField;
@@ -1158,7 +1172,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
         public string prefijo {
             get {
                 return this.prefijoField;
@@ -1170,7 +1184,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public string selloDeValidacion {
             get {
                 return this.selloDeValidacionField;
@@ -1182,7 +1196,7 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
         public string tipoDocumento {
             get {
                 return this.tipoDocumentoField;

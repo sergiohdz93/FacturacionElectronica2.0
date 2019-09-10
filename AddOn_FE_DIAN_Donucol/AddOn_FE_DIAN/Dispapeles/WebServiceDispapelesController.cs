@@ -187,7 +187,7 @@ namespace AddOn_FE_DIAN.Controllers
                         adquirente.email = Procesos.Buscar_ValorCab("email", i, Fac);
                         adquirente.pais = Procesos.Buscar_ValorCab("pais", i, Fac);
                         adquirente.departamento = Procesos.Buscar_ValorCab("departamento", i, Fac);
-                        adquirente.codigoCiudad = Procesos.Buscar_ValorCab("codigoCiudad", i, Fac);
+                        adquirente.ciudad = Procesos.Buscar_ValorCab("codigoCiudad", i, Fac);
                         adquirente.direccion = Procesos.Buscar_ValorCab("direccion", i, Fac);
                         adquirente.telefono = Procesos.Buscar_ValorCab("telefono", i, Fac);
                         adquirente.envioPorEmailPlataforma = Procesos.Buscar_ValorCab("envioPorEmailPlataforma", i, Fac);
@@ -243,16 +243,16 @@ namespace AddOn_FE_DIAN.Controllers
                 string urlServicio;
                 urlServicio = wsURL;
 
-                consultarArchivosDispape.felConsultaFacturaArchivo consultaPDF = new consultarArchivosDispape.felConsultaFacturaArchivo();
+                consultarArchivosDispape.felConsultaFacturaArchivo request = new consultarArchivosDispape.felConsultaFacturaArchivo();
                 consultarArchivosDispape.ConsultarArchivosClient clienteServicio;
+                consultarArchivosDispape.consultarArchivos1 archivo1 = new consultarArchivosDispape.consultarArchivos1();
                 consultarArchivosDispape.felRepuestaDescargaDocumentos response;
-                consultarArchivosDispape.felArchivos listaArchivos = new consultarArchivosDispape.felArchivos();
 
                 clienteServicio = new consultarArchivosDispape.ConsultarArchivosClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
                 using (new OperationContextScope(clienteServicio.InnerChannel))
                 {
                     //Add SOAP Header (Header property in the envelope) to an outgoing request.
-
+                    
                     HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
                     requestMessage.Headers["username"] = Procesos.username;
                     requestMessage.Headers["password"] = Procesos.password;
@@ -260,27 +260,29 @@ namespace AddOn_FE_DIAN.Controllers
 
 
                     OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
-                    var dateAndTime = fechaFac;
-                    var date = dateAndTime.Date;
 
-                    consultaPDF.consecutivo = numDoc;
-                    consultaPDF.consecutivoSpecified = true;
-                    consultaPDF.contrasenia = Procesos.password;
-                    consultaPDF.idEmpresa = 233;
-                    consultaPDF.prefijo = prefijo;
-                    consultaPDF.tipoArchivo = 0;
-                    consultaPDF.tipoDocumento = tipoDoc.ToString();
-                    consultaPDF.token = Procesos.token;
-                    consultaPDF.usuario = Procesos.username;
+                    request.consecutivo = numDoc;
+                    request.consecutivoSpecified = true;
+                    request.contrasenia = Procesos.password;
+                    request.idEmpresa = 233;
+                    request.idEmpresaSpecified = true;
+                    request.prefijo = prefijo;
+                    request.tipoArchivo = 0;
+                    request.tipoDocumento = tipoDoc.ToString();
+                    request.token = Procesos.token;
+                    request.usuario = Procesos.username;
 
-                    response = clienteServicio.consultarArchivos(consultaPDF);
-                    listaArchivos = response.listaArchivos[1];
+                    archivo1.Fel_ConsultaFacturaArchivo = request;
+
+                    response = clienteServicio.consultarArchivos(archivo1.Fel_ConsultaFacturaArchivo);
                 }
-                var serxml = new System.Xml.Serialization.XmlSerializer(consultaPDF.GetType());
+                var serxml = new System.Xml.Serialization.XmlSerializer(archivo1.GetType());
                 var ms = new MemoryStream();
-                serxml.Serialize(ms, consultaPDF);
+                serxml.Serialize(ms, archivo1);
                 string xml = Encoding.UTF8.GetString(ms.ToArray());
-                Procesos.requestSend = xml;
+                response = null;
+
+                //Procesos.requestSend = xml;
                 clienteServicio.Close();
                 Procesos.EscribirLogFileTXT("ConsultaPDF: Fin");
                 return response;

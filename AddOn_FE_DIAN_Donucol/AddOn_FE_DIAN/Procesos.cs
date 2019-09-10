@@ -1020,44 +1020,74 @@ namespace AddOn_FE_DIAN
                 System.Data.DataTable impDoc = new System.Data.DataTable();
 
                 Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                if (typeObject == "1")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, docentry));
-                    Doc = RecordSet_DataTable(oRecordset);
-                    Procesos.EscribirLogFileTXT("SendFE: doc");
-                }
-                if (typeObject == "1")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.impFac, docentry));
-                    impDoc = RecordSet_DataTable(oRecordset);
-                    Procesos.EscribirLogFileTXT("SendFE: impDoc");
-                }
 
-                if (typeObject == "2")
+                switch (typeObject)
                 {
-                    oRecordset.DoQuery(string.Format(Querys.Default.NotaCredito, docentry));
-                    Doc = RecordSet_DataTable(oRecordset);
-                    Procesos.EscribirLogFileTXT("SendFE: DocNC");
-                }
-                if (typeObject == "2")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.impNC, docentry));
-                    impDoc = RecordSet_DataTable(oRecordset);
-                    Procesos.EscribirLogFileTXT("SendFE: impNC");
-                }
+                    case "1":
 
-                if (typeObject == "3")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.NotaDebito, docentry));
-                    Doc = RecordSet_DataTable(oRecordset);
-                    Procesos.EscribirLogFileTXT("SendFE: docND");
+                        oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, docentry));
+                        Doc = RecordSet_DataTable(oRecordset);
+
+                        oRecordset.DoQuery(string.Format(Querys.Default.impFac, docentry));
+                        impDoc = RecordSet_DataTable(oRecordset);
+                        break;
+
+                    case "2":
+
+                        oRecordset.DoQuery(string.Format(Querys.Default.NotaCredito, docentry));
+                        Doc = RecordSet_DataTable(oRecordset);
+
+                        oRecordset.DoQuery(string.Format(Querys.Default.impNC, docentry));
+                        impDoc = RecordSet_DataTable(oRecordset);
+                        break;
+
+                    case "3":
+
+                        oRecordset.DoQuery(string.Format(Querys.Default.NotaDebito, docentry));
+                        Doc = RecordSet_DataTable(oRecordset);
+
+                        oRecordset.DoQuery(string.Format(Querys.Default.impND, docentry));
+                        impDoc = RecordSet_DataTable(oRecordset);
+                        break;
                 }
-                if (typeObject == "3")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.impND, docentry));
-                    impDoc = RecordSet_DataTable(oRecordset);
-                    Procesos.EscribirLogFileTXT("SendFE: impND");
-                }
+                //if (typeObject == "1")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, docentry));
+                //    Doc = RecordSet_DataTable(oRecordset);
+                //    Procesos.EscribirLogFileTXT("SendFE: doc");
+                //}
+                //if (typeObject == "1")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.impFac, docentry));
+                //    impDoc = RecordSet_DataTable(oRecordset);
+                //    Procesos.EscribirLogFileTXT("SendFE: impDoc");
+                //}
+
+                //if (typeObject == "2")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.NotaCredito, docentry));
+                //    Doc = RecordSet_DataTable(oRecordset);
+                //    Procesos.EscribirLogFileTXT("SendFE: DocNC");
+                //}
+                //if (typeObject == "2")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.impNC, docentry));
+                //    impDoc = RecordSet_DataTable(oRecordset);
+                //    Procesos.EscribirLogFileTXT("SendFE: impNC");
+                //}
+
+                //if (typeObject == "3")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.NotaDebito, docentry));
+                //    Doc = RecordSet_DataTable(oRecordset);
+                //    Procesos.EscribirLogFileTXT("SendFE: docND");
+                //}
+                //if (typeObject == "3")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.impND, docentry));
+                //    impDoc = RecordSet_DataTable(oRecordset);
+                //    Procesos.EscribirLogFileTXT("SendFE: impND");
+                //}
 
                 respuesta = WebServiceDispapelesController.EnviarFactura(Doc, impDoc, urlWS);
                 sRequest = requestSend;
@@ -1082,30 +1112,49 @@ namespace AddOn_FE_DIAN
             {
                 System.Data.DataTable sendFile = new System.Data.DataTable();
                 Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                if (typeObj == "1")
+
+                switch (typeObj)
                 {
-                    oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, transaction));
+                    case "1":
+                        oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, transaction));
+                        break;
+                    case "2":
+                        oRecordset.DoQuery(string.Format(Querys.Default.FacturaConti, transaction));
+                        break;
+                    case "3":
+                        oRecordset.DoQuery(string.Format(Querys.Default.FacturaExpo, transaction));
+                        break;
+                    case "4":
+                        oRecordset.DoQuery(string.Format(Querys.Default.NotaCredito, transaction));
+                        break;
+                    case "5":
+                        oRecordset.DoQuery(string.Format(Querys.Default.NotaDebito, transaction));
+                        break;
                 }
-                else if (typeObj == "2")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.FacturaConti, transaction));
-                    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
-                }
-                else if (typeObj == "3")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.FacturaExpo, transaction));
-                    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
-                }
-                else if (typeObj == "4")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.NotaCredito, transaction));
-                    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
-                }
-                else if(typeObj == "5")
-                {
-                    oRecordset.DoQuery(string.Format(Querys.Default.NotaDebito, transaction));
-                    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
-                }
+                //if (typeObj == "1")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, transaction));
+                //}
+                //else if (typeObj == "2")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.FacturaConti, transaction));
+                //    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
+                //}
+                //else if (typeObj == "3")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.FacturaExpo, transaction));
+                //    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
+                //}
+                //else if (typeObj == "4")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.NotaCredito, transaction));
+                //    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
+                //}
+                //else if(typeObj == "5")
+                //{
+                //    oRecordset.DoQuery(string.Format(Querys.Default.NotaDebito, transaction));
+                //    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
+                //}
                 
                 string myStr = "";
                 int i = 0;
@@ -1617,14 +1666,14 @@ namespace AddOn_FE_DIAN
                 string xmlresponse = Encoding.UTF8.GetString(ms.ToArray());
 
                 tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = xmlresponse;
-                if (response.descripcionProceso == "OK")
+
+                if (response.estadoProceso == 1)
                 {
                     Procesos.EscribirLogFileTXT("UpdateLogDispapeles: OK");
                     int docEntry;
                     int tipoDoc;
 
-                    consultarArchivosDispape.felRepuestaDescargaDocumentos respuestaXML;
-                    consultarArchivosDispape.felRepuestaDescargaDocumentos respuestaPDF;
+                    consultarArchivosDispape.felRepuestaDescargaDocumentos consultarArchivos;
 
                     tbl.UserFields.Fields.Item("U_Status").Value = "1";
 
@@ -1647,13 +1696,13 @@ namespace AddOn_FE_DIAN
                     tblcnf.GetByKey(tipoDoc.ToString());
                     urlWS = tblcnf.UserFields.Fields.Item("U_URL").Value;
 
-                    respuestaXML = WebServiceDispapelesController.consultaArchivos(docEntry, response.fechaFactura, response.prefijo, tipoDoc, urlWS);
-                    respuestaPDF = WebServiceDispapelesController.consultaArchivos(docEntry, response.fechaFactura, response.prefijo, tipoDoc, urlWS);
+                    consultarArchivos = WebServiceDispapelesController.consultaArchivos(docEntry, response.fechaFactura, response.prefijo, tipoDoc, urlWS);
+                    //respuestaPDF = WebServiceDispapelesController.consultaArchivos(docEntry, response.fechaFactura, response.prefijo, tipoDoc, urlWS);
 
-                    if (respuestaPDF.listaArchivos != null)
+                    if (consultarArchivos != null && consultarArchivos.listaArchivos != null)
                     {
                         Procesos.EscribirLogFileTXT("ConsultaXML : No Null");
-                        string base64 = Convert.ToBase64String(respuestaPDF.listaArchivos[0].streamFile);
+                        string base64 = Convert.ToBase64String(consultarArchivos.listaArchivos[0].streamFile);
                         //string serverDirectory = Properties.Settings.Default.RutaPDF;
                         if (base64.Length > 256000)
                         {
@@ -1680,12 +1729,12 @@ namespace AddOn_FE_DIAN
                         //}
                     }
 
-                    if (respuestaXML.listaArchivos != null)
-                    {
-                        Procesos.EscribirLogFileTXT("ConsultaPDF: No Null");
-                        string base64 = Convert.ToBase64String(respuestaXML.listaArchivos[0].streamFile);
-                        tbl.UserFields.Fields.Item("U_Enlace_XML").Value = base64;
-                    }
+                    //if (respuestaXML != null && respuestaXML.listaArchivos != null)
+                    //{
+                    //    Procesos.EscribirLogFileTXT("ConsultaPDF: No Null");
+                    //    string base64 = Convert.ToBase64String(respuestaXML.listaArchivos[0].streamFile);
+                    //    tbl.UserFields.Fields.Item("U_Enlace_XML").Value = base64;
+                    //}
 
                 }
 

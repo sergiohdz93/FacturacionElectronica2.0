@@ -2,11 +2,11 @@
 <wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://wsconsultaestadofactura.webservice.dispapeles.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="consultarEstado" targetNamespace="http://wsconsultaestadofactura.webservice.dispapeles.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xs:schema elementFormDefault="unqualified" targetNamespace="http://wsconsultaestadofactura.webservice.dispapeles.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="consultarEstadoFactura" type="tns:consultarEstadoFactura" />
-      <xs:element name="consultarEstadoFacturaResponse" type="tns:consultarEstadoFacturaResponse" />
-      <xs:complexType name="consultarEstadoFactura">
+      <xs:element name="consultarEstado" type="tns:consultarEstado" />
+      <xs:element name="consultarEstadoResponse" type="tns:consultarEstadoResponse" />
+      <xs:complexType name="consultarEstado">
         <xs:sequence>
-          <xs:element minOccurs="0" name="arg0" type="tns:felConsultaFactura" />
+          <xs:element minOccurs="0" name="felConsultaFactura" type="tns:felConsultaFactura" />
         </xs:sequence>
       </xs:complexType>
       <xs:complexType name="felConsultaFactura">
@@ -21,7 +21,7 @@
           <xs:element minOccurs="0" name="version" type="xs:string" />
         </xs:sequence>
       </xs:complexType>
-      <xs:complexType name="consultarEstadoFacturaResponse">
+      <xs:complexType name="consultarEstadoResponse">
         <xs:sequence>
           <xs:element minOccurs="0" name="return" type="tns:felRespuestaEstado" />
         </xs:sequence>
@@ -64,33 +64,33 @@
       </xs:complexType>
     </xs:schema>
   </wsdl:types>
-  <wsdl:message name="consultarEstadoFacturaResponse">
-    <wsdl:part name="parameters" element="tns:consultarEstadoFacturaResponse" />
+  <wsdl:message name="consultarEstado">
+    <wsdl:part name="parameters" element="tns:consultarEstado" />
   </wsdl:message>
-  <wsdl:message name="consultarEstadoFactura">
-    <wsdl:part name="parameters" element="tns:consultarEstadoFactura" />
+  <wsdl:message name="consultarEstadoResponse">
+    <wsdl:part name="parameters" element="tns:consultarEstadoResponse" />
   </wsdl:message>
   <wsdl:portType name="ConsultarEstado">
-    <wsdl:operation name="consultarEstadoFactura">
-      <wsdl:input name="consultarEstadoFactura" message="tns:consultarEstadoFactura" />
-      <wsdl:output name="consultarEstadoFacturaResponse" message="tns:consultarEstadoFacturaResponse" />
+    <wsdl:operation name="consultarEstado">
+      <wsdl:input name="consultarEstado" message="tns:consultarEstado" />
+      <wsdl:output name="consultarEstadoResponse" message="tns:consultarEstadoResponse" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="consultarEstadoSoapBinding" type="tns:ConsultarEstado">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="consultarEstadoFactura">
+    <wsdl:operation name="consultarEstado">
       <soap:operation soapAction="" style="document" />
-      <wsdl:input name="consultarEstadoFactura">
+      <wsdl:input name="consultarEstado">
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="consultarEstadoFacturaResponse">
+      <wsdl:output name="consultarEstadoResponse">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="consultarEstado">
     <wsdl:port name="ConsultarEstadoPort" binding="tns:consultarEstadoSoapBinding">
-      <soap:address location="http://172.17.0.3:8080/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado" />
+      <soap:address location="https://consultarestadofactura.dispafel.com/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
