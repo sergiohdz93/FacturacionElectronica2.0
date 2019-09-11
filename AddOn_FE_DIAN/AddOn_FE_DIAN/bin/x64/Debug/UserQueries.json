@@ -10,6 +10,10 @@
   {
     "QueryName": "ListaDocDIAN",
     "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "UM_DIAN",
+    "QueryCategory": "FEDIAN"
   }
 ]
 

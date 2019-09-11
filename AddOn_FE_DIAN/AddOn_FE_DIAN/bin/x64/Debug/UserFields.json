@@ -381,6 +381,19 @@
   },
   {
     "UserFieldsMD": {
+      "Name": "SEI_FEIdent",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Identificacion del Articulo",
+      "SubType": "st_None",
+      "TableName": "OITM",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_IDENT_ARTI"
+    }
+  },
+  {
+    "UserFieldsMD": {
       "Name": "SEI_FEDescu",
       "Type": "db_Alpha",
       "Size": "10",
@@ -403,6 +416,18 @@
       "EditSize": "10",
       "Mandatory": "tNO",
       "LinkedTable": "FEDIAN_DESCU"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEUMDIAN",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Unidad de Medida DIAN",
+      "SubType": "st_None",
+      "TableName": "INV1",
+      "EditSize": "10",
+      "Mandatory": "tNO"
     }
   },
   {

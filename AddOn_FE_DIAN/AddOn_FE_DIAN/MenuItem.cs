@@ -478,10 +478,10 @@ namespace AddOn_FE_DIAN
                     oCreationPackage.Image = "";
                     oMenus.AddEx(oCreationPackage);
 
-                    oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    oCreationPackage.UniqueID = "FE_0002";
-                    oCreationPackage.String = "Obligaciones del Emisor";
-                    oMenus.AddEx(oCreationPackage);
+                    //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
+                    //oCreationPackage.UniqueID = "FE_0002";
+                    //oCreationPackage.String = "Obligaciones del Emisor";
+                    //oMenus.AddEx(oCreationPackage);
 
                     oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
                     oCreationPackage.UniqueID = "FE_0003";
@@ -544,31 +544,31 @@ namespace AddOn_FE_DIAN
                 }
             }
 
-            if ((pVal.MenuUID == "FE_0002") & (pVal.BeforeAction == false))
-            {
-                try
-                {
-                    oForm = SBO_Application.Forms.Item("FORM_FE_0002");
-                    oForm.Visible = true;
-                }
-                catch
-                {
-                    oMenu = SBO_Application.Menus.Item("51200");
-                    int i;
-                    string MenuUID = "";
-                    for (i = 0; (i <= (oMenu.SubMenus.Count - 1)); i++)
-                    {
-                        string tablaname = oMenu.SubMenus.Item(i).String;
-                        if (tablaname.Contains("FEDIAN_OBLIGACIONES"))
-                        {
-                            MenuUID = oMenu.SubMenus.Item(i).UID;
-                            break;
-                        }
+            //if ((pVal.MenuUID == "FE_0002") & (pVal.BeforeAction == false))
+            //{
+            //    try
+            //    {
+            //        oForm = SBO_Application.Forms.Item("FORM_FE_0002");
+            //        oForm.Visible = true;
+            //    }
+            //    catch
+            //    {
+            //        oMenu = SBO_Application.Menus.Item("51200");
+            //        int i;
+            //        string MenuUID = "";
+            //        for (i = 0; (i <= (oMenu.SubMenus.Count - 1)); i++)
+            //        {
+            //            string tablaname = oMenu.SubMenus.Item(i).String;
+            //            if (tablaname.Contains("FEDIAN_OBLIGACIONES"))
+            //            {
+            //                MenuUID = oMenu.SubMenus.Item(i).UID;
+            //                break;
+            //            }
 
-                    }
-                    SBO_Application.ActivateMenuItem(MenuUID);
-                }
-            }
+            //        }
+            //        SBO_Application.ActivateMenuItem(MenuUID);
+            //    }
+            //}
 
             if ((pVal.MenuUID == "FE_0003") & (pVal.BeforeAction == false))
             {

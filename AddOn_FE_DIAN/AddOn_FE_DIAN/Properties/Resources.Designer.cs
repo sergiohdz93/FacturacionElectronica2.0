@@ -81,6 +81,29 @@ namespace AddOn_FE_DIAN.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a IF $[$38.1470002145.0] = &apos;Manual&apos;
+        ///
+        ///Begin
+        ///
+        ///SELECT T0.&quot;U_DIAN_UM&quot; FROM &quot;@FEDIAN_HOMOL_UM&quot; T0 WHERE T0.&quot;U_SAP_UM&quot; = $[$38.212.0]
+        ///
+        ///END
+        ///
+        ///IF $[$38.1470002145.0] != &apos;Manual&apos;
+        ///
+        ///Begin
+        ///
+        ///SELECT T0.&quot;U_dian_UM&quot; FROM &quot;@FEDIAN_HOMOL_UM&quot; T0 WHERE T0.&quot;U_SAP_UM&quot; = $[$38.1470002145.0]
+        ///
+        ///END.
+        /// </summary>
+        internal static string UM_DIAN {
+            get {
+                return ResourceManager.GetString("UM_DIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select C0.&quot;Unidad&quot;, C0.&quot;Descr&quot;
         ///From(
         ///	SELECT 

@@ -68,5 +68,10 @@
     "TableName": "FEDIAN_HOMOL_UM",
     "TableDescription": "Homomlogacion UM",
     "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_IDENT_ARTI",
+    "TableDescription": "Identificacion del Articulo",
+    "TableType": "bott_NoObject"
   }
 ]

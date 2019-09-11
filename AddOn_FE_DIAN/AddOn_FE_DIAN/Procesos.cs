@@ -105,7 +105,6 @@ namespace AddOn_FE_DIAN
                 string docDate = "";
                 string docTime = "";
                 bool docDIAN;
-                string estadoInterf;
 
                 oForm = SBO_Application.Forms.ActiveForm;
 
@@ -163,9 +162,9 @@ namespace AddOn_FE_DIAN
 
                                     tabla = tablas.Item("FEDIAN_INTERF_CFG");
                                     tabla.GetByKey(oSeries.Remarks);
-                                    estadoInterf = tabla.UserFields.Fields.Item("U_WS_Activo").Value;
-                                    Procesos.EscribirLogFileTXT(" 133 FacturaVenta: Estado" + estadoInterf + "docDian: " + docDIAN);
-                                    if (docDIAN == true & estadoInterf == "Y")
+                                    
+                                    Procesos.EscribirLogFileTXT(" 133 FacturaVenta: Estado docDian: " + docDIAN);
+                                    if (docDIAN == true)
                                     {
                                         int newCode = 0;
                                         //Añadir registro el tabala del Monitor Log
@@ -295,9 +294,9 @@ namespace AddOn_FE_DIAN
 
                                     tbl = tbls.Item("FEDIAN_INTERF_CFG");
                                     tbl.GetByKey(oSeries.Remarks);
-                                    estadoInterf = tbl.UserFields.Fields.Item("U_WS_Activo").Value;
-                                    Procesos.EscribirLogFileTXT("60091 FacturaReserva: Estado" + estadoInterf + "docDian: " + docDIAN);
-                                    if (docDIAN == true & estadoInterf == "Y")
+                                    
+                                    Procesos.EscribirLogFileTXT("60091 FacturaReserva: Estado docDian: " + docDIAN);
+                                    if (docDIAN == true)
                                     {
                                         int newCode = 0;
                                         //Añadir registro el tabala del Monitor Log
@@ -428,9 +427,9 @@ namespace AddOn_FE_DIAN
 
                                     tbl = tbls.Item("FEDIAN_INTERF_CFG");
                                     tbl.GetByKey(oSeries.Remarks);
-                                    estadoInterf = tbl.UserFields.Fields.Item("U_WS_Activo").Value;
-                                    Procesos.EscribirLogFileTXT("65307 FacturaExportacion: Estado " + estadoInterf + " docDian: " + docDIAN);
-                                    if (docDIAN == true & estadoInterf == "Y")
+                                    
+                                    Procesos.EscribirLogFileTXT("65307 FacturaExportacion: Estado docDian: " + docDIAN);
+                                    if (docDIAN == true)
                                     {
                                         int newCode = 0;
                                         //Añadir registro el tabala del Monitor Log
@@ -557,9 +556,9 @@ namespace AddOn_FE_DIAN
 
                                     tbl = tbls.Item("FEDIAN_INTERF_CFG");
                                     tbl.GetByKey(oSeries.Remarks);
-                                    estadoInterf = tbl.UserFields.Fields.Item("U_WS_Activo").Value;
-                                    Procesos.EscribirLogFileTXT("65303 NotaDebito: Estado" + estadoInterf + "docDian: " + docDIAN);
-                                    if (docDIAN == true & estadoInterf == "Y")
+                                    
+                                    Procesos.EscribirLogFileTXT("65303 NotaDebito: EstadodocDian: " + docDIAN);
+                                    if (docDIAN == true)
                                     {
                                         int newCode = 0;
                                         //Añadir registro el tabala del Monitor Log
@@ -688,9 +687,9 @@ namespace AddOn_FE_DIAN
 
                                     tbl = tbls.Item("FEDIAN_INTERF_CFG");
                                     tbl.GetByKey(oSeries.Remarks);
-                                    estadoInterf = tbl.UserFields.Fields.Item("U_WS_Activo").Value;
-                                    Procesos.EscribirLogFileTXT("179 NotaCredito: Estado" + estadoInterf + "docDian: " + docDIAN);
-                                    if (docDIAN == true & estadoInterf == "Y")
+                                    
+                                    Procesos.EscribirLogFileTXT("179 NotaCredito: EstadodocDian: " + docDIAN);
+                                    if (docDIAN == true)
                                     {
                                         int newCode = 0;
                                         //Añadir registro el tabala del Monitor Log

@@ -13,15 +13,15 @@
  },
  {
    "Codigo": "4",
-   "Nombre": "Reversion debito de demanda ACH"
+   "Nombre": "Reversión débito de demanda ACH"
  },
  {
    "Codigo": "5",
-   "Nombre": "Reversion Credito de Demanda ACH"
+   "Nombre": "Reversión Crédito de Demanda ACH"
  },
  {
    "Codigo": "6",
-   "Nombre": "Credito de demanda ACH"
+   "Nombre": "Crédito de demanda ACH"
  },
  {
    "Codigo": "7",
@@ -41,15 +41,15 @@
  },
  {
    "Codigo": "11",
-   "Nombre": "Reversion Credito Ahorro"
+   "Nombre": "Reversión Credito Ahorro"
  },
  {
    "Codigo": "12",
-   "Nombre": "Reversion Debito Ahorro"
+   "Nombre": "Reversión Debito Ahorro"
  },
  {
    "Codigo": "13",
-   "Nombre": "Credito Ahorro"
+   "Nombre": "Crédito Ahorro"
  },
  {
    "Codigo": "14",
@@ -61,15 +61,15 @@
  },
  {
    "Codigo": "16",
-   "Nombre": "Bookentry Debito"
+   "Nombre": "Bookentry Débito"
  },
  {
    "Codigo": "17",
-   "Nombre": "Contenctacion de la demanda en efectivo/Desembolso credito CCD"
+   "Nombre": "Contenctación de la demanda en efectivo/Desembolso crédito CCD"
  },
  {
    "Codigo": "18",
-   "Nombre": "Concentracion de la demanda en efectivo/Desembolso debito CCD"
+   "Nombre": "Concentracion de la demanda en efectivo/Desembolso débito CCD"
  },
  {
    "Codigo": "19",
@@ -93,7 +93,7 @@
  },
  {
    "Codigo": "24",
-   "Nombre": "Nota Cambiaria esperando aceptacion"
+   "Nombre": "Nota Cambiaria esperando aceptación"
  },
  {
    "Codigo": "25",
@@ -105,27 +105,27 @@
  },
  {
    "Codigo": "27",
-   "Nombre": "Debito Pago Negocio Corporativo CTP"
+   "Nombre": "Débito Pago Negocio Corporativo CTP"
  },
  {
    "Codigo": "28",
-   "Nombre": "Credito Negocio Intercambio Corporativo CTX"
+   "Nombre": "Crédito Negocio Intercambio Corporativo CTX"
  },
  {
    "Codigo": "29",
-   "Nombre": "Debito Negocio Intercambio Corporativo CTX"
+   "Nombre": "Débito Negocio Intercambio Corporativo CTX"
  },
  {
    "Codigo": "30",
-   "Nombre": "Transferencia Credito"
+   "Nombre": "Transferencia Crédito"
  },
  {
    "Codigo": "31",
-   "Nombre": "Transferencia Debito"
+   "Nombre": "Transferencia Débito"
  },
  {
    "Codigo": "32",
-   "Nombre": "Concentracion efectivo / Desembolso Credito plus CCD+"
+   "Nombre": "Concentracion efectivo / Desembolso Crédito plus CCD+"
  },
  {
    "Codigo": "33",
@@ -137,15 +137,15 @@
  },
  {
    "Codigo": "35",
-   "Nombre": "Concentracion efectivo ahorros /Desembolso Credito CCD"
+   "Nombre": "Concentración efectivo ahorros /Desembolso Crédito CCD"
  },
  {
    "Codigo": "36",
-   "Nombre": "Concentracion efectivo ahorros /Desembolso Debito CCD"
+   "Nombre": "Concentración efectivo ahorros /Desembolso Debito CCD"
  },
  {
    "Codigo": "37",
-   "Nombre": "Pago Negocio Corporativo Ahorros Credito CTP"
+   "Nombre": "Pago Negocio Corporativo Ahorros Crédito CTP"
  },
  {
    "Codigo": "38",
@@ -153,15 +153,15 @@
  },
  {
    "Codigo": "39",
-   "Nombre": "Credito Negocio Intercambio Corporativo CTX"
+   "Nombre": "Crédito Negocio Intercambio Corporativo CTX"
  },
  {
    "Codigo": "40",
-   "Nombre": "Debito Negocio Intercambio Corporativo CTX"
+   "Nombre": "Débito Negocio Intercambio Corporativo CTX"
  },
  {
    "Codigo": "41",
-   "Nombre": "Concentracion efectivo/Desembolso Credito plus CCD+"
+   "Nombre": "Concentración efectivo/Desembolso Crédito plus CCD+"
  },
  {
    "Codigo": "42",
@@ -169,7 +169,7 @@
  },
  {
    "Codigo": "43",
-   "Nombre": "Concentracion efectivo/Desembolso Debito plus CCD+"
+   "Nombre": "Concentración efectivo/Desembolso Debito plus CCD+"
  },
  {
    "Codigo": "44",
@@ -177,23 +177,23 @@
  },
  {
    "Codigo": "45",
-   "Nombre": "Transferencia Credito BAncario"
+   "Nombre": "Transferencia Crédito BAncario"
  },
  {
    "Codigo": "46",
-   "Nombre": "Transferencia Debito InterBancario"
+   "Nombre": "Transferencia Débito InterBancario"
  },
  {
    "Codigo": "47",
-   "Nombre": "Transferencia Debito Bancario"
+   "Nombre": "Transferencia Débito Bancario"
  },
  {
    "Codigo": "48",
-   "Nombre": "Tarjeta Credito"
+   "Nombre": "Tarjeta Crédito"
  },
  {
    "Codigo": "49",
-   "Nombre": "Tarjeta Debito"
+   "Nombre": "Tarjeta Débito"
  },
  {
    "Codigo": "50",
@@ -205,7 +205,7 @@
  },
  {
    "Codigo": "52",
-   "Nombre": "Pago comercial urgente "
+   "Nombre": "Pago comercial urgente"
  },
  {
    "Codigo": "53",
@@ -279,17 +279,17 @@
    "Codigo": "93",
    "Nombre": "Giro Referenciado"
  },
- {
-   "Codigo": "94",
-   "Nombre": "GiroUrgente"
- },
+  {
+    "Codigo": "94",
+    "Nombre": "GiroUrgente"
+  },
  {
    "Codigo": "95",
    "Nombre": "Giro Formato Abierto"
  },
  {
    "Codigo": "96",
-   "Nombre": "Metodo de pago solicidado no usado"
+   "Nombre": "Método de pago solicidado no usado"
  },
  {
    "Codigo": "97",

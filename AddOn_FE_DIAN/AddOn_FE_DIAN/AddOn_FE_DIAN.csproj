@@ -147,6 +147,9 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="FEDIAN_IDENT_ARTI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="FEDIAN_CODDOC.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
