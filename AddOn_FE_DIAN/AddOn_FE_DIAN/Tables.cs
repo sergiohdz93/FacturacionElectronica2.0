@@ -25,7 +25,9 @@ namespace AddOn_FE_DIAN
             SBO_Application = SBO_App;
             if (oCompany.Connected == true)
             {
+                //CreateUDO();
                 leerJsonTablasUsuario();
+
                 leerJsonTipOpe();
                 leerJsonRespon();
                 leerJsonMedPago();
@@ -34,12 +36,16 @@ namespace AddOn_FE_DIAN
                 leerJsonConcepNC();
                 leerJsonTributos();
                 leerJsonIdentArti();
+
                 leerJsonCamposUsuario();
                 leerJsonDocDIAN();
                 leerJsonCfgInter();
                 leerJsonUM();
                 leerJsonUserQueries();
+                CreateUDO();
+                addfieldLinkToUDO();
                 leerJsonFormattedSearches();
+                //CreateUDO();
             }
             else
             {
@@ -83,7 +89,7 @@ namespace AddOn_FE_DIAN
                     tbls = oCompany.UserTables;
                     tbl = tbls.Item("FEDIAN_TIPOPERA");
 
-                    if(!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
                     {
                         tbl.Code = Convert.ToString(item.Codigo);
                         tbl.Name = Convert.ToString(item.Nombre);
@@ -124,7 +130,7 @@ namespace AddOn_FE_DIAN
             {
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
-                
+
                 string inputJSON = File.ReadAllText("FEDIAN_RESPONSA.json", System.Text.Encoding.Default);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
@@ -222,7 +228,7 @@ namespace AddOn_FE_DIAN
             {
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
-                
+
                 string inputJSON = File.ReadAllText("FEDIAN_DESCU.json", System.Text.Encoding.Default);
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
@@ -786,7 +792,7 @@ namespace AddOn_FE_DIAN
                     }
 
                     oFormattedSearches.Action = SAPbobsCOM.BoFormattedSearchActionEnum.bofsaQuery;
-                    switch(Convert.ToString(item.ByField))
+                    switch (Convert.ToString(item.ByField))
                     {
                         case "tNO":
                             oFormattedSearches.ByField = SAPbobsCOM.BoYesNoEnum.tNO;
@@ -966,6 +972,250 @@ namespace AddOn_FE_DIAN
             catch (Exception ex)
             {
                 Procesos.EscribirLogFileTXT("AddQueryManager: " + ex.Message);
+            }
+        }
+
+        public void CreateUDO()
+        {
+            SAPbobsCOM.UserObjectsMD oUserObjectMD;
+            SAPbobsCOM.UserObjectMD_FindColumns oUDOFind;
+            SAPbobsCOM.UserObjectMD_FormColumns oUDOForm;
+            SAPbobsCOM.UserObjectMD_EnhancedFormColumns oUDOEnhancedForm;
+            oUserObjectMD = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserObjectsMD);
+            oUDOFind = oUserObjectMD.FindColumns;
+            oUDOForm = oUserObjectMD.FormColumns;
+            oUDOEnhancedForm = oUserObjectMD.EnhancedFormColumns;
+
+            //GC.Collect();
+            //oUserObjectMD = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserObjectsMD) as SAPbobsCOM.UserObjectsMD;
+
+            var retval = oUserObjectMD.GetByKey("FEDIAN_SN");
+            if (!retval)
+            {
+                oUserObjectMD.Code = "FEDIAN_SN";
+                oUserObjectMD.Name = "Responsabilidades y Tributos SN";
+                oUserObjectMD.TableName = "FEDIAN_SN";
+                oUserObjectMD.ObjectType = SAPbobsCOM.BoUDOObjType.boud_MasterData;
+
+                oUserObjectMD.ManageSeries = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanDelete = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanClose = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanCancel = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanFind = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.CanYearTransfer = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanCreateDefaultForm = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.CanLog = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.OverwriteDllfile = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.CanArchive = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.MenuItem = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanApprove = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.EnableEnhancedForm = SAPbobsCOM.BoYesNoEnum.tYES;
+
+                // ==================================
+                oUDOFind.ColumnAlias = "Code";
+                oUDOFind.ColumnDescription = "Codgio SN";
+                oUDOFind.Add();
+                oUDOFind.ColumnAlias = "Name";
+                oUDOFind.ColumnDescription = "Nombre SN";
+                oUDOFind.Add();
+                //========================================
+
+
+                //=========================================
+
+                oUDOForm.FormColumnAlias = "Code";
+                oUDOForm.FormColumnDescription = "Codgio SN";
+                oUDOForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOForm.Add();
+
+                oUDOForm.FormColumnAlias = "Name";
+                oUDOForm.FormColumnDescription = "Nombre SN";
+                oUDOForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOForm.Add();
+
+
+                //=========================================
+
+
+                oUserObjectMD.ChildTables.SetCurrentLine(0);
+                oUserObjectMD.ChildTables.TableName = "FEDIAN_SN_RESPO";
+                oUserObjectMD.ChildTables.Add();
+
+                oUserObjectMD.ChildTables.SetCurrentLine(1);
+                oUserObjectMD.ChildTables.TableName = "FEDIAN_SN_TRIB";
+                //oUserObjectMD.ChildTables.Add();
+
+
+                //=========================================
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(0);
+                oUDOEnhancedForm.ColumnAlias = "Code";
+                oUDOEnhancedForm.ColumnDescription = "Code";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 1;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(1);
+                oUDOEnhancedForm.ColumnAlias = "LineId";
+                oUDOEnhancedForm.ColumnDescription = "LineId";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 2;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(2);
+                oUDOEnhancedForm.ColumnAlias = "Object";
+                oUDOEnhancedForm.ColumnDescription = "Object";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 3;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(3);
+                oUDOEnhancedForm.ColumnAlias = "LogInst";
+                oUDOEnhancedForm.ColumnDescription = "LogInst";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 4;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(4);
+                oUDOEnhancedForm.ColumnAlias = "U_Codigo";
+                oUDOEnhancedForm.ColumnDescription = "Codigo Responsabilidad";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.ColumnNumber = 5;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(5);
+                oUDOEnhancedForm.ColumnAlias = "U_Desc";
+                oUDOEnhancedForm.ColumnDescription = "Descripcion Responsabilidad";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.ColumnNumber = 6;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(6);
+                oUDOEnhancedForm.ColumnAlias = "Code";
+                oUDOEnhancedForm.ColumnDescription = "Code";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 1;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(7);
+                oUDOEnhancedForm.ColumnAlias = "LineId";
+                oUDOEnhancedForm.ColumnDescription = "LineId";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 2;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(8);
+                oUDOEnhancedForm.ColumnAlias = "Object";
+                oUDOEnhancedForm.ColumnDescription = "Object";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 3;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(9);
+                oUDOEnhancedForm.ColumnAlias = "LogInst";
+                oUDOEnhancedForm.ColumnDescription = "LogInst";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 4;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(10);
+                oUDOEnhancedForm.ColumnAlias = "U_Codigo";
+                oUDOEnhancedForm.ColumnDescription = "Codigo Tributo";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.ColumnNumber = 5;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(11);
+                oUDOEnhancedForm.ColumnAlias = "U_Desc";
+                oUDOEnhancedForm.ColumnDescription = "Descripcion Tributo";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.ColumnNumber = 6;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.Add();
+
+                if (!retval)
+                {
+                    if ((oUserObjectMD.Add() != 0))
+                    {
+                        SBO_Application.MessageBox(oCompany.GetLastErrorDescription());
+                    }
+                    else
+                    {
+                    }
+                }
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserObjectMD);
+                GC.Collect();
+            }
+        }
+
+        public void addfieldLinkToUDO()
+        {
+            SAPbobsCOM.UserFieldsMD oUserFieldsMD;
+
+            oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
+            oUserFieldsMD = null;
+            GC.Collect();
+
+            try
+            {
+                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
+
+                oUserFieldsMD.TableName = "OCRD";
+                oUserFieldsMD.Name = "FEDIAN_RYT";
+                oUserFieldsMD.Description = "(FE) Responsabilidades y Tributos";
+                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
+                oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
+                oUserFieldsMD.Size = 50;
+                oUserFieldsMD.EditSize = 50;
+                oUserFieldsMD.LinkedUDO = "FEDIAN_SN";
+
+                lRetCode = oUserFieldsMD.Add();
+
+                if (lRetCode != 0)
+                {
+                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    }
+                    else
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    }
+                    Procesos.EscribirLogFileTXT(oUserFieldsMD.Name + ": " + sErrMsg);
+                }
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
+                oUserFieldsMD = null;
+                GC.Collect();
+                //SBO_Application.StatusBar.SetText("Campos creados", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Campos\n" + ex.Message);
             }
         }
 

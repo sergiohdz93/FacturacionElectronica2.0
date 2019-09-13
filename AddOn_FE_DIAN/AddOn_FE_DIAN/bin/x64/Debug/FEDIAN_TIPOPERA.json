@@ -1,38 +1,38 @@
 [
  {
-   "Codigo": "1",
+   "Codigo": "01",
    "Nombre": "Combustibles"
  },
  {
-   "Codigo": "2",
+   "Codigo": "02",
    "Nombre": "Emisor es Autorretenedor"
  },
  {
-   "Codigo": "3",
+   "Codigo": "03",
    "Nombre": "Excluidos y Exentos"
  },
  {
-   "Codigo": "4",
+   "Codigo": "04",
    "Nombre": "Exportacion"
  },
  {
-   "Codigo": "5",
+   "Codigo": "05",
    "Nombre": "Generica"
  },
  {
-   "Codigo": "6",
+   "Codigo": "06",
    "Nombre": "Generica con Pago Anticipado"
  },
  {
-   "Codigo": "7",
+   "Codigo": "07",
    "Nombre": "Generica con Periodo de Facturacion"
  },
  {
-   "Codigo": "8",
+   "Codigo": "08",
    "Nombre": "Consorcio"
  },
  {
-   "Codigo": "9",
+   "Codigo": "09",
    "Nombre": "Servicios AIU"
  }
 ]

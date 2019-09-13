@@ -38,5 +38,55 @@
     "QueryName": "ListaDocDIAN",
     "Refresh": "tNO",
     "FieldID": ""
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tNO",
+    "CollumID": "C_0_1",
+    "ItemID": "0_U_G",
+    "FormID": "UDO_FT_FEDIAN_SN",
+    "QueryName": "ListaRespon",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tYES",
+    "CollumID": "C_0_2",
+    "ItemID": "0_U_G",
+    "FormID": "UDO_FT_FEDIAN_SN",
+    "QueryName": "DescRespon",
+    "Refresh": "tYES",
+    "FieldID": "C_0_1"
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tNO",
+    "CollumID": "C_1_1",
+    "ItemID": "1_U_G",
+    "FormID": "UDO_FT_FEDIAN_SN",
+    "QueryName": "ListaTribu",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tYES",
+    "CollumID": "C_1_2",
+    "ItemID": "1_U_G",
+    "FormID": "UDO_FT_FEDIAN_SN",
+    "QueryName": "DescTribu",
+    "Refresh": "tYES",
+    "FieldID": "C_1_1"
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tYES",
+    "CollumID": "-1",
+    "ItemID": "1_U_E",
+    "FormID": "UDO_FT_FEDIAN_SN",
+    "QueryName": "NombreSN",
+    "Refresh": "tYES",
+    "FieldID": "0"
   }
 ]

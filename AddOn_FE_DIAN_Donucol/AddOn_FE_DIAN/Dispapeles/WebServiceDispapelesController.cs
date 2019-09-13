@@ -245,8 +245,8 @@ namespace AddOn_FE_DIAN.Controllers
 
                 consultarArchivosDispape.felConsultaFacturaArchivo request = new consultarArchivosDispape.felConsultaFacturaArchivo();
                 consultarArchivosDispape.ConsultarArchivosClient clienteServicio;
-                consultarArchivosDispape.consultarArchivos1 archivo1 = new consultarArchivosDispape.consultarArchivos1();
                 consultarArchivosDispape.felRepuestaDescargaDocumentos response;
+                consultarArchivosDispape.consultarArchivos1 fel = new consultarArchivosDispape.consultarArchivos1();
 
                 clienteServicio = new consultarArchivosDispape.ConsultarArchivosClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
                 using (new OperationContextScope(clienteServicio.InnerChannel))
@@ -257,8 +257,6 @@ namespace AddOn_FE_DIAN.Controllers
                     requestMessage.Headers["username"] = Procesos.username;
                     requestMessage.Headers["password"] = Procesos.password;
                     requestMessage.Headers["token"] = Procesos.token;
-
-
                     OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
 
                     request.consecutivo = numDoc;
@@ -272,16 +270,14 @@ namespace AddOn_FE_DIAN.Controllers
                     request.token = Procesos.token;
                     request.usuario = Procesos.username;
 
-                    archivo1.Fel_ConsultaFacturaArchivo = request;
+                    var serxml = new System.Xml.Serialization.XmlSerializer(request.GetType());
+                    var ms = new MemoryStream();
+                    serxml.Serialize(ms, request);
+                    string xml = Encoding.UTF8.GetString(ms.ToArray());
+                    response = null;
 
-                    response = clienteServicio.consultarArchivos(archivo1.Fel_ConsultaFacturaArchivo);
+                    response = clienteServicio.consultarArchivos(request);
                 }
-                var serxml = new System.Xml.Serialization.XmlSerializer(archivo1.GetType());
-                var ms = new MemoryStream();
-                serxml.Serialize(ms, archivo1);
-                string xml = Encoding.UTF8.GetString(ms.ToArray());
-                response = null;
-
                 //Procesos.requestSend = xml;
                 clienteServicio.Close();
                 Procesos.EscribirLogFileTXT("ConsultaPDF: Fin");

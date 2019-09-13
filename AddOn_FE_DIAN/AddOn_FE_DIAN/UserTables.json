@@ -73,5 +73,20 @@
     "TableName": "FEDIAN_IDENT_ARTI",
     "TableDescription": "Identificacion del Articulo",
     "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_SN",
+    "TableDescription": "Respons y Tributos SN",
+    "TableType": "bott_MasterData"
+  },
+  {
+    "TableName": "FEDIAN_SN_RESPO",
+    "TableDescription": "Responsabilidades SN",
+    "TableType": "bott_MasterDataLines"
+  },
+  {
+    "TableName": "FEDIAN_SN_TRIB",
+    "TableDescription": "Tributos SN",
+    "TableType": "bott_MasterDataLines"
   }
 ]

@@ -504,5 +504,53 @@
       "EditSize": "30",
       "Mandatory": "tNO"
     }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Codigo",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Codigo Responsabilidad",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_SN_RESPO",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Desc",
+      "Type": "db_Alpha",
+      "Size": "100",
+      "Description": "Descripcion Responsabilidad",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_SN_RESPO",
+      "EditSize": "100",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Codigo",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Codigo Tributo",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_SN_TRIB",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Desc",
+      "Type": "db_Alpha",
+      "Size": "100",
+      "Description": "Descripcion Tributo",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_SN_TRIB",
+      "EditSize": "100",
+      "Mandatory": "tNO"
+    }
   }
 ]

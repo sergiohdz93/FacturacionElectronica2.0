@@ -14,6 +14,26 @@
   {
     "QueryName": "UM_DIAN",
     "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaRespon",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "DescRespon",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaTribu",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "DescTribu",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "NombreSN",
+    "QueryCategory": "FEDIAN"
   }
 ]
 

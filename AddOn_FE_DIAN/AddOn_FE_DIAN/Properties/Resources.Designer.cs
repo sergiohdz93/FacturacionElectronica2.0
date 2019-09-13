@@ -61,6 +61,24 @@ namespace AddOn_FE_DIAN.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_RESPONSA&quot; Where &quot;Code&quot; =  $[@FEDIAN_SN_RESPO.U_Codigo].
+        /// </summary>
+        internal static string DescRespon {
+            get {
+                return ResourceManager.GetString("DescRespon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_TRIBU&quot; Where &quot;Code&quot; =  $[@FEDIAN_SN_TRIB.U_Codigo].
+        /// </summary>
+        internal static string DescTribu {
+            get {
+                return ResourceManager.GetString("DescTribu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select &quot;Code&quot;, &quot;Name&quot; 
         ///From &quot;@FEDIAN_CODDOC&quot;.
         /// </summary>
@@ -71,12 +89,41 @@ namespace AddOn_FE_DIAN.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select * from &quot;@FEDIAN_RESPONSA&quot;
+        ///Order By &quot;Code&quot;.
+        /// </summary>
+        internal static string ListaRespon {
+            get {
+                return ResourceManager.GetString("ListaRespon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select * from &quot;@FEDIAN_TRIBU&quot;
+        ///Order By &quot;Code&quot;.
+        /// </summary>
+        internal static string ListaTribu {
+            get {
+                return ResourceManager.GetString("ListaTribu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select &quot;Code&quot;, &quot;U_Descripcion&quot; 
         ///From &quot;@FEDIAN_UM&quot;.
         /// </summary>
         internal static string ListaUM {
             get {
                 return ResourceManager.GetString("ListaUM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;CardName&quot; From &quot;OCRD&quot; Where &quot;CardCode&quot; =  $[@FEDIAN_SN.Name].
+        /// </summary>
+        internal static string NombreSN {
+            get {
+                return ResourceManager.GetString("NombreSN", resourceCulture);
             }
         }
         
