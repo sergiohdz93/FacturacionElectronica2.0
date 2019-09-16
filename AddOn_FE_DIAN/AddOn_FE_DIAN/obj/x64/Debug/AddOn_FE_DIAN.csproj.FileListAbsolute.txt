@@ -20,7 +20,6 @@ C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\Microsoft.Web.Services3.dll
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\Newtonsoft.Json.dll
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\Newtonsoft.Json.xml
-C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj\x64\Debug\AddOn_FE_DIAN.csprojAssemblyReference.cache
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj\x64\Debug\Interop.SAPbobsCOM.dll
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj\x64\Debug\Interop.SAPbouiCOM.dll
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj\x64\Debug\AddOn_FE_DIAN.csproj.ResolveComReference.cache

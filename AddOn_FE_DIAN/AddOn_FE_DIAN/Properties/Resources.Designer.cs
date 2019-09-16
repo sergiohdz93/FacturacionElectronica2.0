@@ -119,7 +119,7 @@ namespace AddOn_FE_DIAN.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Select &quot;CardName&quot; From &quot;OCRD&quot; Where &quot;CardCode&quot; =  $[@FEDIAN_SN.Name].
+        ///   Busca una cadena traducida similar a Select &quot;CardName&quot; From &quot;OCRD&quot; Where &quot;CardCode&quot; =  $[@FEDIAN_SN.Code].
         /// </summary>
         internal static string NombreSN {
             get {

@@ -1211,6 +1211,36 @@ namespace AddOn_FE_DIAN
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
                 oUserFieldsMD = null;
                 GC.Collect();
+
+
+
+                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
+                oUserFieldsMD.TableName = "OADM";
+                oUserFieldsMD.Name = "FEDIAN_RYT";
+                oUserFieldsMD.Description = "(FE) Responsabilidades y Tributos";
+                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
+                oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
+                oUserFieldsMD.Size = 50;
+                oUserFieldsMD.EditSize = 50;
+                oUserFieldsMD.LinkedUDO = "FEDIAN_SN";
+
+                lRetCode = oUserFieldsMD.Add();
+
+                if (lRetCode != 0)
+                {
+                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    }
+                    else
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    }
+                    Procesos.EscribirLogFileTXT(oUserFieldsMD.Name + ": " + sErrMsg);
+                }
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
+                oUserFieldsMD = null;
+                GC.Collect();
                 //SBO_Application.StatusBar.SetText("Campos creados", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
             }
             catch (Exception ex)

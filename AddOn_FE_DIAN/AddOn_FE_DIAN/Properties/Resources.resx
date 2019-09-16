@@ -146,7 +146,7 @@ From "@FEDIAN_UM"</value>
     <comment>Lista todas las unidades de medida DIAN</comment>
   </data>
   <data name="NombreSN" xml:space="preserve">
-    <value>Select "CardName" From "OCRD" Where "CardCode" =  $[@FEDIAN_SN.Name]</value>
+    <value>Select "CardName" From "OCRD" Where "CardCode" =  $[@FEDIAN_SN.Code]</value>
     <comment>Obtiene el CardName del SN</comment>
   </data>
   <data name="UM_DIAN" xml:space="preserve">

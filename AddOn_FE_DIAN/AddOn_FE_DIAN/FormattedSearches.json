@@ -51,7 +51,7 @@
   },
   {
     "FormStand": "tYES",
-    "ByField": "tYES",
+    "ByField": "tNO",
     "CollumID": "C_0_2",
     "ItemID": "0_U_G",
     "FormID": "UDO_FT_FEDIAN_SN",
@@ -71,7 +71,7 @@
   },
   {
     "FormStand": "tYES",
-    "ByField": "tYES",
+    "ByField": "tNO",
     "CollumID": "C_1_2",
     "ItemID": "1_U_G",
     "FormID": "UDO_FT_FEDIAN_SN",
