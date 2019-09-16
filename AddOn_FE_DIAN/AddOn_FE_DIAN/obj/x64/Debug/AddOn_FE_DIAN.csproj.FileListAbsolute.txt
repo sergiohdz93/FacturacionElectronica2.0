@@ -29,3 +29,4 @@ C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj\x64\Debug\AddOn_FE_DIAN.csproj.CopyComplete
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj\x64\Debug\AddOn_FE_DIAN.exe
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj\x64\Debug\AddOn_FE_DIAN.pdb
+C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\obj\x64\Debug\AddOn_FE_DIAN.csprojAssemblyReference.cache

@@ -552,5 +552,29 @@
       "EditSize": "100",
       "Mandatory": "tNO"
     }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "FEDIAN_MODELO",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Modelo",
+      "SubType": "st_None",
+      "TableName": "OITM",
+      "EditSize": "10",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FETipDoc",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Tipo de documento",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
   }
 ]

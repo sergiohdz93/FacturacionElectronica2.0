@@ -34,6 +34,10 @@
   {
     "QueryName": "NombreSN",
     "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "TipoDoc",
+    "QueryCategory": "FEDIAN"
   }
 ]
 

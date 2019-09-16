@@ -1,0 +1,9 @@
+16/09/2019 9:20:05 a. m. : Version: Invalid field name
+16/09/2019 9:20:23 a. m. : FEDIAN_MEDPAGO - 39: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+16/09/2019 9:20:23 a. m. : FEDIAN_MEDPAGO - 40: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+16/09/2019 9:21:09 a. m. : FEDIAN_UM - A16: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+16/09/2019 9:22:10 a. m. : FEDIAN_UM - XDN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+16/09/2019 9:22:11 a. m. : FEDIAN_UM - XEC: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+16/09/2019 9:22:12 a. m. : FEDIAN_UM - XGI: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+16/09/2019 9:22:21 a. m. : FEDIAN_UM - XSY: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+16/09/2019 9:22:23 a. m. : FEDIAN_UM - XVN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)

@@ -149,6 +149,10 @@ From "@FEDIAN_UM"</value>
     <value>Select "CardName" From "OCRD" Where "CardCode" =  $[@FEDIAN_SN.Code]</value>
     <comment>Obtiene el CardName del SN</comment>
   </data>
+  <data name="TipoDoc" xml:space="preserve">
+    <value>Select * from "@HBT_TIPODOC"</value>
+    <comment>Lista los tipos de documento</comment>
+  </data>
   <data name="UM_DIAN" xml:space="preserve">
     <value>IF $[$38.1470002145.0] = 'Manual'
 

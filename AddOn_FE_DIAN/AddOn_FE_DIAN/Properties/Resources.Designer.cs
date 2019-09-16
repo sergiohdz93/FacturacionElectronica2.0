@@ -128,6 +128,15 @@ namespace AddOn_FE_DIAN.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select * from &quot;@HBT_TIPODOC&quot;.
+        /// </summary>
+        internal static string TipoDoc {
+            get {
+                return ResourceManager.GetString("TipoDoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a IF $[$38.1470002145.0] = &apos;Manual&apos;
         ///
         ///Begin

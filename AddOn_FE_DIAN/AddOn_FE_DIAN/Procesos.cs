@@ -200,8 +200,8 @@ namespace AddOn_FE_DIAN
                                             Procesos.EscribirLogFileTXT(" 133 FacturaVenta: FinSendFE");
                                         }
 
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
-                                        tabla = null;
+                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
+                                        oRecordset = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
                                         tabla = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
@@ -320,6 +320,8 @@ namespace AddOn_FE_DIAN
                                             SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
                                             Procesos.EscribirLogFileTXT("60091 FacturaReserva: FinSendFE");
                                         }
+                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
+                                        oRecordset = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
                                         tbls = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
@@ -435,6 +437,8 @@ namespace AddOn_FE_DIAN
                                             SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
                                             Procesos.EscribirLogFileTXT("65307 FacturaExportacion: FinSendFE");
                                         }
+                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
+                                        oRecordset = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
                                         tbls = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
@@ -553,6 +557,8 @@ namespace AddOn_FE_DIAN
                                             SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
                                             Procesos.EscribirLogFileTXT("65303 NotaDebito: FinSendFE");
                                         }
+                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
+                                        oRecordset = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
                                         tbls = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
@@ -674,6 +680,8 @@ namespace AddOn_FE_DIAN
                                             SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
                                             Procesos.EscribirLogFileTXT("179 NotaCredito: FinSendFE");
                                         }
+                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
+                                        oRecordset = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
                                         tbls = null;
                                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);

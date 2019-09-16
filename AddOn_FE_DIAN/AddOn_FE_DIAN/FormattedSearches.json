@@ -88,5 +88,15 @@
     "QueryName": "NombreSN",
     "Refresh": "tYES",
     "FieldID": "0"
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tYES",
+    "CollumID": "-1",
+    "ItemID": "U_SEI_FETipDoc",
+    "FormID": "136",
+    "QueryName": "TipoDoc",
+    "Refresh": "tNO",
+    "FieldID": ""
   }
 ]
