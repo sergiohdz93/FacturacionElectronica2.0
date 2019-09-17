@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using System.Reflection;
 
 namespace AddOn_FE_DIAN
 {
@@ -63,7 +64,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Cargue incial de informacion de proveedor
-        public static void CargueInicial()
+        public void CargueInicial()
         {
             try
             {
@@ -98,9 +99,6 @@ namespace AddOn_FE_DIAN
             BubbleEvent = true;
             try
             {
-                string docnum = "", objtype = "", docentry = "", docDate = "", docTime = "";
-                bool docDIAN;
-
                 oForm = SBO_Application.Forms.ActiveForm;
 
                 //Formulario 133 Factura de Venta
@@ -115,110 +113,53 @@ namespace AddOn_FE_DIAN
                             {
                                 if (BusinessObjectInfo.EventType == BoEventTypes.et_FORM_DATA_ADD && BusinessObjectInfo.ActionSuccess)
                                 {
-                                    Procesos.EscribirLogFileTXT(" 133 FacturaVenta: Inico");
-                                    SAPbobsCOM.CompanyService oCmpSrv;
-                                    SAPbobsCOM.SeriesService oSeriesService;
-                                    Series oSeries;
-                                    SeriesParams oSeriesParams;
+                                    Documents oInvoice = null;
+                                    CompanyService oCmpSrv = null;
+                                    SeriesService oSeriesService = null;
+                                    Series oSeries = null;
+                                    SeriesParams oSeriesParams = null;
                                     // get company service
                                     oCmpSrv = oCompany.GetCompanyService();
                                     // get series service
                                     oSeriesService = oCmpSrv.GetBusinessService(ServiceTypes.SeriesService);
                                     // get series params
                                     oSeriesParams = oSeriesService.GetDataInterface(SeriesServiceDataInterfaces.ssdiSeriesParams);
-                                    // set the number of an existing series
-
-
-                                    //Test DI method GetByKeys using key recived from UI (IBusinessObjectInfo.UniqueId) 
-                                    SAPbobsCOM.Documents oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                    //oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                    //Obtener inofrmacion del documento creado
+                                    //Get created invoice
+                                    oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
                                     oInvoice.Browser.GetByKeys(BusinessObjectInfo.ObjectKey);
-                                    docnum = Convert.ToString(oInvoice.DocNum);
-                                    objtype = Convert.ToString(oInvoice.DocObjectCode);
-                                    docentry = Convert.ToString(oInvoice.DocEntry);
-                                    docDate = Convert.ToString(oInvoice.DocDate);
-                                    docTime = Convert.ToString(oInvoice.DocTime);
+                                    // set the number of an existing series
                                     oSeriesParams.Series = oInvoice.Series;
                                     // get the series
                                     oSeries = oSeriesService.GetSeries(oSeriesParams);
+
                                     SAPbobsCOM.UserTables tablas = null;
                                     SAPbobsCOM.UserTable tabla = null;
-
                                     tablas = oCompany.UserTables;
-                                    tabla = tablas.Item("FEDIAN_CODDOC");
-                                    docDIAN = tabla.GetByKey(oSeries.Remarks);
-                                    
-                                    Procesos.EscribirLogFileTXT(" 133 FacturaVenta: Estado docDian: " + docDIAN);
-                                    if (docDIAN == true)
+                                    tabla = tablas.Item("FEDIAN_NUMAUTORI");
+
+                                    if(tabla.GetByKey(Convert.ToString(oSeries.Series)))
                                     {
-                                        int newCode = 0;
-                                        //Añadir registro el tabala del Monitor Log
-                                        tablas = null;
-                                        tabla = null;
-
-                                        tablas = oCompany.UserTables;
-                                        tabla = tablas.Item("FEDIAN_MONITORLOG");
-
-                                        Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                                        oRecordset.DoQuery(string.Format(Querys.Default.MaxLog));
-
-                                        newCode = oRecordset.Fields.Item("NextCode").Value;
-                                        Procesos.EscribirLogFileTXT(" 133 FacturaVenta: Code" + newCode);
-                                        tabla.Code = Convert.ToString(newCode);
-                                        tabla.Name = Convert.ToString(newCode);
-                                        tabla.UserFields.Fields.Item("U_DocType").Value = oSeries.Remarks;
-                                        tabla.UserFields.Fields.Item("U_Folio").Value = docnum;
-                                        tabla.UserFields.Fields.Item("U_ObjType").Value = BusinessObjectInfo.Type;
-                                        tabla.UserFields.Fields.Item("U_DocNum").Value = docentry;
-                                        tabla.UserFields.Fields.Item("U_Usuario_Envio").Value = user;
-                                        tabla.UserFields.Fields.Item("U_Fecha_Envio").Value = docDate;
-                                        tabla.UserFields.Fields.Item("U_Hora_Envio").Value = docTime;
-                                        tabla.UserFields.Fields.Item("U_Resultado").Value = "";
-                                        tabla.UserFields.Fields.Item("U_Status").Value = "";
-                                        tabla.UserFields.Fields.Item("U_ProcessID").Value = "";
-                                        tabla.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = "";
-                                        //tabla.UserFields.Fields.Item("U_Hora_ReEnvio").Value = "";
-                                        tabla.UserFields.Fields.Item("U_Det_Peticion").Value = "";
-                                        tabla.UserFields.Fields.Item("U_Respuesta_Int").Value = "";
-                                        tabla.UserFields.Fields.Item("U_Archivo_PDF").Value = "";
-                                        tabla.UserFields.Fields.Item("U_Enlace_XML").Value = "";
-                                        tabla.UserFields.Fields.Item("U_ID_Seguimiento").Value = "";
-
-                                        lRetCode = tabla.Add();
-
-                                        //Vereficar si se añade registro en la tabla
-                                        if (lRetCode != 0)
-                                        {
-                                            oCompany.GetLastError(out lRetCode, out sErrMsg);
-                                            Procesos.EscribirLogFileTXT("updateLog: " + sErrMsg);
-                                        }
-                                        else
-                                        {
-                                            Procesos.EscribirLogFileTXT(" 133 FacturaVenta: InicioSendFE");
-                                            SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
-                                            Procesos.EscribirLogFileTXT(" 133 FacturaVenta: FinSendFE");
-                                        }
-
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
-                                        oRecordset = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
-                                        tabla = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
-                                        tablas = null;
-                                        GC.Collect();
+                                        string docDian = "";
+                                        string docType = "";
+                                        docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
+                                        docType = BusinessObjectInfo.Type;
+                                        insertNewDoc(oInvoice, docDian, docType);
                                     }
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oInvoice);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesService);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeries);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesParams);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
+                                    GC.Collect();
                                 }
                             }
                             catch (Exception ex)
                             {
                                 SBO_Application.MessageBox(ex.Message);
-                                Procesos.EscribirLogFileTXT("133-Factura: " + ex.Message);
+                                Procesos.EscribirLogFileTXT(MethodBase.GetCurrentMethod().Name + " " + ex.Message);
                             }
-                        }
-                        else
-                        {
-
                         }
                     }
                 }
@@ -234,100 +175,46 @@ namespace AddOn_FE_DIAN
                             {
                                 if (BusinessObjectInfo.EventType == BoEventTypes.et_FORM_DATA_ADD && BusinessObjectInfo.ActionSuccess)
                                 {
-                                    Procesos.EscribirLogFileTXT("60091 FacturaReserva: Inico");
-                                    //oRecordset = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
-                                    SAPbobsCOM.CompanyService oCmpSrv;
-                                    SAPbobsCOM.SeriesService oSeriesService;
-                                    Series oSeries;
-                                    SeriesParams oSeriesParams;
+                                    Documents oInvoice = null;
+                                    CompanyService oCmpSrv = null;
+                                    SeriesService oSeriesService = null;
+                                    Series oSeries = null;
+                                    SeriesParams oSeriesParams = null;
                                     // get company service
                                     oCmpSrv = oCompany.GetCompanyService();
                                     // get series service
                                     oSeriesService = oCmpSrv.GetBusinessService(ServiceTypes.SeriesService);
                                     // get series params
                                     oSeriesParams = oSeriesService.GetDataInterface(SeriesServiceDataInterfaces.ssdiSeriesParams);
-                                    // set the number of an existing series
-
-
-                                    //Test DI method GetByKeys using key recived from UI (IBusinessObjectInfo.UniqueId) 
-                                    SAPbobsCOM.Documents oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                    //oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                    //Obtener inofrmacion del documento creado
+                                    //Get created invoice
+                                    oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
                                     oInvoice.Browser.GetByKeys(BusinessObjectInfo.ObjectKey);
-                                    docnum = Convert.ToString(oInvoice.DocNum);
-                                    objtype = Convert.ToString(oInvoice.DocObjectCode);
-                                    docentry = Convert.ToString(oInvoice.DocEntry);
-                                    docDate = Convert.ToString(oInvoice.DocDate);
-                                    docTime = Convert.ToString(oInvoice.DocTime);
+                                    // set the number of an existing series
                                     oSeriesParams.Series = oInvoice.Series;
                                     // get the series
                                     oSeries = oSeriesService.GetSeries(oSeriesParams);
-                                    SAPbobsCOM.UserTables tbls = null;
-                                    SAPbobsCOM.UserTable tbl = null;
 
-                                    tbls = oCompany.UserTables;
-                                    tbl = tbls.Item("FEDIAN_CODDOC");
-                                    docDIAN = tbl.GetByKey(oSeries.Remarks);
-                                    
-                                    Procesos.EscribirLogFileTXT("60091 FacturaReserva: Estado docDian: " + docDIAN);
-                                    if (docDIAN == true)
+                                    SAPbobsCOM.UserTables tablas = null;
+                                    SAPbobsCOM.UserTable tabla = null;
+                                    tablas = oCompany.UserTables;
+                                    tabla = tablas.Item("FEDIAN_NUMAUTORI");
+
+                                    if (tabla.GetByKey(Convert.ToString(oSeries.Series)))
                                     {
-                                        int newCode = 0;
-                                        //Añadir registro el tabala del Monitor Log
-                                        tbls = null;
-                                        tbl = null;
-
-                                        tbls = oCompany.UserTables;
-                                        tbl = tbls.Item("FEDIAN_MONITORLOG");
-                                        Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                                        oRecordset.DoQuery(string.Format(Querys.Default.MaxLog));
-
-                                        newCode = oRecordset.Fields.Item("NextCode").Value;
-                                        Procesos.EscribirLogFileTXT("60091 FacturaReserva: Code" + newCode);
-                                        tbl.Code = Convert.ToString(newCode);
-                                        tbl.Name = Convert.ToString(newCode);
-                                        tbl.UserFields.Fields.Item("U_DocType").Value = oSeries.Remarks;
-                                        tbl.UserFields.Fields.Item("U_Folio").Value = docnum;
-                                        tbl.UserFields.Fields.Item("U_ObjType").Value = BusinessObjectInfo.Type;
-                                        tbl.UserFields.Fields.Item("U_DocNum").Value = docentry;
-                                        tbl.UserFields.Fields.Item("U_Usuario_Envio").Value = user;
-                                        tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = docDate;
-                                        tbl.UserFields.Fields.Item("U_Hora_Envio").Value = docTime;
-                                        tbl.UserFields.Fields.Item("U_Resultado").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Status").Value = "";
-                                        tbl.UserFields.Fields.Item("U_ProcessID").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = "";
-                                        //tabla.UserFields.Fields.Item("U_Hora_ReEnvio").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Det_Peticion").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Enlace_XML").Value = "";
-                                        tbl.UserFields.Fields.Item("U_ID_Seguimiento").Value = "";
-
-                                        lRetCode = tbl.Add();
-
-                                        //Vereficar si se añade registro en la tabla
-                                        if (lRetCode != 0)
-                                        {
-                                            oCompany.GetLastError(out lRetCode, out sErrMsg);
-                                            Procesos.EscribirLogFileTXT("updateLog: " + sErrMsg);
-                                            //oCompany.GetLastError(out lRetCode, out sErrMsg);
-                                            //SBO_Application.MessageBox(sErrMsg);
-                                        }
-                                        else
-                                        {
-                                            Procesos.EscribirLogFileTXT("60091 FacturaReserva: InicioSendFE");
-                                            SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
-                                            Procesos.EscribirLogFileTXT("60091 FacturaReserva: FinSendFE");
-                                        }
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
-                                        oRecordset = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
-                                        tbls = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
-                                        tbl = null;
-                                        GC.Collect();
+                                        string docDian = "";
+                                        string docType = "";
+                                        docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
+                                        docType = BusinessObjectInfo.Type;
+                                        insertNewDoc(oInvoice, docDian, docType);
                                     }
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oInvoice);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesService);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeries);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesParams);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
+                                    GC.Collect();
                                 }
                             }
                             catch (Exception ex)
@@ -354,97 +241,46 @@ namespace AddOn_FE_DIAN
                             {
                                 if (BusinessObjectInfo.EventType == BoEventTypes.et_FORM_DATA_ADD && BusinessObjectInfo.ActionSuccess)
                                 {
-                                    Procesos.EscribirLogFileTXT("65307 FacturaExportacion: Inico");
-                                    //oRecordset = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
-                                    SAPbobsCOM.CompanyService oCmpSrv;
-                                    SAPbobsCOM.SeriesService oSeriesService;
-                                    Series oSeries;
-                                    SeriesParams oSeriesParams;
+                                    Documents oInvoice = null;
+                                    CompanyService oCmpSrv = null;
+                                    SeriesService oSeriesService = null;
+                                    Series oSeries = null;
+                                    SeriesParams oSeriesParams = null;
                                     // get company service
                                     oCmpSrv = oCompany.GetCompanyService();
                                     // get series service
                                     oSeriesService = oCmpSrv.GetBusinessService(ServiceTypes.SeriesService);
                                     // get series params
                                     oSeriesParams = oSeriesService.GetDataInterface(SeriesServiceDataInterfaces.ssdiSeriesParams);
-                                    // set the number of an existing series
-
-
-                                    //Test DI method GetByKeys using key recived from UI (IBusinessObjectInfo.UniqueId) 
-                                    SAPbobsCOM.Documents oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                    //oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                    //Obtener inofrmacion del documento creado
+                                    //Get created invoice
+                                    oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
                                     oInvoice.Browser.GetByKeys(BusinessObjectInfo.ObjectKey);
-                                    docnum = Convert.ToString(oInvoice.DocNum);
-                                    objtype = Convert.ToString(oInvoice.DocObjectCode);
-                                    docentry = Convert.ToString(oInvoice.DocEntry);
-                                    docDate = Convert.ToString(oInvoice.DocDate);
-                                    docTime = Convert.ToString(oInvoice.DocTime);
+                                    // set the number of an existing series
                                     oSeriesParams.Series = oInvoice.Series;
                                     // get the series
                                     oSeries = oSeriesService.GetSeries(oSeriesParams);
-                                    SAPbobsCOM.UserTables tbls = null;
-                                    SAPbobsCOM.UserTable tbl = null;
 
-                                    tbls = oCompany.UserTables;
-                                    tbl = tbls.Item("FEDIAN_CODDOC");
-                                    docDIAN = tbl.GetByKey(oSeries.Remarks);
-                                    
-                                    Procesos.EscribirLogFileTXT("65307 FacturaExportacion: Estado docDian: " + docDIAN);
-                                    if (docDIAN == true)
+                                    SAPbobsCOM.UserTables tablas = null;
+                                    SAPbobsCOM.UserTable tabla = null;
+                                    tablas = oCompany.UserTables;
+                                    tabla = tablas.Item("FEDIAN_NUMAUTORI");
+
+                                    if (tabla.GetByKey(Convert.ToString(oSeries.Series)))
                                     {
-                                        int newCode = 0;
-                                        //Añadir registro el tabala del Monitor Log
-                                        tbls = null;
-                                        tbl = null;
-
-                                        tbls = oCompany.UserTables;
-                                        tbl = tbls.Item("FEDIAN_MONITORLOG");
-                                        Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                                        oRecordset.DoQuery(string.Format(Querys.Default.MaxLog));
-
-                                        newCode = oRecordset.Fields.Item("NextCode").Value;
-                                        Procesos.EscribirLogFileTXT("65307 FacturaExportacion: Code" + newCode);
-                                        tbl.Code = Convert.ToString(newCode);
-                                        tbl.Name = Convert.ToString(newCode);
-                                        tbl.UserFields.Fields.Item("U_DocType").Value = oSeries.Remarks;
-                                        tbl.UserFields.Fields.Item("U_Folio").Value = docnum;
-                                        tbl.UserFields.Fields.Item("U_ObjType").Value = BusinessObjectInfo.Type;
-                                        tbl.UserFields.Fields.Item("U_DocNum").Value = docentry;
-                                        tbl.UserFields.Fields.Item("U_Usuario_Envio").Value = user;
-                                        tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = docDate;
-                                        tbl.UserFields.Fields.Item("U_Hora_Envio").Value = docTime;
-                                        tbl.UserFields.Fields.Item("U_Resultado").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Status").Value = "";
-                                        tbl.UserFields.Fields.Item("U_ProcessID").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Det_Peticion").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Enlace_XML").Value = "";
-                                        tbl.UserFields.Fields.Item("U_ID_Seguimiento").Value = "";
-
-                                        lRetCode = tbl.Add();
-
-                                        //Vereficar si se añade registro en la tabla
-                                        if (lRetCode != 0)
-                                        {
-                                            oCompany.GetLastError(out lRetCode, out sErrMsg);
-                                            Procesos.EscribirLogFileTXT("updateLog: " + sErrMsg);
-                                        }
-                                        else
-                                        {
-                                            Procesos.EscribirLogFileTXT("65307 FacturaExportacion: InicioSendFE");
-                                            SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
-                                            Procesos.EscribirLogFileTXT("65307 FacturaExportacion: FinSendFE");
-                                        }
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
-                                        oRecordset = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
-                                        tbls = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
-                                        tbl = null;
-                                        GC.Collect();
+                                        string docDian = "";
+                                        string docType = "";
+                                        docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
+                                        docType = BusinessObjectInfo.Type;
+                                        insertNewDoc(oInvoice, docDian, docType);
                                     }
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oInvoice);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesService);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeries);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesParams);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
+                                    GC.Collect();
                                 }
                             }
                             catch (Exception ex)
@@ -452,10 +288,6 @@ namespace AddOn_FE_DIAN
                                 SBO_Application.MessageBox(ex.Message);
                                 Procesos.EscribirLogFileTXT("65307-FacturaExportacion: " + ex.Message);
                             }
-                        }
-                        else
-                        {
-
                         }
                     }
                 }
@@ -471,100 +303,46 @@ namespace AddOn_FE_DIAN
                             {
                                 if (BusinessObjectInfo.EventType == BoEventTypes.et_FORM_DATA_ADD && BusinessObjectInfo.ActionSuccess)
                                 {
-                                    Procesos.EscribirLogFileTXT("65303 NotaDebito: Inico");
-                                    //oRecordset = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
-                                    SAPbobsCOM.CompanyService oCmpSrv;
-                                    SAPbobsCOM.SeriesService oSeriesService;
-                                    Series oSeries;
-                                    SeriesParams oSeriesParams;
+                                    Documents oInvoice = null;
+                                    CompanyService oCmpSrv = null;
+                                    SeriesService oSeriesService = null;
+                                    Series oSeries = null;
+                                    SeriesParams oSeriesParams = null;
                                     // get company service
                                     oCmpSrv = oCompany.GetCompanyService();
                                     // get series service
                                     oSeriesService = oCmpSrv.GetBusinessService(ServiceTypes.SeriesService);
                                     // get series params
                                     oSeriesParams = oSeriesService.GetDataInterface(SeriesServiceDataInterfaces.ssdiSeriesParams);
-                                    // set the number of an existing series
-
-
-                                    //Test DI method GetByKeys using key recived from UI (IBusinessObjectInfo.UniqueId) 
-                                    SAPbobsCOM.Documents oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                    //oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                    //Obtener inofrmacion del documento creado
+                                    //Get created invoice
+                                    oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
                                     oInvoice.Browser.GetByKeys(BusinessObjectInfo.ObjectKey);
-                                    docnum = Convert.ToString(oInvoice.DocNum);
-                                    objtype = Convert.ToString(oInvoice.DocObjectCode);
-                                    docentry = Convert.ToString(oInvoice.DocEntry);
-                                    docDate = Convert.ToString(oInvoice.DocDate);
-                                    docTime = Convert.ToString(oInvoice.DocTime);
+                                    // set the number of an existing series
                                     oSeriesParams.Series = oInvoice.Series;
                                     // get the series
                                     oSeries = oSeriesService.GetSeries(oSeriesParams);
-                                    SAPbobsCOM.UserTables tbls = null;
-                                    SAPbobsCOM.UserTable tbl = null;
 
-                                    tbls = oCompany.UserTables;
-                                    tbl = tbls.Item("FEDIAN_CODDOC");
-                                    docDIAN = tbl.GetByKey(oSeries.Remarks);
-                                    
-                                    Procesos.EscribirLogFileTXT("65303 NotaDebito: EstadodocDian: " + docDIAN);
-                                    if (docDIAN == true)
+                                    SAPbobsCOM.UserTables tablas = null;
+                                    SAPbobsCOM.UserTable tabla = null;
+                                    tablas = oCompany.UserTables;
+                                    tabla = tablas.Item("FEDIAN_NUMAUTORI");
+
+                                    if (tabla.GetByKey(Convert.ToString(oSeries.Series)))
                                     {
-                                        int newCode = 0;
-                                        //Añadir registro el tabala del Monitor Log
-                                        tbls = null;
-                                        tbl = null;
-
-                                        tbls = oCompany.UserTables;
-                                        tbl = tbls.Item("FEDIAN_MONITORLOG");
-                                        Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                                        oRecordset.DoQuery(string.Format(Querys.Default.MaxLog));
-
-                                        newCode = oRecordset.Fields.Item("NextCode").Value;
-                                        Procesos.EscribirLogFileTXT("60091 FacturaReserva: Code" + newCode);
-                                        tbl.Code = Convert.ToString(newCode);
-                                        tbl.Name = Convert.ToString(newCode);
-                                        tbl.UserFields.Fields.Item("U_DocType").Value = oSeries.Remarks;
-                                        tbl.UserFields.Fields.Item("U_Folio").Value = docnum;
-                                        tbl.UserFields.Fields.Item("U_ObjType").Value = BusinessObjectInfo.Type;
-                                        tbl.UserFields.Fields.Item("U_DocNum").Value = docentry;
-                                        tbl.UserFields.Fields.Item("U_Usuario_Envio").Value = user;
-                                        tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = docDate;
-                                        tbl.UserFields.Fields.Item("U_Hora_Envio").Value = docTime;
-                                        tbl.UserFields.Fields.Item("U_Resultado").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Status").Value = "";
-                                        tbl.UserFields.Fields.Item("U_ProcessID").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = "";
-                                        //tabla.UserFields.Fields.Item("U_Hora_ReEnvio").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Det_Peticion").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Enlace_XML").Value = "";
-                                        tbl.UserFields.Fields.Item("U_ID_Seguimiento").Value = "";
-
-                                        lRetCode = tbl.Add();
-
-                                        //Vereficar si se añade registro en la tabla
-                                        if (lRetCode != 0)
-                                        {
-                                            oCompany.GetLastError(out lRetCode, out sErrMsg);
-                                            Procesos.EscribirLogFileTXT("updateLog: " + sErrMsg);
-                                            //oCompany.GetLastError(out lRetCode, out sErrMsg);
-                                            //SBO_Application.MessageBox(sErrMsg);
-                                        }
-                                        else
-                                        {
-                                            Procesos.EscribirLogFileTXT("65303 NotaDebito: InicioSendFE");
-                                            SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
-                                            Procesos.EscribirLogFileTXT("65303 NotaDebito: FinSendFE");
-                                        }
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
-                                        oRecordset = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
-                                        tbls = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
-                                        tbl = null;
-                                        GC.Collect();
+                                        string docDian = "";
+                                        string docType = "";
+                                        docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
+                                        docType = BusinessObjectInfo.Type;
+                                        insertNewDoc(oInvoice, docDian, docType);
                                     }
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oInvoice);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesService);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeries);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesParams);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
+                                    GC.Collect();
                                 }
                             }
                             catch (Exception ex)
@@ -591,103 +369,46 @@ namespace AddOn_FE_DIAN
                             {
                                 if (BusinessObjectInfo.EventType == BoEventTypes.et_FORM_DATA_ADD && BusinessObjectInfo.ActionSuccess)
                                 {
-                                    Procesos.EscribirLogFileTXT("179 NotaCredito: Inico");
-                                    //oRecordset = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
-                                    SAPbobsCOM.CompanyService oCmpSrv;
-                                    SAPbobsCOM.SeriesService oSeriesService;
-                                    Series oSeries;
-                                    SeriesParams oSeriesParams;
+                                    Documents oCreditNote = null;
+                                    CompanyService oCmpSrv = null;
+                                    SeriesService oSeriesService = null;
+                                    Series oSeries = null;
+                                    SeriesParams oSeriesParams = null;
                                     // get company service
                                     oCmpSrv = oCompany.GetCompanyService();
                                     // get series service
                                     oSeriesService = oCmpSrv.GetBusinessService(ServiceTypes.SeriesService);
                                     // get series params
                                     oSeriesParams = oSeriesService.GetDataInterface(SeriesServiceDataInterfaces.ssdiSeriesParams);
-                                    // set the number of an existing series
-
-                                    Form form = SBO_Application.Forms.Item(BusinessObjectInfo.FormUID);
-                                    BusinessObject bisObj = form.BusinessObject;
-                                    string uid = bisObj.Key;
-
-
-                                    //Test DI method GetByKeys using key recived from UI (IBusinessObjectInfo.UniqueId) 
-                                    SAPbobsCOM.Documents oCreditNote = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oCreditNotes);
-                                    //oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oQuotations);
+                                    //Get created invoice
+                                    oCreditNote = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oCreditNotes);
                                     oCreditNote.Browser.GetByKeys(BusinessObjectInfo.ObjectKey);
-                                    docnum = Convert.ToString(oCreditNote.DocNum);
-                                    objtype = Convert.ToString(oCreditNote.DocObjectCode);
-                                    docentry = Convert.ToString(oCreditNote.DocEntry);
-                                    docDate = Convert.ToString(oCreditNote.DocDate);
-                                    docTime = Convert.ToString(oCreditNote.DocTime);
+                                    // set the number of an existing series
                                     oSeriesParams.Series = oCreditNote.Series;
                                     // get the series
                                     oSeries = oSeriesService.GetSeries(oSeriesParams);
-                                    SAPbobsCOM.UserTables tbls = null;
-                                    SAPbobsCOM.UserTable tbl = null;
 
-                                    tbls = oCompany.UserTables;
-                                    tbl = tbls.Item("FEDIAN_CODDOC");
-                                    docDIAN = tbl.GetByKey(oSeries.Remarks);
-                                    
-                                    Procesos.EscribirLogFileTXT("179 NotaCredito: EstadodocDian: " + docDIAN);
-                                    if (docDIAN == true)
+                                    SAPbobsCOM.UserTables tablas = null;
+                                    SAPbobsCOM.UserTable tabla = null;
+                                    tablas = oCompany.UserTables;
+                                    tabla = tablas.Item("FEDIAN_NUMAUTORI");
+
+                                    if (tabla.GetByKey(Convert.ToString(oSeries.Series)))
                                     {
-                                        int newCode = 0;
-                                        //Añadir registro el tabala del Monitor Log
-                                        tbls = null;
-                                        tbl = null;
-
-                                        tbls = oCompany.UserTables;
-                                        tbl = tbls.Item("FEDIAN_MONITORLOG");
-                                        Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                                        oRecordset.DoQuery(string.Format(Querys.Default.MaxLog));
-
-                                        newCode = oRecordset.Fields.Item("NextCode").Value;
-                                        Procesos.EscribirLogFileTXT("179 NotaCredito: Code" + newCode);
-                                        tbl.Code = Convert.ToString(newCode);
-                                        tbl.Name = Convert.ToString(newCode);
-                                        tbl.UserFields.Fields.Item("U_DocType").Value = oSeries.Remarks;
-                                        tbl.UserFields.Fields.Item("U_Folio").Value = docnum;
-                                        tbl.UserFields.Fields.Item("U_ObjType").Value = BusinessObjectInfo.Type;
-                                        tbl.UserFields.Fields.Item("U_DocNum").Value = docentry;
-                                        tbl.UserFields.Fields.Item("U_Usuario_Envio").Value = user;
-                                        tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = docDate;
-                                        tbl.UserFields.Fields.Item("U_Hora_Envio").Value = docTime;
-                                        tbl.UserFields.Fields.Item("U_Resultado").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Status").Value = "";
-                                        tbl.UserFields.Fields.Item("U_ProcessID").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = "";
-                                        //tabla.UserFields.Fields.Item("U_Hora_ReEnvio").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Det_Peticion").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = "";
-                                        tbl.UserFields.Fields.Item("U_Enlace_XML").Value = "";
-                                        tbl.UserFields.Fields.Item("U_ID_Seguimiento").Value = "";
-
-                                        lRetCode = tbl.Add();
-
-                                        //Vereficar si se añade registro en la tabla
-                                        if (lRetCode != 0)
-                                        {
-                                            oCompany.GetLastError(out lRetCode, out sErrMsg);
-                                            Procesos.EscribirLogFileTXT("updateLog: " + sErrMsg);
-                                            //oCompany.GetLastError(out lRetCode, out sErrMsg);
-                                            //SBO_Application.MessageBox(sErrMsg);
-                                        }
-                                        else
-                                        {
-                                            Procesos.EscribirLogFileTXT("179 NotaCredito: InicioSendFE");
-                                            SendFE(docentry, Convert.ToString(newCode), oSeries.Remarks, false);
-                                            Procesos.EscribirLogFileTXT("179 NotaCredito: FinSendFE");
-                                        }
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordset);
-                                        oRecordset = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
-                                        tbls = null;
-                                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
-                                        tbl = null;
-                                        GC.Collect();
+                                        string docDian = "";
+                                        string docType = "";
+                                        docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
+                                        docType = BusinessObjectInfo.Type;
+                                        insertNewDoc(oCreditNote, docDian, docType);
                                     }
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oCreditNote);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesService);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeries);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oSeriesParams);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
+                                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
+                                    GC.Collect();
                                 }
                             }
                             catch (Exception ex)
@@ -695,10 +416,6 @@ namespace AddOn_FE_DIAN
                                 SBO_Application.MessageBox(ex.Message);
                                 Procesos.EscribirLogFileTXT("179-NotaCredito: " + ex.Message);
                             }
-                        }
-                        else
-                        {
-
                         }
                     }
                 }
@@ -710,7 +427,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Definicion timer
-        public static void InicarTimersSAP()
+        public void InicarTimersSAP()
         {
             #region TimerVerificaEstados
             // Alternate method: create a Timer with an interval argument to the constructor.
@@ -765,7 +482,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Timer verificar estado
-        public static void OnTimedEventStatus(Object source, System.Timers.ElapsedEventArgs e)
+        public void OnTimedEventStatus(Object source, System.Timers.ElapsedEventArgs e)
         {
             try
             {
@@ -784,7 +501,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Timer Reenviar Fallidos
-        public static void OnTimedEventReSend(Object source, System.Timers.ElapsedEventArgs e)
+        public void OnTimedEventReSend(Object source, System.Timers.ElapsedEventArgs e)
         {
             try
             {
@@ -803,7 +520,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Timer Agregar DTE al monitor
-        public static void OnTimedEventAddDTEMonitor(Object source, System.Timers.ElapsedEventArgs e)
+        public void OnTimedEventAddDTEMonitor(Object source, System.Timers.ElapsedEventArgs e)
         {
             try
             {
@@ -822,7 +539,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Actualizacion de DataGrid si el formulario esta abierto
-        public static void UpdateFormLogOpen()
+        public void UpdateFormLogOpen()
         {
             try
             {
@@ -835,7 +552,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Funcion que se ejecuta para actualizar el formuario Monitor Log
-        public static void UpdGridLogtimer(string form)
+        public void UpdGridLogtimer(string form)
         {
             string sSQL = "";
             try
@@ -915,7 +632,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Cargue de DataGrid antes de abrir el formulario Monitor Log
-        public static void LoadGridLog(string form)
+        public void LoadGridLog(string form)
         {
             string sSQL = "";
             try
@@ -994,6 +711,66 @@ namespace AddOn_FE_DIAN
             }
         }
 
+        // Insesrta nuevo documento electronico (FEDIAN_MONITORLOG)
+        public void insertNewDoc(Documents oDocument, string docDIAN, string docType)
+        {
+            try
+            {
+                UserTables tablas = null;
+                UserTable tabla = null;
+
+                int newCode = 0;
+                //Añadir registro el tabla del Monitor Log
+                tablas = null;
+                tabla = null;
+
+                tablas = oCompany.UserTables;
+                tabla = tablas.Item("FEDIAN_MONITORLOG");
+
+                Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+                oRecordset.DoQuery(string.Format(Querys.Default.MaxLog));
+
+                newCode = oRecordset.Fields.Item("NextCode").Value;
+
+                tabla.Code = Convert.ToString(newCode);
+                tabla.Name = Convert.ToString(newCode);
+                tabla.UserFields.Fields.Item("U_DocType").Value = Convert.ToString(docDIAN);
+                tabla.UserFields.Fields.Item("U_Folio").Value = Convert.ToString(oDocument.DocNum);
+                tabla.UserFields.Fields.Item("U_ObjType").Value = Convert.ToString(docType);
+                tabla.UserFields.Fields.Item("U_DocNum").Value = Convert.ToString(oDocument.DocEntry);
+                tabla.UserFields.Fields.Item("U_Usuario_Envio").Value = Convert.ToString(user);
+                tabla.UserFields.Fields.Item("U_Fecha_Envio").Value = Convert.ToString(oDocument.DocDate);
+                tabla.UserFields.Fields.Item("U_Hora_Envio").Value = Convert.ToString(oDocument.DocTime);
+                tabla.UserFields.Fields.Item("U_Resultado").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_Status").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_ProcessID").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_Hora_ReEnvio").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_Det_Peticion").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_Respuesta_Int").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_Archivo_PDF").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_Enlace_XML").Value = string.Empty;
+                tabla.UserFields.Fields.Item("U_ID_Seguimiento").Value = string.Empty;
+
+                lRetCode = tabla.Add();
+
+                //Vereficar si se añade registro en la tabla
+                if (lRetCode != 0)
+                {
+                    oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    Procesos.EscribirLogFileTXT("updateLog: " + sErrMsg);
+                }
+                else
+                {
+                    SendFE(Convert.ToString(oDocument.DocEntry), Convert.ToString(newCode), docDIAN, false);
+                }
+            }
+            catch (Exception ex)
+            {
+                Procesos.EscribirLogFileTXT(MethodBase.GetCurrentMethod().Name + " \n Error: " + ex.Message);
+            }
+        }
+
         //validacion de proveedor para envio de informacion
         public static void SendFE(string docentry, string codeLog, string typeDoc, Boolean reSend)//, string objType
         {
@@ -1058,15 +835,31 @@ namespace AddOn_FE_DIAN
         {
             try
             {
+                string sSQL = "";
                 System.Data.DataTable DTDocFile = new System.Data.DataTable();
                 Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
 
-                string sSQL = "";
-                sSQL = System.Configuration.ConfigurationManager.AppSettings[typeDoc];
-                sSQL = string.Format(sSQL, transaction);
-
+                //sSQL = System.Configuration.ConfigurationManager.AppSettings[typeDoc];
+                //sSQL = string.Format(sSQL, transaction);
+                switch (typeDoc)
+                {
+                    case "01":
+                        sSQL = string.Format(Querys.Default.FacturaVenta, transaction);
+                        break;
+                    case "02":
+                        sSQL = string.Format(Querys.Default.FacturaExpo, transaction);
+                        break;
+                    case "03":
+                        sSQL = string.Format(Querys.Default.FacturaConti, transaction);
+                        break;
+                    case "91":
+                        sSQL = string.Format(Querys.Default.NotaCredito, transaction);
+                        break;
+                    case "92":
+                        sSQL = string.Format(Querys.Default.NotaDebito, transaction);
+                        break;
+                }
                 oRecordset.DoQuery(sSQL);
-
                 //if (typeDoc == "1")
                 //{
                 //    oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, transaction));
@@ -1228,6 +1021,7 @@ namespace AddOn_FE_DIAN
                     var objAPIDocstatu = JsonConvert.DeserializeObject<dynamic>(resultliststatus.ToString());
                     ResultAPI resAPIstatusDoc = null;
                     resAPIstatusDoc = ((JObject)objAPIDocstatu).ToObject<ResultAPI>();
+
                     Procesos.UpdateLogFebos(codeLog, resAPIstatusDoc, "", ReSend, strtext);
 
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
@@ -1272,6 +1066,7 @@ namespace AddOn_FE_DIAN
                         var objAPIDocstatu = JsonConvert.DeserializeObject<dynamic>(resultliststatus.ToString());
                         ResultAPI resAPIstatusDoc = null;
                         resAPIstatusDoc = ((JObject)objAPIDocstatu).ToObject<ResultAPI>();
+
                         Procesos.UpdateLogFebos(codeLog, resAPIstatusDoc, "", ReSend, strtext);
 
                         System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
@@ -1283,6 +1078,7 @@ namespace AddOn_FE_DIAN
                     {
                         febosID.mensaje = "No Existe el documento";
                         febosID.Codigo = "147";
+
                         Procesos.UpdateLogFebos(codeLog, febosID, "", ReSend, strtext);
                     }
 
@@ -1467,7 +1263,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Verificar estado archivos enviados (Timer)
-        public static void Verifystatus()
+        public void Verifystatus()
         {
             try
             {
@@ -1503,7 +1299,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Reenviar documentos (Timer)
-        public static void AutoReSend()
+        public void AutoReSend()
         {
             try
             {
@@ -1531,11 +1327,11 @@ namespace AddOn_FE_DIAN
 
                         if (fechaenvio == "")
                         {
-                            SendFE(docentry, LogCode, tipDoc, false);//, objType
+                            Procesos.SendFE(docentry, LogCode, tipDoc, false);//, objType
                         }
                         else
                         {
-                            SendFE(docentry, LogCode, tipDoc, true);//, objType
+                            Procesos.SendFE(docentry, LogCode, tipDoc, true);//, objType
                         }
                     }
                 }
@@ -1550,7 +1346,7 @@ namespace AddOn_FE_DIAN
         }
 
         //Add DTE al monitor (Timer)
-        public static void AddDTEMonitor()
+        public void AddDTEMonitor()
         {
             try
             {

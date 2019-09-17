@@ -61,6 +61,15 @@ namespace AddOn_FE_DIAN.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;SeriesName&quot; From NNM1 Where &quot;Series&quot; =  $[@FEDIAN_NUMAUTORI.Code].
+        /// </summary>
+        internal static string DescNume {
+            get {
+                return ResourceManager.GetString("DescNume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_RESPONSA&quot; Where &quot;Code&quot; =  $[@FEDIAN_SN_RESPO.U_Codigo].
         /// </summary>
         internal static string DescRespon {
@@ -85,6 +94,24 @@ namespace AddOn_FE_DIAN.Properties {
         internal static string ListaDocDIAN {
             get {
                 return ResourceManager.GetString("ListaDocDIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Series&quot;, &quot;SeriesName&quot;, &quot;InitialNum&quot;, &quot;LastNum&quot;, &quot;DocSubType&quot;,
+        ///Case 
+        ///When &quot;ObjectCode&quot; = &apos;14&apos; Then &apos;Nota de Cerdito&apos;
+        ///When &quot;ObjectCode&quot; = &apos;13&apos; And &quot;DocSubType&quot; = &apos;--&apos; Then &apos;Factura de Venta&apos; 
+        ///When &quot;ObjectCode&quot; = &apos;13&apos; And &quot;DocSubType&quot; = &apos;DN&apos; Then &apos;Nota de Debito&apos; 
+        ///When &quot;ObjectCode&quot; = &apos;13&apos; And &quot;DocSubType&quot; = &apos;IX&apos; Then &apos;Factura de Exportacion&apos; 
+        ///When &quot;ObjectCode&quot; = &apos;13&apos; And &quot;DocSubType&quot; = &apos;RI&apos; Then &apos;Factura de Reserva&apos; 
+        ///End &quot;Tipo de documento&quot;
+        ///From &quot;NNM1&quot;
+        ///Where &quot;Series&quot; Not In (Select &quot;Code&quot; from [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string ListaNume {
+            get {
+                return ResourceManager.GetString("ListaNume", resourceCulture);
             }
         }
         
@@ -163,12 +190,12 @@ namespace AddOn_FE_DIAN.Properties {
         ///   Busca una cadena traducida similar a Select C0.&quot;Unidad&quot;, C0.&quot;Descr&quot;
         ///From(
         ///	SELECT 
-        ///	Case When IsNull(&quot;UomCode&quot;,&apos;&apos;) = &apos;Manual&apos; Then &quot;unitMsr&quot; Else &quot;UomCode&quot; End &quot;Unidad&quot;, 
+        ///	Case When &quot;UomCode&quot; = &apos;Manual&apos; Then &quot;unitMsr&quot; Else &quot;UomCode&quot; End &quot;Unidad&quot;, 
         ///	&quot;unitMsr&quot; as &quot;Descr&quot; 
         ///	FROM INV1
         ///)C0 
         ///Where IsNull(&quot;Unidad&quot;,&apos;&apos;) != &apos;&apos; And C0.&quot;Unidad&quot; Not In (Select &quot;U_SAP_UM&quot; From &quot;@FEDIAN_HOMOL_UM&quot; Where IsNull(&quot;U_DIAN_UM&quot;,&apos;&apos;) != &apos;&apos;)
-        ///Group By C0.&quot;Unidad&quot;, C0.Descr.
+        ///Group By C0.&quot;Unidad&quot;, C0.&quot;Descr&quot;.
         /// </summary>
         internal static string UM_Pendientes {
             get {

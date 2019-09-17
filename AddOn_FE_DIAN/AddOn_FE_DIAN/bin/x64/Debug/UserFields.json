@@ -576,5 +576,90 @@
       "EditSize": "50",
       "Mandatory": "tNO"
     }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FETipDoc",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Tipo de documento",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "DocDIAN",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Tipo de documento",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_CODDOC"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "NumResol",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Numero Resolucion",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "FechaResol",
+      "Type": "db_Date",
+      "Size": "50",
+      "Description": "Fecha Resolucion",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "ClaveTec",
+      "Type": "db_Alpha",
+      "Size": "100",
+      "Description": "Clave Tecnica",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "100",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "FechaDesde",
+      "Type": "db_Date",
+      "Size": "50",
+      "Description": "Fecha Desde",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "FechaHasta",
+      "Type": "db_Date",
+      "Size": "50",
+      "Description": "Fecha Hasta",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
   }
 ]

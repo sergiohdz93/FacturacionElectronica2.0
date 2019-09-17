@@ -98,5 +98,25 @@
     "QueryName": "TipoDoc",
     "Refresh": "tNO",
     "FieldID": ""
+  },
+  {
+    "FormStand": "tNO",
+    "ByField": "tNO",
+    "CollumID": "Code",
+    "ItemID": "3",
+    "FormID": "FEDIAN_NUMAUTORI",
+    "QueryName": "ListaNume",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tNO",
+    "ByField": "tNO",
+    "CollumID": "Name",
+    "ItemID": "3",
+    "FormID": "FEDIAN_NUMAUTORI",
+    "QueryName": "DescNume",
+    "Refresh": "tYES",
+    "FieldID": "Code"
   }
 ]

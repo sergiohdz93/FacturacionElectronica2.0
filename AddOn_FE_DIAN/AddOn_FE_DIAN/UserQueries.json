@@ -38,6 +38,14 @@
   {
     "QueryName": "TipoDoc",
     "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaNume",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "DescNume",
+    "QueryCategory": "FEDIAN"
   }
 ]
 

@@ -88,5 +88,10 @@
     "TableName": "FEDIAN_SN_TRIB",
     "TableDescription": "Tributos SN",
     "TableType": "bott_MasterDataLines"
+  },
+  {
+    "TableName": "FEDIAN_NUMAUTORI",
+    "TableDescription": "Numeracion Autorizada DIAN",
+    "TableType": "bott_NoObject"
   }
 ]
