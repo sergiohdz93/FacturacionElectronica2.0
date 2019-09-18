@@ -269,72 +269,72 @@ namespace AddOn_FE_DIAN {
             "UTO:\' + IsNull(A1.U_SEI_FETributo,\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A2" +
             ".Name,\'\') + \'\' as \'cadena\'\r\n\tFrom INV5 A0\r\n\tInner Join OWHT A1 On A0.WTCode = A1" +
             ".WTCode\r\n\tLeft Join [@FEDIAN_TRIBU] A2 On A1.U_SEI_FETributo = A2.Code\r\n\tWhere A" +
-            "0.AbsEntry = 3673 \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \'LineNum\', 22 as \'ordenplano\',\r\n\t\'" +
-            "@E:\' + \'TOTALES\' + \';\' + \'\' + \'TOTAL_BRUTO:\' + CASE WHEN A0.DocCur in (\'$\',\'us\'," +
-            " \'eu\', \'lb\',\'COP\') THEN Cast(Cast(Sum(A1.LineTotal) as Decimal(15,2)) as Nvarcha" +
-            "r(100)) WHEN A0.DocCur = \'usd\' THEN Cast(Cast(Sum(A1.TotalSumSy) as Decimal(15,2" +
-            ")) as Nvarchar(100)) ELSE Cast(Cast(Sum(A1.TotalFrgn) as Decimal(15,2)) as Nvarc" +
-            "har(100)) END + \';\' + \r\n\t\'TOTAL_BASE_IMPONIBLE:\' + CASE WHEN A0.DocCur in (\'$\',\'" +
-            "us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.VatSum as Decimal(15,2)) as Nvarchar(10" +
-            "0)) WHEN A0.DocCur = \'usd\' THEN Cast(Cast(A0.VatSumSy as Decimal(15,2)) as Nvarc" +
-            "har(100)) ELSE Cast(Cast(A0.VatSumFC as Decimal(15,2)) as Nvarchar(100)) END + \'" +
-            ";\' + \r\n\t\'TOTAL_NETO:\' + CASE WHEN A0.DocCur in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN" +
-            " Cast(Cast(A0.DocTotal as Decimal(15,2)) as Nvarchar(100)) WHEN A0.DocCur = \'usd" +
-            "\' Then Cast(Cast(A0.DocTotalSy as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cas" +
-            "t(A0.DocTotalFC as Decimal(15,2)) as Nvarchar(100)) END + \';\' +\r\n\t\'TOTAL_DESCUEN" +
-            "TOS:\' + CASE WHEN A0.DocCur in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.Di" +
-            "scSum as Decimal(15,2)) as Nvarchar(100)) WHEN A0.DocCur = \'usd\' Then Cast(Cast(" +
-            "A0.DiscSumSy as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.DiscSumFC as " +
-            "Decimal(15,2)) as Nvarchar(100)) END + \';\' +\r\n\t\'TOTAL_FACTURA:\' + CASE WHEN A0.D" +
-            "ocCur in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.DocTotal as Decimal(15,2" +
-            ")) as Nvarchar(100)) WHEN A0.DocCur = \'usd\' Then Cast(Cast(A0.DocTotalSy as Deci" +
-            "mal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.DocTotalFC as Decimal(15,2)) as N" +
-            "varchar(100)) END + \'\' as \'cadena\'\r\n\tFrom OINV A0 \r\n\tInner Join INV1 A1 On A0.Do" +
-            "centry = A1.DocEntry\r\n\tWhere A0.DocEntry = {0} And A0.DocCur != \'\' \r\n\tGroup By A" +
-            "0.DocCur, A0.DocTotal, A0.DiscSum, A0.VatSum, A0.DpmAmnt, A0.WTSum, A0.CurSource" +
-            ", A0.VatSumFC, A0.DocTotalFC, A0.VatSumSy, A0.DocTotalSy, A0.DiscSum, A0.DiscSum" +
-            "FC, A0.DiscSumSy\r\n\r\n\tUnion All\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.VisOrde" +
-            "r) as \'LineNum\', 23 as \'ordenplano\',\r\n\t\'@E:\' + \'DETALLE\' + \';\' + \'LINEA:\' +  Cas" +
-            "t(IsNull(A1.LineNum,\'\') as Nvarchar(10)) + \';\' + \'NOTA:\' + Cast(IsNull(A1.FreeTx" +
-            "t,\'\') as nvarchar(100)) + \';\' + \'CANTIDAD:\' + Cast(Cast(A1.Quantity as Decimal(1" +
-            "2,2)) as Nvarchar(100)) + \';\' + \'VALOR_TOTAL:\' + \';\' +\r\n\tCASE WHEN A0.DocCur in " +
-            "(\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A1.LineTotal as Decimal(15,2)) as Nv" +
-            "archar(100)) WHEN A0.DocCur = \'usd\' THEN Cast(Cast(A1.TotalSumSy as Decimal(15,2" +
-            ")) as Nvarchar(100)) ELSE Cast(Cast(A1.TotalFrgn as Decimal(15,2)) as Nvarchar(1" +
-            "00)) END + \r\n\t\';\' + \'CODIGO_VENDEDOR:\' + IsNull(Cast(A1.SlpCode as nvarchar(10))" +
-            ",\'\') + \';\' + \'PRECIO:\' + Cast(Cast(A1.Price as Decimal(15,2)) as Nvarchar(100)) " +
-            "+ \';\' + \'ID_UNIDAD_MEDIDA:\' + \r\n\tCASE WHEN IsNull(A1.UomCode,\'\') = \'Manual\' Then" +
-            " IsNull(A2.U_DIAN_UM,\'\') Else IsNull(A3.U_SAP_UM,\'\') End + \';\' + \'CANTIDAD_BASE:" +
-            "\' + Cast(Cast(A1.Quantity as Decimal(12,2)) as Nvarchar(100))\r\n\tFrom OINV A0 \r\n\t" +
-            "Inner Join INV1 A1 On A0.Docentry = A1.DocEntry\r\n\tLeft Join [@FEDIAN_HOMOL_UM] A" +
-            "2 On A1.unitMsr = A2.U_SAP_UM\r\n\tLeft Join [@FEDIAN_HOMOL_UM] A3 On A1.UomCode = " +
-            "A2.U_SAP_UM\r\n\tWhere A0.DocEntry = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect ROW_NUMBER() OVE" +
-            "R (ORDER BY A1.VisOrder) as \'LineNum\', 24 as \'ordenplano\',\r\n\t\'@S:\' + \'DETALLE\' +" +
-            " \';\' + \'PAGO_REFERENCIA\' +\';\' + \'VALOR:\' + Cast(Cast(A1.Price as Decimal(15,2)) " +
-            "as Nvarchar(100)) + \';\' + \'TIPO_PRECIO:\' + IsNull(A1.U_SEI_FETipPrec,\'\') + \'\' As" +
-            " \'cadena\'\r\n\tFrom OINV A0\r\n\tInner Join INV1 A1 On A0.Docentry = A1.DocEntry\r\n\tWhe" +
-            "re A0.DocEntry = {0} And IsNull(A1.U_SEI_FETipPrec,\'\') = \'03\' \r\n\r\n\tUnion All\r\n\r\n" +
-            "\tSelect 0 as \'LineNum\', 25 as \'ordenplano\',\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUEST" +
-            "OS\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum(A0.VatSum) as numeric(15,2)) as Nvarc" +
-            "har(100)) As \'cadena\'\r\n\tFrom INV1 A0\r\n\tWhere A0.DocEntry = {0} \r\n\r\n\tUnion All\r\n\r" +
-            "\n\tSelect 0 as \'LineNum\', 26 as \'ordenplano\',\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUES" +
-            "TOS/SUBTOTAL\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum(A2.BaseSum) as numeric(15,2" +
-            ")) as Nvarchar(100)) \r\n\t+ \';\' + \'MONTO:\' + Cast(Cast(Sum(A2.TaxSum) as numeric(1" +
-            "5,2)) as Nvarchar(100)) + \';\' + \'VALOR_UNITARIO:\' + Cast(Cast(Sum(A1.Price) as D" +
-            "ecimal(15,2)) as Nvarchar(100))\r\n\t+ \';\' + \'PORCENTAJE:\' + Cast(Cast(A2.TaxRate a" +
-            "s Decimal(2,0)) as Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\' + IsNull(A3.U_SEI_FETrib" +
-            "uto,\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A4.Name,\'\') + \'\' as \'cadena\'\r\n\tF" +
-            "rom OINV A0\r\n\tInner Join INV1 A1 On A0.DocEntry = A1.DocEntry\r\n\tLeft Join INV4 A" +
-            "2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum\r\n\tInner Join OSTC A3 " +
-            "On A2.StcCode = A3.Code\r\n\tLeft Join [@FEDIAN_TRIBU] A4 On A3.U_SEI_FETributo = A" +
-            "4.Code\r\n\tWhere A0.DocEntry = {0} \r\n\tGroup by A2.TaxRate, A3.U_SEI_FETributo, A4." +
-            "Name\r\n\r\n\tUnion All\r\n\t\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.VisOrder) as \'Line" +
-            "Num\', 27 as \'ordenplano\',\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'PRODUCTO\' + \';\' + \'DESCRI" +
-            "PCION:\' + Cast(IsNull(A1.Dscription,\'\') as Nvarchar(300)) + \';\' + \'MARCA:\' + IsN" +
-            "ull(A3.FirmName,\'\') + \';\' + \'MODELO:\' + \'CAMPOUSUARIOPENDIENTE\' as \'cadena\'\r\n\tFr" +
-            "om OINV A0\r\n\tInner Join INV1 A1 On A0.DocEntry = A1.DocEntry\r\n\tInner Join OITM A" +
-            "2 On A1.ItemCode = A2.ItemCode\r\n\tLeft Join OMRC A3 On A2.FirmCode = A3.FirmCode\r" +
-            "\n\tWhere A0.DocEntry = {0}\r\n) A0\r\nOrder By LineNum, ordenplano")]
+            "0.AbsEntry = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \'LineNum\', 22 as \'ordenplano\',\r\n\t\'@" +
+            "E:\' + \'TOTALES\' + \';\' + \'\' + \'TOTAL_BRUTO:\' + CASE WHEN A0.DocCur in (\'$\',\'us\', " +
+            "\'eu\', \'lb\',\'COP\') THEN Cast(Cast(Sum(A1.LineTotal) as Decimal(15,2)) as Nvarchar" +
+            "(100)) WHEN A0.DocCur = \'usd\' THEN Cast(Cast(Sum(A1.TotalSumSy) as Decimal(15,2)" +
+            ") as Nvarchar(100)) ELSE Cast(Cast(Sum(A1.TotalFrgn) as Decimal(15,2)) as Nvarch" +
+            "ar(100)) END + \';\' + \r\n\t\'TOTAL_BASE_IMPONIBLE:\' + CASE WHEN A0.DocCur in (\'$\',\'u" +
+            "s\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.VatSum as Decimal(15,2)) as Nvarchar(100" +
+            ")) WHEN A0.DocCur = \'usd\' THEN Cast(Cast(A0.VatSumSy as Decimal(15,2)) as Nvarch" +
+            "ar(100)) ELSE Cast(Cast(A0.VatSumFC as Decimal(15,2)) as Nvarchar(100)) END + \';" +
+            "\' + \r\n\t\'TOTAL_NETO:\' + CASE WHEN A0.DocCur in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN " +
+            "Cast(Cast(A0.DocTotal as Decimal(15,2)) as Nvarchar(100)) WHEN A0.DocCur = \'usd\'" +
+            " Then Cast(Cast(A0.DocTotalSy as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast" +
+            "(A0.DocTotalFC as Decimal(15,2)) as Nvarchar(100)) END + \';\' +\r\n\t\'TOTAL_DESCUENT" +
+            "OS:\' + CASE WHEN A0.DocCur in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.Dis" +
+            "cSum as Decimal(15,2)) as Nvarchar(100)) WHEN A0.DocCur = \'usd\' Then Cast(Cast(A" +
+            "0.DiscSumSy as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.DiscSumFC as D" +
+            "ecimal(15,2)) as Nvarchar(100)) END + \';\' +\r\n\t\'TOTAL_FACTURA:\' + CASE WHEN A0.Do" +
+            "cCur in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.DocTotal as Decimal(15,2)" +
+            ") as Nvarchar(100)) WHEN A0.DocCur = \'usd\' Then Cast(Cast(A0.DocTotalSy as Decim" +
+            "al(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.DocTotalFC as Decimal(15,2)) as Nv" +
+            "archar(100)) END + \'\' as \'cadena\'\r\n\tFrom OINV A0 \r\n\tInner Join INV1 A1 On A0.Doc" +
+            "entry = A1.DocEntry\r\n\tWhere A0.DocEntry = {0} And A0.DocCur != \'\' \r\n\tGroup By A0" +
+            ".DocCur, A0.DocTotal, A0.DiscSum, A0.VatSum, A0.DpmAmnt, A0.WTSum, A0.CurSource," +
+            " A0.VatSumFC, A0.DocTotalFC, A0.VatSumSy, A0.DocTotalSy, A0.DiscSum, A0.DiscSumF" +
+            "C, A0.DiscSumSy\r\n\r\n\tUnion All\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.VisOrder" +
+            ") as \'LineNum\', 23 as \'ordenplano\',\r\n\t\'@E:\' + \'DETALLE\' + \';\' + \'LINEA:\' +  Cast" +
+            "(IsNull(A1.LineNum,\'\') as Nvarchar(10)) + \';\' + \'NOTA:\' + Cast(IsNull(A1.FreeTxt" +
+            ",\'\') as nvarchar(100)) + \';\' + \'CANTIDAD:\' + Cast(Cast(A1.Quantity as Decimal(12" +
+            ",2)) as Nvarchar(100)) + \';\' + \'VALOR_TOTAL:\' + \';\' +\r\n\tCASE WHEN A0.DocCur in (" +
+            "\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A1.LineTotal as Decimal(15,2)) as Nva" +
+            "rchar(100)) WHEN A0.DocCur = \'usd\' THEN Cast(Cast(A1.TotalSumSy as Decimal(15,2)" +
+            ") as Nvarchar(100)) ELSE Cast(Cast(A1.TotalFrgn as Decimal(15,2)) as Nvarchar(10" +
+            "0)) END + \r\n\t\';\' + \'CODIGO_VENDEDOR:\' + IsNull(Cast(A1.SlpCode as nvarchar(10))," +
+            "\'\') + \';\' + \'PRECIO:\' + Cast(Cast(A1.Price as Decimal(15,2)) as Nvarchar(100)) +" +
+            " \';\' + \'ID_UNIDAD_MEDIDA:\' + \r\n\tCASE WHEN IsNull(A1.UomCode,\'\') = \'Manual\' Then " +
+            "IsNull(A2.U_DIAN_UM,\'\') Else IsNull(A3.U_SAP_UM,\'\') End + \';\' + \'CANTIDAD_BASE:\'" +
+            " + Cast(Cast(A1.Quantity as Decimal(12,2)) as Nvarchar(100))\r\n\tFrom OINV A0 \r\n\tI" +
+            "nner Join INV1 A1 On A0.Docentry = A1.DocEntry\r\n\tLeft Join [@FEDIAN_HOMOL_UM] A2" +
+            " On A1.unitMsr = A2.U_SAP_UM\r\n\tLeft Join [@FEDIAN_HOMOL_UM] A3 On A1.UomCode = A" +
+            "2.U_SAP_UM\r\n\tWhere A0.DocEntry = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect ROW_NUMBER() OVER" +
+            " (ORDER BY A1.VisOrder) as \'LineNum\', 24 as \'ordenplano\',\r\n\t\'@S:\' + \'DETALLE\' + " +
+            "\';\' + \'PAGO_REFERENCIA\' +\';\' + \'VALOR:\' + Cast(Cast(A1.Price as Decimal(15,2)) a" +
+            "s Nvarchar(100)) + \';\' + \'TIPO_PRECIO:\' + IsNull(A1.U_SEI_FETipPrec,\'\') + \'\' As " +
+            "\'cadena\'\r\n\tFrom OINV A0\r\n\tInner Join INV1 A1 On A0.Docentry = A1.DocEntry\r\n\tWher" +
+            "e A0.DocEntry = {0} And IsNull(A1.U_SEI_FETipPrec,\'\') = \'03\' \r\n\r\n\tUnion All\r\n\r\n\t" +
+            "Select 0 as \'LineNum\', 25 as \'ordenplano\',\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUESTO" +
+            "S\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum(A0.VatSum) as numeric(15,2)) as Nvarch" +
+            "ar(100)) As \'cadena\'\r\n\tFrom INV1 A0\r\n\tWhere A0.DocEntry = {0} \r\n\r\n\tUnion All\r\n\r\n" +
+            "\tSelect 0 as \'LineNum\', 26 as \'ordenplano\',\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUEST" +
+            "OS/SUBTOTAL\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum(A2.BaseSum) as numeric(15,2)" +
+            ") as Nvarchar(100)) \r\n\t+ \';\' + \'MONTO:\' + Cast(Cast(Sum(A2.TaxSum) as numeric(15" +
+            ",2)) as Nvarchar(100)) + \';\' + \'VALOR_UNITARIO:\' + Cast(Cast(Sum(A1.Price) as De" +
+            "cimal(15,2)) as Nvarchar(100))\r\n\t+ \';\' + \'PORCENTAJE:\' + Cast(Cast(A2.TaxRate as" +
+            " Decimal(2,0)) as Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\' + IsNull(A3.U_SEI_FETribu" +
+            "to,\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A4.Name,\'\') + \'\' as \'cadena\'\r\n\tFr" +
+            "om OINV A0\r\n\tInner Join INV1 A1 On A0.DocEntry = A1.DocEntry\r\n\tLeft Join INV4 A2" +
+            " On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum\r\n\tInner Join OSTC A3 O" +
+            "n A2.StcCode = A3.Code\r\n\tLeft Join [@FEDIAN_TRIBU] A4 On A3.U_SEI_FETributo = A4" +
+            ".Code\r\n\tWhere A0.DocEntry = {0} \r\n\tGroup by A2.TaxRate, A3.U_SEI_FETributo, A4.N" +
+            "ame\r\n\r\n\tUnion All\r\n\t\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.VisOrder) as \'LineN" +
+            "um\', 27 as \'ordenplano\',\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'PRODUCTO\' + \';\' + \'DESCRIP" +
+            "CION:\' + Cast(IsNull(A1.Dscription,\'\') as Nvarchar(300)) + \';\' + \'MARCA:\' + IsNu" +
+            "ll(A3.FirmName,\'\') + \';\' + \'MODELO:\' +  IsNull(A2.U_FEDIAN_MODELO,\'\') as \'cadena" +
+            "\'\r\n\tFrom OINV A0\r\n\tInner Join INV1 A1 On A0.DocEntry = A1.DocEntry\r\n\tInner Join " +
+            "OITM A2 On A1.ItemCode = A2.ItemCode\r\n\tLeft Join OMRC A3 On A2.FirmCode = A3.Fir" +
+            "mCode\r\n\tWhere A0.DocEntry = {0}\r\n\t)A0\r\nOrder By LineNum, ordenplano")]
         public string FacturaVenta {
             get {
                 return ((string)(this["FacturaVenta"]));
@@ -344,15 +344,15 @@ namespace AddOn_FE_DIAN {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute(@"Select 
-A0.Code, A0.U_ObjType as 'Tipo Objeto', A0.U_DocType as 'Tipo Documento', A1.Name as 'Documento DIAN', A0.U_Folio as 'Numero Documento', A0.U_DocNum as 'Numero Interno', 
-A0.U_Status as 'Codigo Estado', A0.U_Resultado as 'Descripcion Estado', A0.U_ProcessID as 'ID Proceso', A0.U_Fecha_Envio as 'Fecha Envio', A0.U_Hora_Envio as 'Hora Envio', 
-A0.U_Usuario_Envio as 'Usuario Envio', A0.U_Fecha_ReEnvio as 'Fecha Re-Envio', A0.U_Hora_ReEnvio as 'Hora Re-Envio', A0.U_Usuario_ReEnvio as 'Usuario Re-Envio', 
-A0.U_Det_Peticion as 'Detalle Peticion', A0.U_Respuesta_Int as 'Respuesta Integracion', A0.U_Archivo_PDF as 'Archivo PDF', A0.U_Enlace_XML as 'Archivo XML',
-A0.U_ID_Seguimiento as 'FebosID'
-From [@FEDIAN_MONITORLOG] A0
-Left Join [@FEDIAN_CODDOC] A1 On A0.U_DocType = A1.Code
-Where (A0.U_Fecha_Envio Between '{0}' and '{1}' or IsNull(A0.U_Fecha_Envio,'') = '') and (A0.U_DocType = '{2}' OR IsNull('{2}','')='') and (A0.U_Status = '{3}' OR IsNull('{3}','')='')
-Order By Cast(A0.Code as int)")]
+A0.""Code"", A0.""U_ObjType"" as ""Tipo Objeto"", A0.""U_DocType"" as ""Tipo Documento"", A1.""Name"" as ""Documento DIAN"", A0.""U_Folio"" as ""Numero Documento"", A0.""U_DocNum"" as ""Numero Interno"", 
+A0.""U_Status"" as ""Codigo Estado"", A0.""U_Resultado"" as ""Descripcion Estado"", A0.""U_ProcessID"" as ""ID Proceso"", 
+A0.""U_Fecha_Envio"" as ""Fecha de contabilizacion"", A0.""U_Hora_Envio"" as ""Hora de creacion"", A0.""U_Usuario_Envio"" as ""Usuario Envio"", 
+A0.""U_Det_Peticion"" as ""Detalle Peticion"", A0.""U_Respuesta_Int"" as ""Respuesta Integracion"", A0.""U_Archivo_PDF"" as ""Archivo PDF"", A0.""U_Enlace_XML"" as ""Archivo XML"",
+A0.""U_ID_Seguimiento"" as ""FebosID""
+From ""@FEDIAN_MONITORLOG"" A0
+Left Join ""@FEDIAN_CODDOC"" A1 On A0.""U_DocType"" = A1.""Code""
+Where (A0.""U_Fecha_Envio"" Between '{0}' and '{1}' or IsNull(A0.""U_Fecha_Envio"",'') = '') and (A0.""U_DocType"" = '{2}' OR IsNull('{2}','')='') and (A0.""U_Status"" = '{3}' OR IsNull('{3}','')='')
+Order By Cast(A0.""Code"" as int)")]
         public string CargueMonitor {
             get {
                 return ((string)(this["CargueMonitor"]));
@@ -361,7 +361,7 @@ Order By Cast(A0.Code as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select * from [@FEDIAN_PARAMG]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select * from \"@FEDIAN_PARAMG\"")]
         public string PARAMG {
             get {
                 return ((string)(this["PARAMG"]));
@@ -370,7 +370,7 @@ Order By Cast(A0.Code as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select Code From [@FEDIAN_MONITORLOG] Where U_DocNum = {0}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select \"Code\" From \"@FEDIAN_MONITORLOG\" Where \"U_DocNum\" = {0}")]
         public string GetCodeLog {
             get {
                 return ((string)(this["GetCodeLog"]));
@@ -379,9 +379,9 @@ Order By Cast(A0.Code as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select Code, U_ProcessID, U_ID_Seguimiento, U_Det_Peticion \r\n\t\t\t\t\tFrom [@FEDIAN_M" +
-            "ONITORLOG] \r\n\t\t\t\t\tWhere U_Status In ({0})and IsNull(Cast(U_Archivo_PDF as Nvarch" +
-            "ar(2500)), \'\') = \'\'")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select \"Code\", \"U_ProcessID\", \"U_ID_Seguimiento\", \"U_Det_Peticion\" \r\n\t\t\t\t\tFrom \"@" +
+            "FEDIAN_MONITORLOG\"\r\n\t\t\t\t\tWhere \"U_Status\" In ({0})and IsNull(Cast(\"U_Archivo_PDF" +
+            "\" as Nvarchar(2500)), \'\') = \'\'")]
         public string ProcessStatus {
             get {
                 return ((string)(this["ProcessStatus"]));
@@ -513,7 +513,7 @@ Order By Cast(A0.Code as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select * from [@FEDIAN_CODDOC] Order By Code")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select * from \"@FEDIAN_CODDOC\" Order By \"Code\"")]
         public string cmbTipodoc {
             get {
                 return ((string)(this["cmbTipodoc"]));
@@ -522,18 +522,28 @@ Order By Cast(A0.Code as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"Select U_Status, 
+        [global::System.Configuration.DefaultSettingValueAttribute(@"Select ""U_Status"", 
 					Case 
-					When U_Status = '1' Then 'Procesado' 
-					When U_Status = '2' Then 'En Proceso' 
-					When U_Status = '3' Then 'Error' 
-					When U_Status = '10' Then 'Procesado'
-					When U_Status = '102' Then 'Error'
-					When U_Status = '106' Then 'Error' else 'En Proceso' End
-					from [@FEDIAN_MONITORLOG]
-					Where IsNull(U_Status,'') != ''
-					Group By U_Status
-					Order By U_Status")]
+					When ""U_Status"" = '1' Then 'Procesado' 
+					When ""U_Status"" = '10' Then 'Procesado'
+					When ""U_Status"" = '2' Then 'En Proceso'
+					When ""U_Status"" = '7' Then 'En Proceso'
+					When ""U_Status"" = '118' Then 'En Proceso'
+					When ""U_Status"" = '127' Then 'En Proceso'
+					When ""U_Status"" = '137' Then 'En Proceso'
+					When ""U_Status"" = '3' Then 'Error' 
+					When ""U_Status"" = '5' Then 'Error' 
+					When ""U_Status"" = '102' Then 'Error'
+					When ""U_Status"" = '106' Then 'Error' 
+					When ""U_Status"" = '116' Then 'Error' 
+					When ""U_Status"" = '117' Then 'Error' 
+					When ""U_Status"" = '126' Then 'Error' 
+					When ""U_Status"" = '160' Then 'Error' 
+					else 'En Proceso' End
+					from ""@FEDIAN_MONITORLOG""
+					Where IsNull(""U_Status"",'') != ''
+					Group By ""U_Status""
+					Order By ""U_Status""")]
         public string cmbEstado {
             get {
                 return ((string)(this["cmbEstado"]));
@@ -542,9 +552,9 @@ Order By Cast(A0.Code as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select A0.Code, A0.U_DocNum, A0.U_DocType, A0.U_ObjType, IsNull(Cast(A0.U_Fecha_E" +
-            "nvio as nvarchar(100)),\'\') as\'U_Fecha_Envio\'\r\nFrom [@FEDIAN_MONITORLOG] A0\r\nWher" +
-            "e IsNull(A0.U_Status,\'\') = \'\' or IsNull(A0.U_Status,\'\') In ({0})")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select A0.\"Code\", A0.\"U_DocNum\", A0.\"U_DocType\", A0.\"U_ObjType\", IsNull(Cast(A0.\"" +
+            "U_Fecha_Envio\" as nvarchar(100)),\'\') as \"U_Fecha_Envio\"\r\nFrom \"@FEDIAN_MONITORLO" +
+            "G\" A0\r\nWhere IsNull(A0.\"U_Status\",\'\') = \'\' or IsNull(A0.\"U_Status\",\'\') In ({0})")]
         public string ReSendAuto {
             get {
                 return ((string)(this["ReSendAuto"]));
@@ -553,8 +563,8 @@ Order By Cast(A0.Code as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select IsNull(Max(cast(Code as Int)),0)+1 As \'NextCode\' From [@FEDIAN_MONITORLOG]" +
-            "")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select IsNull(Max(cast(\"Code\" as Int)),0)+1 As \'NextCode\' From \"@FEDIAN_MONITORLO" +
+            "G\"")]
         public string MaxLog {
             get {
                 return ((string)(this["MaxLog"]));

@@ -132,11 +132,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Febos\ServiceFebos.cs" />
-    <Compile Include="Service References\consultarArchivosDispape\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\consultarEstadoDispape\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,6 +143,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Tables.cs" />
+    <Compile Include="Web References\consultarArchivosDispape\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="SAPbobsCOM">
@@ -272,13 +272,6 @@
     <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.UploadSyncResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\consultarArchivosDispape\AddOn_FE_DIAN.consultarArchivosDispape.consultarArchivosResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\consultarArchivosDispape\AddOn_FE_DIAN.consultarArchivosDispape.felRepuestaDescargaDocumentos.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\consultarArchivosDispape\consultarArchivos.wsdl" />
     <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -293,10 +286,17 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\enviarDocumentoDispape\enviarDocumento.wsdl" />
+    <None Include="Web References\consultarArchivosDispape\consultarArchivos.wsdl" />
+    <None Include="Web References\consultarArchivosDispape\felRepuestaDescargaDocumentos.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\consultarArchivosDispape\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CarvajalWS\" />
-    <WCFMetadataStorage Include="Service References\consultarArchivosDispape\" />
     <WCFMetadataStorage Include="Service References\consultarEstadoDispape\" />
     <WCFMetadataStorage Include="Service References\enviarDocumentoDispape\" />
   </ItemGroup>
@@ -339,15 +339,25 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\consultarArchivosDispape\configuration91.svcinfo" />
-    <None Include="Service References\consultarArchivosDispape\configuration.svcinfo" />
-    <None Include="Service References\consultarArchivosDispape\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="UI.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\consultarArchivosDispape\</RelPath>
+      <UpdateFromURL>https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AddOn_FE_DIAN_consultarArchivosDispape_consultarArchivos</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

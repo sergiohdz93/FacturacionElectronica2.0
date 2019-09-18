@@ -1,0 +1,42 @@
+18/09/2019 12:12:18 p. m. : SendFE: Inicio
+18/09/2019 12:12:19 p. m. : envioFacturaRespuestaDTO: Inicio
+18/09/2019 12:12:19 p. m. : Consumo: Inicio
+18/09/2019 12:12:20 p. m. : Consumo: Fin
+18/09/2019 12:12:20 p. m. : UpdateLogDispapeles: Inicio
+18/09/2019 12:12:20 p. m. : UpdateLogDispapeles: OK
+18/09/2019 12:12:30 p. m. : ConsultaPDF: Inicio
+18/09/2019 12:13:33 p. m. : PDFDispapeles: Message part {http://wsconsultarpdfxml.webservice.dispapeles.com/}consultarArchivos was not recognized.  (Does it exist in service WSDL?)
+18/09/2019 12:13:33 p. m. : reSend: True
+18/09/2019 12:13:33 p. m. : Update OK: 
+18/09/2019 12:13:37 p. m. : ReSend_FORM_FE_0008: Progress Bar - has stopped  [66000-88]
+18/09/2019 12:31:51 p. m. : SendFE: Inicio
+18/09/2019 12:31:52 p. m. : envioFacturaRespuestaDTO: Inicio
+18/09/2019 12:31:52 p. m. : Consumo: Inicio
+18/09/2019 12:31:53 p. m. : Consumo: Fin
+18/09/2019 12:31:53 p. m. : UpdateLogDispapeles: Inicio
+18/09/2019 12:31:53 p. m. : UpdateLogDispapeles: OK
+18/09/2019 12:32:04 p. m. : ConsultaPDF: Inicio
+18/09/2019 12:32:04 p. m. : PDFDispapeles: Referencia a objeto no establecida como instancia de un objeto.
+18/09/2019 12:32:04 p. m. : reSend: True
+18/09/2019 12:32:04 p. m. : Update OK: 
+18/09/2019 12:32:35 p. m. : SendFE: Inicio
+18/09/2019 12:32:36 p. m. : envioFacturaRespuestaDTO: Inicio
+18/09/2019 12:32:36 p. m. : Consumo: Inicio
+18/09/2019 12:32:36 p. m. : Consumo: Fin
+18/09/2019 12:32:36 p. m. : UpdateLogDispapeles: Inicio
+18/09/2019 12:32:36 p. m. : UpdateLogDispapeles: OK
+18/09/2019 12:32:46 p. m. : ConsultaPDF: Inicio
+18/09/2019 12:32:56 p. m. : PDFDispapeles: Referencia a objeto no establecida como instancia de un objeto.
+18/09/2019 12:32:56 p. m. : reSend: True
+18/09/2019 12:32:56 p. m. : Update OK: 
+18/09/2019 12:33:35 p. m. : SendFE: Inicio
+18/09/2019 12:33:36 p. m. : envioFacturaRespuestaDTO: Inicio
+18/09/2019 12:33:36 p. m. : Consumo: Inicio
+18/09/2019 12:33:37 p. m. : Consumo: Fin
+18/09/2019 12:33:38 p. m. : UpdateLogDispapeles: Inicio
+18/09/2019 12:33:38 p. m. : UpdateLogDispapeles: OK
+18/09/2019 12:33:48 p. m. : ConsultaPDF: Inicio
+18/09/2019 12:34:34 p. m. : ConsultaPDF: Fin
+18/09/2019 12:35:02 p. m. : ConsultaXML : No Null
+18/09/2019 12:35:15 p. m. : reSend: True
+18/09/2019 12:35:15 p. m. : Update OK: 

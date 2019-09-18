@@ -665,6 +665,7 @@ namespace AddOn_FE_DIAN
                 try
                 {
                     oForm = SBO_Application.Forms.Item(FormUID);
+                    oForm.Freeze(true);
                     MenuItem.AddMenuItemsToFormParamGen(oForm);
                     int i = 0;
 
@@ -724,6 +725,7 @@ namespace AddOn_FE_DIAN
                 {
                     SBO_Application.MessageBox(ex.Message);
                 }
+                oForm.Freeze(false);
             }
 
             if (pVal.FormUID == "FORM_FE_0001" && pVal.EventType == SAPbouiCOM.BoEventTypes.et_CLICK && pVal.ItemUID == "1" && pVal.BeforeAction == true)
@@ -828,7 +830,9 @@ namespace AddOn_FE_DIAN
                 try
                 {
                     oForm = SBO_Application.Forms.Item(FormUID);
+                    oForm.Freeze(true);
                     MenuItem.AddMenuItemsToFormMonitor(oForm);
+                    oForm.Freeze(false);
                 }
                 catch (Exception ex)
                 {
@@ -866,7 +870,9 @@ namespace AddOn_FE_DIAN
 
                     if (fechaini != "" & fechafin != "")
                     {
+                        oForm.Freeze(true);
                         LoadGridLog("FORM_FE_0008", string.Format(Querys.Default.CargueMonitor, fechaini, fechafin, tipodoc, estado));
+                        oForm.Freeze(false);
                     }
                     else
                     {
@@ -1053,7 +1059,9 @@ namespace AddOn_FE_DIAN
 
                         if (fechaini != "" & fechafin != "")
                         {
+                            oForm.Freeze(true);
                             LoadGridLog("FORM_FE_0008", string.Format(Querys.Default.CargueMonitor, fechaini, fechafin, tipodoc, estado));
+                            oForm.Freeze(false);
                         }
                         else
                         {
@@ -1212,7 +1220,7 @@ namespace AddOn_FE_DIAN
                 while (row < oGrid.Rows.Count)
                 {
                     oCol = (SAPbouiCOM.EditTextColumn)oGrid.Columns.Item("Numero Interno");
-                    oCol.LinkedObjectType = Convert.ToString(oGrid.DataTable.Columns.Item("Tipo Documento").Cells.Item(row).Value);
+                    oCol.LinkedObjectType = Convert.ToString(oGrid.DataTable.Columns.Item("Tipo Objeto").Cells.Item(row).Value);
 
                     settingGrid.SetRowBackColor(rowcolor, -1);
                     string estado = Convert.ToString(oGrid.DataTable.Columns.Item("Codigo Estado").Cells.Item(row).Value);

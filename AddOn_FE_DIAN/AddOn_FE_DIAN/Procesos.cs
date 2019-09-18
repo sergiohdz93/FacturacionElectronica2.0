@@ -795,7 +795,7 @@ namespace AddOn_FE_DIAN
                 Dictionary<string, Object> dicJSON = new Dictionary<string, Object>();
                 dicJSON = new Dictionary<string, object>();
                 dicJSON.Add("entrada", Procesos.nit);
-                dicJSON.Add("tipo", 1);
+                dicJSON.Add("tipo", typeDoc);
                 dicJSON.Add("prefijo", "SETT");
                 dicJSON.Add("foliar", "no");
                 dicJSON.Add("payload", payload);

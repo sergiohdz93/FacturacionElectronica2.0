@@ -49,5 +49,16 @@ namespace AddOn_FE_DIAN.Properties {
                 return ((string)(this["RutaPDF"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFa" +
+            "ctura/consultarArchivos")]
+        public string AddOn_FE_DIAN_consultarArchivosDispape_consultarArchivos {
+            get {
+                return ((string)(this["AddOn_FE_DIAN_consultarArchivosDispape_consultarArchivos"]));
+            }
+        }
     }
 }

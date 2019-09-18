@@ -243,21 +243,23 @@ namespace AddOn_FE_DIAN.Controllers
                 string urlServicio;
                 urlServicio = wsURL;
 
+                //consultarArchivosDispape.ConsultarArchivosClient clienteServicio = new consultarArchivosDispape.ConsultarArchivosClient();
+                //consultarArchivosDispape.consultarArchivos1 consulta1 = new consultarArchivosDispape.consultarArchivos1();
+                
                 consultarArchivosDispape.felConsultaFacturaArchivo request = new consultarArchivosDispape.felConsultaFacturaArchivo();
-                consultarArchivosDispape.ConsultarArchivosClient clienteServicio;
-                consultarArchivosDispape.felRepuestaDescargaDocumentos response;
-                consultarArchivosDispape.consultarArchivos1 fel = new consultarArchivosDispape.consultarArchivos1();
+                consultarArchivosDispape.felRepuestaDescargaDocumentos response = new consultarArchivosDispape.felRepuestaDescargaDocumentos();
+                consultarArchivosDispape.consultarArchivos consultar;
 
-                clienteServicio = new consultarArchivosDispape.ConsultarArchivosClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
-                using (new OperationContextScope(clienteServicio.InnerChannel))
-                {
+                    //clienteServicio = new consultarArchivosDispape.ConsultarArchivosClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
+                    //using (new OperationContextScope(clienteServicio.InnerChannel))
+                    //{
                     //Add SOAP Header (Header property in the envelope) to an outgoing request.
-                    
-                    HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
-                    requestMessage.Headers["username"] = Procesos.username;
-                    requestMessage.Headers["password"] = Procesos.password;
-                    requestMessage.Headers["token"] = Procesos.token;
-                    OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
+
+                    //HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
+                    //requestMessage.Headers["username"] = Procesos.username;
+                    //requestMessage.Headers["password"] = Procesos.password;
+                    //requestMessage.Headers["token"] = Procesos.token;
+                    //OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
 
                     request.consecutivo = numDoc;
                     request.consecutivoSpecified = true;
@@ -265,7 +267,7 @@ namespace AddOn_FE_DIAN.Controllers
                     request.idEmpresa = 233;
                     request.idEmpresaSpecified = true;
                     request.prefijo = prefijo;
-                    request.tipoArchivo = 0;
+                    //request.tipoArchivo = 0;
                     request.tipoDocumento = tipoDoc.ToString();
                     request.token = Procesos.token;
                     request.usuario = Procesos.username;
@@ -274,12 +276,15 @@ namespace AddOn_FE_DIAN.Controllers
                     var ms = new MemoryStream();
                     serxml.Serialize(ms, request);
                     string xml = Encoding.UTF8.GetString(ms.ToArray());
-                    response = null;
 
-                    response = clienteServicio.consultarArchivos(request);
-                }
+                    //consulta1.Fel_ConsultaFacturaArchivo = request;
+                    //var fel = consulta1.Fel_ConsultaFacturaArchivo;
+
+                    consultar = new consultarArchivosDispape.consultarArchivos();
+                    response = consultar.CallconsultarArchivos(request);
+                //}
                 //Procesos.requestSend = xml;
-                clienteServicio.Close();
+                //clienteServicio.Close();
                 Procesos.EscribirLogFileTXT("ConsultaPDF: Fin");
                 return response;
             }
