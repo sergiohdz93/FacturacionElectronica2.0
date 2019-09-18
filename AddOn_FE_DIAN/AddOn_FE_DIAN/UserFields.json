@@ -661,5 +661,41 @@
       "EditSize": "50",
       "Mandatory": "tNO"
     }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "HBT_TipEnt",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Tipo Entidad",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "HBT_RegTrib",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Regimen tributario",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "HBT_MunMed",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Municipio Medios",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
   }
 ]

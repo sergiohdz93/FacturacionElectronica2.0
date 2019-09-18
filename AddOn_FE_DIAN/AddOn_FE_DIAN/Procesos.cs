@@ -51,7 +51,7 @@ namespace AddOn_FE_DIAN
                 oCompany = oCmpn;
                 SBO_Application = SBO_App;
                 //Creacion de timer para actualziacion de formulario Monitor Log
-                InicarTimersSAP();
+                //InicarTimersSAP();
                 //Cargue inicial de parametrizacion
                 user = SBO_Application.Company.UserName;
                 CargueInicial();
@@ -788,13 +788,21 @@ namespace AddOn_FE_DIAN
                 tbl.GetByKey(typeDoc);
                 urlFebos = tbl.UserFields.Fields.Item("U_URL").Value;
 
+                Dictionary<string, Object> payload = new Dictionary<string, Object>();
+                payload = new Dictionary<string, object>();
+                payload.Add("texto en base64", EncodeToBase64(filestr));
+
                 Dictionary<string, Object> dicJSON = new Dictionary<string, Object>();
                 dicJSON = new Dictionary<string, object>();
+                dicJSON.Add("entrada", Procesos.nit);
+                dicJSON.Add("tipo", 1);
+                dicJSON.Add("prefijo", "SETT");
+                dicJSON.Add("foliar", "no");
+                dicJSON.Add("payload", payload);
+                dicJSON.Add("devolverXml", "no");
 
-                dicJSON.Add("payload", EncodeToBase64(filestr));
                 dataJSON = JsonConvert.SerializeObject(dicJSON);
 
-                //Procesos.EscribirLogFileTXT("SendFE: json:" + dataJSON);
                 var resultDocument = ServiceFebos.Febos_documentos(urlFebos, "POST", dataJSON, Procesos.token, false);
                 
                 var resultlist = resultDocument[true];
@@ -1200,7 +1208,7 @@ namespace AddOn_FE_DIAN
 
                 if (srequest != "")
                 {
-                    XmlDocument doc = JsonConvert.DeserializeXmlNode(srequest);
+                    XmlDocument doc = JsonConvert.DeserializeXmlNode(srequest, "root"); //JsonConvert.DeserializeXmlNode(srequest);
                     XmlNodeList nodeList = null;
                     nodeList = doc.GetElementsByTagName("payload");
                     foreach (XmlNode node in nodeList)
@@ -1209,7 +1217,7 @@ namespace AddOn_FE_DIAN
                     }
                     tbl.UserFields.Fields.Item("U_Det_Peticion").Value = doc.InnerXml;
                 }
-
+                    
                 if (responseStatus != "")
                 {
                     XmlDocument docresponse = (XmlDocument)JsonConvert.DeserializeXmlNode(responseStatus, "root");
