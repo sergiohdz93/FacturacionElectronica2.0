@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.IO;
 
 namespace AddOn_FE_DIAN
 {
@@ -15,28 +14,33 @@ namespace AddOn_FE_DIAN
         public static int lRetCode;
         public static string sErrMsg;
 
-        private string[] utTable_01 = { "FEDIAN_PARAMG", "Parametrizacion General" };
-        //private string[] utTable_02 = { "FEDIAN_INTERF_LIST", "Lista de Interfaces" };
-        private string[] utTable_03 = { "FEDIAN_INTERF_CFG", "Configuración Interfaces" };
-        private string[] utTable_04 = { "FEDIAN_CODDOC", "Códigos de documento DIAN" };
-        private string[] utTable_05 = { "FEDIAN_INTERF_ERR", "Códigos de Error Interfaces" };
-        //private string[] utTable_06 = { "FEDIAN_MAIL_INTERF", "Correos Notificación Errores" };
-        private string[] utTable_07 = { "FEDIAN_MONITORLOG", "Monitor FE DIAN" };
-        private string[] utTable_08 = { "FEDIAN_VERSION", "Version FE DIAN" };
-
-        //Inicalizacion para al creacion de tablas
         public Tables(SAPbobsCOM.Company oCmpn, SAPbouiCOM.Application SBO_App, bool version)
         {
             oCompany = oCmpn;
             SBO_Application = SBO_App;
             if (oCompany.Connected == true)
             {
-                //SBO_Application.MessageBox(" AddOn DI Connected To: " + oCompany.CompanyName, 1, "Ok", "", "");
-                // events handled by SBO_Application_ItemEvent
-                //bool tmpB = false;
-                AddTables(version);
-                //SBO_Application.ItemEvent += new SAPbouiCOM._IApplicationEvents_ItemEventEventHandler(SBO_Application_ItemEvent);
-                AddQueryManager();
+                //CreateUDO();
+                leerJsonTablasUsuario();
+
+                leerJsonTipOpe();
+                leerJsonRespon();
+                leerJsonMedPago();
+                leerJsonDescu();
+                leerJsonConcepND();
+                leerJsonConcepNC();
+                leerJsonTributos();
+                leerJsonIdentArti();
+
+                leerJsonCamposUsuario();
+                leerJsonDocDIAN();
+                leerJsonCfgInter();
+                leerJsonUM();
+                leerJsonUserQueries();
+                CreateUDO();
+                addfieldLinkToUDO();
+                leerJsonFormattedSearches();
+                //CreateUDO();
             }
             else
             {
@@ -44,864 +48,855 @@ namespace AddOn_FE_DIAN
             }
         }
 
-        //Creacion de tablas de usuario
-        private void AddTables(bool versionIni)
+        public void leerJsonTablasUsuario()
         {
-            bool Valid = true;
-
             try
             {
-                AddUserTables(utTable_08[0].ToString(), utTable_08[1].ToString(), SAPbobsCOM.BoUTBTableType.bott_NoObject);
-                if (Valid == true & versionIni == true)
+                string outputJSON = File.ReadAllText("UserTables.json", System.Text.Encoding.Default);
+                JArray parsedArray = JArray.Parse(outputJSON);
+                int cantidad = parsedArray.Count;
+                Console.WriteLine("Cantidad de tablas " + cantidad);
+                dynamic dynJson = JsonConvert.DeserializeObject(outputJSON);
+                foreach (var item in dynJson)
                 {
-                    // Tablas Especificas del AddOn
-                    AddUserTables(utTable_01[0].ToString(), utTable_01[1].ToString(), SAPbobsCOM.BoUTBTableType.bott_NoObject);
-                    //AddUserTables(utTable_02[0].ToString(), utTable_02[1].ToString(), SAPbobsCOM.BoUTBTableType.bott_NoObjectAutoIncrement);
-                    AddUserTables(utTable_03[0].ToString(), utTable_03[1].ToString(), SAPbobsCOM.BoUTBTableType.bott_NoObject);
-                    AddUserTables(utTable_04[0].ToString(), utTable_04[1].ToString(), SAPbobsCOM.BoUTBTableType.bott_NoObject);
-                    AddUserTables(utTable_05[0].ToString(), utTable_05[1].ToString(), SAPbobsCOM.BoUTBTableType.bott_NoObject);
-                    //AddUserTables(utTable_06[0].ToString(), utTable_06[1].ToString(), SAPbobsCOM.BoUTBTableType.bott_NoObjectAutoIncrement);
-                    AddUserTables(utTable_07[0].ToString(), utTable_07[1].ToString(), SAPbobsCOM.BoUTBTableType.bott_NoObject);
-
-                    AddFieldsUserTables();
+                    addUserTables(Convert.ToString(item.TableDescription), Convert.ToString(item.TableName), Convert.ToString(item.TableType));
                 }
+                SBO_Application.StatusBar.SetText("Tablas Creadas", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
             }
             catch (Exception ex)
             {
-                SBO_Application.MessageBox(ex.Message);
+
             }
         }
 
-        //Clase que crea las tablas de usuario
-        private void AddUserTables(string Name, string Description, SAPbobsCOM.BoUTBTableType Type)
+        public void leerJsonTipOpe()
         {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_TIPOPERA.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_TIPOPERA");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion tipo operacion añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo TipPre\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonRespon()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_RESPONSA.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_RESPONSA");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion responsabilidades añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo Respon\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonMedPago()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_MEDPAGO.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_MEDPAGO");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion medios de pago añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo Medpago\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonDescu()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_DESCU.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_DESCU");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion descuentos añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo descuentos\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonConcepND()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_ND.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_CONCEP_ND");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion Conceptos ND añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo Conceptos ND\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonConcepNC()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_NC.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_CONCEP_NC");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion Conceptos ND añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo Conceptos NC\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonTributos()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_TRIBU.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_TRIBU");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion Tributos añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo Tributos\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonIdentArti()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_IDENT_ARTI.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_IDENT_ARTI");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion Identidad Articulos ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo Identidad Articulos\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonCamposUsuario()
+        {
+            SAPbobsCOM.UserFieldsMD oUserFieldsMD;
+            try
+            {
+                string outputJSON = File.ReadAllText("UserFields.json", System.Text.Encoding.Default), validValues = "";
+                JArray parsedArray = JArray.Parse(outputJSON);
+                var bodyField = "";
+                string name = "";
+                int i = 1;
+                int cantidad = parsedArray.Count;
+
+                foreach (JObject parsedObject in parsedArray.Children<JObject>())
+                {
+                    oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
+                    foreach (JProperty parsedProperty in parsedObject.Properties())
+                    {
+                        string description = "", table = "", subtype = "", type = "", size = "", editSize = "", mandatory = "", defaultValue = "", linkedSystemObject = "", LinkedTable = "", LinkedUDO = "";
+                        string tag = parsedProperty.Name;
+                        string value = Convert.ToString(parsedProperty.Value);
+                        var bodyValues = "";
+                        if (tag == "UserFieldsMD")
+                        {
+                            dynamic dynJson = JsonConvert.DeserializeObject(Convert.ToString(parsedProperty.Value));
+                            foreach (var item in dynJson)
+                            {
+                                string tg = item.Name;
+                                switch (tg)
+                                {
+                                    case "Description":
+                                        description = item.Value;
+                                        oUserFieldsMD.Description = Convert.ToString(description);
+                                        break;
+                                    case "Name":
+                                        name = item.Value;
+                                        oUserFieldsMD.Name = Convert.ToString(name);
+                                        break;
+                                    case "TableName":
+                                        table = item.Value;
+                                        oUserFieldsMD.TableName = Convert.ToString(table);
+                                        break;
+                                    case "SubType":
+                                        subtype = item.Value;
+                                        oUserFieldsMD = AddSubTypeField(oUserFieldsMD, subtype);
+                                        break;
+                                    case "Type":
+                                        type = item.Value;
+                                        oUserFieldsMD = AddTypeField(oUserFieldsMD, type);
+                                        break;
+                                    case "Size":
+                                        size = item.Value;
+                                        oUserFieldsMD.Size = Convert.ToInt32(size);
+                                        break;
+                                    case "EditSize":
+                                        editSize = Convert.ToString(item.Value);
+                                        oUserFieldsMD.Size = Convert.ToInt32(editSize);
+                                        break;
+                                    case "Mandatory":
+                                        mandatory = Convert.ToString(item.Value);
+                                        oUserFieldsMD = AddMandatoryField(oUserFieldsMD, type);
+                                        break;
+                                    case "LinkedSystemObject":
+                                        linkedSystemObject = item.Value;
+                                        break;
+                                    case "LinkedTable":
+                                        LinkedTable = Convert.ToString(item.Value);
+                                        oUserFieldsMD.LinkedTable = LinkedTable;
+                                        break;
+                                    case "LinkedUDO":
+                                        LinkedTable = Convert.ToString(item.Value);
+                                        oUserFieldsMD.LinkedUDO = LinkedUDO;
+                                        break;
+                                    case "DefaultValue":
+                                        defaultValue = Convert.ToString(item.Value);
+                                        oUserFieldsMD.DefaultValue = defaultValue;
+                                        break;
+                                }
+                            }
+                        }
+                        else if (tag == "ValidValuesMD")
+                        {
+                            dynamic dynJson = JsonConvert.DeserializeObject(value);
+                            foreach (var item in dynJson)
+                            {
+                                //Dictionary<string, string> Values = new Dictionary<string, string>();
+
+                                oUserFieldsMD.ValidValues.Value = Convert.ToString(item.Value);
+                                oUserFieldsMD.ValidValues.Description = Convert.ToString(item.Description);
+                                oUserFieldsMD.ValidValues.Add();
+                            }
+                        }
+
+                    }
+
+                    lRetCode = oUserFieldsMD.Add();
+
+                    if (lRetCode != 0)
+                    {
+                        if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                        {
+                            oCompany.GetLastError(out lRetCode, out sErrMsg);
+                        }
+                        else
+                        {
+                            oCompany.GetLastError(out lRetCode, out sErrMsg);
+                        }
+                        Procesos.EscribirLogFileTXT(oUserFieldsMD.Name + ": " + sErrMsg);
+                    }
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
+                    oUserFieldsMD = null;
+                    GC.Collect();
+
+                    i++;
+                }
+                SBO_Application.StatusBar.SetText("Campos creados", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Campos\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonDocDIAN()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_CODDOC.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_CODDOC");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Documentos DIAN añadidos ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo CODDOC\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonCfgInter()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_INTERF_CFG.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_INTERF_CFG");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+                        tbl.UserFields.Fields.Item("U_URL").Value = string.Format(Convert.ToString(item.U_URL), tbl.Code);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion de Interfaces añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo CfgInter\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonUM()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_UM.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_UM");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        string s_unicode = Convert.ToString(item.Nombre);
+
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = s_unicode.Length <= 100 ? s_unicode : s_unicode.Substring(0, 99);
+                        tbl.UserFields.Fields.Item("U_Descripcion").Value = s_unicode;
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion unidades de medida añadidas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo UM\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonUserQueries()
+        {
+            try
+            {
+                string inputJSON = File.ReadAllText("UserQueries.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    AddQueryManager(Convert.ToString(item.QueryName), Convert.ToString(item.QueryCategory));
+                }
+                SBO_Application.StatusBar.SetText("Consultas creadas", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Agregar consultas de ususario\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonFormattedSearches()
+        {
+            try
+            {
+                string QueryId = "";
+                string formID = "";
+                SAPbobsCOM.Recordset oRecordSet = null;
+                SAPbobsCOM.FormattedSearches oFormattedSearches = null;
+                string inputJSON = File.ReadAllText("FormattedSearches.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+
+                foreach (var item in dynJson)
+                {
+                    oRecordSet = ((SAPbobsCOM.Recordset)(oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset)));
+                    oFormattedSearches = ((SAPbobsCOM.FormattedSearches)(oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oFormattedSearches)));
+                    if (Convert.ToString(item.FormStand) == "tNO")
+                    {
+                        string sSQL = "SELECT \"TblNum\" + 11000 as \"FormId\" FROM OUTB WHERE \"TableName\"  = '{0}' ";
+                        oRecordSet.DoQuery(string.Format(sSQL, Convert.ToString(item.FormID)));
+                        if (oRecordSet.RecordCount > 0)
+                        {
+                            formID = Convert.ToString(oRecordSet.Fields.Item("FormId").Value);
+                        }
+                        else formID = Convert.ToString(item.FormID);
+                    }
+                    else formID = Convert.ToString(item.FormID);
+
+                    oRecordSet.DoQuery("SELECT \"IntrnalKey\" FROM OUQR WHERE \"QName\" = '" + Convert.ToString(item.QueryName) + "'");
+                    if (oRecordSet.RecordCount > 0)
+                    {
+                        QueryId = Convert.ToString(oRecordSet.Fields.Item("IntrnalKey").Value);
+                    }
+
+                    oFormattedSearches.Action = SAPbobsCOM.BoFormattedSearchActionEnum.bofsaQuery;
+                    switch (Convert.ToString(item.ByField))
+                    {
+                        case "tNO":
+                            oFormattedSearches.ByField = SAPbobsCOM.BoYesNoEnum.tNO;
+                            break;
+                        case "tYES":
+                            oFormattedSearches.ByField = SAPbobsCOM.BoYesNoEnum.tYES;
+                            break;
+                    }
+                    oFormattedSearches.ColumnID = Convert.ToString(item.CollumID);
+                    oFormattedSearches.ItemID = Convert.ToString(item.ItemID);
+                    oFormattedSearches.FormID = formID;
+                    oFormattedSearches.QueryID = Convert.ToInt32(QueryId);
+
+                    switch (Convert.ToString(item.Refresh))
+                    {
+                        case "tNO":
+                            oFormattedSearches.Refresh = SAPbobsCOM.BoYesNoEnum.tNO;
+                            break;
+                        case "tYES":
+                            oFormattedSearches.Refresh = SAPbobsCOM.BoYesNoEnum.tYES;
+                            oFormattedSearches.FieldID = Convert.ToString(item.FieldID);
+                            break;
+                    }
+
+                    lRetCode = oFormattedSearches.Add();
+
+                    if (lRetCode != 0)
+                    {
+                        if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                        {
+                            oCompany.GetLastError(out lRetCode, out sErrMsg);
+                        }
+                        else
+                        {
+                            oCompany.GetLastError(out lRetCode, out sErrMsg);
+                        }
+                        Procesos.EscribirLogFileTXT("formID: " + item.FormID + " QueryName: " + item.QueryName + ": " + sErrMsg);
+                    }
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oRecordSet);
+                    oRecordSet = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oFormattedSearches);
+                    oFormattedSearches = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Busquedas formateadas asignadas ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("busquedasFormateadas\n" + ex.Message);
+            }
+        }
+
+        public void addUserTables(string description, string table, string type)
+        {
+
             SAPbobsCOM.UserTablesMD oUserTablesMD = default(SAPbobsCOM.UserTablesMD);
             oUserTablesMD = (SAPbobsCOM.UserTablesMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserTables);
 
-            if (!oUserTablesMD.GetByKey(Name))
+            if (!oUserTablesMD.GetByKey(table))
             {
-                oUserTablesMD.TableType = Type;
-                oUserTablesMD.TableName = Name;
-                oUserTablesMD.TableDescription = Description;
+                oUserTablesMD.TableName = table;
+                oUserTablesMD.TableDescription = description;
+                switch (type)
+                {
+                    case "bott_NoObject":
+                        oUserTablesMD.TableType = SAPbobsCOM.BoUTBTableType.bott_NoObject;
+                        break;
+                    case "bott_MasterData":
+                        oUserTablesMD.TableType = SAPbobsCOM.BoUTBTableType.bott_MasterData;
+                        break;
+                    case "bott_MasterDataLines":
+                        oUserTablesMD.TableType = SAPbobsCOM.BoUTBTableType.bott_MasterDataLines;
+                        break;
+                    case "bott_Document":
+                        oUserTablesMD.TableType = SAPbobsCOM.BoUTBTableType.bott_Document;
+                        break;
+                    case "bott_DocumentLines":
+                        oUserTablesMD.TableType = SAPbobsCOM.BoUTBTableType.bott_DocumentLines;
+                        break;
+                    case "bott_NoObjectAutoIncrement":
+                        oUserTablesMD.TableType = SAPbobsCOM.BoUTBTableType.bott_NoObjectAutoIncrement;
+                        break;
+                }
+
                 lRetCode = oUserTablesMD.Add();
 
                 if (lRetCode != 0)
                 {
-                    if (lRetCode == -1 | lRetCode == -2035 | lRetCode == -5002)
+                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
                     {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
                     }
                     else
                     {
                         oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        SBO_Application.MessageBox(sErrMsg);
                     }
+                    Procesos.EscribirLogFileTXT(oUserTablesMD.TableName + ": " + sErrMsg);
                 }
                 else
                 {
                     //SBO_Application.MessageBox("Table: " & oUserTablesMD.TableName & " was added successfully")
                 }
-
             }
             System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserTablesMD);
             oUserTablesMD = null;
             GC.Collect();
-            //Release the handle to the table
         }
 
-        //Creacion de campos de usuario
-        private bool AddFieldsUserTables()
-        {
-            bool res = true;
-
-            SAPbobsCOM.UserFieldsMD oUserFieldsMD;
-            string NameTable;
-
-            try
-            {
-                NameTable = "@FEDIAN_PARAMG";
-                #region campos FEDIAN_PARAMG
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Proveedor";
-                oUserFieldsMD.Description = "Proveedor";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 10;
-                oUserFieldsMD.ValidValues.Value = "F";
-                oUserFieldsMD.ValidValues.Description = "Febos";
-                oUserFieldsMD.ValidValues.Add();
-                oUserFieldsMD.ValidValues.Value = "C";
-                oUserFieldsMD.ValidValues.Description = "Carvajal";
-                oUserFieldsMD.ValidValues.Add();
-                oUserFieldsMD.ValidValues.Value = "D";
-                oUserFieldsMD.ValidValues.Description = "Dispapeles";
-                oUserFieldsMD.ValidValues.Add();
-                lRetCode = oUserFieldsMD.Add();
-
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "NIT_Emisor";
-                oUserFieldsMD.Description = "NIT Emisor";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 17;
-                lRetCode = oUserFieldsMD.Add();
-
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Email_Usuario";
-                oUserFieldsMD.Description = "Usuario Portal";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 60;
-                lRetCode = oUserFieldsMD.Add();
-
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Clave_Usuario";
-                oUserFieldsMD.Description = "Clave Portal";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 100;
-
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Token";
-                oUserFieldsMD.Description = "Token";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 100;
-
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                #endregion campos FEDIAN_PARAMG
-
-                NameTable = "@FEDIAN_INTERF_CFG";
-                #region campos FEDIAN_INTERF_CFG
-                
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "WS_Activo";
-                oUserFieldsMD.Description = "Servicio Activo";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 10;
-                oUserFieldsMD.ValidValues.Value = "Y";
-                oUserFieldsMD.ValidValues.Description = "Y";
-                oUserFieldsMD.ValidValues.Add();
-                oUserFieldsMD.ValidValues.Value = "N";
-                oUserFieldsMD.ValidValues.Description = "N";
-                oUserFieldsMD.ValidValues.Add();
-                oUserFieldsMD.DefaultValue = "Y";
-
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Job_Activo";
-                oUserFieldsMD.Description = "Job Reenvio Activo";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 10;
-                oUserFieldsMD.ValidValues.Value = "Y";
-                oUserFieldsMD.ValidValues.Description = "Y";
-                oUserFieldsMD.ValidValues.Add();
-                oUserFieldsMD.ValidValues.Value = "N";
-                oUserFieldsMD.ValidValues.Description = "N";
-                oUserFieldsMD.ValidValues.Add();
-                oUserFieldsMD.DefaultValue = "Y";
-
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "URL";
-                oUserFieldsMD.Description = "URL Proveedor";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 245;
-
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Proxy";
-                oUserFieldsMD.Description = "Clase Proxy";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "LP_Name";
-                oUserFieldsMD.Description = "Nombre Puerta Logica";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                #endregion campos FEDIAN_INTERF_CFG
-
-                NameTable = "@FEDIAN_INTERF_ERR";
-                #region campos FEDIAN_INTERF_ERR
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "MsgExter";
-                oUserFieldsMD.Description = "Mensaje Externo";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                oUserFieldsMD.EditSize = 150;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                #endregion campos FEDIAN_INTERF_ERR
-
-                NameTable = "@FEDIAN_MONITORLOG";
-                #region campos FEDIAN_MONITORLOG
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "DocType";
-                oUserFieldsMD.Remove();
-                oUserFieldsMD.Description = "Tipo de Documento";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 15;
-                
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Folio";
-                oUserFieldsMD.Description = "Folio";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 10;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "ObjType";
-                oUserFieldsMD.Description = "Documetno SAP";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 15;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "DocNum";
-                oUserFieldsMD.Description = "Numero de documento SAP";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Resultado";
-                oUserFieldsMD.Description = "Desc estado DIAN";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                //oUserFieldsMD.EditSize = 100;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Status";
-                oUserFieldsMD.Description = "Status";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 10;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "ProcessID";
-                oUserFieldsMD.Description = "Id Proceso";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Fecha_Envio";
-                oUserFieldsMD.Description = "Fecha Envio";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Date;
-                //oUserFieldsMD.EditSize = 40;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Hora_Envio";
-                oUserFieldsMD.Description = "Hora Envio";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Date;
-                oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_Time;
-                //oUserFieldsMD.EditSize = 40;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Usuario_Envio";
-                oUserFieldsMD.Description = "Usaurio Envio";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Fecha_ReEnvio";
-                oUserFieldsMD.Description = "Fecha Re-Envio";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Date;
-                //oUserFieldsMD.EditSize = 40;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Hora_ReEnvio";
-                oUserFieldsMD.Description = "Hora Re-Envio";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Date;
-                oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_Time;
-                //oUserFieldsMD.EditSize = 40;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Usuario_ReEnvio";
-                oUserFieldsMD.Description = "Usaurio Re-Envio";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
-                oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Det_Peticion";
-                oUserFieldsMD.Description = "Detalle Peticion";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Respuesta_Int";
-                oUserFieldsMD.Description = "Respuesta Interfaz";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                //oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_Link;
-                //oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Archivo_PDF";
-                oUserFieldsMD.Description = "Archivo PDF";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                //oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_Link;
-                //oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Archivo_PDF";
-                oUserFieldsMD.Description = "Archivo PDF";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                //oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_Link;
-                //oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "Enlace_XML";
-                oUserFieldsMD.Description = "Enlace XML";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                //oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_Link;
-                //oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                //oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                //oUserFieldsMD.TableName = NameTable;
-                //oUserFieldsMD.Name = "Enlace_XML";
-                //oUserFieldsMD.Description = "Enlace XML";
-                //oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                ////oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_Link;
-                ////oUserFieldsMD.EditSize = 30;
-                //lRetCode = oUserFieldsMD.Add();
-                //if (lRetCode != 0)
-                //{
-                //    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                //    { }
-                //    else
-                //    {
-                //        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                //        oUserFieldsMD = null;
-                //        GC.Collect();
-                //        return false;
-                //    }
-                //}
-                //System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                //oUserFieldsMD = null;
-                //GC.Collect();
-
-                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-                oUserFieldsMD.TableName = NameTable;
-                oUserFieldsMD.Name = "ID_Seguimiento";
-                oUserFieldsMD.Description = "ID Seguimiento";
-                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
-                //oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_Link;
-                //oUserFieldsMD.EditSize = 30;
-                lRetCode = oUserFieldsMD.Add();
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-                        oCompany.GetLastError(out lRetCode, out sErrMsg);
-                        oUserFieldsMD = null;
-                        GC.Collect();
-                        return false;
-                    }
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
-                oUserFieldsMD = null;
-                GC.Collect();
-
-                #endregion campos FEDIAN_MONITORLOG
-            }
-            catch (Exception ex)
-            {
-                SBO_Application.MessageBox(ex.Message);
-            }
-            return res;
-        }
-
-        //Creacion de consultas en QueryManager
-        private void AddQueryManager()
+        public void AddQueryManager(string nombreQuery, string categoria)
         {
             try
             {
@@ -914,14 +909,15 @@ namespace AddOn_FE_DIAN
                 sboUserQuery = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserQueries);
 
                 oRS = (SAPbobsCOM.Recordset)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
-                sSql = Constants.categorQuery;
+                sSql = string.Format(Constants.categorQuery, categoria);
+
                 oRS.DoQuery(sSql);
 
                 i = oRS.RecordCount;
 
                 if (i < 1)
                 {
-                    sboQryCategory.Name = "FE_DIAN";
+                    sboQryCategory.Name = "FEDIAN";
                     lRetCode = sboQryCategory.Add();
 
                     if (lRetCode != 0)
@@ -935,13 +931,19 @@ namespace AddOn_FE_DIAN
                             GC.Collect();
                         }
                     }
+                    else
+                    {
+                        sSql = string.Format(Constants.categorQuery, categoria);
+                        oRS.DoQuery(sSql);
+                    }
                 }
-
                 codigoSubCat = oRS.Fields.Item("CategoryId").Value;
+                string query = String.Format(Properties.Resources.ResourceManager.GetString(nombreQuery));
 
                 sboUserQuery.QueryCategory = codigoSubCat;
-                sboUserQuery.QueryDescription = Constants.CodDIAN_01[0] + " - " + Constants.CodDIAN_01[1];
-                sboUserQuery.Query = "Select * From OINV Where DocEntry = {0}";
+                sboUserQuery.QueryDescription = nombreQuery;
+                sboUserQuery.Query = query;
+
                 lRetCode = sboUserQuery.Add();
 
                 if (lRetCode != 0)
@@ -954,91 +956,377 @@ namespace AddOn_FE_DIAN
                     }
                 }
 
-                sboUserQuery.QueryCategory = codigoSubCat;
-                sboUserQuery.QueryDescription = Constants.CodDIAN_02[0] + " - " + Constants.CodDIAN_02[1];
-                sboUserQuery.Query = "Select * From OINV Where DocEntry = {0}";
-                lRetCode = sboUserQuery.Add();
-
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-
-                    }
-                }
-
-
-                sboUserQuery.QueryCategory = codigoSubCat;
-                sboUserQuery.QueryDescription = Constants.CodDIAN_03[0] + " - " + Constants.CodDIAN_03[1];
-                sboUserQuery.Query = "Select * From OINV Where DocEntry = {0}";
-                lRetCode = sboUserQuery.Add();
-
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-
-                    }
-                }
-
-
-                sboUserQuery.QueryCategory = codigoSubCat;
-                sboUserQuery.QueryDescription = Constants.CodDIAN_04[0] + " - " + Constants.CodDIAN_04[1];
-                sboUserQuery.Query = "Select * From ORIN Where DocEntry = {0}";
-                lRetCode = sboUserQuery.Add();
-
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-
-                    }
-                }
-
-
-                sboUserQuery.QueryCategory = codigoSubCat;
-                sboUserQuery.QueryDescription = Constants.CodDIAN_05[0] + " - " + Constants.CodDIAN_05[1];
-                sboUserQuery.Query = "Select * From OINV Where DocSubType = '--' Where DocEntry = {0}";
-                lRetCode = sboUserQuery.Add();
-
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-
-                    }
-                }
-
-                sboUserQuery.QueryCategory = codigoSubCat;
-                sboUserQuery.QueryDescription = "ListaDocDIAN";
-                sboUserQuery.Query = "Select * from [@FEDIAN_CODDOC] Order By Code";
-                lRetCode = sboUserQuery.Add();
-
-                if (lRetCode != 0)
-                {
-                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
-                    { }
-                    else
-                    {
-
-                    }
-                }
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(sboQryCategory);
+                sboQryCategory = null;
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(sboUserQuery);
                 sboUserQuery = null;
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
+                oRS = null;
                 GC.Collect();
             }
             catch (Exception ex)
             {
                 Procesos.EscribirLogFileTXT("AddQueryManager: " + ex.Message);
             }
+        }
+
+        public void CreateUDO()
+        {
+            SAPbobsCOM.UserObjectsMD oUserObjectMD;
+            SAPbobsCOM.UserObjectMD_FindColumns oUDOFind;
+            SAPbobsCOM.UserObjectMD_FormColumns oUDOForm;
+            SAPbobsCOM.UserObjectMD_EnhancedFormColumns oUDOEnhancedForm;
+            oUserObjectMD = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserObjectsMD);
+            oUDOFind = oUserObjectMD.FindColumns;
+            oUDOForm = oUserObjectMD.FormColumns;
+            oUDOEnhancedForm = oUserObjectMD.EnhancedFormColumns;
+
+            //GC.Collect();
+            //oUserObjectMD = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserObjectsMD) as SAPbobsCOM.UserObjectsMD;
+
+            var retval = oUserObjectMD.GetByKey("FEDIAN_SN");
+            if (!retval)
+            {
+                oUserObjectMD.Code = "FEDIAN_SN";
+                oUserObjectMD.Name = "Responsabilidades y Tributos SN";
+                oUserObjectMD.TableName = "FEDIAN_SN";
+                oUserObjectMD.ObjectType = SAPbobsCOM.BoUDOObjType.boud_MasterData;
+
+                oUserObjectMD.ManageSeries = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanDelete = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanClose = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanCancel = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanFind = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.CanYearTransfer = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanCreateDefaultForm = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.CanLog = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.OverwriteDllfile = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.CanArchive = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.MenuItem = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanApprove = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.EnableEnhancedForm = SAPbobsCOM.BoYesNoEnum.tYES;
+
+                // ==================================
+                oUDOFind.ColumnAlias = "Code";
+                oUDOFind.ColumnDescription = "Codgio SN";
+                oUDOFind.Add();
+                oUDOFind.ColumnAlias = "Name";
+                oUDOFind.ColumnDescription = "Nombre SN";
+                oUDOFind.Add();
+                //========================================
+
+
+                //=========================================
+
+                oUDOForm.FormColumnAlias = "Code";
+                oUDOForm.FormColumnDescription = "Codgio SN";
+                oUDOForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOForm.Add();
+
+                oUDOForm.FormColumnAlias = "Name";
+                oUDOForm.FormColumnDescription = "Nombre SN";
+                oUDOForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOForm.Add();
+
+
+                //=========================================
+
+
+                oUserObjectMD.ChildTables.SetCurrentLine(0);
+                oUserObjectMD.ChildTables.TableName = "FEDIAN_SN_RESPO";
+                oUserObjectMD.ChildTables.Add();
+
+                oUserObjectMD.ChildTables.SetCurrentLine(1);
+                oUserObjectMD.ChildTables.TableName = "FEDIAN_SN_TRIB";
+                //oUserObjectMD.ChildTables.Add();
+
+
+                //=========================================
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(0);
+                oUDOEnhancedForm.ColumnAlias = "Code";
+                oUDOEnhancedForm.ColumnDescription = "Code";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 1;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(1);
+                oUDOEnhancedForm.ColumnAlias = "LineId";
+                oUDOEnhancedForm.ColumnDescription = "LineId";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 2;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(2);
+                oUDOEnhancedForm.ColumnAlias = "Object";
+                oUDOEnhancedForm.ColumnDescription = "Object";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 3;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(3);
+                oUDOEnhancedForm.ColumnAlias = "LogInst";
+                oUDOEnhancedForm.ColumnDescription = "LogInst";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 4;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(4);
+                oUDOEnhancedForm.ColumnAlias = "U_Codigo";
+                oUDOEnhancedForm.ColumnDescription = "Codigo Responsabilidad";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.ColumnNumber = 5;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 1;
+                oUDOEnhancedForm.SetCurrentLine(5);
+                oUDOEnhancedForm.ColumnAlias = "U_Desc";
+                oUDOEnhancedForm.ColumnDescription = "Descripcion Responsabilidad";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.ColumnNumber = 6;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(6);
+                oUDOEnhancedForm.ColumnAlias = "Code";
+                oUDOEnhancedForm.ColumnDescription = "Code";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 1;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(7);
+                oUDOEnhancedForm.ColumnAlias = "LineId";
+                oUDOEnhancedForm.ColumnDescription = "LineId";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 2;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(8);
+                oUDOEnhancedForm.ColumnAlias = "Object";
+                oUDOEnhancedForm.ColumnDescription = "Object";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 3;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(9);
+                oUDOEnhancedForm.ColumnAlias = "LogInst";
+                oUDOEnhancedForm.ColumnDescription = "LogInst";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.ColumnNumber = 4;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(10);
+                oUDOEnhancedForm.ColumnAlias = "U_Codigo";
+                oUDOEnhancedForm.ColumnDescription = "Codigo Tributo";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.ColumnNumber = 5;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.Add();
+
+                oUDOEnhancedForm.ChildNumber = 2;
+                oUDOEnhancedForm.SetCurrentLine(11);
+                oUDOEnhancedForm.ColumnAlias = "U_Desc";
+                oUDOEnhancedForm.ColumnDescription = "Descripcion Tributo";
+                oUDOEnhancedForm.ColumnIsUsed = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.ColumnNumber = 6;
+                oUDOEnhancedForm.Editable = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUDOEnhancedForm.Add();
+
+                if (!retval)
+                {
+                    if ((oUserObjectMD.Add() != 0))
+                    {
+                        SBO_Application.MessageBox(oCompany.GetLastErrorDescription());
+                    }
+                    else
+                    {
+                    }
+                }
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserObjectMD);
+                GC.Collect();
+            }
+        }
+
+        public void addfieldLinkToUDO()
+        {
+            SAPbobsCOM.UserFieldsMD oUserFieldsMD;
+
+            oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
+            oUserFieldsMD = null;
+            GC.Collect();
+
+            try
+            {
+                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
+
+                oUserFieldsMD.TableName = "OCRD";
+                oUserFieldsMD.Name = "FEDIAN_RYT";
+                oUserFieldsMD.Description = "(FE) Responsabilidades y Tributos";
+                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
+                oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
+                oUserFieldsMD.Size = 50;
+                oUserFieldsMD.EditSize = 50;
+                oUserFieldsMD.LinkedUDO = "FEDIAN_SN";
+
+                lRetCode = oUserFieldsMD.Add();
+
+                if (lRetCode != 0)
+                {
+                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    }
+                    else
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    }
+                    Procesos.EscribirLogFileTXT(oUserFieldsMD.Name + ": " + sErrMsg);
+                }
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
+                oUserFieldsMD = null;
+                GC.Collect();
+
+
+
+                oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
+                oUserFieldsMD.TableName = "OADM";
+                oUserFieldsMD.Name = "FEDIAN_RYT";
+                oUserFieldsMD.Description = "(FE) Responsabilidades y Tributos";
+                oUserFieldsMD.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
+                oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
+                oUserFieldsMD.Size = 50;
+                oUserFieldsMD.EditSize = 50;
+                oUserFieldsMD.LinkedUDO = "FEDIAN_SN";
+
+                lRetCode = oUserFieldsMD.Add();
+
+                if (lRetCode != 0)
+                {
+                    if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    }
+                    else
+                    {
+                        oCompany.GetLastError(out lRetCode, out sErrMsg);
+                    }
+                    Procesos.EscribirLogFileTXT(oUserFieldsMD.Name + ": " + sErrMsg);
+                }
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(oUserFieldsMD);
+                oUserFieldsMD = null;
+                GC.Collect();
+                //SBO_Application.StatusBar.SetText("Campos creados", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Campos\n" + ex.Message);
+            }
+        }
+
+        public SAPbobsCOM.UserFieldsMD AddTypeField(SAPbobsCOM.UserFieldsMD oUserField, string type)
+        {
+            switch (type)
+            {
+                case "db_Alpha":
+                    oUserField.Type = SAPbobsCOM.BoFieldTypes.db_Alpha;
+                    break;
+                case "db_Date":
+                    oUserField.Type = SAPbobsCOM.BoFieldTypes.db_Date;
+                    break;
+                case "db_Float":
+                    oUserField.Type = SAPbobsCOM.BoFieldTypes.db_Float;
+                    break;
+                case "db_Memo":
+                    oUserField.Type = SAPbobsCOM.BoFieldTypes.db_Memo;
+                    break;
+                case "db_Numeric":
+                    oUserField.Type = SAPbobsCOM.BoFieldTypes.db_Numeric;
+                    break;
+            }
+
+            return oUserField;
+        }
+
+        public SAPbobsCOM.UserFieldsMD AddSubTypeField(SAPbobsCOM.UserFieldsMD oUserField, string subType)
+        {
+            switch (subType)
+            {
+                case "st_Address":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Address;
+                    break;
+                case "st_Image":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Image;
+                    break;
+                case "st_Link":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Link;
+                    break;
+                case "st_Measurement":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Measurement;
+                    break;
+                case "st_None":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
+                    break;
+                case "st_Percentage":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Percentage;
+                    break;
+                case "st_Phone":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Phone;
+                    break;
+                case "st_Price":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Price;
+                    break;
+                case "st_Quantity":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Quantity;
+                    break;
+                case "st_Rate":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Rate;
+                    break;
+                case "st_Sum":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Sum;
+                    break;
+                case "st_Time":
+                    oUserField.SubType = SAPbobsCOM.BoFldSubTypes.st_Time;
+                    break;
+            }
+
+            return oUserField;
+        }
+
+        public SAPbobsCOM.UserFieldsMD AddMandatoryField(SAPbobsCOM.UserFieldsMD oUserField, string mandatory)
+        {
+            switch (mandatory)
+            {
+                case "tNO":
+                    oUserField.Mandatory = SAPbobsCOM.BoYesNoEnum.tNO;
+                    break;
+                case "tYES":
+                    oUserField.Mandatory = SAPbobsCOM.BoYesNoEnum.tYES;
+                    break;
+
+            }
+
+            return oUserField;
         }
     }
 }

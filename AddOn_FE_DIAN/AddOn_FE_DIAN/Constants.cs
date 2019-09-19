@@ -11,7 +11,7 @@ namespace AddOn_FE_DIAN
         public static string categorQuery = "SELECT \"CategoryId\" FROM OQCN WHERE \"CatName\" = '{0}'";
         public static string[] green = new string[] { "1", "10"};
         public static string[] yellow = new string[] { "7", "99", "127", "137" };
-        public static string[] red = new string[] { "2", "3", "5", "102", "106", "116", "117", "118", "126", "160", "147"};
+        public static string[] red = new string[] { "2", "3", "5", "102", "106", "108", "116", "117", "118", "120", "126", "160", "147"};
         //public static string urlstatusFebos = "https://api.febos.co/pruebas/documentos/{0}?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si";
         //public static string urlstatusFolio = "https://api.febos.co/pruebas/documentos?campos=tipoDocumento,folio&itemsPorPagina=20&pagina=1&filtros=nitEmisor:{0}|folio:{1}";
 

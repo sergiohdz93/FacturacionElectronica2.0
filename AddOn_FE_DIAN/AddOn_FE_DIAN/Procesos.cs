@@ -143,7 +143,7 @@ namespace AddOn_FE_DIAN
                                         string docType = "";
                                         docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
                                         docType = BusinessObjectInfo.Type;
-                                        insertNewDoc(oInvoice, docDian, docType);
+                                        insertNewDoc(oInvoice, docDian, docType, oSeries.Prefix);
                                     }
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oInvoice);
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
@@ -205,7 +205,7 @@ namespace AddOn_FE_DIAN
                                         string docType = "";
                                         docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
                                         docType = BusinessObjectInfo.Type;
-                                        insertNewDoc(oInvoice, docDian, docType);
+                                        insertNewDoc(oInvoice, docDian, docType, oSeries.Prefix);
                                     }
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oInvoice);
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
@@ -271,7 +271,7 @@ namespace AddOn_FE_DIAN
                                         string docType = "";
                                         docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
                                         docType = BusinessObjectInfo.Type;
-                                        insertNewDoc(oInvoice, docDian, docType);
+                                        insertNewDoc(oInvoice, docDian, docType, oSeries.Prefix);
                                     }
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oInvoice);
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
@@ -333,7 +333,7 @@ namespace AddOn_FE_DIAN
                                         string docType = "";
                                         docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
                                         docType = BusinessObjectInfo.Type;
-                                        insertNewDoc(oInvoice, docDian, docType);
+                                        insertNewDoc(oInvoice, docDian, docType, oSeries.Prefix);
                                     }
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oInvoice);
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
@@ -399,7 +399,7 @@ namespace AddOn_FE_DIAN
                                         string docType = "";
                                         docDian = tabla.UserFields.Fields.Item("U_DocDIAN").Value;
                                         docType = BusinessObjectInfo.Type;
-                                        insertNewDoc(oCreditNote, docDian, docType);
+                                        insertNewDoc(oCreditNote, docDian, docType, oSeries.Prefix);
                                     }
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oCreditNote);
                                     System.Runtime.InteropServices.Marshal.ReleaseComObject(oCmpSrv);
@@ -711,8 +711,8 @@ namespace AddOn_FE_DIAN
             }
         }
 
-        // Insesrta nuevo documento electronico (FEDIAN_MONITORLOG)
-        public void insertNewDoc(Documents oDocument, string docDIAN, string docType)
+        // Inserta nuevo documento electronico (FEDIAN_MONITORLOG)
+        public void insertNewDoc(Documents oDocument, string docDIAN, string docType, string prefijo)
         {
             try
             {
@@ -736,6 +736,7 @@ namespace AddOn_FE_DIAN
                 tabla.Name = Convert.ToString(newCode);
                 tabla.UserFields.Fields.Item("U_DocType").Value = Convert.ToString(docDIAN);
                 tabla.UserFields.Fields.Item("U_Folio").Value = Convert.ToString(oDocument.DocNum);
+                tabla.UserFields.Fields.Item("U_Prefijo").Value = Convert.ToString(prefijo);
                 tabla.UserFields.Fields.Item("U_ObjType").Value = Convert.ToString(docType);
                 tabla.UserFields.Fields.Item("U_DocNum").Value = Convert.ToString(oDocument.DocEntry);
                 tabla.UserFields.Fields.Item("U_Usuario_Envio").Value = Convert.ToString(user);
@@ -762,7 +763,7 @@ namespace AddOn_FE_DIAN
                 }
                 else
                 {
-                    SendFE(Convert.ToString(oDocument.DocEntry), Convert.ToString(newCode), docDIAN, false);
+                    SendFE(Convert.ToString(oDocument.DocEntry), Convert.ToString(oDocument.DocNum), prefijo, Convert.ToString(newCode), docDIAN, false);
                 }
             }
             catch (Exception ex)
@@ -772,7 +773,7 @@ namespace AddOn_FE_DIAN
         }
 
         //validacion de proveedor para envio de informacion
-        public static void SendFE(string docentry, string codeLog, string typeDoc, Boolean reSend)//, string objType
+        public static void SendFE(string docentry, string docNum, string prefijo, string codeLog, string typeDoc, Boolean reSend)//, string objType
         {
             try
             {
@@ -788,18 +789,16 @@ namespace AddOn_FE_DIAN
                 tbl.GetByKey(typeDoc);
                 urlFebos = tbl.UserFields.Fields.Item("U_URL").Value;
 
-                Dictionary<string, Object> payload = new Dictionary<string, Object>();
-                payload = new Dictionary<string, object>();
-                payload.Add("texto en base64", EncodeToBase64(filestr));
+                urlFebos = string.Format(urlFebos, typeDoc, docNum, prefijo);
 
                 Dictionary<string, Object> dicJSON = new Dictionary<string, Object>();
                 dicJSON = new Dictionary<string, object>();
-                dicJSON.Add("entrada", Procesos.nit);
-                dicJSON.Add("tipo", typeDoc);
-                dicJSON.Add("prefijo", "SETT");
+                dicJSON.Add("empresa", Procesos.nit);
                 dicJSON.Add("foliar", "no");
-                dicJSON.Add("payload", payload);
-                dicJSON.Add("devolverXml", "no");
+                dicJSON.Add("folio", docNum);
+                dicJSON.Add("prefijo", prefijo);
+                dicJSON.Add("contenidoArchivoIntegracion", EncodeToBase64(filestr));
+                //dicJSON.Add("devolverXml", "no");
 
                 dataJSON = JsonConvert.SerializeObject(dicJSON);
 
@@ -1324,22 +1323,26 @@ namespace AddOn_FE_DIAN
                     {
                         string LogCode;
                         string docentry;
+                        string docnum;
+                        string prefijo;
                         string tipDoc;
                         string fechaenvio;
 
                         LogCode = Convert.ToString(ResultQuery.Rows[i]["Code"]); //Getting value CodeLog
                         docentry = Convert.ToString(ResultQuery.Rows[i]["U_DocNum"]); //Getting value docentry
+                        docnum = Convert.ToString(ResultQuery.Rows[i]["U_Folio"]);
+                        prefijo = Convert.ToString(ResultQuery.Rows[i]["U_Prefijo"]);
                         tipDoc = Convert.ToString(ResultQuery.Rows[i]["U_DocType"]); //Getting value tipDoc
                         fechaenvio = Convert.ToString(ResultQuery.Rows[i]["U_Fecha_Envio"]); //Getting value fechaenvio
                         //objType = Convert.ToString(ResultQuery.Rows[i]["U_ObjType"]); //Getting value fechaenvio
 
                         if (fechaenvio == "")
                         {
-                            Procesos.SendFE(docentry, LogCode, tipDoc, false);//, objType
+                            Procesos.SendFE(docentry, docnum, prefijo, LogCode, tipDoc, false);//, objType
                         }
                         else
                         {
-                            Procesos.SendFE(docentry, LogCode, tipDoc, true);//, objType
+                            Procesos.SendFE(docentry, docnum, prefijo, LogCode, tipDoc, true);//, objType
                         }
                     }
                 }

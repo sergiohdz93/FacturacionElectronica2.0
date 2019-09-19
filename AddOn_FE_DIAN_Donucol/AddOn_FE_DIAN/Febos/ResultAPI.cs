@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AddOn_FE_DIAN
 {
@@ -15,5 +12,13 @@ namespace AddOn_FE_DIAN
         public String febosID { get; set; }
         public String xmlLink { get; set; }
         public String imagenLink { get; set; }
+        public List<document> documentos { get; set; }
+    }
+    public class document
+    {
+        public string febosId
+        { get; set; }
+        public string folio
+        { get; set; }
     }
 }

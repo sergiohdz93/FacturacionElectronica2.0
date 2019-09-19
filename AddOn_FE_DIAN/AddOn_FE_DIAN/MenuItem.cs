@@ -1023,12 +1023,14 @@ namespace AddOn_FE_DIAN
                         {
                             string sCodeLog = Convert.ToString(oDT.GetValue("Code", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder))));
                             string sDocentry = oDT.GetValue("Numero Interno", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
+                            string sDocnum = oDT.GetValue("Numero Documento", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
+                            string sPrefijo = oDT.GetValue("Prefijo", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
                             string sStatus = oDT.GetValue("Codigo Estado", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
                             string sTipoDoc = oDT.GetValue("Tipo Documento", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
                             //string sObject = oDT.GetValue("Tipo Objeto", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
                             if (!Constants.green.Contains(sStatus))
                             {
-                                Procesos.SendFE(sDocentry, sCodeLog, sTipoDoc, true);
+                                Procesos.SendFE(sDocentry, sDocnum, sPrefijo, sCodeLog, sTipoDoc, true);
                             }
                             progressBar.Value += AvanceBar;
                         }

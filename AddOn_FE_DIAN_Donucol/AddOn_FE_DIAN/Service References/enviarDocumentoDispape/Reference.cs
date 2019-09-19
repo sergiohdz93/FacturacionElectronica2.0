@@ -16,13 +16,17 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
     public interface WsEnviarDocumento {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://wsenviardocumento.webservice.dispapeles.com/WsEnviarDocumento/enviarDocume" +
+            "ntoRequest", ReplyAction="http://wsenviardocumento.webservice.dispapeles.com/WsEnviarDocumento/enviarDocume" +
+            "ntoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse enviarDocumento(AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumento request);
+        AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse enviarDocumento(AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="", ReplyAction="*")]
-        System.Threading.Tasks.Task<AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse> enviarDocumentoAsync(AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumento request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://wsenviardocumento.webservice.dispapeles.com/WsEnviarDocumento/enviarDocume" +
+            "ntoRequest", ReplyAction="http://wsenviardocumento.webservice.dispapeles.com/WsEnviarDocumento/enviarDocume" +
+            "ntoResponse")]
+        System.Threading.Tasks.Task<AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse> enviarDocumentoAsync(AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoRequest request);
     }
     
     /// <remarks/>
@@ -3699,16 +3703,16 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="enviarDocumento", WrapperNamespace="http://wsenviardocumento.webservice.dispapeles.com/", IsWrapped=true)]
-    public partial class enviarDocumento {
+    public partial class enviarDocumentoRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://wsenviardocumento.webservice.dispapeles.com/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public AddOn_FE_DIAN.enviarDocumentoDispape.felCabezaDocumento felCabezaDocumento;
         
-        public enviarDocumento() {
+        public enviarDocumentoRequest() {
         }
         
-        public enviarDocumento(AddOn_FE_DIAN.enviarDocumentoDispape.felCabezaDocumento felCabezaDocumento) {
+        public enviarDocumentoRequest(AddOn_FE_DIAN.enviarDocumentoDispape.felCabezaDocumento felCabezaDocumento) {
             this.felCabezaDocumento = felCabezaDocumento;
         }
     }
@@ -3759,24 +3763,24 @@ namespace AddOn_FE_DIAN.enviarDocumentoDispape {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse AddOn_FE_DIAN.enviarDocumentoDispape.WsEnviarDocumento.enviarDocumento(AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumento request) {
+        AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse AddOn_FE_DIAN.enviarDocumentoDispape.WsEnviarDocumento.enviarDocumento(AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoRequest request) {
             return base.Channel.enviarDocumento(request);
         }
         
         public AddOn_FE_DIAN.enviarDocumentoDispape.felRespuestaEnvio enviarDocumento(AddOn_FE_DIAN.enviarDocumentoDispape.felCabezaDocumento felCabezaDocumento) {
-            AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumento inValue = new AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumento();
+            AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoRequest inValue = new AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoRequest();
             inValue.felCabezaDocumento = felCabezaDocumento;
             AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse retVal = ((AddOn_FE_DIAN.enviarDocumentoDispape.WsEnviarDocumento)(this)).enviarDocumento(inValue);
             return retVal.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse> AddOn_FE_DIAN.enviarDocumentoDispape.WsEnviarDocumento.enviarDocumentoAsync(AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumento request) {
+        System.Threading.Tasks.Task<AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse> AddOn_FE_DIAN.enviarDocumentoDispape.WsEnviarDocumento.enviarDocumentoAsync(AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoRequest request) {
             return base.Channel.enviarDocumentoAsync(request);
         }
         
         public System.Threading.Tasks.Task<AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse> enviarDocumentoAsync(AddOn_FE_DIAN.enviarDocumentoDispape.felCabezaDocumento felCabezaDocumento) {
-            AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumento inValue = new AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumento();
+            AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoRequest inValue = new AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoRequest();
             inValue.felCabezaDocumento = felCabezaDocumento;
             return ((AddOn_FE_DIAN.enviarDocumentoDispape.WsEnviarDocumento)(this)).enviarDocumentoAsync(inValue);
         }

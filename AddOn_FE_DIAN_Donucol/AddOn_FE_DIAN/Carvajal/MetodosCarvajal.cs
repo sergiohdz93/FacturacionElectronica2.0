@@ -68,7 +68,7 @@ namespace AddOn_FE_DIAN.Carvajal
         }
 
         //Peticion web service estado documento
-        public static void DocStatusFE(int codeLog, string transID, string request, Boolean ReSend, string strtext)
+        public static void DocStatusFE(string codeLog, string transID, string request, Boolean ReSend, string strtext)
         {
             Procesos.responseStatus = "";
             try
@@ -127,7 +127,7 @@ namespace AddOn_FE_DIAN.Carvajal
         }
 
         //Peticion web service descarga documento
-        public static string DownloadDocFE(int codeLog, string docType, string numDoc, string downloadType)
+        public static string DownloadDocFE(string codeLog, string docType, string numDoc, string downloadType)
         {
             Procesos.responseStatus = "";
             try

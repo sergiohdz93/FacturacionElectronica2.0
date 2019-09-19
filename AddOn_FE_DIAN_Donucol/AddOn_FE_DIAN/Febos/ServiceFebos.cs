@@ -1,11 +1,8 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AddOn_FE_DIAN
 {
@@ -18,20 +15,9 @@ namespace AddOn_FE_DIAN
             var result = new Dictionary<bool, string>();
             var httpRequest = (HttpWebRequest)WebRequest.Create(url);
             httpRequest.ContentType = "application/json";
-            //httpRequest.Headers.Add("token", "tfuhiyr5e356dtu7");
-            //httpRequest.Headers.Add("empresa", "900800100");
             httpRequest.Method = method.ToUpper();
             httpRequest.ServicePoint.Expect100Continue = false;
-            //ServicePointManager.ServerCertificateValidationCallback += RemoteSSLTLSCertificateValidate;
             httpRequest.CookieContainer = new CookieContainer();
-
-            //if (cookieData.Count > 0)
-            //{
-            //    foreach (Cookie cookie in cookieData)
-            //    {
-            //        httpRequest.CookieContainer.Add(new Uri(url), new Cookie(cookie.Name, cookie.Value));
-            //    }
-            //}
 
             if (!string.IsNullOrEmpty(body))
             {
@@ -45,21 +31,14 @@ namespace AddOn_FE_DIAN
 
             try
             {
-                //var webResponse = (HttpWebResponse)httpRequest.GetResponse();
                 using (var webResponse = httpRequest.GetResponse() as HttpWebResponse)
                 {
                     if (httpRequest.HaveResponse && webResponse != null)
                     {
-                        //using (var reader = new StreamReader(response.GetResponseStream()))
-                        //{
-                        //    string result = reader.ReadToEnd();
-                        //}
                         using (var response = new StreamReader(webResponse.GetResponseStream()))
                         {
                             result.Add(true, response.ReadToEnd());
                         }
-                        //if (saveCookie)
-                        //    cookieData = webResponse.Cookies;
                     }
 
                 }
@@ -74,37 +53,10 @@ namespace AddOn_FE_DIAN
                         {
                             string error = reader.ReadToEnd();
                             result.Add(false, error);
-                            //error.Replace(@"\t", "\t");
-                            //error.Replace(@"\n", "\n");
-                            //error.Replace(@"\r", "\r");
-                            ////error = JsonConvert.SerializeObject(error);
-                            //error = error.Replace(@"\", "");
-                            //error = error.Replace("\\", "");
-
-                            //Object outerror = JToken.Parse(error);
-                            //error = JsonConvert.SerializeObject(outerror);
-                            ////string outerror = error.Replace("\\", "");
-                            //result.Add(false, error);
-                            //TODO: use JSON.net to parse this string and look at the error message
                         }
                     }
                 }
             }
-
-            //try
-            //{
-            //    var webResponse = (HttpWebResponse)httpRequest.GetResponse();
-            //    using (var response = new StreamReader(webResponse.GetResponseStream()))
-            //    {
-            //        result.Add(true,response.ReadToEnd());
-            //    }
-            //    if (saveCookie)
-            //        cookieData = webResponse.Cookies;
-            //}
-            //catch (WebException e)
-            //{
-            //    result.Add(false, e.Message.ToString());
-            //}
             catch (Exception ex)
             {
                 result.Add(false, ex.ToString());
@@ -128,6 +80,8 @@ namespace AddOn_FE_DIAN
 
             try
             {
+                Procesos.EscribirLogFileTXT("StatusDoc: Headers" + httpRequest.Headers);
+                Procesos.EscribirLogFileTXT("StatusDoc: RequestUri" + httpRequest.RequestUri);
                 using (var webResponse = httpRequest.GetResponse() as HttpWebResponse)
                 {
                     if (httpRequest.HaveResponse && webResponse != null)
@@ -135,6 +89,7 @@ namespace AddOn_FE_DIAN
                         using (var response = new StreamReader(webResponse.GetResponseStream()))
                         {
                             result.Add(true, response.ReadToEnd());
+                            Procesos.EscribirLogFileTXT("StatusDoc_webResponse: " + result[true]);
                         }
                     }
 
@@ -150,6 +105,7 @@ namespace AddOn_FE_DIAN
                         {
                             string error = reader.ReadToEnd();
                             result.Add(false, error);
+                            Procesos.EscribirLogFileTXT("StatusDoc_WebException: " + error);
                         }
                     }
                 }
@@ -178,6 +134,7 @@ namespace AddOn_FE_DIAN
             {
                 using (var requestStream = httpRequest.GetRequestStream())
                 {
+                    Procesos.EscribirLogFileTXT("documentos: requestStream" + body);
                     var writer = new StreamWriter(requestStream);
                     writer.Write(body);
                     writer.Close();
@@ -186,6 +143,8 @@ namespace AddOn_FE_DIAN
 
             try
             {
+                Procesos.EscribirLogFileTXT("documentos: Headers" + httpRequest.Headers);
+                Procesos.EscribirLogFileTXT("documentos: RequestUri" + httpRequest.RequestUri);
                 using (var webResponse = httpRequest.GetResponse() as HttpWebResponse)
                 {
                     if (httpRequest.HaveResponse && webResponse != null)
@@ -193,6 +152,61 @@ namespace AddOn_FE_DIAN
                         using (var response = new StreamReader(webResponse.GetResponseStream()))
                         {
                             result.Add(true, response.ReadToEnd());
+                            Procesos.EscribirLogFileTXT("documentos_webResponse: " + result[true]);
+                        }
+                    }
+
+                }
+            }
+            catch (WebException wex)
+            {
+                if (wex.Response != null)
+                {
+                    using (var errorResponse = (HttpWebResponse)wex.Response)
+                    {
+                        using (var reader = new StreamReader(errorResponse.GetResponseStream(), Encoding.UTF8))
+                        {
+                            string error = reader.ReadToEnd();
+                            Procesos.EscribirLogFileTXT("documentos_WebException: " + error);
+                            result.Add(false, error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Procesos.EscribirLogFileTXT("Exception: " + ex);
+                result.Add(false, ex.ToString());
+            }
+            Procesos.requestSend = body;
+            return result;
+        }
+
+        public static Dictionary<bool, string> Febos_folio(string url, string method, string token = "", bool saveCookie = false)
+        {
+            _createdDate = DateTime.Now;
+            Procesos.dateSend = _createdDate;
+            var result = new Dictionary<bool, string>();
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpRequest.ContentType = "application/json";
+            httpRequest.Headers.Add("token", token);
+            httpRequest.Headers.Add("empresa", Procesos.nit);
+            httpRequest.Method = method.ToUpper();
+            httpRequest.ServicePoint.Expect100Continue = false;
+            httpRequest.CookieContainer = new CookieContainer();
+
+            try
+            {
+                Procesos.EscribirLogFileTXT("Febos_folio: Headers" + httpRequest.Headers);
+                Procesos.EscribirLogFileTXT("Febos_folio: RequestUri" + httpRequest.RequestUri);
+                using (var webResponse = httpRequest.GetResponse() as HttpWebResponse)
+                {
+                    if (httpRequest.HaveResponse && webResponse != null)
+                    {
+                        using (var response = new StreamReader(webResponse.GetResponseStream()))
+                        {
+                            result.Add(true, response.ReadToEnd());
+                            Procesos.EscribirLogFileTXT("folio_webResponse: " + result[true]);
                         }
                     }
 
@@ -208,6 +222,7 @@ namespace AddOn_FE_DIAN
                         {
                             string error = reader.ReadToEnd();
                             result.Add(false, error);
+                            Procesos.EscribirLogFileTXT("folio_WebException: " + error);
                         }
                     }
                 }
@@ -216,7 +231,7 @@ namespace AddOn_FE_DIAN
             {
                 result.Add(false, ex.ToString());
             }
-            Procesos.requestSend = body;
+            //Procesos.requestSend = body;
             return result;
         }
     }

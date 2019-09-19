@@ -1,0 +1,56 @@
+[{
+	"Codigo": "01",
+	"Nombre": "IVA"
+},
+{
+	"Codigo": "02",
+	"Nombre": "IC"
+},
+{
+	"Codigo": "03",
+	"Nombre": "ICA"
+},
+{
+	"Codigo": "04",
+	"Nombre": "INC"
+},
+{
+	"Codigo": "05",
+	"Nombre": "ReteIVA"
+},
+{
+	"Codigo": "06",
+	"Nombre": "ReteFuente"
+},
+{
+	"Codigo": "07",
+	"Nombre": "ReteICA"
+},
+{
+	"Codigo": "20",
+	"Nombre": "FtoHorticultura"
+},
+{
+	"Codigo": "21",
+	"Nombre": "Timbre"
+},
+{
+	"Codigo": "22",
+	"Nombre": "Bolsas"
+},
+{
+	"Codigo": "23",
+	"Nombre": "INCarbono"
+},
+{
+	"Codigo": "24",
+	"Nombre": "INCombustibles"
+},
+{
+	"Codigo": "25",
+	"Nombre": "Sobretasa Combustibles"
+},
+{
+	"Codigo": "ZZ",
+	"Nombre": "Otros"
+}]

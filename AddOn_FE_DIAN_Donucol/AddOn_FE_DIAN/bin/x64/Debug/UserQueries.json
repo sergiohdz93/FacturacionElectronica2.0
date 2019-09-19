@@ -1,0 +1,51 @@
+﻿[
+  {
+    "QueryName": "UM_Pendientes",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaUM",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaDocDIAN",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "UM_DIAN",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaRespon",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "DescRespon",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaTribu",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "DescTribu",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "NombreSN",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "TipoDoc",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "ListaNume",
+    "QueryCategory": "FEDIAN"
+  },
+  {
+    "QueryName": "DescNume",
+    "QueryCategory": "FEDIAN"
+  }
+]
+

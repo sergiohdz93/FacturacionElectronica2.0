@@ -176,6 +176,42 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="FEDIAN_CODDOC.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_CONCEP_NC.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_CONCEP_ND.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_DESCU.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_IDENT_ARTI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_INTERF_CFG.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_MEDPAGO.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_RESPONSA.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_TIPOPERA.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_TRIBU.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_UM.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FormattedSearches.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -286,6 +322,18 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\enviarDocumentoDispape\enviarDocumento.wsdl" />
+    <None Include="Service References\enviarDocumentoDispape\enviarDocumento.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UserFields.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="UserQueries.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="UserTables.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Web References\consultarArchivosDispape\consultarArchivos.wsdl" />
     <None Include="Web References\consultarArchivosDispape\felRepuestaDescargaDocumentos.datasource">
       <DependentUpon>Reference.map</DependentUpon>

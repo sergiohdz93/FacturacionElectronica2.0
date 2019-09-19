@@ -59,5 +59,148 @@ namespace AddOn_FE_DIAN.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;SeriesName&quot; From NNM1 Where &quot;Series&quot; =  $[@FEDIAN_NUMAUTORI.Code].
+        /// </summary>
+        internal static string DescNume {
+            get {
+                return ResourceManager.GetString("DescNume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_RESPONSA&quot; Where &quot;Code&quot; =  $[@FEDIAN_SN_RESPO.U_Codigo].
+        /// </summary>
+        internal static string DescRespon {
+            get {
+                return ResourceManager.GetString("DescRespon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_TRIBU&quot; Where &quot;Code&quot; =  $[@FEDIAN_SN_TRIB.U_Codigo].
+        /// </summary>
+        internal static string DescTribu {
+            get {
+                return ResourceManager.GetString("DescTribu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Code&quot;, &quot;Name&quot; 
+        ///From &quot;@FEDIAN_CODDOC&quot;.
+        /// </summary>
+        internal static string ListaDocDIAN {
+            get {
+                return ResourceManager.GetString("ListaDocDIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Series&quot;, &quot;SeriesName&quot;, &quot;InitialNum&quot;, &quot;LastNum&quot;, &quot;DocSubType&quot;,
+        ///Case 
+        ///When &quot;ObjectCode&quot; = &apos;14&apos; Then &apos;Nota de Cerdito&apos;
+        ///When &quot;ObjectCode&quot; = &apos;13&apos; And &quot;DocSubType&quot; = &apos;--&apos; Then &apos;Factura de Venta&apos; 
+        ///When &quot;ObjectCode&quot; = &apos;13&apos; And &quot;DocSubType&quot; = &apos;DN&apos; Then &apos;Nota de Debito&apos; 
+        ///When &quot;ObjectCode&quot; = &apos;13&apos; And &quot;DocSubType&quot; = &apos;IX&apos; Then &apos;Factura de Exportacion&apos; 
+        ///When &quot;ObjectCode&quot; = &apos;13&apos; And &quot;DocSubType&quot; = &apos;RI&apos; Then &apos;Factura de Reserva&apos; 
+        ///End &quot;Tipo de documento&quot;
+        ///From &quot;NNM1&quot;
+        ///Where &quot;Series&quot; Not In (Select &quot;Code&quot; from [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string ListaNume {
+            get {
+                return ResourceManager.GetString("ListaNume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select * from &quot;@FEDIAN_RESPONSA&quot;
+        ///Order By &quot;Code&quot;.
+        /// </summary>
+        internal static string ListaRespon {
+            get {
+                return ResourceManager.GetString("ListaRespon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select * from &quot;@FEDIAN_TRIBU&quot;
+        ///Order By &quot;Code&quot;.
+        /// </summary>
+        internal static string ListaTribu {
+            get {
+                return ResourceManager.GetString("ListaTribu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;Code&quot;, &quot;U_Descripcion&quot; 
+        ///From &quot;@FEDIAN_UM&quot;.
+        /// </summary>
+        internal static string ListaUM {
+            get {
+                return ResourceManager.GetString("ListaUM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select &quot;CardName&quot; From &quot;OCRD&quot; Where &quot;CardCode&quot; =  $[@FEDIAN_SN.Code].
+        /// </summary>
+        internal static string NombreSN {
+            get {
+                return ResourceManager.GetString("NombreSN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select * from &quot;@HBT_TIPODOC&quot;.
+        /// </summary>
+        internal static string TipoDoc {
+            get {
+                return ResourceManager.GetString("TipoDoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a IF $[$38.1470002145.0] = &apos;Manual&apos;
+        ///
+        ///Begin
+        ///
+        ///SELECT T0.&quot;U_DIAN_UM&quot; FROM &quot;@FEDIAN_HOMOL_UM&quot; T0 WHERE T0.&quot;U_SAP_UM&quot; = $[$38.212.0]
+        ///
+        ///END
+        ///
+        ///IF $[$38.1470002145.0] != &apos;Manual&apos;
+        ///
+        ///Begin
+        ///
+        ///SELECT T0.&quot;U_dian_UM&quot; FROM &quot;@FEDIAN_HOMOL_UM&quot; T0 WHERE T0.&quot;U_SAP_UM&quot; = $[$38.1470002145.0]
+        ///
+        ///END.
+        /// </summary>
+        internal static string UM_DIAN {
+            get {
+                return ResourceManager.GetString("UM_DIAN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select C0.&quot;Unidad&quot;, C0.&quot;Descr&quot;
+        ///From(
+        ///	SELECT 
+        ///	Case When &quot;UomCode&quot; = &apos;Manual&apos; Then &quot;unitMsr&quot; Else &quot;UomCode&quot; End &quot;Unidad&quot;, 
+        ///	&quot;unitMsr&quot; as &quot;Descr&quot; 
+        ///	FROM INV1
+        ///)C0 
+        ///Where IsNull(&quot;Unidad&quot;,&apos;&apos;) != &apos;&apos; And C0.&quot;Unidad&quot; Not In (Select &quot;U_SAP_UM&quot; From &quot;@FEDIAN_HOMOL_UM&quot; Where IsNull(&quot;U_DIAN_UM&quot;,&apos;&apos;) != &apos;&apos;)
+        ///Group By C0.&quot;Unidad&quot;, C0.&quot;Descr&quot;.
+        /// </summary>
+        internal static string UM_Pendientes {
+            get {
+                return ResourceManager.GetString("UM_Pendientes", resourceCulture);
+            }
+        }
     }
 }

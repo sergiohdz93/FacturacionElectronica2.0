@@ -134,6 +134,18 @@
   },
   {
     "UserFieldsMD": {
+      "Name": "Prefijo",
+      "Type": "db_Alpha",
+      "Size": "20",
+      "Description": "Prefijo",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "20",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
       "Name": "ObjType",
       "Type": "db_Alpha",
       "Size": "15",

@@ -50,7 +50,6 @@ namespace AddOn_FE_DIAN.Controllers
                 string urlServicio;
                 urlServicio = wsURL;
 
-                enviarDocumentoDispape.enviarDocumento request = new enviarDocumentoDispape.enviarDocumento();
                 enviarDocumentoDispape.enviarDocumentoResponse response = new enviarDocumentoDispape.enviarDocumentoResponse();
                 enviarDocumentoDispape.felRespuestaEnvio respuesta = new enviarDocumentoDispape.felRespuestaEnvio();
                 enviarDocumentoDispape.felCabezaDocumento Factura = new enviarDocumentoDispape.felCabezaDocumento();
@@ -191,6 +190,7 @@ namespace AddOn_FE_DIAN.Controllers
                         adquirente.direccion = Procesos.Buscar_ValorCab("direccion", i, Fac);
                         adquirente.telefono = Procesos.Buscar_ValorCab("telefono", i, Fac);
                         adquirente.envioPorEmailPlataforma = Procesos.Buscar_ValorCab("envioPorEmailPlataforma", i, Fac);
+                        adquirente.tipoobligacion = Procesos.Buscar_ValorCab("tipoobligacion", i, Fac);
 
                     adquirentes[i] = adquirente;
                     Factura.listaAdquirentes = adquirentes;
@@ -232,7 +232,7 @@ namespace AddOn_FE_DIAN.Controllers
             }
         }
 
-        public static consultarArchivosDispape.felRepuestaDescargaDocumentos consultaArchivos(int numDoc, DateTime fechaFac, string prefijo, int tipoDoc, string wsURL)
+        public static consultarArchivosDispape.felRepuestaDescargaDocumentos consultaArchivos(string numDoc, string prefijo, string tipoDoc, string wsURL)
         {
             DateTime _createdDate;
             _createdDate = DateTime.Now;
@@ -261,30 +261,26 @@ namespace AddOn_FE_DIAN.Controllers
                     //requestMessage.Headers["token"] = Procesos.token;
                     //OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
 
-                    request.consecutivo = numDoc;
+                    request.consecutivo = Convert.ToInt32(numDoc);
                     request.consecutivoSpecified = true;
                     request.contrasenia = Procesos.password;
                     request.idEmpresa = 233;
                     request.idEmpresaSpecified = true;
                     request.prefijo = prefijo;
                     //request.tipoArchivo = 0;
-                    request.tipoDocumento = tipoDoc.ToString();
+                    request.tipoDocumento = tipoDoc;
                     request.token = Procesos.token;
                     request.usuario = Procesos.username;
 
-                    var serxml = new System.Xml.Serialization.XmlSerializer(request.GetType());
-                    var ms = new MemoryStream();
-                    serxml.Serialize(ms, request);
-                    string xml = Encoding.UTF8.GetString(ms.ToArray());
-
-                    //consulta1.Fel_ConsultaFacturaArchivo = request;
-                    //var fel = consulta1.Fel_ConsultaFacturaArchivo;
-
                     consultar = new consultarArchivosDispape.consultarArchivos();
                     response = consultar.CallconsultarArchivos(request);
-                //}
-                //Procesos.requestSend = xml;
-                //clienteServicio.Close();
+
+                var serxml = new System.Xml.Serialization.XmlSerializer(request.GetType());
+                var ms = new MemoryStream();
+                serxml.Serialize(ms, request);
+                string xml = Encoding.UTF8.GetString(ms.ToArray());
+                Procesos.requestSend = xml;
+
                 Procesos.EscribirLogFileTXT("ConsultaPDF: Fin");
                 return response;
             }
@@ -296,7 +292,7 @@ namespace AddOn_FE_DIAN.Controllers
             }
         }
 
-        //public static ConsultarArchivosDispape.documentoElectronicoWsDto ConsultaXML(int numDoc, DateTime fechaFac, string prefijo, int tipoDoc, string wsURL)
+        //public static consultarArchivosDispape.felRepuestaDescargaDocumentos consultaEstados(string numDoc, string prefijo, string tipoDoc, string wsURL)
         //{
         //    DateTime _createdDate;
         //    _createdDate = DateTime.Now;
