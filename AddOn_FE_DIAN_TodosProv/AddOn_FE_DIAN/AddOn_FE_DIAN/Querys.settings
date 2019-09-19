@@ -261,34 +261,27 @@
 					)C0 Order by LineNum, ordenplano;</Value>
     </Setting>
     <Setting Name="CargueMonitor" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">
-					Select 
-					A0.Code, A0.U_ObjType as 'Tipo Objeto', A0.U_DocType as 'Tipo Documento', A1.Name as 'Documento DIAN', A0.U_Folio as 'Numero Documento', A0.U_DocNum as 'Numero Interno', 
-					A0.U_Status as 'Codigo Estado', A0.U_Resultado as 'Descripcion Estado', A0.U_ProcessID as 'ID Proceso', A0.U_Fecha_Envio as 'Fecha Envio', A0.U_Hora_Envio as 'Hora Envio', 
-					A0.U_Usuario_Envio as 'Usuario Envio', A0.U_Fecha_ReEnvio as 'Fecha Re-Envio', A0.U_Hora_ReEnvio as 'Hora Re-Envio', A0.U_Usuario_ReEnvio as 'Usuario Re-Envio', 
-					A0.U_Det_Peticion as 'Detalle Peticion', A0.U_Respuesta_Int as 'Respuesta Integracion', A0.U_Archivo_PDF as 'Archivo PDF', A0.U_Enlace_XML as 'Archivo XML'
-					From [@FEDIAN_MONITORLOG] A0
-					Left Join [@FEDIAN_CODDOC] A1 On A0.U_DocType = A1.Code
-					Where (A0.U_Fecha_Envio Between '{0}' and '{1}' or IsNull(A0.U_Fecha_Envio,'') = '') and (A0.U_DocType = '{2}' OR IsNull('{2}','')='') and (A0.U_Status = '{3}' OR IsNull('{3}','')='')
-					Order By Cast(A0.Code as int)
-				</Value>
+      <Value Profile="(Default)">Select 
+A0."Code", A0."U_ObjType" as "Tipo Objeto", A0."U_DocType" as "Tipo Documento", A1."Name" as "Documento DIAN", A0."U_Folio" as "Numero Documento", A0."U_Prefijo" as "Prefijo", A0."U_DocNum" as "Numero Interno", 
+A0."U_Status" as "Codigo Estado", A0."U_Resultado" as "Descripcion Estado", A0."U_ProcessID" as "ID Proceso", 
+A0."U_Fecha_Envio" as "Fecha de contabilizacion", A0."U_Hora_Envio" as "Hora de creacion", A0."U_Usuario_Envio" as "Usuario Envio", 
+A0."U_Det_Peticion" as "Detalle Peticion", A0."U_Respuesta_Int" as "Respuesta Integracion", A0."U_Archivo_PDF" as "Archivo PDF", A0."U_Enlace_XML" as "Archivo XML",
+A0."U_ID_Seguimiento" as "FebosID"
+From "@FEDIAN_MONITORLOG" A0
+Left Join "@FEDIAN_CODDOC" A1 On A0."U_DocType" = A1."Code"
+Where (A0."U_Fecha_Envio" Between '{0}' and '{1}' or IsNull(A0."U_Fecha_Envio",'') = '') and (A0."U_DocType" = '{2}' OR IsNull('{2}','')='') and (A0."U_Status" = '{3}' OR IsNull('{3}','')='')
+Order By Cast(A0."Code" as int)</Value>
     </Setting>
     <Setting Name="PARAMG" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">
-					Select * from [@FEDIAN_PARAMG]
-				</Value>
+      <Value Profile="(Default)">Select * from "@FEDIAN_PARAMG"</Value>
     </Setting>
     <Setting Name="GetCodeLog" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">
-					Select Code From [@FEDIAN_MONITORLOG] Where U_DocNum = {0}
-				</Value>
+      <Value Profile="(Default)">Select "Code" From "@FEDIAN_MONITORLOG" Where "U_DocNum" = {0}</Value>
     </Setting>
     <Setting Name="ProcessStatus" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">
-					Select Code, U_ProcessID, U_ID_Seguimiento, U_Det_Peticion 
-					From [@FEDIAN_MONITORLOG] 
-					Where U_Status in ({0}) and IsNull(Cast(U_Archivo_PDF as Nvarchar(2500)), '') = ''
-				</Value>
+      <Value Profile="(Default)">Select "Code", "U_ProcessID", "U_ID_Seguimiento", "U_Det_Peticion" 
+					From "@FEDIAN_MONITORLOG"
+					Where "U_Status" In ({0})and IsNull(Cast("U_Archivo_PDF" as Nvarchar(2500)), '') = ''</Value>
     </Setting>
     <Setting Name="FacturaExpo" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />

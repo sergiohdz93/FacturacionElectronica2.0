@@ -23,9 +23,9 @@ namespace AddOn_FE_DIAN.Controllers
             binding.AllowCookies = false;
             binding.BypassProxyOnLocal = false;
             binding.HostNameComparisonMode = HostNameComparisonMode.StrongWildcard;
-            binding.MaxBufferSize = 655360;
-            binding.MaxBufferPoolSize = 524288;
-            binding.MaxReceivedMessageSize = 655360;
+            binding.MaxBufferSize = 2147483647;
+            binding.MaxBufferPoolSize = 2147483647;
+            binding.MaxReceivedMessageSize = 2147483647;
             binding.MessageEncoding = WSMessageEncoding.Text;
             binding.TextEncoding = Encoding.UTF8;
             binding.TransferMode = TransferMode.Buffered;
@@ -39,7 +39,7 @@ namespace AddOn_FE_DIAN.Controllers
             return binding;
         }
 
-        public static WSDispapeles.envioFacturaRespuestaDTO EnviarFactura(DataTable Fac, DataTable impFactura, string wsURL)
+        public static enviarDocumentoDispape.felRespuestaEnvio EnviarFactura(DataTable Fac, DataTable impFactura, string wsURL)
         {
             DateTime _createdDate;
             _createdDate = DateTime.Now;
@@ -50,11 +50,12 @@ namespace AddOn_FE_DIAN.Controllers
                 string urlServicio;
                 urlServicio = wsURL;
 
-                WSDispapeles.eBfelEncabezadofactura Factura = new WSDispapeles.eBfelEncabezadofactura();
-                WSDispapeles.InterSoapClient clienteServicio;
-                WSDispapeles.envioFacturaRespuestaDTO response;
+                enviarDocumentoDispape.enviarDocumentoResponse response = new enviarDocumentoDispape.enviarDocumentoResponse();
+                enviarDocumentoDispape.felRespuestaEnvio respuesta = new enviarDocumentoDispape.felRespuestaEnvio();
+                enviarDocumentoDispape.felCabezaDocumento Factura = new enviarDocumentoDispape.felCabezaDocumento();
+                enviarDocumentoDispape.WsEnviarDocumentoClient clienteServicio;
 
-                clienteServicio = new WSDispapeles.InterSoapClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
+                clienteServicio = new enviarDocumentoDispape.WsEnviarDocumentoClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
                 using (new OperationContextScope(clienteServicio.InnerChannel))
                 {
                     //Add SOAP Header (Header property in the envelope) to an outgoing request.
@@ -67,107 +68,87 @@ namespace AddOn_FE_DIAN.Controllers
                     OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
 
                     int i = 0;
-                    Factura.tokenempresa = Procesos.token;
+                    int NumDetalles = Fac.Rows.Count;
+
+                    Factura.idEmpresa = 233;
+                    Factura.idEmpresaSpecified = true;
+                    Factura.usuario = Procesos.username;
+                    Factura.contrasenia = Procesos.password;
+                    Factura.token/*tokenempresa*/ = Procesos.token;
+                    Factura.version = Procesos.Buscar_ValorCab("version", i, Fac);
                     Factura.tipodocumento = Procesos.Buscar_ValorCab("tipodocumento", i, Fac);
-                    Factura.codigoPlantillaPdf = Convert.ToInt32(Procesos.Buscar_ValorCab("codigoPlantillaPdf", i, Fac));
-                    Factura.tiponota = Procesos.Buscar_ValorCab("tiponota", i, Fac);
                     Factura.prefijo = Procesos.Buscar_ValorCab("prefijo", i, Fac);
                     Factura.consecutivo = Convert.ToInt32(Procesos.Buscar_ValorCab("consecutivo", i, Fac));
                     Factura.fechafacturacion = Convert.ToDateTime(Procesos.Buscar_ValorCab("fechafacturacion", i, Fac));
-                    Factura.fechafacturacionSpecified = true;// fechaFacturaEspecify
-                    Factura.fechavencimiento = Convert.ToDateTime(Procesos.Buscar_ValorCab("fechavencimiento", i, Fac));
-                    Factura.fechavencimientoSpecified = true;// fechaFacturaEspecify
-                    Factura.moneda = Procesos.Buscar_ValorCab("moneda", i, Fac);
-                    Factura.totalimportebruto = Convert.ToDouble(Procesos.Buscar_ValorCab("totalimportebruto", i, Fac));
-                    Factura.totalbaseimponible = Convert.ToDouble(Procesos.Buscar_ValorCab("totalbaseimponible", i, Fac));
-                    Factura.descuento = Convert.ToDouble(Procesos.Buscar_ValorCab("descuento", i, Fac));
-                    Factura.totalfactura = Convert.ToDouble(Procesos.Buscar_ValorCab("totalfactura", i, Fac));
+                    Factura.fechafacturacionSpecified = true;
+                    Factura.codigoPlantillaPdf = Convert.ToInt32(Procesos.Buscar_ValorCab("codigoPlantillaPdf", i, Fac));
+                    Factura.cantidadLineas = NumDetalles;
                     Factura.tiponota = Procesos.Buscar_ValorCab("tiponota", i, Fac);
-                    Factura.tipopersona = Procesos.Buscar_ValorCab("tipopersona", i, Fac);
-                    Factura.razonsocial = Procesos.Buscar_ValorCab("razonsocial", i, Fac);
-                    Factura.descripcion = Procesos.Buscar_ValorCab("descripcion", i, Fac);
-
-                    Factura.primerapellido = Procesos.Buscar_ValorCab("primerapellido", i, Fac);
-                    Factura.segundoapellido = Procesos.Buscar_ValorCab("segundoapellido", i, Fac);
-                    Factura.primernombre = Procesos.Buscar_ValorCab("primernombre", i, Fac);
-                    Factura.segundonombre = Procesos.Buscar_ValorCab("segundonombre", i, Fac);
-                    Factura.tipoidentificacion = Convert.ToInt32(Procesos.Buscar_ValorCab("tipoidentificacion", i, Fac));
-                    Factura.numeroidentificacion = Procesos.Buscar_ValorCab("numeroidentificacion", i, Fac);
                     Factura.aplicafel = Procesos.Buscar_ValorCab("aplicafel", i, Fac);
-                    Factura.envioPorEmailPlataforma = Procesos.Buscar_ValorCab("envioPorEmailPlataforma", i, Fac);
-                    Factura.email = Procesos.Buscar_ValorCab("email", i, Fac);
+                    Factura.tipoOperacion = Procesos.Buscar_ValorCab("tipoOperacion", i, Fac);
 
-                    Factura.pais = Procesos.Buscar_ValorCab("pais", i, Fac);
-                    Factura.departamento = Procesos.Buscar_ValorCab("departamento", i, Fac);
-                    Factura.ciudad = Procesos.Buscar_ValorCab("ciudad", i, Fac);
-                    Factura.direccion = Procesos.Buscar_ValorCab("direccion", i, Fac);
-                    Factura.telefono = Procesos.Buscar_ValorCab("telefono", i, Fac);
-                    Factura.tipocompra = Convert.ToInt32(Procesos.Buscar_ValorCab("tipocompra", i, Fac));
-                    Factura.periododepagoaSpecified = true;
-                    Factura.periododepagoa = Convert.ToInt32(Procesos.Buscar_ValorCab("periododepagoa", i, Fac));
+                    enviarDocumentoDispape.felPagos pago = new enviarDocumentoDispape.felPagos();
+                    pago.moneda = Procesos.Buscar_ValorCab("moneda", i, Fac);
+                    pago.totalimportebruto = Convert.ToDouble(Procesos.Buscar_ValorCab("totalimportebruto", i, Fac));
+                    pago.totalimportebrutoSpecified = true;
+                    pago.totalbaseimponible = Convert.ToDouble(Procesos.Buscar_ValorCab("totalbaseimponible", i, Fac));
+                    pago.totalbaseimponibleSpecified = true;
+                    pago.totalbaseconimpuestos = Convert.ToDouble(Procesos.Buscar_ValorCab("totalbaseconimpuestos", i, Fac));
+                    pago.totalbaseconimpuestosSpecified = true;
+                    pago.totalfactura = Convert.ToDouble(Procesos.Buscar_ValorCab("totalfactura", i, Fac));
+                    pago.totalfacturaSpecified = true;
+                    pago.pagoanticipado = Convert.ToDouble(Procesos.Buscar_ValorCab("pagoanticipado", i, Fac));
+                    pago.pagoanticipadoSpecified = true;
+                    pago.tipocompra = Convert.ToInt32(Procesos.Buscar_ValorCab("tipocompra", i, Fac));
+                    pago.periododepagoa = Convert.ToInt32(Procesos.Buscar_ValorCab("periododepagoa", i, Fac));
+                    pago.periododepagoaSpecified = true;
+                    pago.fechavencimiento = Convert.ToDateTime(Procesos.Buscar_ValorCab("fechavencimiento", i, Fac));
+                    pago.fechavencimientoSpecified = true;
+                    Factura.pago = pago;
 
-
-                    Factura.despachadoANombre = Convert.ToString(Procesos.Buscar_ValorCab("despachadoANombre", i, Fac));
-                    Factura.despachadoATelefono = Convert.ToString(Procesos.Buscar_ValorCab("despachadoATelefono", i, Fac));
-                    Factura.despachadoADireccion = Convert.ToString(Procesos.Buscar_ValorCab("despachadoADireccion", i, Fac));
-                    Factura.documentoEmitidoEn = Convert.ToString(Procesos.Buscar_ValorCab("documentoEmitidoEn", i, Fac));
-                    Factura.condicionPagoReferencia = Procesos.Buscar_ValorCab("nombreCondPago", i, Fac);
-
-                    Factura.campoAdicional1 = Procesos.Buscar_ValorCab("campoAdicional1", i, Fac);
-                    Factura.campoAdicional3 = Procesos.Buscar_ValorCab("campoAdicional3", i, Fac);
-                    Factura.campoAdicional6 = Procesos.Buscar_ValorCab("campoAdicional6", i, Fac);
-
-                    int NumDetalles = Fac.Rows.Count;
-                    WSDispapeles.eBfelDetallefactura[] Factura_Detalles = new WSDispapeles.eBfelDetallefactura[NumDetalles];
-                    //WSDispapeles.eBfelDetallefactura LineaDetalle = new WSDispapeles.eBfelDetallefactura();
-
+                    enviarDocumentoDispape.felDetalleDocumento[] Factura_Detalles = new enviarDocumentoDispape.felDetalleDocumento[NumDetalles];
                     i = 0;
                     if (Fac.Rows.Count > 0)
                     {
                         foreach (DataRow _row in Fac.Rows)
                         {
-                            Procesos.EscribirLogFileTXT("eBfelDetallefactura: Inicio");
-                            WSDispapeles.eBfelDetallefactura LineaDetalle = new WSDispapeles.eBfelDetallefactura();
-                            LineaDetalle.cantidadSpecified = true;
-                            LineaDetalle.cantidad = Convert.ToDouble(Procesos.Buscar_ValorCab("cantidad", i, Fac));
-                            LineaDetalle.unidadmedida = Convert.ToString(Procesos.Buscar_ValorCab("unidadmedida", i, Fac));
-                            LineaDetalle.valorunitario = Convert.ToDouble(Procesos.Buscar_ValorCab("valorunitario", i, Fac));
-                            LineaDetalle.porcentajedescuento = Convert.ToDouble(Procesos.Buscar_ValorCab("porcentajedescuento", i, Fac));
-                            //LineaDetalle.descuento = Convert.ToDouble(Procesos.Buscar_ValorCab("descuentoLin", i, Fac));
-                            LineaDetalle.preciosinimpuestos = Convert.ToDouble(Procesos.Buscar_ValorCab("preciosinimpuestos", i, Fac));
-                            LineaDetalle.preciototal = Convert.ToDouble(Procesos.Buscar_ValorCab("preciototal", i, Fac));
+                            enviarDocumentoDispape.felDetalleDocumento LineaDetalle = new enviarDocumentoDispape.felDetalleDocumento();
                             LineaDetalle.codigoproducto = Procesos.Buscar_ValorCab("codigoproducto", i, Fac);
+                            LineaDetalle.tipocodigoproducto = Procesos.Buscar_ValorCab("tipocodigoproducto", i, Fac);
+                            LineaDetalle.nombreProducto = Procesos.Buscar_ValorCab("nombreProducto", i, Fac);
                             LineaDetalle.descripcion = Procesos.Buscar_ValorCab("descripcionLine", i, Fac);
                             LineaDetalle.referencia = Procesos.Buscar_ValorCab("referencia", i, Fac);
-                            LineaDetalle.campoadicional1 = Convert.ToString(Procesos.Buscar_ValorCab("detcampoadicional1", i, Fac));
-                            LineaDetalle.campoadicional9 = Convert.ToString(Procesos.Buscar_ValorCab("detcampoadicional9", i, Fac));
-                            LineaDetalle.campoadicional10 = Convert.ToString(Procesos.Buscar_ValorCab("detcampoadicional10", i, Fac));
-
+                            LineaDetalle.cantidad = Convert.ToDouble(Procesos.Buscar_ValorCab("cantidad", i, Fac));
+                            LineaDetalle.cantidadSpecified = true;
+                            LineaDetalle.unidadmedida = Convert.ToString(Procesos.Buscar_ValorCab("unidadmedida", i, Fac));
+                            LineaDetalle.valorunitario = Convert.ToDouble(Procesos.Buscar_ValorCab("valorunitario", i, Fac));
+                            LineaDetalle.preciosinimpuestos = Convert.ToDouble(Procesos.Buscar_ValorCab("preciosinimpuestos", i, Fac));
+                            LineaDetalle.preciototal = Convert.ToDouble(Procesos.Buscar_ValorCab("preciototal", i, Fac));
+                            LineaDetalle.tipoImpuesto = Convert.ToInt32(Procesos.Buscar_ValorCab("tipoImpuesto", i, Fac));
                             Factura_Detalles[i] = LineaDetalle;
                             i++;
                         }
                         Factura.listaDetalle = Factura_Detalles;
                     }
 
-
-
                     int NumImpuestos = impFactura.Rows.Count;
-                    WSDispapeles.eBfelImpuestos[] Factura_Impuestos = new WSDispapeles.eBfelImpuestos[NumImpuestos];
-                    //WSDispapeles.eBfelImpuestos LineaImpuestos = new WSDispapeles.eBfelImpuestos();
+                    enviarDocumentoDispape.felImpuesto[] Factura_Impuestos = new enviarDocumentoDispape.felImpuesto[NumImpuestos];
 
                     i = 0;
                     if (impFactura.Rows.Count > 0)
                     {
                         foreach (DataRow _row in impFactura.Rows)
                         {
-                            Procesos.EscribirLogFileTXT("eBfelImpuestos: Inicio");
-                            WSDispapeles.eBfelImpuestos LineaImpuestos = new WSDispapeles.eBfelImpuestos();
-                            LineaImpuestos.codigoproducto = Procesos.Buscar_ValorCab("codigoproducto", i, impFactura);
+                            enviarDocumentoDispape.felImpuesto LineaImpuestos = new enviarDocumentoDispape.felImpuesto();
                             LineaImpuestos.codigoImpuestoRetencion = Procesos.Buscar_ValorCab("codigoImpuestoRetencion", i, impFactura);
                             LineaImpuestos.porcentaje = Convert.ToDouble(Procesos.Buscar_ValorCab("porcentaje", i, impFactura));
+                            LineaImpuestos.porcentajeSpecified = true;
                             LineaImpuestos.valorImpuestoRetencion = Convert.ToDouble(Procesos.Buscar_ValorCab("valorImpuestoRetencion", i, impFactura));
+                            LineaImpuestos.valorImpuestoRetencionSpecified = true;
                             LineaImpuestos.baseimponible = Convert.ToDouble(Procesos.Buscar_ValorCab("baseimponible", i, impFactura));
-
+                            LineaImpuestos.baseimponibleSpecified = true;
+                            LineaImpuestos.isAutoRetenido = Convert.ToBoolean(Procesos.Buscar_ValorCab("isAutoRetenido", i, impFactura));
+                            LineaImpuestos.isAutoRetenidoSpecified = true;
                             Factura_Impuestos[i] = LineaImpuestos;
                             i++;
                         }
@@ -180,22 +161,58 @@ namespace AddOn_FE_DIAN.Controllers
                     {
                         if (Procesos.Buscar_ValorCab("consecutivofacturamodificada", i, Fac) != "")
                         {
-                            Procesos.EscribirLogFileTXT("eBfelFacturamodificada: Inicio" + Procesos.Buscar_ValorCab("tipodocumento", i, Fac));
-                            WSDispapeles.eBfelFacturamodificada[] Notas_DocBase = new WSDispapeles.eBfelFacturamodificada[docBase];
-
-                            WSDispapeles.eBfelFacturamodificada LineadocBase = new WSDispapeles.eBfelFacturamodificada();
-                            LineadocBase.consecutivofacturamodificada = Procesos.Buscar_ValorCab("consecutivofacturamodificada", i, Fac);
-                            LineadocBase.cufefacturamodificada = Procesos.Buscar_ValorCab("cufefacturamodificada", i, Fac);
-                            LineadocBase.fechafacturamodificadaSpecified = true;
-                            LineadocBase.fechafacturamodificada = DateTime.Parse(Procesos.Buscar_ValorCab("fechafacturamodificada", i, Fac));
-
+                            enviarDocumentoDispape.felFacturaModificada[] Notas_DocBase = new enviarDocumentoDispape.felFacturaModificada[docBase];
+                            enviarDocumentoDispape.felFacturaModificada LineadocBase = new enviarDocumentoDispape.felFacturaModificada();
+                            LineadocBase.consecutivoFacturaModificada = Procesos.Buscar_ValorCab("consecutivofacturamodificada", i, Fac);
+                            LineadocBase.cufeFacturaModificada = Procesos.Buscar_ValorCab("cufefacturamodificada", i, Fac);
+                            LineadocBase.fechaFacturaModificadaSpecified = true;
+                            LineadocBase.fechaFacturaModificada = DateTime.Parse(Procesos.Buscar_ValorCab("fechafacturamodificada", i, Fac));
                             Notas_DocBase[i] = LineadocBase;
-
-                            Factura.listaFacturasmodificadas = Notas_DocBase;
+                            Factura.listaFacturasModificadas = Notas_DocBase;
                         }
                     }
+
+                    i = 0;
+
+                    enviarDocumentoDispape.felAdquirente[] adquirentes = new enviarDocumentoDispape.felAdquirente[1];
+                    enviarDocumentoDispape.felAdquirente adquirente = new enviarDocumentoDispape.felAdquirente();
+
+                    adquirente.tipoPersona = Procesos.Buscar_ValorCab("tipopersona", i, Fac);
+                    adquirente.nombreCompleto = Procesos.Buscar_ValorCab("nombreCompleto", i, Fac);
+                    adquirente.tipoIdentificacion = Convert.ToInt32(Procesos.Buscar_ValorCab("tipoidentificacion", i, Fac));
+                    adquirente.numeroIdentificacion = Procesos.Buscar_ValorCab("numeroidentificacion", i, Fac);
+                    adquirente.digitoverificacion = Procesos.Buscar_ValorCab("digitoverificacion", i, Fac);
+                    adquirente.regimen = Procesos.Buscar_ValorCab("regimen", i, Fac);
+                    adquirente.email = Procesos.Buscar_ValorCab("email", i, Fac);
+                    adquirente.pais = Procesos.Buscar_ValorCab("pais", i, Fac);
+                    adquirente.departamento = Procesos.Buscar_ValorCab("departamento", i, Fac);
+                    adquirente.ciudad = Procesos.Buscar_ValorCab("codigoCiudad", i, Fac);
+                    adquirente.direccion = Procesos.Buscar_ValorCab("direccion", i, Fac);
+                    adquirente.telefono = Procesos.Buscar_ValorCab("telefono", i, Fac);
+                    adquirente.envioPorEmailPlataforma = Procesos.Buscar_ValorCab("envioPorEmailPlataforma", i, Fac);
+                    adquirente.tipoobligacion = Procesos.Buscar_ValorCab("tipoobligacion", i, Fac);
+
+                    adquirentes[i] = adquirente;
+                    Factura.listaAdquirentes = adquirentes;
+
+
+                    //enviarDocumentoDispape.felDatoEntrega[] entregas = new enviarDocumentoDispape.felDatoEntrega[1];
+                    //enviarDocumentoDispape.felDatoEntrega entrega = new enviarDocumentoDispape.felDatoEntrega();
+                    //    entrega.direccionEntrega = Procesos.Buscar_ValorCab("direccionEntrega", i, Fac);
+                    //    entrega.telefonoEntrega = Procesos.Buscar_ValorCab("telefonoEntrega", i, Fac);
+                    //    entregas[i] = entrega;
+                    //Factura.listaDatosEntrega = entregas;
+
+
+                    enviarDocumentoDispape.felMedioPago[] mediosPago = new enviarDocumentoDispape.felMedioPago[1];
+                    enviarDocumentoDispape.felMedioPago medioPago = new enviarDocumentoDispape.felMedioPago();
+                    medioPago.medioPago = Procesos.Buscar_ValorCab("medioPago", i, Fac);
+                    mediosPago[i] = medioPago;
+                    Factura.listaMediosPagos = mediosPago;
+
+
                     Procesos.EscribirLogFileTXT("Consumo: Inicio");
-                    response = clienteServicio.enviarFactura(Factura);
+                    respuesta = clienteServicio.enviarDocumento(Factura);
                     Procesos.EscribirLogFileTXT("Consumo: Fin");
                 }
                 var serxml = new System.Xml.Serialization.XmlSerializer(Factura.GetType());
@@ -205,17 +222,17 @@ namespace AddOn_FE_DIAN.Controllers
                 Procesos.requestSend = xml;
 
                 clienteServicio.Close();
-                return response;
+                return respuesta;
             }
             catch (Exception ex)
             {
-                WSDispapeles.envioFacturaRespuestaDTO response = null;
+                enviarDocumentoDispape.felRespuestaEnvio response = null;
                 Procesos.EscribirLogFileTXT("SendDispapeles: " + ex.Message);
                 return response;
             }
         }
 
-        public static WSDispapeles.documentoElectronicoWsDto ConsultaPDF(int numDoc, DateTime fechaFac, string prefijo, int tipoDoc, string wsURL)
+        public static consultarArchivosDispape.felRepuestaDescargaDocumentos consultaArchivos(string numDoc, string prefijo, string tipoDoc, string wsURL)
         {
             DateTime _createdDate;
             _createdDate = DateTime.Now;
@@ -226,104 +243,108 @@ namespace AddOn_FE_DIAN.Controllers
                 string urlServicio;
                 urlServicio = wsURL;
 
-                WSDispapeles.ebFelConsultaFacturaWS consultaPDF = new WSDispapeles.ebFelConsultaFacturaWS();
-                WSDispapeles.InterSoapClient clienteServicio;
-                WSDispapeles.documentoElectronicoWsDto response;
+                //consultarArchivosDispape.ConsultarArchivosClient clienteServicio = new consultarArchivosDispape.ConsultarArchivosClient();
+                //consultarArchivosDispape.consultarArchivos1 consulta1 = new consultarArchivosDispape.consultarArchivos1();
 
-                clienteServicio = new WSDispapeles.InterSoapClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
-                using (new OperationContextScope(clienteServicio.InnerChannel))
-                {
-                    //Add SOAP Header (Header property in the envelope) to an outgoing request.
+                consultarArchivosDispape.felConsultaFacturaArchivo request = new consultarArchivosDispape.felConsultaFacturaArchivo();
+                consultarArchivosDispape.felRepuestaDescargaDocumentos response = new consultarArchivosDispape.felRepuestaDescargaDocumentos();
+                consultarArchivosDispape.consultarArchivos consultar;
 
-                    HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
-                    requestMessage.Headers["username"] = Procesos.username;
-                    requestMessage.Headers["password"] = Procesos.password;
-                    requestMessage.Headers["token"] = Procesos.token;
+                //clienteServicio = new consultarArchivosDispape.ConsultarArchivosClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
+                //using (new OperationContextScope(clienteServicio.InnerChannel))
+                //{
+                //Add SOAP Header (Header property in the envelope) to an outgoing request.
 
+                //HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
+                //requestMessage.Headers["username"] = Procesos.username;
+                //requestMessage.Headers["password"] = Procesos.password;
+                //requestMessage.Headers["token"] = Procesos.token;
+                //OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
 
-                    OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
-                    var dateAndTime = fechaFac;
-                    var date = dateAndTime.Date;
-                    consultaPDF.consecutivo = numDoc;
-                    consultaPDF.fechafacturacionString = fechaFac.ToString("yyyyMMdd");
-                    consultaPDF.prefijo = prefijo;
-                    consultaPDF.tipodocumento = tipoDoc;
-                    consultaPDF.tokenempresa = Procesos.token;
+                request.consecutivo = Convert.ToInt32(numDoc);
+                request.consecutivoSpecified = true;
+                request.contrasenia = Procesos.password;
+                request.idEmpresa = 233;
+                request.idEmpresaSpecified = true;
+                request.prefijo = prefijo;
+                //request.tipoArchivo = 0;
+                request.tipoDocumento = tipoDoc;
+                request.token = Procesos.token;
+                request.usuario = Procesos.username;
 
-                    response = clienteServicio.consultarPdfFactura(consultaPDF);
+                consultar = new consultarArchivosDispape.consultarArchivos();
+                response = consultar.CallconsultarArchivos(request);
 
-                }
-                //var serxml = new System.Xml.Serialization.XmlSerializer(consultaPDF.GetType());
-                //var ms = new MemoryStream();
-                //serxml.Serialize(ms, consultaPDF);
-                //string xml = Encoding.UTF8.GetString(ms.ToArray());
-                //Procesos.requestSend = xml;
+                var serxml = new System.Xml.Serialization.XmlSerializer(request.GetType());
+                var ms = new MemoryStream();
+                serxml.Serialize(ms, request);
+                string xml = Encoding.UTF8.GetString(ms.ToArray());
+                Procesos.requestSend = xml;
 
-                clienteServicio.Close();
                 Procesos.EscribirLogFileTXT("ConsultaPDF: Fin");
                 return response;
             }
             catch (Exception ex)
             {
-                WSDispapeles.documentoElectronicoWsDto response = null;
+                consultarArchivosDispape.felRepuestaDescargaDocumentos response = null;
                 Procesos.EscribirLogFileTXT("PDFDispapeles: " + ex.Message);
                 return response;
             }
         }
 
-        public static WSDispapeles.documentoElectronicoWsDto ConsultaXML(int numDoc, DateTime fechaFac, string prefijo, int tipoDoc, string wsURL)
-        {
-            DateTime _createdDate;
-            _createdDate = DateTime.Now;
-            Procesos.dateSend = _createdDate;
-            try
-            {
-                Procesos.EscribirLogFileTXT("ConsultaXML: Inicio");
-                string urlServicio;
-                urlServicio = wsURL;
+        //public static consultarArchivosDispape.felRepuestaDescargaDocumentos consultaEstados(string numDoc, string prefijo, string tipoDoc, string wsURL)
+        //{
+        //    DateTime _createdDate;
+        //    _createdDate = DateTime.Now;
+        //    Procesos.dateSend = _createdDate;
+        //    try
+        //    {
+        //        Procesos.EscribirLogFileTXT("ConsultaXML: Inicio");
+        //        string urlServicio;
+        //        urlServicio = wsURL;
 
-                WSDispapeles.ebFelConsultaFacturaWS consultaPDF = new WSDispapeles.ebFelConsultaFacturaWS();
-                WSDispapeles.InterSoapClient clienteServicio;
-                WSDispapeles.documentoElectronicoWsDto response;
+        //        ConsultarArchivosDispape.ebFelConsultaFacturaWS consultaPDF = new ConsultarArchivosDispape.ebFelConsultaFacturaWS();
+        //        ConsultarArchivosDispape.InterSoapClient clienteServicio;
+        //        ConsultarArchivosDispape.documentoElectronicoWsDto response;
 
-                clienteServicio = new WSDispapeles.InterSoapClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
-                using (new OperationContextScope(clienteServicio.InnerChannel))
-                {
-                    //Add SOAP Header (Header property in the envelope) to an outgoing request.
+        //        clienteServicio = new ConsultarArchivosDispape.InterSoapClient(ObtenerBindingsHttps(), new EndpointAddress(urlServicio));
+        //        using (new OperationContextScope(clienteServicio.InnerChannel))
+        //        {
+        //            //Add SOAP Header (Header property in the envelope) to an outgoing request.
 
-                    HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
-                    requestMessage.Headers["username"] = Procesos.username;
-                    requestMessage.Headers["password"] = Procesos.password;
-                    requestMessage.Headers["token"] = Procesos.token;
+        //            HttpRequestMessageProperty requestMessage = new HttpRequestMessageProperty();
+        //            requestMessage.Headers["username"] = Procesos.username;
+        //            requestMessage.Headers["password"] = Procesos.password;
+        //            requestMessage.Headers["token"] = Procesos.token;
 
 
-                    OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
+        //            OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
 
-                    consultaPDF.consecutivo = numDoc;
-                    consultaPDF.fechafacturacionString = fechaFac.ToString("yyyyMMdd");
-                    consultaPDF.prefijo = prefijo;
-                    consultaPDF.tipodocumento = tipoDoc;
-                    consultaPDF.tokenempresa = Procesos.token;
+        //            consultaPDF.consecutivo = numDoc;
+        //            consultaPDF.fechafacturacionString = fechaFac.ToString("yyyyMMdd");
+        //            consultaPDF.prefijo = prefijo;
+        //            consultaPDF.tipodocumento = tipoDoc;
+        //            consultaPDF.tokenempresa = Procesos.token;
 
-                    response = clienteServicio.consultarXmlFactura(consultaPDF);
+        //            response = clienteServicio.consultarXmlFactura(consultaPDF);
 
-                }
-                //var serxml = new System.Xml.Serialization.XmlSerializer(Factura.GetType());
-                //var ms = new MemoryStream();
-                //serxml.Serialize(ms, Factura);
-                //string xml = Encoding.UTF8.GetString(ms.ToArray());
-                //Procesos.requestSend = xml;
+        //        }
+        //        //var serxml = new System.Xml.Serialization.XmlSerializer(Factura.GetType());
+        //        //var ms = new MemoryStream();
+        //        //serxml.Serialize(ms, Factura);
+        //        //string xml = Encoding.UTF8.GetString(ms.ToArray());
+        //        //Procesos.requestSend = xml;
 
-                clienteServicio.Close();
-                Procesos.EscribirLogFileTXT("ConsultaXML: Fin");
-                return response;
-            }
-            catch (Exception ex)
-            {
-                WSDispapeles.documentoElectronicoWsDto response = null;
-                Procesos.EscribirLogFileTXT("XMLDispapeles: " + ex.Message);
-                return response;
-            }
-        }
+        //        clienteServicio.Close();
+        //        Procesos.EscribirLogFileTXT("ConsultaXML: Fin");
+        //        return response;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ConsultarArchivosDispape.documentoElectronicoWsDto response = null;
+        //        Procesos.EscribirLogFileTXT("XMLDispapeles: " + ex.Message);
+        //        return response;
+        //    }
+        //}
     }
 }

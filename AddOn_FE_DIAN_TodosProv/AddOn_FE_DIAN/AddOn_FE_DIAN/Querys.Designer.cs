@@ -12,7 +12,7 @@ namespace AddOn_FE_DIAN {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.8.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Querys : global::System.Configuration.ApplicationSettingsBase {
         
         private static Querys defaultInstance = ((Querys)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Querys())));
@@ -207,17 +207,16 @@ namespace AddOn_FE_DIAN {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"
-					Select 
-					A0.Code, A0.U_ObjType as 'Tipo Objeto', A0.U_DocType as 'Tipo Documento', A1.Name as 'Documento DIAN', A0.U_Folio as 'Numero Documento', A0.U_DocNum as 'Numero Interno', 
-					A0.U_Status as 'Codigo Estado', A0.U_Resultado as 'Descripcion Estado', A0.U_ProcessID as 'ID Proceso', A0.U_Fecha_Envio as 'Fecha Envio', A0.U_Hora_Envio as 'Hora Envio', 
-					A0.U_Usuario_Envio as 'Usuario Envio', A0.U_Fecha_ReEnvio as 'Fecha Re-Envio', A0.U_Hora_ReEnvio as 'Hora Re-Envio', A0.U_Usuario_ReEnvio as 'Usuario Re-Envio', 
-					A0.U_Det_Peticion as 'Detalle Peticion', A0.U_Respuesta_Int as 'Respuesta Integracion', A0.U_Archivo_PDF as 'Archivo PDF', A0.U_Enlace_XML as 'Archivo XML'
-					From [@FEDIAN_MONITORLOG] A0
-					Left Join [@FEDIAN_CODDOC] A1 On A0.U_DocType = A1.Code
-					Where (A0.U_Fecha_Envio Between '{0}' and '{1}' or IsNull(A0.U_Fecha_Envio,'') = '') and (A0.U_DocType = '{2}' OR IsNull('{2}','')='') and (A0.U_Status = '{3}' OR IsNull('{3}','')='')
-					Order By Cast(A0.Code as int)
-				")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"Select 
+A0.""Code"", A0.""U_ObjType"" as ""Tipo Objeto"", A0.""U_DocType"" as ""Tipo Documento"", A1.""Name"" as ""Documento DIAN"", A0.""U_Folio"" as ""Numero Documento"", A0.""U_Prefijo"" as ""Prefijo"", A0.""U_DocNum"" as ""Numero Interno"", 
+A0.""U_Status"" as ""Codigo Estado"", A0.""U_Resultado"" as ""Descripcion Estado"", A0.""U_ProcessID"" as ""ID Proceso"", 
+A0.""U_Fecha_Envio"" as ""Fecha de contabilizacion"", A0.""U_Hora_Envio"" as ""Hora de creacion"", A0.""U_Usuario_Envio"" as ""Usuario Envio"", 
+A0.""U_Det_Peticion"" as ""Detalle Peticion"", A0.""U_Respuesta_Int"" as ""Respuesta Integracion"", A0.""U_Archivo_PDF"" as ""Archivo PDF"", A0.""U_Enlace_XML"" as ""Archivo XML"",
+A0.""U_ID_Seguimiento"" as ""FebosID""
+From ""@FEDIAN_MONITORLOG"" A0
+Left Join ""@FEDIAN_CODDOC"" A1 On A0.""U_DocType"" = A1.""Code""
+Where (A0.""U_Fecha_Envio"" Between '{0}' and '{1}' or IsNull(A0.""U_Fecha_Envio"",'') = '') and (A0.""U_DocType"" = '{2}' OR IsNull('{2}','')='') and (A0.""U_Status"" = '{3}' OR IsNull('{3}','')='')
+Order By Cast(A0.""Code"" as int)")]
         public string CargueMonitor {
             get {
                 return ((string)(this["CargueMonitor"]));
@@ -226,7 +225,7 @@ namespace AddOn_FE_DIAN {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect * from [@FEDIAN_PARAMG]\r\n\t\t\t\t")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select * from \"@FEDIAN_PARAMG\"")]
         public string PARAMG {
             get {
                 return ((string)(this["PARAMG"]));
@@ -235,7 +234,7 @@ namespace AddOn_FE_DIAN {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect Code From [@FEDIAN_MONITORLOG] Where U_DocNum = {0}\r\n\t\t\t\t")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select \"Code\" From \"@FEDIAN_MONITORLOG\" Where \"U_DocNum\" = {0}")]
         public string GetCodeLog {
             get {
                 return ((string)(this["GetCodeLog"]));
@@ -244,9 +243,9 @@ namespace AddOn_FE_DIAN {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect Code, U_ProcessID, U_ID_Seguimiento, U_Det_Peticion \r\n\t\t\t\t\tFrom [@F" +
-            "EDIAN_MONITORLOG] \r\n\t\t\t\t\tWhere U_Status in ({0}) and IsNull(Cast(U_Archivo_PDF a" +
-            "s Nvarchar(2500)), \'\') = \'\'\r\n\t\t\t\t")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select \"Code\", \"U_ProcessID\", \"U_ID_Seguimiento\", \"U_Det_Peticion\" \r\n\t\t\t\t\tFrom \"@" +
+            "FEDIAN_MONITORLOG\"\r\n\t\t\t\t\tWhere \"U_Status\" In ({0})and IsNull(Cast(\"U_Archivo_PDF" +
+            "\" as Nvarchar(2500)), \'\') = \'\'")]
         public string ProcessStatus {
             get {
                 return ((string)(this["ProcessStatus"]));

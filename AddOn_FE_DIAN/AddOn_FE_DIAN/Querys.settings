@@ -685,42 +685,42 @@ Where A0.DocEntry = {0} and A0.DocSubType = 'DN' And IsNull(A1.CntctPrsn,'') != 
 Order By LineNum, ordenplano;</Value>
     </Setting>
     <Setting Name="Msginter" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Select * From [@FEDIAN_INTERF_ERR] Where IsNull(Cast(U_MsgExter as Nvarchar(2500)), '') = '{0}'</Value>
+      <Value Profile="(Default)">
+					Select * From [@FEDIAN_INTERF_ERR] Where IsNull(Cast(U_MsgExter as Nvarchar(2500)), '') = '{0}'
+				</Value>
     </Setting>
     <Setting Name="cmbTipodoc" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Select * from "@FEDIAN_CODDOC" Order By "Code"</Value>
+      <Value Profile="(Default)">
+					Select * from [@FEDIAN_CODDOC] Order By Code
+				</Value>
     </Setting>
     <Setting Name="cmbEstado" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Select "U_Status", 
+      <Value Profile="(Default)">
+					Select U_Status, 
 					Case 
-					When "U_Status" = '1' Then 'Procesado' 
-					When "U_Status" = '10' Then 'Procesado'
-					When "U_Status" = '2' Then 'En Proceso'
-					When "U_Status" = '7' Then 'En Proceso'
-					When "U_Status" = '118' Then 'En Proceso'
-					When "U_Status" = '127' Then 'En Proceso'
-					When "U_Status" = '137' Then 'En Proceso'
-					When "U_Status" = '3' Then 'Error' 
-					When "U_Status" = '5' Then 'Error' 
-					When "U_Status" = '102' Then 'Error'
-					When "U_Status" = '106' Then 'Error' 
-					When "U_Status" = '116' Then 'Error' 
-					When "U_Status" = '117' Then 'Error' 
-					When "U_Status" = '126' Then 'Error' 
-					When "U_Status" = '160' Then 'Error' 
-					else 'En Proceso' End
-					from "@FEDIAN_MONITORLOG"
-					Where IsNull("U_Status",'') != ''
-					Group By "U_Status"
-					Order By "U_Status"</Value>
+					When U_Status = '1' Then 'Procesado' 
+					When U_Status = '2' Then 'En Proceso' 
+					When U_Status = '3' Then 'Error' 
+					When U_Status = '10' Then 'Procesado'
+					When U_Status = '102' Then 'Error'
+					When U_Status = '106' Then 'Error' else 'En Proceso' End
+					from [@FEDIAN_MONITORLOG]
+					Where IsNull(U_Status,'') != ''
+					Group By U_Status
+					Order By U_Status
+				</Value>
     </Setting>
     <Setting Name="ReSendAuto" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Select A0."Code", A0."U_DocNum", A0."U_Folio", A0."U_Prefijo", A0."U_DocType", A0."U_ObjType", IsNull(Cast(A0."U_Fecha_Envio" as nvarchar(100)),'') as "U_Fecha_Envio"
-From "@FEDIAN_MONITORLOG" A0
-Where IsNull(A0."U_Status",'') = '' or IsNull(A0."U_Status",'') In ({0})</Value>
+      <Value Profile="(Default)">
+					Select Code,U_DocNum,U_DocType, IsNull(Cast(U_Fecha_Envio as nvarchar(100)),'') as'U_Fecha_Envio'
+					From [@FEDIAN_MONITORLOG] A0
+					Where IsNull(U_Status,'') = '' or IsNull(U_Status,'') In ({0})
+				</Value>
     </Setting>
     <Setting Name="MaxLog" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Select IsNull(Max(cast("Code" as Int)),0)+1 As 'NextCode' From "@FEDIAN_MONITORLOG"</Value>
+      <Value Profile="(Default)">
+					Select IsNull(Max(cast(Code as Int)),0)+1 As 'NextCode' From [@FEDIAN_MONITORLOG]
+				</Value>
     </Setting>
   </Settings>
 </SettingsFile>

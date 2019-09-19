@@ -513,8 +513,8 @@ Order By Cast(A0.""Code"" as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select * From [@FEDIAN_INTERF_ERR] Where IsNull(Cast(U_MsgExter as Nvarchar(2500)" +
-            "), \'\') = \'{0}\'")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect * From [@FEDIAN_INTERF_ERR] Where IsNull(Cast(U_MsgExter as Nvarcha" +
+            "r(2500)), \'\') = \'{0}\'\r\n\t\t\t\t")]
         public string Msginter {
             get {
                 return ((string)(this["Msginter"]));
@@ -523,7 +523,7 @@ Order By Cast(A0.""Code"" as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select * from \"@FEDIAN_CODDOC\" Order By \"Code\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect * from [@FEDIAN_CODDOC] Order By Code\r\n\t\t\t\t")]
         public string cmbTipodoc {
             get {
                 return ((string)(this["cmbTipodoc"]));
@@ -532,28 +532,20 @@ Order By Cast(A0.""Code"" as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"Select ""U_Status"", 
+        [global::System.Configuration.DefaultSettingValueAttribute(@"
+					Select U_Status, 
 					Case 
-					When ""U_Status"" = '1' Then 'Procesado' 
-					When ""U_Status"" = '10' Then 'Procesado'
-					When ""U_Status"" = '2' Then 'En Proceso'
-					When ""U_Status"" = '7' Then 'En Proceso'
-					When ""U_Status"" = '118' Then 'En Proceso'
-					When ""U_Status"" = '127' Then 'En Proceso'
-					When ""U_Status"" = '137' Then 'En Proceso'
-					When ""U_Status"" = '3' Then 'Error' 
-					When ""U_Status"" = '5' Then 'Error' 
-					When ""U_Status"" = '102' Then 'Error'
-					When ""U_Status"" = '106' Then 'Error' 
-					When ""U_Status"" = '116' Then 'Error' 
-					When ""U_Status"" = '117' Then 'Error' 
-					When ""U_Status"" = '126' Then 'Error' 
-					When ""U_Status"" = '160' Then 'Error' 
-					else 'En Proceso' End
-					from ""@FEDIAN_MONITORLOG""
-					Where IsNull(""U_Status"",'') != ''
-					Group By ""U_Status""
-					Order By ""U_Status""")]
+					When U_Status = '1' Then 'Procesado' 
+					When U_Status = '2' Then 'En Proceso' 
+					When U_Status = '3' Then 'Error' 
+					When U_Status = '10' Then 'Procesado'
+					When U_Status = '102' Then 'Error'
+					When U_Status = '106' Then 'Error' else 'En Proceso' End
+					from [@FEDIAN_MONITORLOG]
+					Where IsNull(U_Status,'') != ''
+					Group By U_Status
+					Order By U_Status
+				")]
         public string cmbEstado {
             get {
                 return ((string)(this["cmbEstado"]));
@@ -562,9 +554,9 @@ Order By Cast(A0.""Code"" as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"Select A0.""Code"", A0.""U_DocNum"", A0.""U_Folio"", A0.""U_Prefijo"", A0.""U_DocType"", A0.""U_ObjType"", IsNull(Cast(A0.""U_Fecha_Envio"" as nvarchar(100)),'') as ""U_Fecha_Envio""
-From ""@FEDIAN_MONITORLOG"" A0
-Where IsNull(A0.""U_Status"",'') = '' or IsNull(A0.""U_Status"",'') In ({0})")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect Code,U_DocNum,U_DocType, IsNull(Cast(U_Fecha_Envio as nvarchar(100)" +
+            "),\'\') as\'U_Fecha_Envio\'\r\n\t\t\t\t\tFrom [@FEDIAN_MONITORLOG] A0\r\n\t\t\t\t\tWhere IsNull(U_" +
+            "Status,\'\') = \'\' or IsNull(U_Status,\'\') In ({0})\r\n\t\t\t\t")]
         public string ReSendAuto {
             get {
                 return ((string)(this["ReSendAuto"]));
@@ -573,8 +565,8 @@ Where IsNull(A0.""U_Status"",'') = '' or IsNull(A0.""U_Status"",'') In ({0})")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select IsNull(Max(cast(\"Code\" as Int)),0)+1 As \'NextCode\' From \"@FEDIAN_MONITORLO" +
-            "G\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect IsNull(Max(cast(Code as Int)),0)+1 As \'NextCode\' From [@FEDIAN_MONI" +
+            "TORLOG]\r\n\t\t\t\t")]
         public string MaxLog {
             get {
                 return ((string)(this["MaxLog"]));

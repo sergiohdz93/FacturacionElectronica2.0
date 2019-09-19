@@ -483,15 +483,9 @@ namespace AddOn_FE_DIAN
                     oCreationPackage.Image = "";
                     oMenus.AddEx(oCreationPackage);
 
-                    //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    //oCreationPackage.UniqueID = "FE_0002";
-                    //oCreationPackage.String = "Lista de Interfaces";
-                    //oMenus.AddEx(oCreationPackage);
-
                     oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    oCreationPackage.UniqueID = "FE_0004";
-                    oCreationPackage.String = "Tipos Doc. DIAN";
-                    oCreationPackage.Image = "";
+                    oCreationPackage.UniqueID = "FE_0002";
+                    oCreationPackage.String = "Numeraciones Autorizadas";
                     oMenus.AddEx(oCreationPackage);
 
                     oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
@@ -500,21 +494,11 @@ namespace AddOn_FE_DIAN
                     oCreationPackage.Image = "";
                     oMenus.AddEx(oCreationPackage);
 
-                    //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    //oCreationPackage.UniqueID = "FE_0005";
-                    //oCreationPackage.String = "Clase Doc DIAN/SAP";
-                    //oMenus.AddEx(oCreationPackage);
-
-                    //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    //oCreationPackage.UniqueID = "FE_0006";
-                    //oCreationPackage.String = "Mensajes Interfaces";
-                    //oCreationPackage.Image = "";
-                    //oMenus.AddEx(oCreationPackage);
-
-                    //oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
-                    //oCreationPackage.UniqueID = "FE_0007";
-                    //oCreationPackage.String = "Notificacion Errores";
-                    //oMenus.AddEx(oCreationPackage);
+                    oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
+                    oCreationPackage.UniqueID = "FE_0004";
+                    oCreationPackage.String = "Tipos Doc. DIAN";
+                    oCreationPackage.Image = "";
+                    oMenus.AddEx(oCreationPackage);
 
                     oCreationPackage.Type = SAPbouiCOM.BoMenuType.mt_STRING;
                     oCreationPackage.UniqueID = "FE_0008";
@@ -547,7 +531,7 @@ namespace AddOn_FE_DIAN
                     oForm = null;
                     SAPbouiCOM.FormCreationParams oCreationParams = null;
                     oCreationParams = ((SAPbouiCOM.FormCreationParams)(SBO_Application.CreateObject(SAPbouiCOM.BoCreatableObjectType.cot_FormCreationParams)));
-                    
+
                     oCreationParams.UniqueID = "FORM_FE_0001";
                     oCreationParams.BorderStyle = SAPbouiCOM.BoFormBorderStyle.fbs_Fixed;
 
@@ -580,7 +564,7 @@ namespace AddOn_FE_DIAN
                     for (i = 0; (i <= (oMenu.SubMenus.Count - 1)); i++)
                     {
                         string tablaname = oMenu.SubMenus.Item(i).String;
-                        if (tablaname.Contains("FEDIAN_INTERF_LIST"))
+                        if (tablaname.Contains("FEDIAN_NUMAUTORI"))
                         {
                             MenuUID = oMenu.SubMenus.Item(i).UID;
                             break;
@@ -643,58 +627,6 @@ namespace AddOn_FE_DIAN
                 }
             }
 
-            if ((pVal.MenuUID == "FE_0006") & (pVal.BeforeAction == false))
-            {
-                try
-                {
-                    oForm = SBO_Application.Forms.Item("FORM_FE_0006");
-                    oForm.Visible = true;
-                }
-                catch
-                {
-                    oMenu = SBO_Application.Menus.Item("51200");
-                    int i;
-                    string MenuUID = "";
-                    for (i = 0; (i <= (oMenu.SubMenus.Count - 1)); i++)
-                    {
-                        string tablaname = oMenu.SubMenus.Item(i).String;
-                        if (tablaname.Contains("FEDIAN_INTERF_ERR"))
-                        {
-                            MenuUID = oMenu.SubMenus.Item(i).UID;
-                            break;
-                        }
-
-                    }
-                    SBO_Application.ActivateMenuItem(MenuUID);
-                }
-            }
-
-            if ((pVal.MenuUID == "FE_0007") & (pVal.BeforeAction == false))
-            {
-                try
-                {
-                    oForm = SBO_Application.Forms.Item("FORM_FE_0007");
-                    oForm.Visible = true;
-                }
-                catch
-                {
-                    oMenu = SBO_Application.Menus.Item("51200");
-                    int i;
-                    string MenuUID = "";
-                    for (i = 0; (i <= (oMenu.SubMenus.Count - 1)); i++)
-                    {
-                        string tablaname = oMenu.SubMenus.Item(i).String;
-                        if (tablaname.Contains("FEDIAN_MAIL_INTERF"))
-                        {
-                            MenuUID = oMenu.SubMenus.Item(i).UID;
-                            break;
-                        }
-
-                    }
-                    SBO_Application.ActivateMenuItem(MenuUID);
-                }
-            }
-
             if ((pVal.MenuUID == "FE_0008") & (pVal.BeforeAction == false))
             {
                 try
@@ -712,7 +644,7 @@ namespace AddOn_FE_DIAN
                     oCreationParams.BorderStyle = SAPbouiCOM.BoFormBorderStyle.fbs_Sizable;
 
                     oForm = SBO_Application.Forms.AddEx(oCreationParams);
-                    
+
                     oForm.Title = "Monitor Facturacion Electronica DIAN";
                     oForm.Left = 300;
                     oForm.Top = 75;
@@ -738,6 +670,7 @@ namespace AddOn_FE_DIAN
                 try
                 {
                     oForm = SBO_Application.Forms.Item(FormUID);
+                    oForm.Freeze(true);
                     MenuItem.AddMenuItemsToFormParamGen(oForm);
                     int i = 0;
 
@@ -798,6 +731,7 @@ namespace AddOn_FE_DIAN
                     SBO_Application.MessageBox(ex.Message);
                     Procesos.EscribirLogFileTXT("Cargar_FORM_FE_0001: " + ex.Message);
                 }
+                oForm.Freeze(false);
             }
 
             if (pVal.FormUID == "FORM_FE_0001" && pVal.EventType == SAPbouiCOM.BoEventTypes.et_CLICK && pVal.ItemUID == "1" && pVal.BeforeAction == true)
@@ -902,7 +836,9 @@ namespace AddOn_FE_DIAN
                 try
                 {
                     oForm = SBO_Application.Forms.Item(FormUID);
+                    oForm.Freeze(true);
                     MenuItem.AddMenuItemsToFormMonitor(oForm);
+                    oForm.Freeze(false);
                 }
                 catch (Exception ex)
                 {
@@ -941,7 +877,9 @@ namespace AddOn_FE_DIAN
 
                     if (fechaini != "" & fechafin != "")
                     {
+                        oForm.Freeze(true);
                         LoadGridLog("FORM_FE_0008", string.Format(Querys.Default.CargueMonitor, fechaini, fechafin, tipodoc, estado));
+                        oForm.Freeze(false);
                     }
                     else
                     {
@@ -988,6 +926,7 @@ namespace AddOn_FE_DIAN
 
                     else if (pVal.ColUID == "Archivo XML")
                     {
+
                         if (Procesos.proveedor == "C")
                         {
                             SAPbobsCOM.Documents oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
@@ -1102,10 +1041,10 @@ namespace AddOn_FE_DIAN
                             ResultAPI resAPIstatusDoc = null;
                             resAPIstatusDoc = ((JObject)objAPIDocstatu).ToObject<ResultAPI>();
 
-                            System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
-                            tbls = null;
                             System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
                             tbl = null;
+                            System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                            tbls = null;
                             GC.Collect();
 
                             if (resAPIstatusDoc.xmlLink != null)
@@ -1134,10 +1073,12 @@ namespace AddOn_FE_DIAN
                                 //System.Diagnostics.Process.Start("iexplore.exe", tempDirectory);
                             }
                         }
+
                     }
 
                     else if (pVal.ColUID == "Archivo PDF")
                     {
+
                         if (Procesos.proveedor == "C")
                         {
                             SAPbobsCOM.Documents oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
@@ -1255,10 +1196,10 @@ namespace AddOn_FE_DIAN
                             ResultAPI resAPIstatusDoc = null;
                             resAPIstatusDoc = ((JObject)objAPIDocstatu).ToObject<ResultAPI>();
 
-                            System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
-                            tbls = null;
                             System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
                             tbl = null;
+                            System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                            tbls = null;
                             GC.Collect();
 
                             if (resAPIstatusDoc.imagenLink != null)
@@ -1273,33 +1214,15 @@ namespace AddOn_FE_DIAN
 
                         else if (Procesos.proveedor == "D")
                         {
-                            WSDispapeles.documentoElectronicoWsDto respuestaPDF;
+                            consultarArchivosDispape.felRepuestaDescargaDocumentos respuestaPDF;
                             SAPbouiCOM.Grid grd = SBO_Application.Forms.ActiveForm.Items.Item("Grid").Specific;
                             int index = grd.GetDataTableRowIndex(pVal.Row);
                             SAPbouiCOM.DataTable myDataTable = oGrid.DataTable;
-                            string valuexml = myDataTable.GetValue("Respuesta Integracion", index);
-                            int docEntry = 0;
-                            DateTime fechaFac;
-                            string prefijo = "";
-                            int tipoDoc = 0;
-                            string cufe = "";
-                            fechaFac = DateTime.Now;
+                            string folio = "", prefijo = "", tipoDoc = "";
 
-                            XmlDocument doc = new XmlDocument();
-                            doc.LoadXml(valuexml);
-                            XmlNodeList nodeList = null;
-                            nodeList = doc.SelectNodes("envioFacturaRespuestaDTO");
-                            foreach (XmlNode node in nodeList)
-                            {
-                                docEntry = Convert.ToInt32(node["consecutivo"].InnerText);
-                                fechaFac = Convert.ToDateTime(node["fechaFactura"].InnerText);
-                                prefijo = node["prefijo"].InnerText;
-                                tipoDoc = Convert.ToInt32(node["tipoDocumento"].InnerText);
-                                if (node["cufe"] != null)
-                                {
-                                    cufe = node["cufe"].InnerText;
-                                }
-                            }
+                            folio = myDataTable.GetValue("Numero Documento", index);
+                            prefijo = myDataTable.GetValue("Prefijo", index);
+                            tipoDoc = myDataTable.GetValue("Tipo Documento", index);
 
                             SAPbobsCOM.UserTables tblscnf = null;
                             SAPbobsCOM.UserTable tblcnf = null;
@@ -1307,35 +1230,41 @@ namespace AddOn_FE_DIAN
 
                             tblscnf = oCompany.UserTables;
                             tblcnf = tblscnf.Item("FEDIAN_INTERF_CFG");
-                            tblcnf.GetByKey(tipoDoc.ToString());
+                            tblcnf.GetByKey(tipoDoc);
                             urlWS = tblcnf.UserFields.Fields.Item("U_URL").Value;
 
-                            respuestaPDF = Controllers.WebServiceDispapelesController.ConsultaPDF(docEntry, fechaFac, prefijo, tipoDoc, urlWS);
+                            respuestaPDF = Controllers.WebServiceDispapelesController.consultaArchivos(folio, prefijo, tipoDoc, urlWS);
 
-                            if (respuestaPDF.streamFile != null)
+                            if (respuestaPDF != null && respuestaPDF.listaArchivos != null)
                             {
-                                string valuepdf = Convert.ToBase64String(respuestaPDF.streamFile);
-                                tempDirectory = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".pdf";
-                                byte[] bytes = Convert.FromBase64String(valuepdf);
-                                System.IO.FileStream stream = new FileStream(tempDirectory, FileMode.CreateNew);
-                                System.IO.BinaryWriter writer = new BinaryWriter(stream);
-                                writer.Write(bytes, 0, bytes.Length);
-                                writer.Close();
-                                if (valuepdf != "")
+                                for (int i = 0; i < respuestaPDF.listaArchivos.Length; i++)
                                 {
-                                    System.Diagnostics.Process.Start(tempDirectory);
+                                    string tipoArchivo = "";
+                                    tipoArchivo = respuestaPDF.listaArchivos[i].formato;
+                                    if (tipoArchivo == ".pdf")
+                                    {
+                                        string valuepdf = Convert.ToBase64String(respuestaPDF.listaArchivos[i].streamFile);
+                                        tempDirectory = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".pdf";
+                                        byte[] bytes = Convert.FromBase64String(valuepdf);
+                                        System.IO.FileStream stream = new FileStream(tempDirectory, FileMode.CreateNew);
+                                        System.IO.BinaryWriter writer = new BinaryWriter(stream);
+                                        writer.Write(bytes, 0, bytes.Length);
+                                        writer.Close();
+                                        if (valuepdf != "")
+                                        {
+                                            System.Diagnostics.Process.Start(tempDirectory);
+                                        }
+                                    }
                                 }
                             }
-                            else
-                            {
-                                SBO_Application.MessageBox(respuestaPDF.error);
-                            }
+
                             System.Runtime.InteropServices.Marshal.ReleaseComObject(tblscnf);
                             tblscnf = null;
                             System.Runtime.InteropServices.Marshal.ReleaseComObject(tblcnf);
                             tblcnf = null;
                             GC.Collect();
                         }
+
                     }
                 }
                 catch (Exception ex)
@@ -1368,11 +1297,14 @@ namespace AddOn_FE_DIAN
                         {
                             string sCodeLog = Convert.ToString(oDT.GetValue("Code", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder))));
                             string sDocentry = oDT.GetValue("Numero Interno", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
+                            string sDocnum = oDT.GetValue("Numero Documento", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
+                            string sPrefijo = oDT.GetValue("Prefijo", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
                             string sStatus = oDT.GetValue("Codigo Estado", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
-                            string sObject = oDT.GetValue("Tipo Documento", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
+                            string sTipoDoc = oDT.GetValue("Tipo Documento", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
+                            //string sObject = oDT.GetValue("Tipo Objeto", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
                             if (!Constants.green.Contains(sStatus))
                             {
-                                Procesos.SendFE(sDocentry, sCodeLog, sObject, true);
+                                Procesos.SendFE(sDocentry, sDocnum, sPrefijo, sCodeLog, sTipoDoc, true);
                             }
                             progressBar.Value += AvanceBar;
                         }
@@ -1403,7 +1335,9 @@ namespace AddOn_FE_DIAN
 
                         if (fechaini != "" & fechafin != "")
                         {
+                            oForm.Freeze(true);
                             LoadGridLog("FORM_FE_0008", string.Format(Querys.Default.CargueMonitor, fechaini, fechafin, tipodoc, estado));
+                            oForm.Freeze(false);
                         }
                         else
                         {
@@ -1564,7 +1498,7 @@ namespace AddOn_FE_DIAN
                 while (row < oGrid.Rows.Count)
                 {
                     oCol = (SAPbouiCOM.EditTextColumn)oGrid.Columns.Item("Numero Interno");
-                    oCol.LinkedObjectType = Convert.ToString(oGrid.DataTable.Columns.Item("Tipo Documento").Cells.Item(row).Value);
+                    oCol.LinkedObjectType = Convert.ToString(oGrid.DataTable.Columns.Item("Tipo Objeto").Cells.Item(row).Value);
 
                     settingGrid.SetRowBackColor(rowcolor, -1);
                     string estado = Convert.ToString(oGrid.DataTable.Columns.Item("Codigo Estado").Cells.Item(row).Value);

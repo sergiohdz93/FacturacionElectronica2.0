@@ -1,11 +1,8 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AddOn_FE_DIAN
 {
@@ -137,7 +134,7 @@ namespace AddOn_FE_DIAN
             {
                 using (var requestStream = httpRequest.GetRequestStream())
                 {
-                    Procesos.EscribirLogFileTXT("documentos: requestStream" + requestStream);
+                    Procesos.EscribirLogFileTXT("documentos: requestStream" + body);
                     var writer = new StreamWriter(requestStream);
                     writer.Write(body);
                     writer.Close();

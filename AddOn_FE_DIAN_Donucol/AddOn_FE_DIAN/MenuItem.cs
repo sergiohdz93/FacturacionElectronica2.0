@@ -908,6 +908,7 @@ namespace AddOn_FE_DIAN
                         doc.Save(tempDirectory);
                         System.Diagnostics.Process.Start("iexplore.exe", tempDirectory);
                     }
+
                     else if (pVal.ColUID == "Respuesta Integracion")
                     {
                         SAPbouiCOM.Grid grd = SBO_Application.Forms.ActiveForm.Items.Item("Grid").Specific;
@@ -920,6 +921,7 @@ namespace AddOn_FE_DIAN
                         doc.Save(tempDirectory);
                         System.Diagnostics.Process.Start("iexplore.exe", tempDirectory);
                     }
+
                     else if (pVal.ColUID == "Archivo XML")
                     {
 
@@ -996,6 +998,7 @@ namespace AddOn_FE_DIAN
                         }
 
                     }
+
                     else if (pVal.ColUID == "Archivo PDF")
                     {
 
@@ -1109,7 +1112,6 @@ namespace AddOn_FE_DIAN
                             tblcnf = null;
                             GC.Collect();
                         }
-
                     }
                 }
                 catch (Exception ex)
