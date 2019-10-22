@@ -173,21 +173,12 @@ From "@FEDIAN_UM"</value>
     <comment>Lista los tipos de documento</comment>
   </data>
   <data name="UM_DIAN" xml:space="preserve">
-    <value>IF $[$38.1470002145.0] = 'Manual'
-
-Begin
-
-SELECT T0."U_DIAN_UM" FROM "@FEDIAN_HOMOL_UM" T0 WHERE T0."U_SAP_UM" = $[$38.212.0]
-
-END
-
-IF $[$38.1470002145.0] != 'Manual'
-
-Begin
-
-SELECT T0."U_dian_UM" FROM "@FEDIAN_HOMOL_UM" T0 WHERE T0."U_SAP_UM" = $[$38.1470002145.0]
-
-END</value>
+    <value>Select 
+Case 
+When $[$38.1470002145.0] = 'Manual' Then (SELECT T0."U_DIAN_UM" FROM "@FEDIAN_HOMOL_UM" T0 WHERE T0."U_SAP_UM" = $[$38.212.0])
+Else (SELECT T0."U_DIAN_UM" FROM "@FEDIAN_HOMOL_UM" T0 WHERE T0."U_SAP_UM" = $[$38.1470002145.0])
+End 
+From "OADM"</value>
     <comment>Obtiene la uniad de medida de la DIAN</comment>
   </data>
   <data name="UM_Pendientes" xml:space="preserve">
@@ -200,6 +191,14 @@ From(
 )C0 
 Where IsNull("Unidad",'') != '' And C0."Unidad" Not In (Select "U_SAP_UM" From "@FEDIAN_HOMOL_UM" Where IsNull("U_DIAN_UM",'') != '')
 Group By C0."Unidad", C0."Descr"</value>
-    <comment>Unidades de medida pendiente por homologar</comment>
+    <comment>Select C0."Unidad", C0."Descr"
+From(
+	SELECT 
+	Case When "UomCode" = 'Manual' Then "unitMsr" Else "UomCode" End "Unidad", 
+	"unitMsr" as "Descr" 
+	FROM INV1
+)C0 
+Where IsNull("Unidad",'') != '' And C0."Unidad" Not In (Select "U_SAP_UM" From "@FEDIAN_HOMOL_UM" Where IsNull("U_DIAN_UM",'') != '')
+Group By C0."Unidad", C0."Descr"</comment>
   </data>
 </root>

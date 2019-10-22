@@ -955,27 +955,27 @@ namespace AddOn_FE_DIAN
                             string documentType = "";
                             switch (tipoDoc)
                             {
-                                case "1":
+                                case "01":
                                     documentType = "FV";
                                     oInvoice.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oInvoice.Series;
                                     break;
-                                case "2":
+                                case "02":
                                     documentType = "FC";
                                     oInvoice.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oInvoice.Series;
                                     break;
-                                case "3":
+                                case "03":
                                     documentType = "FE";
                                     oInvoice.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oInvoice.Series;
                                     break;
-                                case "4":
+                                case "91":
                                     documentType = "NC";
                                     oCreditNote.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oCreditNote.Series;
                                     break;
-                                case "5":
+                                case "92":
                                     documentType = "ND";
                                     oInvoice.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oInvoice.Series;
@@ -1107,27 +1107,27 @@ namespace AddOn_FE_DIAN
                             string documentType = "";
                             switch (tipoDoc)
                             {
-                                case "1":
+                                case "01":
                                     documentType = "FV";
                                     oInvoice.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oInvoice.Series;
                                     break;
-                                case "2":
+                                case "02":
                                     documentType = "FC";
                                     oInvoice.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oInvoice.Series;
                                     break;
-                                case "3":
+                                case "03":
                                     documentType = "FE";
                                     oInvoice.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oInvoice.Series;
                                     break;
-                                case "4":
+                                case "91":
                                     documentType = "NC";
                                     oCreditNote.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oCreditNote.Series;
                                     break;
-                                case "5":
+                                case "92":
                                     documentType = "ND";
                                     oInvoice.GetByKey(NumberInterno);
                                     oSeriesParams.Series = oInvoice.Series;

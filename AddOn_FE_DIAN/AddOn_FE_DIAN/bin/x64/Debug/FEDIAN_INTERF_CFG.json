@@ -1,30 +1,37 @@
-[{
-	"Codigo": "01",
-	"Nombre": "Factura de Venta",
-	"U_URL": "http://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo={0}&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si"
-},
-{
-	"Codigo": "02",
-	"Nombre": "Factura de Exportación",
-	"U_URL": "http://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo={0}&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si"
-},
-{
-	"Codigo": "03",
-	"Nombre": "Factura de Contingencia",
-	"U_URL": "http://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo={0}&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si"
-},
-{
-	"Codigo": "91",
-	"Nombre": "Nota Crédito",
-	"U_URL": "http://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo={0}&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si"
-},
-{
-	"Codigo": "92",
-	"Nombre": "Nota Débito",
-	"U_URL": "http://api.febos.co/pruebas/documentos?simular=no&debug=si&tipo={0}&entrada=txt&foliar=si&firmar=si&obtenerXml=si&obtenerPdf=si"
-},
-{
-	"Codigo": "7",
-	"Nombre": "Lectura por Folio",
-	"U_URL": "https://api.febos.co/pruebas/documentos/{0}?xml=si&imagen=si&tipoImagen=0&regenerar=si&incrustar=no&xmlFirmado=si"
-}]
+[
+  {
+    "Codigo": "01",
+    "Nombre": "Factura de Venta",
+    "U_URL": "https://api.febos.co/pruebas/v2/documentos?xml=si&imagen=si&tipoDocumento={0}&foliar=no&folio={1}&prefijo={2}"
+  },
+  {
+    "Codigo": "02",
+    "Nombre": "Factura de Exportación",
+    "U_URL": "https://api.febos.co/pruebas/v2/documentos?xml=si&imagen=si&tipoDocumento={0}&foliar=no&folio={1}&prefijo={2}"
+  },
+  {
+    "Codigo": "03",
+    "Nombre": "Factura de Contingencia",
+    "U_URL": "https://api.febos.co/pruebas/v2/documentos?xml=si&imagen=si&tipoDocumento={0}&foliar=no&folio={1}&prefijo={2}"
+  },
+  {
+    "Codigo": "91",
+    "Nombre": "Nota Crédito",
+    "U_URL": "https://api.febos.co/pruebas/v2/documentos?xml=si&imagen=si&tipoDocumento={0}&foliar=no&folio={1}&prefijo={2}"
+  },
+  {
+    "Codigo": "92",
+    "Nombre": "Nota Débito",
+    "U_URL": "https://api.febos.co/pruebas/v2/documentos?xml=si&imagen=si&tipoDocumento={0}&foliar=no&folio={1}&prefijo={2}"
+  },
+  {
+    "Codigo": "6",
+    "Nombre": "Lectura estado documento",
+    "U_URL": "https://api.febos.co/pruebas/v2/documentos/{0}?xml=si&imagen=si&tipoImagen=0"
+  },
+  {
+    "Codigo": "7",
+    "Nombre": "Lectura por Folio",
+    "U_URL": "https://api.febos.co/pruebas/v2/documentos?consulta=febosId,iutEmisor,iutReceptor,tipo,prefijo,folio&filtros=iutEmisor:{0}|folio:{1}{2}&orden=-fechaCreacion&cantidad=50&inicio=1&categoria=emitidos&xmlFirmado=si&obtenerPdf=si&regenerar=no"
+  }
+]

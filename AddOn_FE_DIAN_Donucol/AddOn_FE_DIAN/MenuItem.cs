@@ -1074,14 +1074,14 @@ namespace AddOn_FE_DIAN
 
                             SAPbobsCOM.UserTables tblscnf = null;
                             SAPbobsCOM.UserTable tblcnf = null;
-                            string urlWS = "";
+                            //string urlWS = "";
 
-                            tblscnf = oCompany.UserTables;
-                            tblcnf = tblscnf.Item("FEDIAN_INTERF_CFG");
-                            tblcnf.GetByKey(tipoDoc);
-                            urlWS = tblcnf.UserFields.Fields.Item("U_URL").Value;
+                            //tblscnf = oCompany.UserTables;
+                            //tblcnf = tblscnf.Item("FEDIAN_INTERF_CFG");
+                            //tblcnf.GetByKey(tipoDoc);
+                            //urlWS = tblcnf.UserFields.Fields.Item("U_URL").Value;
 
-                            respuestaPDF = Controllers.WebServiceDispapelesController.consultaArchivos(folio, prefijo, tipoDoc, urlWS);
+                            respuestaPDF = Controllers.WebServiceDispapelesController.consultaArchivos(folio, prefijo, tipoDoc);
 
                             if (respuestaPDF != null && respuestaPDF.listaArchivos != null)
                             {
@@ -1106,11 +1106,11 @@ namespace AddOn_FE_DIAN
                                 }
                             }
 
-                            System.Runtime.InteropServices.Marshal.ReleaseComObject(tblscnf);
-                            tblscnf = null;
-                            System.Runtime.InteropServices.Marshal.ReleaseComObject(tblcnf);
-                            tblcnf = null;
-                            GC.Collect();
+                            //System.Runtime.InteropServices.Marshal.ReleaseComObject(tblscnf);
+                            //tblscnf = null;
+                            //System.Runtime.InteropServices.Marshal.ReleaseComObject(tblcnf);
+                            //tblcnf = null;
+                            //GC.Collect();
                         }
                     }
                 }
@@ -1308,6 +1308,7 @@ namespace AddOn_FE_DIAN
                     oForm.DataSources.DataTables.Item(0).ExecuteQuery(sSQL);
                     oGrid.DataTable = oForm.DataSources.DataTables.Item("DT_0");
                     oGrid.Columns.Item("Descripcion Estado").Width = 300;
+                    oGrid.Columns.Item("ID Proceso").Width = 300;
                     oGrid.Columns.Item("Detalle Peticion").Width = 100;
                     oGrid.Columns.Item("Respuesta Integracion").Width = 100;
                     oGrid.Columns.Item("Archivo PDF").Width = 100;

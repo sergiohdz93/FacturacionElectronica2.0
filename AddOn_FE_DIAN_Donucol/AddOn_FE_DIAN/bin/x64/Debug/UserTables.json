@@ -93,5 +93,10 @@
     "TableName": "FEDIAN_NUMAUTORI",
     "TableDescription": "Numeracion Autorizada DIAN",
     "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_INCOTERMS",
+    "TableDescription": "Cond de Entrega (INCOTERMS)",
+    "TableType": "bott_NoObject"
   }
 ]

@@ -1,48 +1,50 @@
-[{
-	"Codigo": "00",
-	"Nombre": "Descuento por impuesto asumido"
-},
-{
-	"Codigo": "01",
-	"Nombre": "Pague uno, llevo otro"
-},
-{
-	"Codigo": "02",
-	"Nombre": "Descuentos Contractuales"
-},
-{
-	"Codigo": "03",
-	"Nombre": "Descuento por Pronto Pago"
-},
-{
-	"Codigo": "04",
-	"Nombre": "Envio Gratis"
-},
-{
-	"Codigo": "05",
-	"Nombre": "Descuentos Especificos por Inventarios"
-},
-{
-	"Codigo": "06",
-	"Nombre": "Descuento por monto de compras"
-},
-{
-	"Codigo": "07",
-	"Nombre": "Descuento de Temporada"
-},
-{
-	"Codigo": "08",
-	"Nombre": "Descuento por Actualizacion de productos / servicios"
-},
-{
-	"Codigo": "09",
-	"Nombre": "Descuento general"
-},
-{
-	"Codigo": "10",
-	"Nombre": "Descuento por volumen"
-},
-{
-	"Codigo": "11",
-	"Nombre": "Otro Descuento"
-}]
+[
+ {
+   "Codigo": "00",
+   "Nombre": "Descuento por impuesto asumido"
+ },
+ {
+   "Codigo": "01",
+   "Nombre": "Pague uno, llevo otro"
+ },
+ {
+   "Codigo": "02",
+   "Nombre": "Descuentos Contractuales"
+ },
+ {
+   "Codigo": "03",
+   "Nombre": "Descuento por Pronto Pago"
+ },
+ {
+   "Codigo": "04",
+   "Nombre": "Envío Gratis"
+ },
+ {
+   "Codigo": "05",
+   "Nombre": "Descuentos Específicos por Inventarios"
+ },
+ {
+   "Codigo": "06",
+   "Nombre": "Descuento por monto de compras"
+ },
+ {
+   "Codigo": "07",
+   "Nombre": "Descuento de Temporada"
+ },
+ {
+   "Codigo": "08",
+   "Nombre": "Descuento por Actualización de productos / servicios"
+ },
+ {
+   "Codigo": "09",
+   "Nombre": "Descuento general"
+ },
+  {
+    "Codigo": "10",
+    "Nombre": "Descuento por volumen"
+  },
+  {
+    "Codigo": "11",
+    "Nombre": "Otro Descuento"
+  }
+]

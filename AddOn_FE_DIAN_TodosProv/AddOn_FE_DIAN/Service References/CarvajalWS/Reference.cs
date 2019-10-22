@@ -12,7 +12,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -110,6 +110,15 @@ namespace AddOn_FE_DIAN.CarvajalWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://invoice.carvajal.com/invoiceService/DocumentStatusByNumber", ReplyAction="*")]
         System.Threading.Tasks.Task<AddOn_FE_DIAN.CarvajalWS.DocumentStatusByNumberResponse1> DocumentStatusByNumberAsync(AddOn_FE_DIAN.CarvajalWS.DocumentStatusByNumber request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que la operación EventStatus no es RPC ni está encapsulada en un documento.
+        [System.ServiceModel.OperationContractAttribute(Action="http://invoice.carvajal.com/invoiceService/EventStatus", ReplyAction="*")]
+        [System.ServiceModel.FaultContractAttribute(typeof(AddOn_FE_DIAN.CarvajalWS.InvoiceServiceFault), Action="http://invoice.carvajal.com/invoiceService/EventStatus", Name="InvoiceServiceFault", Namespace="https://invoice.carvajal.com/invoiceService/")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        AddOn_FE_DIAN.CarvajalWS.EventStatusResponse1 EventStatus(AddOn_FE_DIAN.CarvajalWS.EventStatus request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://invoice.carvajal.com/invoiceService/EventStatus", ReplyAction="*")]
+        System.Threading.Tasks.Task<AddOn_FE_DIAN.CarvajalWS.EventStatusResponse1> EventStatusAsync(AddOn_FE_DIAN.CarvajalWS.EventStatus request);
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que la operación UploadSync no es RPC ni está encapsulada en un documento.
         [System.ServiceModel.OperationContractAttribute(Action="http://invoice.carvajal.com/invoiceService/UploadSync", ReplyAction="*")]
@@ -221,7 +230,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -267,7 +276,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -327,7 +336,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -464,7 +473,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -524,7 +533,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -618,7 +627,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -706,7 +715,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -786,7 +795,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -874,7 +883,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1081,7 +1090,217 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://invoice.carvajal.com/invoiceService/")]
+    public partial class EventStatusRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string companyIdField;
+        
+        private string accountIdField;
+        
+        private string transactionIdField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string companyId {
+            get {
+                return this.companyIdField;
+            }
+            set {
+                this.companyIdField = value;
+                this.RaisePropertyChanged("companyId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string accountId {
+            get {
+                return this.accountIdField;
+            }
+            set {
+                this.accountIdField = value;
+                this.RaisePropertyChanged("accountId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string transactionId {
+            get {
+                return this.transactionIdField;
+            }
+            set {
+                this.transactionIdField = value;
+                this.RaisePropertyChanged("transactionId");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://invoice.carvajal.com/invoiceService/")]
+    public partial class EventStatusResponse : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string eventNameField;
+        
+        private string eventStatusField;
+        
+        private System.DateTime eventDateField;
+        
+        private bool eventDateFieldSpecified;
+        
+        private string governmentResponseCodesField;
+        
+        private string governmentResponseDescriptionsField;
+        
+        private string governmentErrorDescriptionsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string eventName {
+            get {
+                return this.eventNameField;
+            }
+            set {
+                this.eventNameField = value;
+                this.RaisePropertyChanged("eventName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string eventStatus {
+            get {
+                return this.eventStatusField;
+            }
+            set {
+                this.eventStatusField = value;
+                this.RaisePropertyChanged("eventStatus");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public System.DateTime eventDate {
+            get {
+                return this.eventDateField;
+            }
+            set {
+                this.eventDateField = value;
+                this.RaisePropertyChanged("eventDate");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool eventDateSpecified {
+            get {
+                return this.eventDateFieldSpecified;
+            }
+            set {
+                this.eventDateFieldSpecified = value;
+                this.RaisePropertyChanged("eventDateSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string governmentResponseCodes {
+            get {
+                return this.governmentResponseCodesField;
+            }
+            set {
+                this.governmentResponseCodesField = value;
+                this.RaisePropertyChanged("governmentResponseCodes");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string governmentResponseDescriptions {
+            get {
+                return this.governmentResponseDescriptionsField;
+            }
+            set {
+                this.governmentResponseDescriptionsField = value;
+                this.RaisePropertyChanged("governmentResponseDescriptions");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string governmentErrorDescriptions {
+            get {
+                return this.governmentErrorDescriptionsField;
+            }
+            set {
+                this.governmentErrorDescriptionsField = value;
+                this.RaisePropertyChanged("governmentErrorDescriptions");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class EventStatus {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://invoice.carvajal.com/invoiceService/", Order=0)]
+        public AddOn_FE_DIAN.CarvajalWS.EventStatusRequest EventStatusRequest;
+        
+        public EventStatus() {
+        }
+        
+        public EventStatus(AddOn_FE_DIAN.CarvajalWS.EventStatusRequest EventStatusRequest) {
+            this.EventStatusRequest = EventStatusRequest;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class EventStatusResponse1 {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://invoice.carvajal.com/invoiceService/", Order=0)]
+        public AddOn_FE_DIAN.CarvajalWS.EventStatusResponse EventStatusResponse;
+        
+        public EventStatusResponse1() {
+        }
+        
+        public EventStatusResponse1(AddOn_FE_DIAN.CarvajalWS.EventStatusResponse EventStatusResponse) {
+            this.EventStatusResponse = EventStatusResponse;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1155,7 +1374,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1249,7 +1468,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1357,7 +1576,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1403,7 +1622,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1449,7 +1668,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1544,7 +1763,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1576,7 +1795,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1748,7 +1967,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1864,7 +2083,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1930,7 +2149,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2061,7 +2280,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2069,6 +2288,8 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     public partial class configuration : object, System.ComponentModel.INotifyPropertyChanged {
         
         private senderConfiguration senderConfigurationField;
+        
+        private subscriptionConfiguration subscriptionConfigurationField;
         
         private governmentConfiguration governmentConfigurationField;
         
@@ -2088,6 +2309,18 @@ namespace AddOn_FE_DIAN.CarvajalWS {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public subscriptionConfiguration subscriptionConfiguration {
+            get {
+                return this.subscriptionConfigurationField;
+            }
+            set {
+                this.subscriptionConfigurationField = value;
+                this.RaisePropertyChanged("subscriptionConfiguration");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public governmentConfiguration governmentConfiguration {
             get {
                 return this.governmentConfigurationField;
@@ -2099,7 +2332,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public billingPlanConfiguration billingPlanConfiguration {
             get {
                 return this.billingPlanConfigurationField;
@@ -2121,7 +2354,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2167,7 +2400,25 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://invoice.carvajal.com/invoiceService/")]
+    public partial class subscriptionConfiguration : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2199,7 +2450,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2231,7 +2482,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2277,7 +2528,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2344,7 +2595,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2418,7 +2669,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2513,7 +2764,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2615,7 +2866,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2695,7 +2946,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2755,7 +3006,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2961,7 +3212,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3035,7 +3286,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3129,7 +3380,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3203,7 +3454,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3326,7 +3577,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3428,7 +3679,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3508,7 +3759,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3568,7 +3819,7 @@ namespace AddOn_FE_DIAN.CarvajalWS {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3764,6 +4015,29 @@ namespace AddOn_FE_DIAN.CarvajalWS {
             AddOn_FE_DIAN.CarvajalWS.DocumentStatusByNumber inValue = new AddOn_FE_DIAN.CarvajalWS.DocumentStatusByNumber();
             inValue.DocumentStatusByNumberRequest = DocumentStatusByNumberRequest;
             return ((AddOn_FE_DIAN.CarvajalWS.invoiceService)(this)).DocumentStatusByNumberAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        AddOn_FE_DIAN.CarvajalWS.EventStatusResponse1 AddOn_FE_DIAN.CarvajalWS.invoiceService.EventStatus(AddOn_FE_DIAN.CarvajalWS.EventStatus request) {
+            return base.Channel.EventStatus(request);
+        }
+        
+        public AddOn_FE_DIAN.CarvajalWS.EventStatusResponse EventStatus(AddOn_FE_DIAN.CarvajalWS.EventStatusRequest EventStatusRequest) {
+            AddOn_FE_DIAN.CarvajalWS.EventStatus inValue = new AddOn_FE_DIAN.CarvajalWS.EventStatus();
+            inValue.EventStatusRequest = EventStatusRequest;
+            AddOn_FE_DIAN.CarvajalWS.EventStatusResponse1 retVal = ((AddOn_FE_DIAN.CarvajalWS.invoiceService)(this)).EventStatus(inValue);
+            return retVal.EventStatusResponse;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<AddOn_FE_DIAN.CarvajalWS.EventStatusResponse1> AddOn_FE_DIAN.CarvajalWS.invoiceService.EventStatusAsync(AddOn_FE_DIAN.CarvajalWS.EventStatus request) {
+            return base.Channel.EventStatusAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<AddOn_FE_DIAN.CarvajalWS.EventStatusResponse1> EventStatusAsync(AddOn_FE_DIAN.CarvajalWS.EventStatusRequest EventStatusRequest) {
+            AddOn_FE_DIAN.CarvajalWS.EventStatus inValue = new AddOn_FE_DIAN.CarvajalWS.EventStatus();
+            inValue.EventStatusRequest = EventStatusRequest;
+            return ((AddOn_FE_DIAN.CarvajalWS.invoiceService)(this)).EventStatusAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

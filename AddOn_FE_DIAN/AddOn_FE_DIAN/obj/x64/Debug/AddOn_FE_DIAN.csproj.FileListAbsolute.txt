@@ -9,6 +9,7 @@ C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\FEDIAN_RESPONSA.json
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\FEDIAN_TIPOPERA.json
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\FEDIAN_TRIBU.json
+C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\FEDIAN_INCOTERMS.json
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\FEDIAN_UM.json
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\FormattedSearches.json
 C:\Users\user1\Dropbox\FacturacionElectronica2.0\AddOn_FE_DIAN\AddOn_FE_DIAN\bin\x64\Debug\UserFields.json

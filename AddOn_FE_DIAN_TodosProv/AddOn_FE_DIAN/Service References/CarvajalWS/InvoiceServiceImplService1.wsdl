@@ -52,6 +52,18 @@
         <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="EventStatus">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/EventStatus" style="document" />
+      <wsdl:input name="EventStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EventStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="UploadSync">
       <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/UploadSync" style="document" />
       <wsdl:input name="UploadSync">

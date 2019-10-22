@@ -36,6 +36,7 @@ namespace AddOn_FE_DIAN
                 leerJsonConcepNC();
                 leerJsonTributos();
                 leerJsonIdentArti();
+                leerJsonIcoterms();
 
                 leerJsonCamposUsuario();
                 leerJsonDocDIAN();
@@ -464,6 +465,55 @@ namespace AddOn_FE_DIAN
             catch (Exception ex)
             {
                 SBO_Application.MessageBox("Metodo Identidad Articulos\n" + ex.Message);
+            }
+        }
+
+        public void leerJsonIcoterms()
+        {
+            try
+            {
+                SAPbobsCOM.UserTables tbls = null;
+                SAPbobsCOM.UserTable tbl = null;
+
+                string inputJSON = File.ReadAllText("FEDIAN_INCOTERMS.json", System.Text.Encoding.Default);
+                dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
+                foreach (var item in dynJson)
+                {
+                    tbls = oCompany.UserTables;
+                    tbl = tbls.Item("FEDIAN_INCOTERMS");
+
+                    if (!tbl.GetByKey(Convert.ToString(item.Codigo)))
+                    {
+                        tbl.Code = Convert.ToString(item.Codigo);
+                        tbl.Name = Convert.ToString(item.Nombre);
+
+                        lRetCode = tbl.Add();
+
+                        if (lRetCode != 0)
+                        {
+                            if (lRetCode == -1 || lRetCode == -2035 || lRetCode == -5002)
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            else
+                            {
+                                oCompany.GetLastError(out lRetCode, out sErrMsg);
+                            }
+                            Procesos.EscribirLogFileTXT(tbl.TableName + " - " + tbl.Code + ": " + sErrMsg);
+                        }
+                    }
+
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
+                    tbls = null;
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
+                    tbl = null;
+                    GC.Collect();
+                }
+                SBO_Application.StatusBar.SetText("Configuracion INCOTERMS ", SAPbouiCOM.BoMessageTime.bmt_Short, SAPbouiCOM.BoStatusBarMessageType.smt_Success);
+            }
+            catch (Exception ex)
+            {
+                SBO_Application.MessageBox("Metodo INCOTERMS\n" + ex.Message);
             }
         }
 

@@ -55,7 +55,7 @@ namespace AddOn_FE_DIAN
                 oCompany = oCmpn;
                 SBO_Application = SBO_App;
                 //Creacion de timer para actualziacion de formulario Monitor Log
-                StartMonitorSAPB1();
+                //StartMonitorSAPB1();
                 //Cargue inicial de parametrizacion
                 user = SBO_Application.Company.UserName;
                 CargueInicial();
@@ -808,7 +808,7 @@ namespace AddOn_FE_DIAN
             if (Procesos.proveedor == "C")
             {
                 filestr = Strtxt(docentry, typeDoc);
-                sNumSegui = MetodosCarvajal.UploadFileFE(EncodeToBase64(filestr), docentry, codeLog.ToString());
+                sNumSegui = MetodosCarvajal.UploadFileFE(EncodeToBase64(filestr), typeDoc, docNum);
                 if (sNumSegui != "")
                 {
                     sRequest = requestSend;
@@ -1146,7 +1146,7 @@ namespace AddOn_FE_DIAN
                     tbl.GetByKey(codeLog.ToString());
 
                     ResultAPI febosID;
-                    febosID = FebosId(tbl.UserFields.Fields.Item("U_Folio").Value);
+                    febosID = FebosId(tbl.UserFields.Fields.Item("U_Folio").Value, tbl.UserFields.Fields.Item("U_Prefijo").Value);
 
                     if (febosID.Codigo == "3")
                     {
@@ -1201,12 +1201,13 @@ namespace AddOn_FE_DIAN
         }
 
         //Peticion obtener FebosID por Folio
-        public static ResultAPI FebosId(string folio)
+        public static ResultAPI FebosId(string folio, string prefijo)
         {
             Procesos.responseStatus = "";
             try
             {
                 string urlstatus = "";
+                string addPrefijo = "";
                 SAPbobsCOM.UserTables tablas = null;
                 SAPbobsCOM.UserTable tabla = null;
 
@@ -1214,7 +1215,11 @@ namespace AddOn_FE_DIAN
                 tabla = tablas.Item("FEDIAN_INTERF_CFG");
                 tabla.GetByKey("7");
 
-                urlstatus = string.Format(tabla.UserFields.Fields.Item("U_URL").Value, Procesos.nit, folio);
+                if (!string.IsNullOrEmpty(prefijo)) addPrefijo = "|prefijo:" + prefijo;
+                else addPrefijo = string.Empty;
+
+                urlstatus = string.Format(tabla.UserFields.Fields.Item("U_URL").Value, Procesos.nit, folio, addPrefijo);
+
                 var resultstatus = ServiceFebos.Febos_folio(urlstatus, "GET", Procesos.token, false);
                 var resultliststatus = resultstatus[true];
                 Procesos.responseStatus = resultliststatus;
@@ -1586,27 +1591,27 @@ namespace AddOn_FE_DIAN
                     string documentType = "";
                     switch (tipoDoc)
                     {
-                        case "1":
+                        case "01":
                             documentType = "FV";
                             oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oInvoice.Series;
                             break;
-                        case "2":
+                        case "02":
                             documentType = "FC";
                             oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oInvoice.Series;
                             break;
-                        case "3":
+                        case "03":
                             documentType = "FE";
                             oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oInvoice.Series;
                             break;
-                        case "4":
+                        case "91":
                             documentType = "NC";
                             oCreditNote.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oCreditNote.Series;
                             break;
-                        case "5":
+                        case "92":
                             documentType = "ND";
                             oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oInvoice.Series;
@@ -1735,7 +1740,7 @@ namespace AddOn_FE_DIAN
                 if (response.Codigo == "137")
                 {
                     ResultAPI febosID;
-                    febosID = FebosId(tbl.UserFields.Fields.Item("U_Folio").Value);
+                    febosID = FebosId(tbl.UserFields.Fields.Item("U_Folio").Value, tbl.UserFields.Fields.Item("U_Prefijo").Value);
                     if (febosID.Codigo == "3")
                     {
                         //tbl.UserFields.Fields.Item("U_Resultado").Value = febosID.mensaje;
@@ -1752,6 +1757,7 @@ namespace AddOn_FE_DIAN
                         tbl.UserFields.Fields.Item("U_Status").Value = "147";
                     }
                 }
+
                 else
                 {
                     if (response.febosID != null)
@@ -1764,22 +1770,24 @@ namespace AddOn_FE_DIAN
                     }
                 }
 
-                if (reSend == false)
-                {
-                    tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = dateSend.ToString("yyyy/MM/dd");
-                    tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm");
-                }
-                else if (reSend == true)
-                {
-                    tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
-                    tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
-                    tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
-                }
+                //if (reSend == false)
+                //{
+                //    tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = dateSend.ToString("yyyy/MM/dd");
+                //    tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm");
+                //}
+
+                //else if (reSend == true)
+                //{
+                tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
+                tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
+                tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
+                //}
+
                 if (srequest != "")
                 {
-                    XmlDocument doc = JsonConvert.DeserializeXmlNode(srequest);
+                    XmlDocument doc = JsonConvert.DeserializeXmlNode(srequest, "root"); //JsonConvert.DeserializeXmlNode(srequest);
                     XmlNodeList nodeList = null;
-                    nodeList = doc.GetElementsByTagName("payload");
+                    nodeList = doc.GetElementsByTagName("contenidoArchivoIntegracion");
                     foreach (XmlNode node in nodeList)
                     {
                         node.InnerText = textstr;
@@ -1792,6 +1800,7 @@ namespace AddOn_FE_DIAN
                     XmlDocument docresponse = (XmlDocument)JsonConvert.DeserializeXmlNode(responseStatus, "root");
                     tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = docresponse.InnerXml;
                 }
+
                 else
                 {
                     tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = "";
@@ -2071,7 +2080,16 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                Recordset oRS = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+                Recordset oRS = null;
+                if (oRS != null) // Not sure why this is needed as rs will always be null but leaving it in anyway
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
+                    oRS = null;
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
+                }
+                oRS = (Recordset)oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+
                 string sSql = string.Format(Querys.Default.ProcessStatus, String.Join(",", Constants.yellow.ToArray()));
                 oRS.DoQuery(sSql);
 
@@ -2090,16 +2108,16 @@ namespace AddOn_FE_DIAN
                         if (Procesos.proveedor == "C")
                         {
                             idLog = Convert.ToString(ResultQuery.Rows[i]["Code"]); //Getting value CodeLog
-                            numSeg = Convert.ToString(ResultQuery.Rows[i]["U_ProcessID"]); //Getting value IdProcess
-                            strReq = Convert.ToString(ResultQuery.Rows[i]["U_Det_Peticion"]); //Getting value Request
+                            numSeg = Convert.ToString(ResultQuery.Rows[i]["ProcessID"]); //Getting value IdProcess
+                            strReq = Convert.ToString(ResultQuery.Rows[i]["Det_Peticion"]); //Getting value Request
                             Procesos.EscribirLogFileTXT("verifystatus: " + " NumLog a verificar: " + idLog);
                             MetodosCarvajal.DocStatusFE(idLog, numSeg, "", false, strReq);
                         }
                         else if (Procesos.proveedor == "F")
                         {
                             idLog = Convert.ToString(ResultQuery.Rows[i]["Code"]); //Getting value CodeLog
-                            numSeg = Convert.ToString(ResultQuery.Rows[i]["U_ID_Seguimiento"]); //Getting value IdProcess
-                            strReq = Convert.ToString(ResultQuery.Rows[i]["U_Det_Peticion"]); //Getting value Request
+                            numSeg = Convert.ToString(ResultQuery.Rows[i]["ID_Seguimiento"]); //Getting value IdProcess
+                            strReq = Convert.ToString(ResultQuery.Rows[i]["Det_Peticion"]); //Getting value Request
                             StatusFEBOS(idLog, numSeg, "", false, strReq);
                         }
                         else if (Procesos.proveedor == "D")
@@ -2126,7 +2144,16 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                Recordset oRS = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+                Recordset oRS = null;
+                if (oRS != null) // Not sure why this is needed as rs will always be null but leaving it in anyway
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
+                    oRS = null;
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
+                }
+                oRS = (Recordset)oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+
                 string sSql = string.Format(Querys.Default.ReSendAuto, String.Join(",", Constants.red.ToArray()));
                 oRS.DoQuery(sSql);
 
@@ -2177,83 +2204,96 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                Recordset oRS = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+                Recordset oRS = null;
+                if (oRS != null) // Not sure why this is needed as rs will always be null but leaving it in anyway
+                {
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
+                    oRS = null;
+                    GC.WaitForPendingFinalizers();
+                    GC.Collect();
+                }
+                oRS = (Recordset)oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+
                 string sSql = "";
 
                 if (oCompany.DbServerType == BoDataServerTypes.dst_HANADB)
                 {
-                    sSql = "Select A1.\"Remark\", A0.\"DocNum\", A0.\"ObjType\", A0.\"DocEntry\", A2.\"USER_CODE\", A0.\"DocDate\", A0.\"DocTime\" " +
+                    sSql = "Select A3.\"U_DocDIAN\", A0.\"DocNum\", A1.\"BeginStr\", A0.\"ObjType\", A0.\"DocEntry\", A2.\"USER_CODE\", A0.\"DocDate\", A0.\"DocTime\" " +
                             "From OINV A0 " +
                             "Inner Join NNM1 A1 On A0.\"Series\" = A1.\"Series\" And A0.\"ObjType\" = A1.\"ObjectCode\" " +
                             "Inner Join OUSR A2 On A0.\"UserSign\" = A2.\"USERID\" " +
-                            "Where A0.\"Series\" in (Select B0.\"Series\" From NNM1 B0 Inner Join \"@FEDIAN_CODDOC\" B1 on B0.\"Remark\" = B1.\"Code\" And B0.\"ObjectCode\" = '13') And " +
-                            "A0.\"DocEntry\" Not In (Select \"U_DocNum\" From \"@FEDIAN_MONITORLOG\" Where \"U_ObjType\" = '13') And A0.\"DocDate\" Between ADD_DAYS(CURRENT_DATE, -1) and To_Date(Current_Date) " +
+                            "Inner Join \"@FEDIAN_NUMAUTORI\" A3 On A1.\"Series\" = A3.\"Code\" " +
+                            "Where A0.\"DocEntry\" Not In (Select \"U_DocNum\" From \"@FEDIAN_MONITORLOG\" Where \"U_ObjType\" = '13') And A0.\"DocDate\" Between ADD_DAYS(CURRENT_DATE, -1) and To_Date(Current_Date) " +
                             "Union All " +
-                            "Select A1.\"Remark\", A0.\"DocNum\", A0.\"ObjType\", A0.\"DocEntry\", A2.\"USER_CODE\", A0.\"DocDate\", A0.\"DocTime\" " +
+                            "Select A3.\"U_DocDIAN\", A0.\"DocNum\", A1.\"BeginStr\", A0.\"ObjType\", A0.\"DocEntry\", A2.\"USER_CODE\", A0.\"DocDate\", A0.\"DocTime\" " +
                             "From ORIN A0 " +
                             "Inner Join NNM1 A1 On A0.\"Series\" = A1.\"Series\" And A0.\"ObjType\" = A1.\"ObjectCode\" " +
                             "Inner Join OUSR A2 On A0.\"UserSign\" = A2.\"USERID\" " +
-                            "Where A0.\"Series\" in (Select B0.\"Series\" From NNM1 B0 Inner Join \"@FEDIAN_CODDOC\" B1 on B0.\"Remark\" = B1.\"Code\" And B0.\"ObjectCode\" = '14') And " +
-                            "A0.\"DocEntry\" Not In (Select \"U_DocNum\" From \"@FEDIAN_MONITORLOG\" Where \"U_ObjType\" = '14') And A0.\"DocDate\" Between ADD_DAYS(CURRENT_DATE, -1) and To_Date(Current_Date) ";
+                            "Inner Join \"@FEDIAN_NUMAUTORI\" A3 On A1.\"Series\" = A3.\"Code\" " +
+                            "Where A0.\"DocEntry\" Not In (Select \"U_DocNum\" From \"@FEDIAN_MONITORLOG\" Where \"U_ObjType\" = '14') And A0.\"DocDate\" Between ADD_DAYS(CURRENT_DATE, -1) and To_Date(Current_Date) ";
                 }
 
                 else
                 {
-                    sSql = "Select A1.Remark, A0.DocNum, A0.ObjType, A0.DocEntry, A2.USER_CODE, A0.DocDate, A0.DocTime " +
+                    sSql = "Select A3.U_DocDIAN, A0.DocNum, A1.BeginStr, A0.ObjType, A0.DocEntry, A2.USER_CODE, A0.DocDate, A0.DocTime " +
                             "From OINV A0 " +
                             "Inner Join NNM1 A1 On A0.Series = A1.Series And A0.ObjType = A1.ObjectCode " +
                             "Inner Join OUSR A2 On A0.UserSign = A2.USERID " +
-                            "Where A0.Series in (Select Series From NNM1 B0 Inner Join \"@FEDIAN_CODDOC\" B1 on B0.Remark = B1.Code And B0.ObjectCode = '13') And " +
-                            "A0.DocEntry Not In(Select U_DocNum From \"@FEDIAN_MONITORLOG\" Where U_ObjType = '13') And CONVERT(char(10), A0.DocDate,126) Between CONVERT(char(10), GetDate()-1,126) and CONVERT(char(10), GetDate(),126) " +
+                            "Inner Join \"@FEDIAN_NUMAUTORI\" A3 On A1.Series = A3.Code " +
+                            "Where A0.DocEntry Not In(Select U_DocNum From \"@FEDIAN_MONITORLOG\" Where U_ObjType = '13') And CONVERT(char(10), A0.DocDate,126) Between CONVERT(char(10), GetDate() - 1,126) and CONVERT(char(10), GetDate(),126) " +
                             "Union All " +
-                            "Select A1.Remark, A0.DocNum, A0.ObjType, A0.DocEntry, A2.USER_CODE, A0.DocDate, A0.DocTime " +
+                            "Select A3.U_DocDIAN, A0.DocNum, A1.BeginStr, A0.ObjType, A0.DocEntry, A2.USER_CODE, A0.DocDate, A0.DocTime " +
                             "From ORIN A0 " +
                             "Inner Join NNM1 A1 On A0.Series = A1.Series And A0.ObjType = A1.ObjectCode " +
                             "Inner Join OUSR A2 On A0.UserSign = A2.USERID " +
-                            "Where A0.Series in (Select Series From NNM1 B0 Inner Join \"@FEDIAN_CODDOC\" B1 on B0.Remark = B1.Code And B0.ObjectCode = '14') And " +
-                            "A0.DocEntry Not In(Select U_DocNum From \"@FEDIAN_MONITORLOG\" Where U_ObjType = '14') And CONVERT(char(10), A0.DocDate,126) Between CONVERT(char(10), GetDate()-1,126) and CONVERT(char(10), GetDate(),126) ";
+                            "Inner Join \"@FEDIAN_NUMAUTORI\" A3 On A1.Series = A3.Code " +
+                            "Where A0.DocEntry Not In(Select U_DocNum From \"@FEDIAN_MONITORLOG\" Where U_ObjType = '14') And CONVERT(char(10), A0.DocDate,126) Between CONVERT(char(10), GetDate() - 1,126) and CONVERT(char(10), GetDate(),126) ";
                 }
 
                 oRS.DoQuery(sSql);
 
                 if (oRS.RecordCount > 0)
                 {
-                    UserTables tablas = null;
-                    UserTable tabla = null;
+                    System.Data.DataTable ResultQuery = null;
+                    ResultQuery = new System.Data.DataTable();
 
-                    System.Data.DataTable ResultQuery = new System.Data.DataTable();
                     ResultQuery = RecordSet_DataTable(oRS);
 
                     for (int i = 0; i < ResultQuery.Rows.Count; i++) //Looping through rows
                     {
-                        tablas = null;
-                        tabla = null;
+                        UserTables tablas = null;
+                        UserTable tabla = null;
 
                         tablas = oCompany.UserTables;
                         tabla = tablas.Item("FEDIAN_MONITORLOG");
-                        Recordset oRs = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+
+                        Recordset oRs = null;
+                        oRs = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
                         oRs.DoQuery(string.Format(Querys.Default.MaxLog));
+
                         int newCode;
                         newCode = oRs.Fields.Item("NextCode").Value;
 
                         tabla.Code = Convert.ToString(newCode);
                         tabla.Name = Convert.ToString(newCode);
-                        tabla.UserFields.Fields.Item("U_DocType").Value = Convert.ToString(ResultQuery.Rows[i]["Remark"]);
+                        tabla.UserFields.Fields.Item("U_DocType").Value = Convert.ToString(ResultQuery.Rows[i]["U_DocDIAN"]);
                         tabla.UserFields.Fields.Item("U_Folio").Value = Convert.ToString(ResultQuery.Rows[i]["DocNum"]);
+                        tabla.UserFields.Fields.Item("U_Prefijo").Value = Convert.ToString(ResultQuery.Rows[i]["BeginStr"]);
                         tabla.UserFields.Fields.Item("U_ObjType").Value = Convert.ToString(ResultQuery.Rows[i]["ObjType"]);
                         tabla.UserFields.Fields.Item("U_DocNum").Value = Convert.ToString(ResultQuery.Rows[i]["DocEntry"]);
                         tabla.UserFields.Fields.Item("U_Usuario_Envio").Value = Convert.ToString(ResultQuery.Rows[i]["USER_CODE"]);
                         tabla.UserFields.Fields.Item("U_Fecha_Envio").Value = Convert.ToString(ResultQuery.Rows[i]["DocDate"]);
                         tabla.UserFields.Fields.Item("U_Hora_Envio").Value = Convert.ToString(ResultQuery.Rows[i]["DocTime"]);
-                        tabla.UserFields.Fields.Item("U_Resultado").Value = "";
-                        tabla.UserFields.Fields.Item("U_Status").Value = "";
-                        tabla.UserFields.Fields.Item("U_ProcessID").Value = "";
-                        tabla.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = "";
-                        //tabla.UserFields.Fields.Item("U_Hora_ReEnvio").Value = "";
-                        tabla.UserFields.Fields.Item("U_Det_Peticion").Value = "";
-                        tabla.UserFields.Fields.Item("U_Respuesta_Int").Value = "";
-                        tabla.UserFields.Fields.Item("U_Archivo_PDF").Value = "";
-                        tabla.UserFields.Fields.Item("U_Enlace_XML").Value = "";
+                        tabla.UserFields.Fields.Item("U_Resultado").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_Status").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_ProcessID").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_Hora_ReEnvio").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_Det_Peticion").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_Respuesta_Int").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_Archivo_PDF").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_Enlace_XML").Value = string.Empty;
+                        tabla.UserFields.Fields.Item("U_ID_Seguimiento").Value = string.Empty;
 
                         lRetCode = tabla.Add();
 
@@ -2264,18 +2304,18 @@ namespace AddOn_FE_DIAN
                         }
                         else
                         {
-                            Procesos.EscribirLogFileTXT("AddDTEMonitor: Se agrego registro: " + newCode + " NumeroDoc: " + Convert.ToString(ResultQuery.Rows[i]["DocNum"]));
+                            Procesos.EscribirLogFileTXT("AddDTEMonitor: Se agrego registro: " + newCode + " DocNum: " + Convert.ToString(ResultQuery.Rows[i]["DocNum"]) + " DocEntry: " + Convert.ToString(ResultQuery.Rows[i]["DocEntry"]));
                         }
                         System.Runtime.InteropServices.Marshal.ReleaseComObject(oRs);
                         oRs = null;
                         GC.Collect();
+                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
+                        tablas = null;
+                        GC.Collect();
+                        System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
+                        tabla = null;
+                        GC.Collect();
                     }
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tablas);
-                    tablas = null;
-                    GC.Collect();
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(tabla);
-                    tabla = null;
-                    GC.Collect();
                 }
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
                 oRS = null;
@@ -2302,55 +2342,56 @@ namespace AddOn_FE_DIAN
         }
 
         //Funcion para agregar nuevos mensajes al repositorio
-        public static void RepoMensajes(string codigo, string mensaje)
-        {
-            string sSQL = "";
+        //public static void RepoMensajes(string codigo, string mensaje)
+        //{
+        //    string sSQL = "";
 
-            try
-            {
-                int i = 0;
-                oRS = (SAPbobsCOM.Recordset)oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-                sSQL = string.Format(Querys.Default.Msginter, mensaje.Replace("'",""));
-                oRS.DoQuery(sSQL);
-                i = oRS.RecordCount;
+        //    try
+        //    {
+        //        int i = 0;
+        //        oRS = (SAPbobsCOM.Recordset)oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
+        //        sSQL = string.Format(Querys.Default.Msginter, mensaje.Replace("'",""));
+        //        oRS.DoQuery(sSQL);
+        //        i = oRS.RecordCount;
 
-                if (i > 0)
-                {
+        //        if (i > 0)
+        //        {
                     
-                }
-                else
-                {
-                    //SAPbobsCOM.UserTables tbls = null;
-                    //SAPbobsCOM.UserTable tbl = null;
+        //        }
+        //        else
+        //        {
+        //            //SAPbobsCOM.UserTables tbls = null;
+        //            //SAPbobsCOM.UserTable tbl = null;
 
-                    //tbls = oCompany.UserTables;
-                    //tbl = tbls.Item("FEDIAN_INTERF_ERR");
-                    //tbl.UserFields.Fields.Item("U_MsgExter").Value = mensaje;
+        //            //tbls = oCompany.UserTables;
+        //            //tbl = tbls.Item("FEDIAN_INTERF_ERR");
+        //            //tbl.UserFields.Fields.Item("U_MsgExter").Value = mensaje;
 
-                    //lRetCode = tbl.Add();
+        //            //lRetCode = tbl.Add();
 
-                    ////Vereficar si se añade registro en la tabla
-                    //if (lRetCode != 0)
-                    //{
-                    //    oCompany.GetLastError(out lRetCode, out sErrMsg);
-                    //    Procesos.EscribirLogFileTXT("RepositorioMensajes: " + sErrMsg);
-                    //}
-                    //else
-                    //{
+        //            ////Vereficar si se añade registro en la tabla
+        //            //if (lRetCode != 0)
+        //            //{
+        //            //    oCompany.GetLastError(out lRetCode, out sErrMsg);
+        //            //    Procesos.EscribirLogFileTXT("RepositorioMensajes: " + sErrMsg);
+        //            //}
+        //            //else
+        //            //{
                        
-                    //}
-                }
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
-                oRS = null;
-                GC.Collect();
-            }
-            catch (Exception ex)
-            {
-                Procesos.EscribirLogFileTXT("RepoError: " + ex.Message);
-            }
-        }
+        //            //}
+        //        }
+        //        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
+        //        oRS = null;
+        //        GC.Collect();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Procesos.EscribirLogFileTXT("RepoError: " + ex.Message);
+        //    }
+        //}
 
         //Buscar en datatable valor segun nombre columna
+
         public static string Buscar_ValorCab(string Data, int Dimension, System.Data.DataTable TableResult)
         {
             string sRes = "";

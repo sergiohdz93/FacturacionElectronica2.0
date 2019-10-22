@@ -191,6 +191,9 @@
     <None Include="FEDIAN_IDENT_ARTI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="FEDIAN_INCOTERMS.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="FEDIAN_INTERF_CFG.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -322,7 +325,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\enviarDocumentoDispape\enviarDocumento.wsdl" />
-    <None Include="Service References\enviarDocumentoDispape\enviarDocumento.xsd">
+    <None Include="Service References\enviarDocumentoDispape\enviarDocumento1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="UserFields.json">

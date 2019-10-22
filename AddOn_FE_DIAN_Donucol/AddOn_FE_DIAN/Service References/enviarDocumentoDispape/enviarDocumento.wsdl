@@ -2,7 +2,7 @@
 <definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://wsenviardocumento.webservice.dispapeles.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="enviarDocumento" targetNamespace="http://wsenviardocumento.webservice.dispapeles.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://enviardocumentos.dispafel.com:80/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?xsd=1" namespace="http://wsenviardocumento.webservice.dispapeles.com/" />
+      <xsd:import schemaLocation="https://enviardocumentos.dispafel.com:443/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?xsd=1" namespace="http://wsenviardocumento.webservice.dispapeles.com/" />
     </xsd:schema>
   </types>
   <message name="enviarDocumento">
@@ -31,7 +31,7 @@
   </binding>
   <service name="enviarDocumento">
     <port name="WsEnviarDocumentoPort" binding="tns:WsEnviarDocumentoPortBinding">
-      <soap:address location="http://enviardocumentos.dispafel.com:80/DFFacturaElectronicaEnviarDocumentos/enviarDocumento" />
+      <soap:address location="https://enviardocumentos.dispafel.com:443/DFFacturaElectronicaEnviarDocumentos/enviarDocumento" />
     </port>
   </service>
 </definitions>

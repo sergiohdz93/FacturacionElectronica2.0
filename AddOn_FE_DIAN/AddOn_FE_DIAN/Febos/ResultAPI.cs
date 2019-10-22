@@ -14,6 +14,8 @@ namespace AddOn_FE_DIAN
         public String seguimientoId { get; set; }
         public String hora { get; set; }
         public String febosID { get; set; }
+        public String folio { get; set; }
+        public String prefijo { get; set; }
         public String xmlLink { get; set; }
         public String imagenLink { get; set; }
         public List<document> documentos { get; set; }
@@ -23,6 +25,8 @@ namespace AddOn_FE_DIAN
         public string febosId
         { get; set; }
         public string folio
+        { get; set; }
+        public string prefijo
         { get; set; }
     }
 }

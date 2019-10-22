@@ -17,6 +17,9 @@
           <xs:sequence>
             <xs:element name="ReceiverId" type="xs:string" />
             <xs:element minOccurs="0" name="CountryCode" type="xs:string" />
+            <xs:element minOccurs="0" name="Id" type="xs:string" />
+            <xs:element minOccurs="0" name="IssueDate" type="xs:string" />
+            <xs:element minOccurs="0" name="IssueTime" type="xs:string" />
             <xs:element name="Documents">
               <xs:complexType>
                 <xs:sequence>
@@ -30,7 +33,9 @@
                         <xs:element minOccurs="0" name="Reason" type="xs:string" />
                         <xs:element minOccurs="0" name="UseStateDate" type="xs:dateTime" />
                         <xs:element minOccurs="0" name="User" type="xs:string" />
+                        <xs:element minOccurs="0" name="TypeState" type="xs:string" />
                         <xs:element minOccurs="0" maxOccurs="unbounded" name="LineResponse" type="tns:lineResponse" />
+                        <xs:element name="ReferenceId" type="xs:string" />
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
@@ -147,6 +152,27 @@
           <xs:sequence>
             <xs:element name="status" type="xs:string" />
             <xs:element name="downloadData" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EventStatusRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="companyId" type="xs:string" />
+            <xs:element name="accountId" type="xs:string" />
+            <xs:element name="transactionId" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EventStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="eventName" type="xs:string" />
+            <xs:element name="eventStatus" type="xs:string" />
+            <xs:element minOccurs="0" name="eventDate" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="governmentResponseCodes" type="xs:string" />
+            <xs:element minOccurs="0" name="governmentResponseDescriptions" type="xs:string" />
+            <xs:element minOccurs="0" name="governmentErrorDescriptions" type="xs:string" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -427,6 +453,7 @@
       <xs:complexType name="configuration">
         <xs:sequence>
           <xs:element name="senderConfiguration" type="tns:senderConfiguration" />
+          <xs:element name="subscriptionConfiguration" type="tns:subscriptionConfiguration" />
           <xs:element name="governmentConfiguration" type="tns:governmentConfiguration" />
           <xs:element name="billingPlanConfiguration" type="tns:billingPlanConfiguration" />
         </xs:sequence>
@@ -436,6 +463,9 @@
           <xs:element name="publishTimeLimit" type="xs:string" />
           <xs:element name="cancellationsStatementTime" type="xs:string" />
         </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="subscriptionConfiguration">
+        <xs:sequence />
       </xs:complexType>
       <xs:complexType name="governmentConfiguration">
         <xs:sequence>
@@ -535,6 +565,9 @@
   <wsdl:message name="DocumentStatusByNumberResponse">
     <wsdl:part name="body" element="ns1:DocumentStatusByNumberResponse" />
   </wsdl:message>
+  <wsdl:message name="EventStatus">
+    <wsdl:part name="body" element="ns1:EventStatusRequest" />
+  </wsdl:message>
   <wsdl:message name="UploadSync">
     <wsdl:part name="body" element="ns1:UploadSyncRequest" />
   </wsdl:message>
@@ -561,6 +594,9 @@
   </wsdl:message>
   <wsdl:message name="ValidateSentFilesResponse">
     <wsdl:part name="body" element="ns1:ReceivedDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EventStatusResponse">
+    <wsdl:part name="body" element="ns1:EventStatusResponse" />
   </wsdl:message>
   <wsdl:message name="UploadSyncResponse">
     <wsdl:part name="body" element="ns1:UploadSyncResponse" />
@@ -629,6 +665,11 @@
     <wsdl:operation name="DocumentStatusByNumber">
       <wsdl:input name="DocumentStatusByNumber" message="ns1:DocumentStatusByNumber" />
       <wsdl:output name="DocumentStatusByNumberResponse" message="ns1:DocumentStatusByNumberResponse" />
+      <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
+    </wsdl:operation>
+    <wsdl:operation name="EventStatus">
+      <wsdl:input name="EventStatus" message="ns1:EventStatus" />
+      <wsdl:output name="EventStatusResponse" message="ns1:EventStatusResponse" />
       <wsdl:fault name="InvoiceServiceFaultException" message="ns1:InvoiceServiceFaultException" />
     </wsdl:operation>
     <wsdl:operation name="UploadSync">

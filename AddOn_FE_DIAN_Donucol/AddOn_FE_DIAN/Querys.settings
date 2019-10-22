@@ -49,10 +49,10 @@
     </Setting>
     <Setting Name="FacturaVenta" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Select '6' as "version", '1' as "tipodocumento", '1' as "codigoPlantillaPdf", IsNull(A3."BeginStr",'') as "prefijo", 
-					A0."U_TipoNota" as "tiponota", A0."DocNum" as "consecutivo", '05' as "tipoOperacion",
+					A0."U_TipoNota" as "tiponota", A0."DocNum" as "consecutivo", A0."U_SEI_FETipOper" as "tipoOperacion",
 					CONVERT(char(10), A0."DocDate",126) as "fechafacturacion", CONVERT(char(10), A0."DocDueDate",126) as "fechavencimiento",
 					Case When A0."DocCur" = '$' Then 'COP' Else 'COP' End "moneda", A6."SubTotal" as "totalimportebruto", 
-					A7."baseimpu" as "totalbaseimponible", (A6."SubTotal"-A0."DiscSum") as "totalbaseconimpuestos",
+					A7."baseimpu" as "totalbaseimponible", (A6."SubTotal" - A0."DiscSum" + A0."VatSum") as "totalbaseconimpuestos",
 					Cast(A0."DiscSum" as decimal(18,8)) as "descuento", A0."DiscPrcnt" as "campoAdicional3",
 					'TEXTO ENCABEZADO' as "campoAdicional6", 'COP' as "codigoMonedaCambio",
 					Case When IsNull(A2.U_HBT_RegTrib,'') = 'RS' Then '04' When IsNull(A2.U_HBT_RegTrib,'') = 'RC' Then '05' Else '' End "regimen",
@@ -69,23 +69,24 @@
 					A2."Address" as "direccion", A2."Phone1" as "telefono", Case When A0."GroupNum" = '-1' Then '1' Else '2' End "tipocompra",
 					A2."BillToDef" as "despachadoANombre", A2."Phone1" as "telefonoEntrega", A2."Address" as "direccionEntrega",
 					Case When A0."DocType" = 'S' Then A1."AcctCode" Else A1."ItemCode" End as "codigoproducto", 
-					'999' as "tipocodigoproducto",
+					A10."U_SEI_FEIdent" as "tipocodigoproducto",
 					A1."Dscription" as "referencia", A1."Dscription" as "descripcionLine", A1."Dscription" as "nombreProducto", 
 					Case When A0."DocType" = 'S' Then 1 Else Cast(A1."Quantity" as decimal(28,8)) End as "cantidad",
-					'94' "unidadmedida", 
+					CASE 
+					WHEN IsNull(A1."UomCode",'') = 'Manual' Then (Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr") 
+					Else (Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode") End "unidadmedida", 
 					A1."PriceBefDi" as "valorunitario", 
 					Case When A0."DocType" = 'S' Then (A1."PriceBefDi"*1) Else (A1."PriceBefDi"*A1."Quantity") End as "preciosinimpuestos", 
 					A1."LineTotal" as "preciototal", Cast(A1."DiscPrcnt" as decimal(28,8)) as "porcentajedescuento",
-					'10' as "medioPago", A5."PymntGroup" as "nombreCondPago", A0."U_CuidadEmi" as "documentoEmitidoEn", 
+					A0."U_SEI_FEMedPago" as "medioPago", A5."PymntGroup" as "nombreCondPago", A0."U_CuidadEmi" as "documentoEmitidoEn",
 					Case When A0."GroupNum" = '-1' Then '1' Else A5."ExtraMonth"*30 + A5."ExtraDays" End "periododepagoa",
-					Case 
-					When SubString(A1."TaxCode",1,3) = 'ICO' Then '03'
-					When A1."TaxCode" = 'IVAEXENT' Then '09'
-					When A1."TaxCode" = 'IVANOGRV' Then '10'
-					When (A1."TaxCode" != 'IVAEXENT' and IsNull(A1."VatPrcnt",0) = 0) or (A1."TaxCode" != 'IVANOGRV' and IsNull(A1."VatPrcnt",0) = 0) Then '08'
-					Else '01' End "detcampoadicional10", 
-					'1' as "tipoImpuesto", 
-					A1."VatPrcnt" as "detcampoadicional9", A9."U_Codigo" as "tipoobligacion"
+					Case
+					When A1."TaxCode" = 'IVAEXENT' Then '3'
+					When A1."TaxCode" = 'IVANOGRV' Then '2'
+					Else '1' End "tipoImpuesto", 
+					A12."U_SEI_FETributo" as "codigoImpuestoRetencion", Cast(A11."TaxRate" as decimal(28,8)) as "porcentaje",
+					A11."TaxSum" as "valorImpuestoRetencion", Case When IsNull(A11."TaxSum",0) = 0 Then 0 Else A11."BaseSum" End as "baseimponible",
+					'false' as "isAutoRetenido", A9."U_Codigo" as "tipoobligacion"
 					From "OINV" A0
 					Inner Join "INV1" A1 On A0."DocEntry" = A1."DocEntry"
 					Inner Join "OCRD" A2 On A0."CardCode" = A2."CardCode"
@@ -104,10 +105,12 @@
 						Order By "U_Codigo"
 						FOR XML PATH('')), 1, 1, '') 
 					FROM "@FEDIAN_SN_RESPO" T
-					INNER JOIN "@FEDIAN_SN" T1 ON T."Code" = T1."Code" And T1."Code" = (Select "CardCode" From "OINV" Where "DocEntry" = {0})
+					Inner Join "@FEDIAN_SN" T1 ON T."Code" = T1."Code" And T1."Code" = (Select "CardCode" From "OINV" Where "DocEntry" = {0})
 					GROUP BY T1."Code", "U_Codigo") A9 On A2."CardCode" = A9."Code"
-					Where A0."DocEntry" = {0} And A1."TreeType" != 'I'
-</Value>
+					Left Join "OITM" A10 On A1."ItemCode" = A10."ItemCode"
+					Left Join "INV4" A11 On A1."DocEntry" = A11."DocEntry" And A1."LineNum" = A11."LineNum" And A11."RelateType" = '1'
+					Left Join "OSTC" A12 On A11."StcCode" = A12."Code"
+					Where A0."DocEntry" = {0} And A1."TreeType" != 'I'</Value>
     </Setting>
     <Setting Name="CargueMonitor" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Select 
@@ -130,7 +133,7 @@ Order By Cast(A0."Code" as int)</Value>
     <Setting Name="ProcessStatus" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Select "Code", "U_ProcessID" as "ProcessID", "U_ID_Seguimiento" as "ID_Seguimiento", "U_Det_Peticion" as "Det_Peticion"
 From "@FEDIAN_MONITORLOG"
-Where (IsNull("U_Status",'') in ({0})) Or (IsNull("U_Status",'') = '' And IsNull(Cast("U_Archivo_PDF" as Nvarchar(2500)), '') = '' )</Value>
+Where (IsNull("U_Status",'') in ({0})) Or (IsNull("U_Status",'') = '1' And IsNull(Cast("U_Archivo_PDF" as Nvarchar(2500)), '') = '' )</Value>
     </Setting>
     <Setting Name="FacturaExpo" Type="System.String" Scope="Application">
       <Value Profile="(Default)" />
@@ -210,43 +213,28 @@ From "@FEDIAN_MONITORLOG" A0
 Where IsNull(A0."U_Status",'') = '' or IsNull(A0."U_Status",'') In ({0})</Value>
     </Setting>
     <Setting Name="MaxLog" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Select IsNull(Max(cast("Code" as Int)),0)+1 As 'NextCode' From "@FEDIAN_MONITORLOG"</Value>
+      <Value Profile="(Default)">Select IsNull(Max(cast("Code" as Int)),0)+1 As "NextCode" From "@FEDIAN_MONITORLOG"</Value>
     </Setting>
     <Setting Name="impFac" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Select B0."codigoproducto", B0."codigoImpuestoRetencion", IsNull(Sum(B0."valorImpuestoRetencion"),0) as "valorImpuestoRetencion", 
-					IsNull(Sum(B0."baseimponible"),0) as "baseimponible", B0."porcentaje" as "porcentaje", 'false' as "isAutoRetenido"
-					From (
-
-					Select 
-					Case When A0."DocType" = 'S' Then A1."AcctCode" Else A1."ItemCode" End as "codigoproducto", 
-					Case 
-					When SubString(A1."TaxCode",1,3) = 'ICO' Then '03'
-					Else '01' End "codigoImpuestoRetencion",
-					Cast(A2."TaxRate" as decimal(28,8)) as "porcentaje", A2."TaxSum" as "valorImpuestoRetencion", 
-					Case When IsNull(A2."TaxSum",0) = 0 Then 0 Else A2."BaseSum" End as "baseimponible"
-					From "OINV" A0 
-					Inner Join "INV1" A1 On A0."DocEntry" = A1."DocEntry"
-					Inner Join "INV4" A2 On A0."DocEntry" = A2."DocEntry" And A1."LineNum" = A2."LineNum"
-					Where A0."DocEntry" = {0} And A1."TreeType" != 'I' And A2."TaxSum" != 0
+      <Value Profile="(Default)">					Select 
+					A1."U_SEI_FETributo" "codigoImpuestoRetencion",
+					Cast(A0."TaxRate" as decimal(28,8)) as "porcentaje", Sum(A0."TaxSum") as "valorImpuestoRetencion", 
+					Sum(A0."BaseSum") as "baseimponible", 'false' as "isAutoRetenido"
+					From "INV4" A0
+					Inner Join "OSTC" A1 On A0."StcCode" = A1."Code"
+					Where A0."DocEntry" = {0}
+					Group By A1."U_SEI_FETributo", A0."TaxRate"
 
 					Union All
 
-					Select '' as "codigoproducto", '01' as "codigoImpuestoRetencion", 19 as "porcentaje", 0 as "valorImpuestoRetencion", 0 as "baseimponible"
-					From "OINV" A0 
-					Inner Join (Select "DocEntry", Sum("TaxSum") as "IVA" From "INV4" Where SubString("StcCode",1,3) != 'ICO' Group By "DocEntry")  B0 On A0."DocEntry" = B0."DocEntry"
-					Where A0."DocEntry" = {0} And  B0."IVA" = 0
-
-					Union All
-
-					Select '' as "codigoproducto", 
-					Case When A3."U_HBT_TipRet" = '4' Then '05' When A3."U_HBT_TipRet" = '2' Then '06' When A3."U_HBT_TipRet" = '1' Then '07' end "codigoImpuestoRetencion",
-					Cast(A3."PrctBsAmnt" as decimal(28,8)) as "porcentaje", A2."WTAmnt" as "valorImpuestoRetencion", A2."U_HBT_BaseRet" as "baseimponible"
-					From "OINV" A0 
-					Inner Join "INV5" A2 On A0."DocEntry" = A2."AbsEntry"
-					Inner Join "OWHT" A3 On A2."WTCode" = A3."WTCode"
-					Where A0."DocEntry" = {0} And A3."U_HBT_TipRet" != 0
-
-					) B0 group By B0."codigoproducto", B0."codigoImpuestoRetencion", B0."porcentaje";</Value>
+					Select
+					A1."U_SEI_FETributo" "codigoImpuestoRetencion",
+					Cast(A1."PrctBsAmnt" as decimal(28,8)) as "porcentaje", Sum(A0."WTAmnt") as "valorImpuestoRetencion", Sum(A0."U_HBT_BaseRet") as "baseimponible",
+					Case When A1."U_HBT_TipRet" = 0 Then 'true' else 'false' End "isAutoRetenido"
+					From "INV5" A0 
+					Inner Join "OWHT" A1 On A0."WTCode" = A1."WTCode"
+					Where A0."AbsEntry" = {0}
+					Group By A1."U_SEI_FETributo", A1."PrctBsAmnt", A1."U_HBT_TipRet"</Value>
     </Setting>
     <Setting Name="impNC" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Select B0."codigoproducto", B0."codigoImpuestoRetencion", IfNull(Sum(B0."valorImpuestoRetencion"),0) as "valorImpuestoRetencion", 

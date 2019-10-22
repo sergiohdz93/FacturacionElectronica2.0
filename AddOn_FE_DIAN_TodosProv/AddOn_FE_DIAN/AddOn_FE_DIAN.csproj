@@ -142,11 +142,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Service References\WSDispapeles\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Tables.cs" />
     <Compile Include="Web References\consultarArchivosDispape\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -194,6 +189,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="FEDIAN_IDENT_ARTI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="FEDIAN_INCOTERMS.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="FEDIAN_INTERF_CFG.json">
@@ -262,6 +260,12 @@
     <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.DownloadResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.EventStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.EventStatusResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.PaymentStatesByDocumentsRequestResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -322,6 +326,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\consultarEstadoDispape\consultarEstado.wsdl" />
+    <None Include="Service References\consultarEstadoDispape\consultarEstado.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\enviarDocumentoDispape\AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -329,62 +336,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\enviarDocumentoDispape\enviarDocumento.wsdl" />
-    <None Include="Service References\enviarDocumentoDispape\enviarDocumento.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.consultarEstadoFacturaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.consultarEstadosFacturaByErpResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.consultarEstadosFacturaByLoteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.consultarEstadosFacturaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.consultarPdfFacturaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.consultarPdfsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.consultarXmlFacturaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.documentoElectronicoWsDto.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.eBfelEnviosporempresa.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.ebFelUltimoEstado.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.enviarFacturaIndependienteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.enviarFacturaLoteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.enviarFacturaPorLoteDtoResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.enviarFacturaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.envioFacturaLoteRespuestaDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.envioFacturaRespuestaDTO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\AddOn_FE_DIAN.WSDispapeles.findRegistroDocumentosEmpresaResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WSDispapeles\InterSoap.wsdl" />
-    <None Include="Service References\WSDispapeles\InterSoap.xsd">
+    <None Include="Service References\enviarDocumentoDispape\enviarDocumento1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="UserFields.json">
@@ -409,7 +361,6 @@
     <WCFMetadataStorage Include="Service References\CarvajalWS\" />
     <WCFMetadataStorage Include="Service References\consultarEstadoDispape\" />
     <WCFMetadataStorage Include="Service References\enviarDocumentoDispape\" />
-    <WCFMetadataStorage Include="Service References\WSDispapeles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.UploadSyncResponse1.datasource">
@@ -430,12 +381,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WSDispapeles\configuration91.svcinfo" />
-    <None Include="Service References\WSDispapeles\configuration.svcinfo" />
-    <None Include="Service References\WSDispapeles\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\enviarDocumentoDispape\configuration91.svcinfo" />
     <None Include="Service References\enviarDocumentoDispape\configuration.svcinfo" />
     <None Include="Service References\enviarDocumentoDispape\Reference.svcmap">

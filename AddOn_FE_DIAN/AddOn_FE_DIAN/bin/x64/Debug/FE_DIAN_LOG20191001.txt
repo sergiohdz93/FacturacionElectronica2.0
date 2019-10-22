@@ -1,0 +1,287 @@
+1/10/2019 3:37:14 p. m. : FEDIAN_MEDPAGO - 39: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:14 p. m. : FEDIAN_MEDPAGO - 40: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:16 p. m. : Proveedor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:16 p. m. : NIT_Emisor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:17 p. m. : Email_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:17 p. m. : Clave_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:17 p. m. : Token: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:18 p. m. : Ambiente: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:18 p. m. : URL: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:18 p. m. : DocType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:19 p. m. : Folio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:19 p. m. : Prefijo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:19 p. m. : ObjType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:20 p. m. : DocNum: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:20 p. m. : Resultado: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:21 p. m. : Status: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:21 p. m. : ProcessID: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:21 p. m. : Fecha_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:22 p. m. : Hora_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:22 p. m. : Usuario_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:22 p. m. : Fecha_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:23 p. m. : Hora_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:23 p. m. : Usuario_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:23 p. m. : Det_Peticion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:24 p. m. : Respuesta_Int: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:24 p. m. : Archivo_PDF: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:24 p. m. : Enlace_XML: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:25 p. m. : ID_Seguimiento: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:27 p. m. : SEI_FEConcepNC: Sin registros 
+1/10/2019 3:37:27 p. m. : SEI_FEConcepND: Sin registros 
+1/10/2019 3:37:28 p. m. : SEI_FEMedPago: Sin registros 
+1/10/2019 3:37:28 p. m. : SEI_FETipOper: Sin registros 
+1/10/2019 3:37:28 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:37:29 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:37:29 p. m. : SEI_FEIdent: Sin registros 
+1/10/2019 3:37:29 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:37:30 p. m. : SEI_FEIncoTerm: Sin registros 
+1/10/2019 3:37:30 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:37:30 p. m. : SEI_FEUMDIAN: Sin registros 
+1/10/2019 3:37:31 p. m. : SEI_FETipPrec: Sin registros 
+1/10/2019 3:37:31 p. m. : SEI_FEActEco: Sin registros 
+1/10/2019 3:37:31 p. m. : SEI_FETipDoc: Sin registros 
+1/10/2019 3:37:33 p. m. : Descripcion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:33 p. m. : SAP_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:34 p. m. : DIAN_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:34 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:34 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:35 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:35 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:37 p. m. : DocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:37 p. m. : NumResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:38 p. m. : FechaResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:38 p. m. : ClaveTec: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:38 p. m. : FechaDesde: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:37:39 p. m. : FechaHasta: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:12 p. m. : FEDIAN_MEDPAGO - 39: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:12 p. m. : FEDIAN_MEDPAGO - 40: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:14 p. m. : Proveedor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:15 p. m. : NIT_Emisor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:15 p. m. : Email_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:15 p. m. : Clave_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:16 p. m. : Token: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:16 p. m. : Ambiente: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:16 p. m. : URL: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:16 p. m. : DocType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:17 p. m. : Folio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:17 p. m. : Prefijo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:17 p. m. : ObjType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:18 p. m. : DocNum: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:18 p. m. : Resultado: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:18 p. m. : Status: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:19 p. m. : ProcessID: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:19 p. m. : Fecha_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:19 p. m. : Hora_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:20 p. m. : Usuario_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:20 p. m. : Fecha_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:20 p. m. : Hora_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:20 p. m. : Usuario_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:21 p. m. : Det_Peticion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:21 p. m. : Respuesta_Int: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:21 p. m. : Archivo_PDF: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:22 p. m. : Enlace_XML: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:22 p. m. : ID_Seguimiento: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:23 p. m. : SEI_FEConcepNC: Sin registros 
+1/10/2019 3:40:24 p. m. : SEI_FEConcepND: Sin registros 
+1/10/2019 3:40:24 p. m. : SEI_FEMedPago: Sin registros 
+1/10/2019 3:40:24 p. m. : SEI_FETipOper: Sin registros 
+1/10/2019 3:40:25 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:40:25 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:40:25 p. m. : SEI_FEIdent: Sin registros 
+1/10/2019 3:40:26 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:40:26 p. m. : SEI_FEIncoTerm: Sin registros 
+1/10/2019 3:40:26 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:40:27 p. m. : SEI_FEUMDIAN: Sin registros 
+1/10/2019 3:40:27 p. m. : SEI_FETipPrec: Sin registros 
+1/10/2019 3:40:27 p. m. : SEI_FEActEco: Sin registros 
+1/10/2019 3:40:28 p. m. : SEI_FETipDoc: Sin registros 
+1/10/2019 3:40:28 p. m. : SEI_FERegFis: Sin registros 
+1/10/2019 3:40:28 p. m. : Descripcion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:29 p. m. : SAP_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:29 p. m. : DIAN_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:29 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:30 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:30 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:30 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:31 p. m. : SEI_FEModelo: Sin registros 
+1/10/2019 3:40:31 p. m. : DocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:31 p. m. : NumResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:31 p. m. : FechaResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:32 p. m. : ClaveTec: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:32 p. m. : FechaDesde: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:32 p. m. : FechaHasta: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:40:33 p. m. : SEI_FERegFis: Sin registros 
+1/10/2019 3:41:36 p. m. : FEDIAN_MEDPAGO - 39: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:36 p. m. : FEDIAN_MEDPAGO - 40: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:37 p. m. : Proveedor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:38 p. m. : NIT_Emisor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:38 p. m. : Email_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:38 p. m. : Clave_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:39 p. m. : Token: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:39 p. m. : Ambiente: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:39 p. m. : URL: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:40 p. m. : DocType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:40 p. m. : Folio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:40 p. m. : Prefijo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:41 p. m. : ObjType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:41 p. m. : DocNum: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:41 p. m. : Resultado: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:42 p. m. : Status: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:42 p. m. : ProcessID: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:42 p. m. : Fecha_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:42 p. m. : Hora_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:43 p. m. : Usuario_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:43 p. m. : Fecha_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:43 p. m. : Hora_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:44 p. m. : Usuario_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:44 p. m. : Det_Peticion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:44 p. m. : Respuesta_Int: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:45 p. m. : Archivo_PDF: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:45 p. m. : Enlace_XML: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:45 p. m. : ID_Seguimiento: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:46 p. m. : SEI_FEConcepNC: Sin registros 
+1/10/2019 3:41:46 p. m. : SEI_FEConcepND: Sin registros 
+1/10/2019 3:41:46 p. m. : SEI_FEMedPago: Sin registros 
+1/10/2019 3:41:46 p. m. : SEI_FETipOper: Sin registros 
+1/10/2019 3:41:47 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:41:47 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:41:47 p. m. : SEI_FEIdent: Sin registros 
+1/10/2019 3:41:48 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:41:48 p. m. : SEI_FEIncoTerm: Sin registros 
+1/10/2019 3:41:48 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:41:49 p. m. : SEI_FEUMDIAN: Sin registros 
+1/10/2019 3:41:49 p. m. : SEI_FETipPrec: Sin registros 
+1/10/2019 3:41:49 p. m. : SEI_FEActEco: Sin registros 
+1/10/2019 3:41:50 p. m. : SEI_FETipDoc: Sin registros 
+1/10/2019 3:41:50 p. m. : SEI_FERegFis: Sin registros 
+1/10/2019 3:41:50 p. m. : Descripcion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:51 p. m. : SAP_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:51 p. m. : DIAN_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:51 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:52 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:52 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:52 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:53 p. m. : SEI_FEModelo: Sin registros 
+1/10/2019 3:41:53 p. m. : DocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:53 p. m. : NumResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:54 p. m. : FechaResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:54 p. m. : ClaveTec: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:54 p. m. : FechaDesde: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:55 p. m. : FechaHasta: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:41:55 p. m. : SEI_FERegFis: Sin registros 
+1/10/2019 3:43:07 p. m. : FEDIAN_MEDPAGO - 39: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:07 p. m. : FEDIAN_MEDPAGO - 40: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:09 p. m. : Proveedor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:09 p. m. : NIT_Emisor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:10 p. m. : Email_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:10 p. m. : Clave_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:10 p. m. : Token: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:11 p. m. : Ambiente: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:11 p. m. : URL: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:11 p. m. : DocType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:12 p. m. : Folio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:12 p. m. : Prefijo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:12 p. m. : ObjType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:12 p. m. : DocNum: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:13 p. m. : Resultado: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:13 p. m. : Status: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:13 p. m. : ProcessID: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:14 p. m. : Fecha_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:14 p. m. : Hora_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:14 p. m. : Usuario_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:14 p. m. : Fecha_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:15 p. m. : Hora_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:15 p. m. : Usuario_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:15 p. m. : Det_Peticion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:16 p. m. : Respuesta_Int: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:16 p. m. : Archivo_PDF: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:16 p. m. : Enlace_XML: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:16 p. m. : ID_Seguimiento: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:17 p. m. : SEI_FEConcepNC: Sin registros 
+1/10/2019 3:43:17 p. m. : SEI_FEConcepND: Sin registros 
+1/10/2019 3:43:17 p. m. : SEI_FEMedPago: Sin registros 
+1/10/2019 3:43:18 p. m. : SEI_FETipOper: Sin registros 
+1/10/2019 3:43:18 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:43:18 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:43:19 p. m. : SEI_FEIdent: Sin registros 
+1/10/2019 3:43:19 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:43:19 p. m. : SEI_FEIncoTerm: Sin registros 
+1/10/2019 3:43:20 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:43:20 p. m. : SEI_FEUMDIAN: Sin registros 
+1/10/2019 3:43:20 p. m. : SEI_FETipPrec: Sin registros 
+1/10/2019 3:43:21 p. m. : SEI_FEActEco: Sin registros 
+1/10/2019 3:43:21 p. m. : SEI_FETipDoc: Sin registros 
+1/10/2019 3:43:21 p. m. : SEI_FERegFis: Sin registros 
+1/10/2019 3:43:22 p. m. : Descripcion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:22 p. m. : SAP_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:22 p. m. : DIAN_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:23 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:23 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:23 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:24 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:24 p. m. : SEI_FEModelo: Sin registros 
+1/10/2019 3:43:24 p. m. : DocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:25 p. m. : NumResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:25 p. m. : FechaResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:25 p. m. : ClaveTec: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:25 p. m. : FechaDesde: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:26 p. m. : FechaHasta: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:43:26 p. m. : SEI_FERegFis: Sin registros 
+1/10/2019 3:50:13 p. m. : FEDIAN_MEDPAGO - 39: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:13 p. m. : FEDIAN_MEDPAGO - 40: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:15 p. m. : Proveedor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:16 p. m. : NIT_Emisor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:16 p. m. : Email_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:16 p. m. : Clave_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:16 p. m. : Token: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:17 p. m. : Ambiente: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:17 p. m. : URL: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:17 p. m. : DocType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:18 p. m. : Folio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:18 p. m. : Prefijo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:18 p. m. : ObjType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:19 p. m. : DocNum: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:19 p. m. : Resultado: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:19 p. m. : Status: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:20 p. m. : ProcessID: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:20 p. m. : Fecha_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:20 p. m. : Hora_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:21 p. m. : Usuario_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:21 p. m. : Fecha_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:21 p. m. : Hora_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:21 p. m. : Usuario_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:22 p. m. : Det_Peticion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:22 p. m. : Respuesta_Int: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:23 p. m. : Archivo_PDF: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:23 p. m. : Enlace_XML: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:24 p. m. : ID_Seguimiento: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:24 p. m. : SEI_FEConcepNC: Sin registros 
+1/10/2019 3:50:25 p. m. : SEI_FEConcepND: Sin registros 
+1/10/2019 3:50:25 p. m. : SEI_FEMedPago: Sin registros 
+1/10/2019 3:50:26 p. m. : SEI_FETipOper: Sin registros 
+1/10/2019 3:50:27 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:50:27 p. m. : SEI_FETributo: Sin registros 
+1/10/2019 3:50:28 p. m. : SEI_FEIdent: Sin registros 
+1/10/2019 3:50:28 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:50:29 p. m. : SEI_FEIncoTerm: Sin registros 
+1/10/2019 3:50:29 p. m. : SEI_FEDescu: Sin registros 
+1/10/2019 3:50:30 p. m. : SEI_FEUMDIAN: Sin registros 
+1/10/2019 3:50:30 p. m. : SEI_FETipPrec: Sin registros 
+1/10/2019 3:50:31 p. m. : SEI_FEActEco: Sin registros 
+1/10/2019 3:50:31 p. m. : SEI_FETipDoc: Sin registros 
+1/10/2019 3:50:32 p. m. : SEI_FERegFis: Sin registros 
+1/10/2019 3:50:32 p. m. : Descripcion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:33 p. m. : SAP_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:33 p. m. : DIAN_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:34 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:34 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:34 p. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:35 p. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:35 p. m. : SEI_FEModelo: Sin registros 
+1/10/2019 3:50:35 p. m. : DocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:36 p. m. : NumResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:36 p. m. : FechaResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:36 p. m. : ClaveTec: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:37 p. m. : FechaDesde: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:37 p. m. : FechaHasta: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+1/10/2019 3:50:37 p. m. : SEI_FERegFis: Sin registros 

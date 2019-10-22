@@ -22,6 +22,7 @@
     <MetadataSource Address="https://consultarestadofactura.dispafel.com:443/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="consultarEstado.xsd" MetadataType="Schema" ID="ab6789b5-09e8-4e99-a030-c9fb7c4650b9" SourceId="1" SourceUrl="https://consultarestadofactura.dispafel.com/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado?xsd=1" />
     <MetadataFile FileName="consultarEstado.wsdl" MetadataType="Wsdl" ID="9e4e97ca-4567-4cdd-9653-64c77b830b77" SourceId="1" SourceUrl="https://consultarestadofactura.dispafel.com/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado?wsdl" />
   </Metadata>
   <Extensions>

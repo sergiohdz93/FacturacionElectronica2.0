@@ -1,0 +1,16 @@
+[{
+	"Codigo": "1",
+	"Nombre": "Intereses"
+},
+{
+	"Codigo": "2",
+	"Nombre": "Gastos por Cobrar"
+},
+{
+	"Codigo": "3",
+	"Nombre": "Cambio del Valor"
+},
+{
+	"Codigo": "4",
+	"Nombre": "Otro"
+}]

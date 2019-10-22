@@ -1,0 +1,722 @@
+[
+  {
+    "UserFieldsMD": {
+      "Name": "Proveedor",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "Proveedor",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_PARAMG",
+      "EditSize": "10",
+      "Mandatory": "tNO"
+    },
+    "ValidValuesMD": [
+      {
+        "Value": "F",
+        "Description": "Febos"
+      },
+      {
+        "Value": "D",
+        "Description": "Dispapeles"
+      },
+      {
+        "Value": "C",
+        "Description": "Carvajal"
+      }
+    ]
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "NIT_Emisor",
+      "Type": "db_Alpha",
+      "Size": "17",
+      "Description": "NIT Emisor",
+      "SubType": "st_None",
+      "DefaultValue": "",
+      "TableName": "@FEDIAN_PARAMG",
+      "EditSize": "17",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Email_Usuario",
+      "Type": "db_Alpha",
+      "Size": "60",
+      "Description": "Usuario Portal",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_PARAMG",
+      "EditSize": "60",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Clave_Usuario",
+      "Type": "db_Alpha",
+      "Size": "100",
+      "Description": "Clave Portal",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_PARAMG",
+      "EditSize": "100",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Token",
+      "Type": "db_Alpha",
+      "Size": "100",
+      "Description": "Token",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_PARAMG",
+      "EditSize": "100",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Ambiente",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "Ambiente",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_PARAMG",
+      "EditSize": "10",
+      "Mandatory": "tNO"
+    },
+    "ValidValuesMD": [
+      {
+        "Value": "01",
+        "Description": "Produccion"
+      },
+      {
+        "Value": "02",
+        "Description": "Pruebas"
+      }
+    ]
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "URL",
+      "Type": "db_Alpha",
+      "Size": "245",
+      "Description": "URL Proveedor",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_INTERF_CFG",
+      "EditSize": "245",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "DocType",
+      "Type": "db_Alpha",
+      "Size": "15",
+      "Description": "Tipo Documento",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "15",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Folio",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "Numero Documento",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "10",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Prefijo",
+      "Type": "db_Alpha",
+      "Size": "20",
+      "Description": "Prefijo",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "20",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "ObjType",
+      "Type": "db_Alpha",
+      "Size": "15",
+      "Description": "Tipo Objeto",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "15",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "DocNum",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Numero Interno",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Resultado",
+      "Type": "db_Memo",
+      "Description": "Descripcion Estado",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Status",
+      "Type": "db_Alpha",
+      "Size": "6",
+      "Description": "Codigo Estado",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "6",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "ProcessID",
+      "Type": "db_Memo",
+      "Description": "ID Proceso",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Fecha_Envio",
+      "Type": "db_Date",
+      "Description": "Fecha Envio",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Hora_Envio",
+      "Type": "db_Date",
+      "Description": "Hora Envio",
+      "SubType": "st_Time",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Usuario_Envio",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Usaurio Envio",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Fecha_ReEnvio",
+      "Type": "db_Date",
+      "Description": "Fecha Re-Envio",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Hora_ReEnvio",
+      "Type": "db_Date",
+      "Description": "Hora Re-Envio",
+      "SubType": "st_Time",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Usuario_ReEnvio",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Usaurio Re-Envio",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Det_Peticion",
+      "Type": "db_Memo",
+      "Description": "Detalle Peticion",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Respuesta_Int",
+      "Type": "db_Memo",
+      "Description": "Respuesta Interfaz",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Archivo_PDF",
+      "Type": "db_Memo",
+      "Description": "Archivo PDF",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Enlace_XML",
+      "Type": "db_Memo",
+      "Description": "Enlace XML",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "ID_Seguimiento",
+      "Type": "db_Memo",
+      "Description": "ID Seguimiento",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_MONITORLOG",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEConcepNC",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Concepto Nota Credito",
+      "SubType": "st_None",
+      "TableName": "OINV",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_CONCEP_NC"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEConcepND",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Concepto Nota Debito",
+      "SubType": "st_None",
+      "TableName": "OINV",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_CONCEP_ND"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEMedPago",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Medio de pago",
+      "SubType": "st_None",
+      "TableName": "OINV",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_MEDPAGO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FETipOper",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Tipo de Operacion",
+      "SubType": "st_None",
+      "TableName": "OINV",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_TIPOPERA"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FETributo",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Identificador Tributo",
+      "SubType": "st_None",
+      "TableName": "OSTC",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_TRIBU"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FETributo",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Identificador Tributo",
+      "SubType": "st_None",
+      "TableName": "OWHT",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_TRIBU"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEIdent",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Identificacion del Articulo",
+      "SubType": "st_None",
+      "TableName": "OITM",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_IDENT_ARTI"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEDescu",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Concepto descuento",
+      "SubType": "st_None",
+      "TableName": "OINV",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_DESCU"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEIncoTerm",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) IncoTerms",
+      "SubType": "st_None",
+      "TableName": "OINV",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_INCOTERMS"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEDescu",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Concepto descuento",
+      "SubType": "st_None",
+      "TableName": "INV1",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_DESCU"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEUMDIAN",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Unidad de Medida DIAN",
+      "SubType": "st_None",
+      "TableName": "INV1",
+      "EditSize": "10",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FETipPrec",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Tipo de Precio",
+      "SubType": "st_None",
+      "TableName": "INV1",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "DefaultValue": "01"
+    },
+    "ValidValuesMD": [
+      {
+        "Value": "01",
+        "Description": "Valor Comercial"
+      },
+      {
+        "Value": "02",
+        "Description": "Valor en Inventarios"
+      },
+      {
+        "Value": "03",
+        "Description": "Otro Valor"
+      }
+    ]
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEActEco",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "(FE) Actividad Economica",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FETipDoc",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "(FE) Tipo de documento",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FERegFis",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "(FE) Regimen Fiscal",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    },
+    "ValidValuesMD": [
+      {
+        "Value": "04",
+        "Description": "Régimen Simple"
+      },
+      {
+        "Value": "05",
+        "Description": "Régimen Ordinario"
+      }
+    ]
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Descripcion",
+      "Type": "db_Alpha",
+      "Size": "200",
+      "Description": "Descripcion DIAN",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_UM",
+      "EditSize": "200",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SAP_UM",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Unidad de medida SAP",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_HOMOL_UM",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "DIAN_UM",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Unidad de medida DIAN",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_HOMOL_UM",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Codigo",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Codigo Responsabilidad",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_SN_RESPO",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Desc",
+      "Type": "db_Alpha",
+      "Size": "100",
+      "Description": "Descripcion Responsabilidad",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_SN_RESPO",
+      "EditSize": "100",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Codigo",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "Codigo Tributo",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_SN_TRIB",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "Desc",
+      "Type": "db_Alpha",
+      "Size": "100",
+      "Description": "Descripcion Tributo",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_SN_TRIB",
+      "EditSize": "100",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FEModelo",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) Modelo",
+      "SubType": "st_None",
+      "TableName": "OITM",
+      "EditSize": "10",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "DocDIAN",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Tipo de documento",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_CODDOC"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "NumResol",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "Numero Resolucion",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "FechaResol",
+      "Type": "db_Date",
+      "Size": "50",
+      "Description": "Fecha Resolucion",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "ClaveTec",
+      "Type": "db_Alpha",
+      "Size": "100",
+      "Description": "Clave Tecnica",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "100",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "FechaDesde",
+      "Type": "db_Date",
+      "Size": "50",
+      "Description": "Fecha Desde",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "FechaHasta",
+      "Type": "db_Date",
+      "Size": "50",
+      "Description": "Fecha Hasta",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FERegFis",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "(FE) Regimen Fiscal",
+      "SubType": "st_None",
+      "TableName": "OCRD",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    },
+    "ValidValuesMD": [
+      {
+        "Value": "04",
+        "Description": "Régimen Simple"
+      },
+      {
+        "Value": "05",
+        "Description": "Régimen Ordinario"
+      }
+    ]
+  }
+]

@@ -25,94 +25,311 @@ namespace AddOn_FE_DIAN {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select cadena From (\r\nSelect 0 \'LineNum\', 0 as \'ordenplano\',\r\n\'@CABECERA\' + \';\' +" +
-            " Cast(A0.DocNum as nVarchar(100)) + \';\' + CONVERT(char(10), A0.DocDate,126) + \';" +
-            "\' + \r\nconvert(varchar(10), GETDATE(), 108) + \';\' + \'1\' + \';\' + \r\nCase When A0.Do" +
-            "cCur = \'$\' Then \'COP\' Else A0.DocCur End + \';\' + \'\' as \'cadena\'\r\nFrom ORIN A0 \r\n" +
-            "Inner Join OCRD A1 On A0.CardCode = A1.CardCode \r\nInner Join OADM A2 on 1 = 1 \r\n" +
-            "Where A0.DocEntry = {0}\r\n\r\nUnion All \r\n\r\nSelect  0 \'LineNum\', 0 as \'ordenplano\'," +
-            " \'@REFERENCIA\' + \';\' + \'Anulacion de factura electronica\' + \';\' + \'2\' From ORIN " +
-            "A0 \r\nWhere A0.DocEntry = {0}\r\n\r\nUnion All \r\n\r\nSelect  0 \'LineNum\', 0 as \'ordenpl" +
-            "ano\', \'@DESCRIPCION_REF\' + \';\' + Cast(A2.DocNum as nVarchar(100)) + \';\' + CONVER" +
-            "T(char(10), A2.DocDate,126)\r\nFrom ORIN A0 \r\nInner Join RIN1 A1 On A0.DocEntry = " +
-            "A1.DocEntry\r\nInner Join OINV A2 On A1.BaseEntry = A2.DocEntry\r\nWhere A0.DocEntry" +
-            " = {0}\r\n\r\nUnion All \r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@EMISOR\' + \';\' " +
-            "+ \'1\' + \';\' + \'31\' + \';\' +\r\nCase When CharIndex(\'-\', A0.TaxIdNum) = 0 Then A0.Ta" +
-            "xIdNum Else SubString(A0.TaxIdNum, 1, CharIndex(\'-\', A0.TaxIdNum)-1) End + \';\' +" +
-            "\r\nIsNull(A0.CompnyName,\'\') + \';\' + IsNull(A0.State,\'\') + \';\' + IsNull(A1.County," +
-            "\'\')  + \';\' + IsNUll(A1.City,\'\') + \';\' + IsNull(A1.Street,\'\') + \';\' + \r\nIsNull(A1" +
-            ".Country,\'\') + \';\' + IsNull(A2.Name,\'\') + \';\' + \'\' + \';\' + \'\' + \';\' + \'\' as \'cad" +
-            "ena\'\r\nFrom OADM A0\r\nInner Join ADM1 A1 ON A0.Code= A1.Code\r\nInner Join OCRY A2 O" +
-            "n A1.Country = A2.Code\r\n\r\nUnion All \r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n" +
-            "\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Impuesto sobre la renta y complementario régimen" +
-            " ordinario\' + \';\' + \'O-05\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'L" +
-            "ineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Retención en la fue" +
-            "nte a título de renta\' + \';\' + \'O-07\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\n" +
-            "Select 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Retenció" +
-            "n en la fuente en el impuesto sobre las ventas\' + \';\' + \'O-09\' as \'cadena\'\r\nFrom" +
-            " OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTAR" +
-            "IA_EMI\' + \';\' + \'Ventas régimen común\' + \';\' + \'O-11\' as \'cadena\'\r\nFrom OADM A0\r" +
-            "\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' +" +
-            " \';\' + \'Informante de exógena\' + \';\' + \'O-14\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion" +
-            " All\r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'" +
-            "Usuario aduanero\' + \';\' + \'O-10\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelec" +
-            "t 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Obligado a Ll" +
-            "evar Contabilidad\' + \';\' + \'O-42\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSele" +
-            "ct 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Exportador\' " +
-            "+ \';\' + \'A-22\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 2 a" +
-            "s \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Importador\' + \';\' + \'A-23\' as \'" +
-            "cadena\'\r\nFrom OADM A0\r\n\r\nUnion All \r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'" +
-            "@INFO_CAM_COMERCIO_EMI\' + \';\' + A0.PrintHeadr\r\nFrom OADM A0\r\n\r\nUnion All \r\n\r\nSel" +
-            "ect 0 \'LineNum\', 3 as \'ordenplano\',\r\n\'@RECEPTOR\' + \';\' + \r\nCase When A1.U_HBT_Ti" +
-            "pEnt = \'1\' Then \'2\' When A1.U_HBT_TipEnt = \'2\' Then \'1\' Else \'1\' End + \';\' + IsN" +
-            "ull(A1.U_HBT_TipDoc,\'\') + \';\' +\r\nCase When CharIndex(\'-\',A1.LicTradNum) = 0 Then" +
-            " A1.LicTradNum Else SubString(A1.LicTradNum, 1, CharIndex(\'-\', A1.LicTradNum)-1)" +
-            " End + \';\' +\r\nA1.CardName + \';\' + IsNull(A1.U_HBT_MunMed,\'\') + \';\' + IsNull(A1.S" +
-            "tate1,\'\') + \';\' + \r\nCase When IsNull(A1.City,\'\') = \'\' Then IsNull(A1.U_BPCO_City" +
-            ",\'\') Else IsNull(A1.City,\'\') End + \';\' + \r\nCase When IsNull(A1.Address,\'\') = \'\' " +
-            "Then IsNull(A1.U_BPCO_Address,\'\') Else IsNull(A1.Address,\'\') End  + \';\' +\r\nIsNul" +
-            "l(A1.Country,\'\') + \';\' + IsNull(A2.Name,\'\') + \';\' +\r\nCase When A1.U_HBT_TipEnt =" +
-            " \'1\' Then IsNull(A1.U_HBT_Nombres,\'\') Else \'\' End + \';\' +\r\nCase When A1.U_HBT_Ti" +
-            "pEnt = \'1\' Then IsNull(A1.U_HBT_Apellido1,\'\') Else \'\' End + \';\' +\r\nCase When A1." +
-            "U_HBT_TipEnt = \'1\' Then IsNull(A1.U_HBT_Apellido2,\'\') Else \'\' End + \';\' +\r\nIsNul" +
-            "l(A1.Phone1,\'\') + \';\' + IsNull(A1.Phone2,\'\') + \';\' + IsNull(A1.E_Mail,\'\') as \'ca" +
-            "dena\'\r\nFrom ORIN A0 \r\nInner Join OCRD A1 On A0.CardCode = A1.CardCode \r\nInner Jo" +
-            "in OCRY A2 On A1.Country = A2.Code\r\nWhere A0.DocEntry = {0}\r\n\r\nUnion All \r\n\r\nSel" +
-            "ect 0 \'LineNum\', 3 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_REC\' + \';\' + \'Otro tipo d" +
-            "e obligado\' + \';\' + \'O-99\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All \r\n\r\nSelect 0 \'" +
-            "LineNum\', 3 as \'ordenplano\',\r\n\'@INFO_CAM_COMERCIO_REC\' + \';\' + A1.CardName as \'c" +
-            "adena\'\r\nFrom ORIN A0 \r\nInner Join OCRD A1 On A0.CardCode = A1.CardCode \r\nInner J" +
-            "oin OCRY A2 On A1.Country = A2.Code\r\nWhere A0.DocEntry = {0}\r\n\r\nUnion All\r\n\r\nSel" +
-            "ect 0 \'LineNum\', 6 as \'ordenplano\',\r\n\'@TOTALES\' + \';\' + Case When A0.DocCur = \'$" +
-            "\' Then \'COP\' Else A0.DocCur End + \';\' + \r\nCast(Cast(Sum(A1.Linetotal) as Decimal" +
-            "(15,2)) as Nvarchar(100)) + \';\' + \r\nCast(Cast(A0.VatSum as Decimal(15,2)) as Nva" +
-            "rchar(100)) + \';\' + Cast(Cast(A0.DocTotal as Decimal(15,2)) as Nvarchar(100)) + " +
-            "\';\' +\r\nCast(Cast(A0.WTSum as Decimal(15,2)) as Nvarchar(100)) + \';\' + Cast(Cast(" +
-            "A0.DiscSum as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'0.00\' + \';\' + \r\nCast(Cas" +
-            "t(A0.DpmAmnt as Decimal(15,2)) as Nvarchar(100)) as \'cadena\'\r\nFrom ORIN A0 \r\nInn" +
-            "er Join RIN1 A1 On A0.Docentry = A1.DocEntry\r\nWhere A0.DocEntry = {0}\r\nGroup By " +
-            "A0.DocCur, A0.DocTotal, A0.DiscSum, A0.VatSum, A0.DpmAmnt, A0.WTSum\r\n\r\nUnion All" +
-            " \r\n\r\nSelect * From (\r\n\tSelect A1.LineNum, 7 as \'ordenplano\', \'@DETALLE\' + \';\' + " +
-            "\r\n\tCase When A0.DocCur = \'$\' Then \'COP\' Else A0.DocCur End + \';\' +\r\n\tCast(A1.Lin" +
-            "eNum + 1 as Nvarchar(100)) + \';\' +  Cast(A1.LineTotal + 1 as Nvarchar(100)) + \';" +
-            "\' +\r\n\tCast(Cast(A1.Quantity as Decimal(12,0)) as Nvarchar(100)) + \';\' +\r\n\tCast(C" +
-            "ast(A1.Price as Decimal(15,2)) as Nvarchar(100)) + \';\' + \r\n\tCase When A0.DocType" +
-            " = \'I\' Then A1.ItemCode Else A1.AcctCode end + \';\' +\r\n\t\'\' + \';\' + \'\' + \';\' + \'\' " +
-            "+ \';\' + \'\' + \';\' + \'\' + \';\' + \'\' + \';\' + \'\' as \'cadena\'\r\n\tFrom ORIN A0 \r\n\tInner " +
-            "Join RIN1 A1 On A0.DocEntry = A1.DocEntry\r\n\tWhere A0.DocEntry = {0}\r\n\r\n\tUnion Al" +
-            "l\r\n\r\n\tSelect A1.LineNum, 8 as \'ordenplano\', \'@DESCRIPCION_DET\' + \';\' + \'es-CO\' +" +
-            " \';\' + IsNull(A1.Dscription,\'\')\'cadena\'\r\n\tFrom ORIN A0 \r\n\tInner Join RIN1 A1 On " +
-            "A0.DocEntry = A1.DocEntry\r\n\tWhere A0.DocEntry = {0}\r\n\r\n\tUnion All\r\n\r\n\tSelect A1." +
-            "LineNum, 9 as \'ordenplano\', \'@ADICIONAL_PRODUCTO\' + \';\' + \'codigo\' + \';\' + \r\n\tCa" +
-            "se When A0.DocType = \'I\' Then A1.ItemCode Else A1.AcctCode end \'cadena\'\r\n\tFrom O" +
-            "RIN A0 \r\n\tInner Join RIN1 A1 On A0.DocEntry = A1.DocEntry\r\n\tWhere A0.DocEntry = " +
-            "{0}\r\n)C0\r\nUnion All\r\n\r\nSelect 1000 \'LineNum\', 10 as \'ordenplano\',\r\n\'@PERSONALIZA" +
-            "DO\' + \';\' + \'numero-pedido\' + \';\' + A0.NumAtCard \r\nFrom ORIN A0 \r\nWhere A0.DocEn" +
-            "try = {0} And IsNull(A0.NumAtCard,\'\') != \'\'\r\n\r\nUnion All\r\n\r\nSelect 2000 \'LineNum" +
-            "\',11 as \'ordenplano\',\r\n\'@PERSONALIZADO\' + \';\' + \'persona-contacto\' + \';\' + A1.Cn" +
-            "tctPrsn\r\nFrom ORIN A0 \r\nInner Join OCRD A1 ON A0.CardCode = A1.CardCode\r\nWhere A" +
-            "0.DocEntry = {0} And IsNull(A1.CntctPrsn,\'\') != \'\'\r\n)A0\r\nOrder By LineNum, orden" +
-            "plano;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select \"cadena\" From \r\n(\r\n\tSelect 0 As \"LineNum\", 0 As \"ordenplano\",\r\n\t\'@E:\' + \'C" +
+            "ABECERA\' + \';\' + \'OPERACION:\' + \'10\' + \';\' + \'AMBIENTE:\' + IsNull(A3.\"U_Ambiente" +
+            "\",\'\') + \';\' + \'FOLIO:\' + Cast(A0.\"DocNum\" as Nvarchar(100)) + \';\' + \'PREFIJO:\' +" +
+            " IsNull(A4.\"BeginStr\",\'\') + \';\' + \'CUFE:\' + \';\' + \r\n\t\'FECHA_EMISION:\' + Convert(" +
+            "char(10), A0.\"DocDate\",126) + \';\' + \r\n\t\'HORA_EMISION:\' + Convert(varchar, A0.\"Do" +
+            "cTime\",108) + \';\' + \'TIPO_DOCUMENTO:\' + IsNull(A6.\"U_DocDIAN\",\'\') + \';\' + \'NOTA:" +
+            "\' + \';\' + REPLACE(REPLACE(REPLACE(Cast(IsNull(A0.\"Comments\",\'\') as Nvarchar(500)" +
+            "),CHAR(10),\' \'),CHAR(13),\' \'), \',\', \';\') + \';\' +\r\n\t\'MONEDA:\' + CASE WHEN IsNull(" +
+            "A0.\"DocCur\",\'\') = \'\' THEN \'COP\' WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\')" +
+            " THEN \'COP\' ELSE A0.\"DocCur\" END + \';\' + \'TOTAL_LINEAS:\' + Cast(A5.\"NLineas\" as " +
+            "Nvarchar(100))  + \'\' As \"cadena\"\r\n\tFrom \"ORIN\" A0 \r\n\tInner Join \"OCRD\" A1 On A0." +
+            "\"CardCode\" = A1.\"CardCode\" \r\n\tInner Join \"OADM\" A2 on 1 = 1\r\n\tLeft Join \"@FEDIAN" +
+            "_PARAMG\" A3 On 1 = 1\r\n\tLeft Join \"NNM1\" A4 On A0.\"Series\" = A4.\"Series\"\r\n\tLeft J" +
+            "oin (Select \"DocEntry\", Count(*) As \"NLineas\" From \"RIN1\" Group By \"DocEntry\") A" +
+            "5 On A0.\"DocEntry\" = A5.\"DocEntry\"\r\n\tLeft Join \"@FEDIAN_NUMAUTORI\" A6 On A0.\"Ser" +
+            "ies\" = A6.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\t\t\t\t\t\r\n\tUnion all\r\n\r\n\tSelect 0 As " +
+            "\"LineNum\", 1 As \"ordenplano\",\r\n\t\'@E:\' + \'ORDEN_REF\' + \';\' + \'FOLIO:\' + IsNull(A0" +
+            ".\"NumAtCard\",\'\') + \'\' As \"cadena\" \r\n\tFrom \"ORIN\" A0\r\n\tWhere A0.\"DocEntry\" = {0} " +
+            "And IsNull(A0.\"NumAtCard\",\'\') != \'\'\r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"LineNum\", 2 as \"" +
+            "ordenplano\",\r\n\t\'@E:\' + \'NOTAS_REF\' + \';\' + \'NOTA_CREDITO_REF\' + \';\' + \'FOLIO:\' +" +
+            " Cast(A0.\"DocNum\" as Nvarchar(100)) +\';\' + \'FECHA_EMISION:\' + CONVERT(char(10), " +
+            "A0.\"DocDate\",126) + \'\' \r\n\tFrom \"ORIN\" A0\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion a" +
+            "ll\r\n\r\n\tSelect 0 As \"LineNum\", 3 as \"ordenplano\",\r\n\t\'@E:\' + \'REFERENCIA\' + \';\' + " +
+            "\'NOTA\' + \';\' + \'TIPO_REFERENCIA:\' + IsNull(A0.\"U_SEI_FEConcepNC\",\'\') + \';\' + \'CO" +
+            "NTENIDO:\' + IsNull(A0.\"U_SEI_FEConcepNC\",\'\') + \'\' \r\n\tFrom \"ORIN\" A0\r\n\tWhere A0.\"" +
+            "DocEntry\" = {0} And IsNull(\"U_SEI_FEConcepNC\",\'\') != \'\'\r\n\r\n\tUnion all\r\n\r\n\tSelect" +
+            " 0 as \"LineNum\", 4 as \"ordenplano\",\r\n\t\'@E:\' + \'EMISOR\' + \';\' + \'TIPO_ORGANIZACIO" +
+            "N:\' + IsNull(\"U_HBT_TipEnt\",\'\') + \';\' + \'CODIGO_ACTECO:\' + IsNull(A0.\"U_SEI_FEAc" +
+            "tEco\",\'\') + \';\' + \'RAZON_SOCIAL:\' + IsNull(A0.\"PrintHeadr\",\'\') + \';\' +\r\n\t\'NIT:\' " +
+            "+ Case When CharIndex(\'-\', A0.\"TaxIdNum\") = 0 Then A0.\"TaxIdNum\" Else SubString(" +
+            "A0.\"TaxIdNum\", 1, CharIndex(\'-\', A0.\"TaxIdNum\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + Sub" +
+            "String(A0.\"TaxIdNum\", (CharIndex(\'-\', A0.\"TaxIdNum\")+1),1) + \';\' + \'TIPO_IDENTID" +
+            "AD:\' + IsNull(A0.\"U_SEI_FETipDoc\",0) + \';\' + \'CODIGO_OBLIGACION:\' + IsNull(A3.\"U" +
+            "_Codigo\",\'\') +\';\' +\r\n\t\'NOMBRE_OBLIGACION:\' + IsNull(A0.\"U_SEI_FERegFis\",\'\') + \';" +
+            "\' + \'IDIOMA:\' + \'es\'  as \"cadena\"\r\n\tFrom \"OADM\" A0\r\n\tInner Join \"ADM1\" A1 ON A0." +
+            "\"Code\"= A1.\"Code\"\r\n\tInner Join \"OCRY\" A2 On A1.\"Country\" = A2.\"Code\"\r\n\tLeft Join" +
+            " (SELECT Top 1 T1.\"Code\" , \"U_Codigo\"=STUFF(\r\n\t\t\t\t(SELECT \';\' + \"U_Codigo\" AS [t" +
+            "ext()]\r\n\t\t\t\t\tFROM \"@FEDIAN_SN_RESPO\" XT\r\n\t\t\t\t\tWhere \"Code\" = (Select \"TaxIdNum\" " +
+            "From \"OADM\")\r\n\t\t\t\t\tOrder By \"U_Codigo\"\r\n\t\t\t\t\tFOR XML PATH(\'\')), 1, 1, \'\') \r\n\t\t\t\t" +
+            "FROM \"@FEDIAN_SN_RESPO\" T\r\n\t\t\t\tINNER JOIN \"@FEDIAN_SN\" T1 ON T.\"Code\" = T1.\"Code" +
+            "\"\r\n\t\t\t\tGROUP BY T1.\"Code\", \"U_Codigo\") A3 On A0.\"TaxIdNum\" = A3.\"Code\"\r\n\r\n\tUnion" +
+            " all\r\n\r\n\tSelect 0 AS \"LineNum\", 5 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'D" +
+            "IRECCION_EXPEDICION\' + \';\' +\r\n\t\'CODIGO_MUNICIPIO:\' + IsNull(A0.\"U_HBT_MunMed\",\'\'" +
+            ") + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' + " +
+            "IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepar" +
+            "tamento\",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING(A0.\"U_HBT_MunMed\",1,2) +" +
+            " \';\' + \'DIRECCION:\' + IsNull(A1.\"Street\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A1." +
+            "\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\') as \"cadena\"\r\n\tFrom \"" +
+            "OADM\" A0\r\n\tInner Join \"ADM1\" A1 ON A0.\"Code\" = A1.\"Code\"\r\n\tInner Join \"@HBT_MUNI" +
+            "CIPIO\" A2 On A0.\"U_HBT_MunMed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country" +
+            "\" = A3.\"Code\"\r\n\r\n\tUnion all\r\n\r\n\tSelect Top 1 0 As \"LineNum\", 6 as \"ordenplano\",\r" +
+            "\n\t\'@S:\' + \'EMISOR\' + \';\' + \'INFO_TRIBUTARIA\' + \';\' + \'CODIGO_TRIBUTO:\' + IsNull(" +
+            "A1.\"U_Codigo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' + IsNull(A1.\"U_Desc\",\'\') + \'\' As \"ca" +
+            "dena\"\r\n\tFrom \"@FEDIAN_SN\" A0\r\n\tInner Join \"@FEDIAN_SN_TRIB\" A1 on A0.\"Code\" = A1" +
+            ".\"Code\"\r\n\tWhere A1.\"Code\" = (Select \"TaxIdNum\" From \"OADM\")\r\n\t\r\n\tUnion all\r\n\r\n\tS" +
+            "elect 0 As \"LineNum\", 7 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'INFO_COMERC" +
+            "IAL\' + \';\' + \'PREFIJO:\' + IsNull(A1.\"BeginStr\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"ORIN" +
+            "\" A0\r\n\tInner Join \"NNM1\" A1 On A0.\"Series\" = A1.\"Series\"\r\n\tWhere A0.\"DocEntry\" =" +
+            " {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 8 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\'" +
+            " + \';\' + \'INFO_COMERCIAL\' + \';\' + \'NOMBRE:\' + Cast(IsNull(A0.\"AliasName\",\'\') as " +
+            "nvarchar(100)) + \';\' + \'TELEFONO:\' + Cast(IsNull(A0.\"Phone1\",\'\') as nvarchar(100" +
+            ")) + \';\'\r\n\t+ \'FAX:\' + Cast(IsNull(A0.\"Fax\",\'\') as nvarchar(100)) + \';\' + \'CORREO" +
+            ":\' + Cast(IsNull(A0.\"E_Mail\",\'\') as Nvarchar(100)) + \'\'\r\n\tFrom \"OADM\" A0\r\n\t\r\n\tUn" +
+            "ion all\r\n\t\r\n\tSelect 0 \"LineNum\", 9 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'" +
+            "CONTACTO\' + \';\' + \'NOMBRE:\' + Cast(IsNull(A2.\"AliasName\",\'\') as nvarchar(100)) +" +
+            " \';\' + \r\n\t\'TELEFONO:\' + IsNull(A2.\"Phone1\",\'\') + \';\' + \'FAX:\' + IsNull(A2.\"Fax\"," +
+            "\'\') + \';\' + \'CORREO:\' + IsNull(A2.\"E_Mail\",\'\') + \';\' + \r\n\t\'NOTA:\' + Cast(A1.\"Slp" +
+            "Name\" as nVarchar(100)) as \"Cadena\"\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"OSLP\" A1 On A" +
+            "0.\"SlpCode\" = A1.\"SlpCode\"\r\n\tInner Join \"OADM\" A2 On 1 = 1\r\n\tWhere A0.\"DocEntry\"" +
+            " = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 10 as \"ordenplano\",\r\n\t\'@E:\' + \'R" +
+            "ECEPTOR\' + \';\' + \'TIPO_ORGANIZACION:\' + Case When A1.\"U_HBT_TipEnt\" = \'1\' Then \'" +
+            "2\' When A1.\"U_HBT_TipEnt\" = \'2\' Then \'1\' Else \'1\' End + \';\' + \'RAZON_SOCIAL:\' + " +
+            "IsNull(A1.\"CardName\",\'\') + \';\' +\r\n\t\'NIT:\' + Case When CharIndex(\'-\', A1.\"LicTrad" +
+            "Num\") = 0 Then A1.\"LicTradNum\" Else SubString(A0.\"LicTradNum\", 1, CharIndex(\'-\'," +
+            " A0.\"LicTradNum\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + SubString(A0.\"LicTradNum\", (CharI" +
+            "ndex(\'-\', A0.\"LicTradNum\")+1),1) + \';\' + \'TIPO_IDENTIDAD:\' + IsNull(A1.\"U_HBT_Ti" +
+            "pDoc\",\'\') + \';\' + \'CODIGO_OBLIGACION:\' + IsNull(A2.\"U_Codigo\",\'\') + \';\' + \'NOMBR" +
+            "E_OBLIGACION:\' + \r\n\tIsNull(A0.\"U_SEI_FERegFis\",\'\') + \';\' +\r\n\t\'IDIOMA:\' + \'es\' + " +
+            "\'\'\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"OCRD\" A1 On A0.\"CardCode\" = A1.\"CardCode\"\r\n\tLe" +
+            "ft Join (SELECT Top 1 T1.\"Code\", \"U_Codigo\"=STUFF(\r\n\t\t\t\t\t(SELECT \';\' + \"U_Codigo" +
+            "\" AS [text()]\r\n\t\t\t\t\t\tFROM \"@FEDIAN_SN_TRIB\" XT\r\n\t\t\t\t\t\tINNER JOIN \"@FEDIAN_SN\" XT" +
+            "1 ON XT.\"Code\" = XT1.\"Code\"\r\n\t\t\t\t\t\t--*************CAMBIAR DOCENTRY POR VARIABLE*" +
+            "************\r\n\t\t\t\t\t\tWhere XT1.\"Code\" = (Select \"CardCode\" From \"ORIN\" Where \"Doc" +
+            "Entry\" = {0})\r\n\t\t\t\t\t\tOrder By \"U_Codigo\"\r\n\t\t\t\t\t\tFOR XML PATH(\'\')), 1, 1, \'\') \r\n\t" +
+            "\t\t\t\tFROM \"@FEDIAN_SN_TRIB\" T\r\n\t\t\t\t\tINNER JOIN \"@FEDIAN_SN\" T1 ON T.\"Code\" = T1.\"" +
+            "Code\" And T1.\"Code\" = (Select \"CardCode\" From \"ORIN\" Where \"DocEntry\" = {0})\r\n\t\t" +
+            "\t\t\tGROUP BY T1.\"Code\", \"U_Codigo\") A2 On A1.\"CardCode\" = A2.\"Code\"\r\n\tWhere A0.\"D" +
+            "ocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 11 as \"ordenplano\",\r\n\t\'@" +
+            "S:\' + \'RECEPTOR\' + \';\' + \'DIRECCION_EXPEDICION\' + \';\' + \'CODIGO_MUNICIPIO:\' + Is" +
+            "Null(A1.\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + " +
+            "\';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:" +
+            "\' + IsNull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING" +
+            "(A1.\"U_HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"Street\",\'\') + \';\' + \'C" +
+            "ODIGO_PAIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\"" +
+            ",\'\') + \'\'\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"CRD1\" A1 On A0.\"CardCode\" = A1.\"CardCod" +
+            "e\" And A0.\"ShipToCode\" = A1.\"Address\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A1.\"U_" +
+            "HBT_MunMed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\tWhe" +
+            "re A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 12 as \"ordenplan" +
+            "o\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'DIRECCION_FISCAL\' + \';\' + \'CODIGO_MUNICIPIO:\' " +
+            "+ IsNull(A1.\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\'" +
+            ") + \';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAME" +
+            "NTO:\' + IsNull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBST" +
+            "RING(A1.\"U_HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"Street\",\'\') + \';\' " +
+            "+ \'CODIGO_PAIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"N" +
+            "ame\",\'\') + \'\'\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"CRD1\" A1 On A0.\"CardCode\" = A1.\"Car" +
+            "dCode\" And A0.\"PayToCode\" = A1.\"Address\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A1." +
+            "\"U_HBT_MunMed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\t" +
+            "Where A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 13 as \"ordenplan" +
+            "o\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'INFO_TRIBUTARIA\' + \';\' + \'CODIGO_TRIBUTO:\' + I" +
+            "sNull(A3.\"U_Codigo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' + IsNull(A3.\"U_Desc\",\'\')\r\n\tFro" +
+            "m \"ORIN\" A0\r\n\tInner Join \"OCRD\" A1 On A0.\"CardCode\" = A1.\"CardCode\"\r\n\tInner Join" +
+            " \"@FEDIAN_SN\" A2 On A1.\"CardCode\" = A2.\"Code\"\r\n\tInner Join \"@FEDIAN_SN_RESPO\" A3" +
+            " On A2.\"Code\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0" +
+            " as \"LineNum\", 14 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'INFO_COMERCIAL\'" +
+            " + \';\' + \'PREFIJO:\' + IsNull(A1.\"BeginStr\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"ORIN\" A0" +
+            "\r\n\tInner Join \"NNM1\" A1 On A0.\"Series\" = A1.\"Series\"\r\n\tWhere A0.\"DocEntry\" = {0}" +
+            "\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 15 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' " +
+            "+ \';\' + \'CONTACTO\' + \';\' + \'NOMBRE:\' + IsNull(A1.\"Name\",\'\') + \';\' + \r\n\t\'TELEFONO" +
+            ":\' + IsNull(A1.\"Tel1\",\'\') + \';\' + \'FAX:\' + IsNull(A1.\"Cellolar\",\'\') + \';\' + \'COR" +
+            "REO:\' + IsNull(A1.\"E_MailL\",\'\') + \';\' + \r\n\t\'NOTA:\' + IsNull(A1.\"Notes1\",\'\')\r\n\tFr" +
+            "om \"ORIN\" A0\r\n\tInner Join \"OCPR\" A1 On A0.\"CardCode\" = A1.\"CardCode\" And A0.\"Cnt" +
+            "ctCode\" = A1.\"CntctCode\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 " +
+            "\"LineNum\", 16 as \"ordenplano\",\r\n\t\'@E:\' + \'REPRESENTANTE\' + \';\' + \'NIT:\' + Case W" +
+            "hen CharIndex(\'-\', A0.\"TaxIdNum\") = 0 Then A0.\"TaxIdNum\" Else SubString(A0.\"TaxI" +
+            "dNum\", 1, CharIndex(\'-\', A0.\"TaxIdNum\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + SubString(A" +
+            "0.\"TaxIdNum\", (CharIndex(\'-\', A0.\"TaxIdNum\")+1),1) + \';\' + \'TIPO_IDENTIDAD:\' + I" +
+            "sNull(A0.\"U_SEI_FETipDoc\",0) as \"cadena\"\r\n\tFrom \"OADM\" A0\r\n\t\r\n\tUnion all\r\n\t\r\n\tSe" +
+            "lect 0 As \"LineNum\", 17 as \"ordenplano\",\r\n\t\'@S:\' + \'ENTREGA\' + \';\' + \'DIRECCIÓN\'" +
+            " + \';\' + \'CODIGO_MUNICIPIO:\' + IsNull(A1.\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNI" +
+            "CIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\'" +
+            ") + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'" +
+            "CODIGO_DEPARTAMENTO:\' + SUBSTRING(A1.\"U_HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + " +
+            "IsNull(A1.\"Street\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + " +
+            "\'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\') + \'\'\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"CRD1\" " +
+            "A1 On A0.\"CardCode\" = A1.\"CardCode\" And A0.\"ShipToCode\" = A1.\"Address\"\r\n\tInner J" +
+            "oin \"@HBT_MUNICIPIO\" A2 On A1.\"U_HBT_MunMed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 " +
+            "On A1.\"Country\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect" +
+            " 0 \"LineNum\", 18 as \"ordenplano\",\r\n\t\'@E:\' + \'PAGO\' + \';\' + \'CODIGO_METODO_PAGO:\'" +
+            " + Case When A1.\"ExtraMonth\" + A1.\"ExtraDays\" <= 0 Then \'1\' Else \'2\' End + \';\' +" +
+            " \r\n\t\'CODIGO_MEDIO_PAGO:\' + Cast(IsNull(A0.\"U_SEI_FEMedPago\",\'\') as nvarchar(100)" +
+            ") + \';\' + \'FECHA_VENCIMIENTO:\' + Convert(char(10), A0.\"DocDueDate\",126) as \"cade" +
+            "na\"\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"OCTG\" A1 On A0.\"GroupNum\" = A1.\"GroupNum\"\r\n\tW" +
+            "here A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\t\r\n\tSelect 0 As \"LineNum\", 19 as \"ordenp" +
+            "lano\",\r\n\t\'@E:\' + \'DESC_CARGO\' + \';\' + \'IDENTIFICADOR:\' + \'1\' + \';\' + \'ES_CARGO:\'" +
+            " + \'false\' + \';\' + \'TIPO_DESCUENTO:\' + IsNull(A0.\"U_SEI_FEDescu\",\'\') + \';\' +\r\n\t\'" +
+            "RAZON:\' + IsNull(A2.\"Descr\",\'\') + \';\' + \'PORCENTAJE:\' + Cast(Cast(A0.\"DiscPrcnt\"" +
+            " as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MONTO:\' +\r\n\tCASE WHEN A0.\"DocCur\" " +
+            "in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"DiscSum\" as Decimal(15,2)) as" +
+            " Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"DiscSumSy\" as Dec" +
+            "imal(15,2)) as Nvarchar(100)) \r\n\tELSE Cast(Cast(A0.\"DiscSumFC\" as Decimal(15,2))" +
+            " as Nvarchar(100)) END + \';\' + \r\n\t\'MONTO_BASE:\' + CASE WHEN A0.\"DocCur\" in (\'$\'," +
+            "\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(Sum(A3.\"LineTotal\") as Decimal(15,2)) as " +
+            "Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(Sum(A3.\"TotalSumSy\") as D" +
+            "ecimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(Sum(A3.\"TotalFrgn\") as Decimal(15" +
+            ",2)) as Nvarchar(100)) END\r\n\tFrom \"ORIN\" A0\r\n\tLeft Join \"CUFD\" A1 On A1.\"TableID" +
+            "\" = \'ORIN\' And A1.\"AliasID\" = \'SEI_FEDescu\'\r\n\tLeft Join \"UFD1\" A2 On A2.\"TableID" +
+            "\" = A1.\"TableID\" And A2.\"FieldID\" = A1.\"FieldID\" And A0.\"U_SEI_FEDescu\" = A2.\"Fl" +
+            "dValue\"\r\n\tLeft Join \"RIN1\" A3 On A0.\"DocEntry\" = A3.\"DocEntry\"\r\n\tWhere A0.\"DocEn" +
+            "try\" = {0} And IsNull(A0.\"DiscSum\",0) != 0\r\n\tGroup By A0.\"DocCur\", A0.\"U_SEI_FED" +
+            "escu\", A2.\"Descr\", A0.\"DiscPrcnt\", A0.\"DiscSumFC\", A0.\"DiscSum\", A0.\"DiscSumSy\"\r" +
+            "\n\t\r\n\tUnion all\r\n\t\r\n\tSelect 0 As \"LineNum\", 20 as \"ordenplano\",\r\n\t\'@E:\' + \'DESC_C" +
+            "ARGO\' + \';\' + \'IDENTIFICADOR:\' + Cast(A1.\"ExpnsCode\" as nvarchar(100)) + \';\' + \'" +
+            "ES_CARGO:\' + \'true\' + \';\' + \'TIPO_DESCUENTO:\' + \'\' + \';\' +\r\n\t\'RAZON:\' + A2.\"Expn" +
+            "sName\" + \';\' + \'PORCENTAJE:\' + Cast(Cast(0 as Decimal(15,2)) as Nvarchar(100)) +" +
+            " \';\' + \'MONTO:\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN C" +
+            "ast(Cast(A1.\"LineTotal\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" " +
+            "= \'usd\' THEN Cast(Cast(A1.\"TotalSumSy\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tEL" +
+            "SE Cast(Cast(A1.\"TotalFrgn\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' + \'MON" +
+            "TO_BASE:\' + Cast(Cast(\'0\' as Decimal(15,2)) as Nvarchar(100))\r\n\tFrom \"ORIN\" A0\r\n" +
+            "\tInner Join \"RIN3\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tInner Join \"OEXD\" A2 On" +
+            " A1.\"ExpnsCode\" = A2.\"ExpnsCode\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A1.\"Line" +
+            "Total\",0) != 0\r\n\t\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 21 as \"ordenplano\",\r\n\t\'" +
+            "@E:\' + \'MONEDA_CAMBIO\' + \';\' + \'TIPO_MONEDA:\' + IsNull(A1.\"Currency\",\'\') + \';\' +" +
+            " \'TASA_CAMBIO:\' + \r\n\tCASE WHEN A0.\"CurSource\" != \'L\' Then Cast(Cast(A0.\"DocRate\"" +
+            " as Decimal(15,2)) as Nvarchar(100)) Else Cast(Cast(A1.\"Rate\" as Decimal(15,2)) " +
+            "as Nvarchar(100)) End +\r\n\t\';\' + \'\' + \'FECHA_TASA:\' + Convert(char(10), A1.\"RateD" +
+            "ate\",126)\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"ORTT\" A1 On A0.\"DocDate\" = A1.\"RateDate" +
+            "\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 22 as \"orden" +
+            "plano\",\r\n\t\'@E:\' + \'IMPUESTOS\' + \';\' + \'MONTO_TOTAL:\' + CASE WHEN A0.\"DocCur\" in " +
+            "(\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"VatSum\" as Decimal(15,2)) as Nva" +
+            "rchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"VatSumSy\" as Decimal(" +
+            "15,2)) as Nvarchar(100)) \r\n\tELSE Cast(Cast(A0.\"VatSumFC\" as Decimal(15,2)) as Nv" +
+            "archar(100)) END  + \'\' as \"cadena\"\r\n\tFrom \"ORIN\" A0\r\n\tWhere A0.\"DocEntry\" = {0}\r" +
+            "\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 23 as \"ordenplano\",\r\n\t\'@S:\' + \'IMPUESTOS\' " +
+            "+ \';\' + \'SUBTOTAL\' + \';\' + \'MONTO_BASE:\' + Cast(Cast(Sum(A0.\"BaseSum\") as Decima" +
+            "l(15,2)) as Nvarchar(100)) + \':\' + \'MONTO:\' + Cast(Cast(Sum(A0.\"TaxSum\") as Deci" +
+            "mal(15,2)) as Nvarchar(100)) +\r\n\t\'PORCENTAJE:\' + Cast(Cast(A0.\"TaxRate\" as Decim" +
+            "al(2,0)) as Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\' + IsNull(A1.\"U_SEI_FETributo\",\'" +
+            "\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A2.\"Name\",\'\') + \'\' as \"cadena\"\r\n\tFrom" +
+            " \"RIN4\" A0\r\n\tInner Join \"OSTC\" A1 On A0.\"StcCode\" = A1.\"Code\"\r\n\tLeft Join \"@FEDI" +
+            "AN_TRIBU\" A2 On A1.\"U_SEI_FETributo\" = A2.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\tG" +
+            "roup By A0.\"TaxRate\", A1.\"U_SEI_FETributo\", A2.\"Name\"\r\n\r\n\tUnion all\r\n\r\n\tSelect 0" +
+            " \"LineNum\", 24 as \"ordenplano\",\r\n\t\'@E:\' + \'IMPUESTOS_RETENIDOS\' + \';\' + \'MONTO_T" +
+            "OTAL:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0" +
+            ".\"WTSum\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Ca" +
+            "st(Cast(A0.\"WTSumSC\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE Cast(Cast(A0.\"W" +
+            "TSumFC\" as Decimal(15,2)) as Nvarchar(100)) END  + \'\' as \"cadena\"\r\n\tFrom \"ORIN\" " +
+            "A0\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A0.\"WTSum\",0) != 0\r\n\r\n\tUnion all\r\n\r\n\tS" +
+            "elect 0 \"LineNum\", 22 as \"ordenplano\",\r\n\t\'@S:\' + \'IMPUESTOS_RETENIDOS\' + \';\' + \'" +
+            "SUBTOTAL\' + \';\' + \'MONTO_BASE:\' + Cast(Cast(A0.\"U_HBT_BaseRet\" as Decimal(15,2))" +
+            " as Nvarchar(100)) + \';\' + \'MONTO:\' + Cast(Cast(A0.\"WTAmnt\" as Decimal(15,2)) as" +
+            " Nvarchar(100)) +\r\n\t\'PORCENTAJE:\' + Cast(Cast(A0.\"Rate\" as numeric(8,0)) as Nvar" +
+            "char(100)) + \';\' + \'ID_TRIBUTO:\' + IsNull(A1.\"U_SEI_FETributo\",\'\') + \';\' + \'NOMB" +
+            "RE_TRIBUTO:\' +\';\' + IsNull(A2.\"Name\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"RIN5\" A0\r\n\tInn" +
+            "er Join \"OWHT\" A1 On A0.\"WTCode\" = A1.\"WTCode\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A2 On" +
+            " A1.\"U_SEI_FETributo\" = A2.\"Code\"\r\n\tWhere A0.\"AbsEntry\" = {0} And IsNull(A0.\"WTA" +
+            "mnt\",0) != 0\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 26 as \"ordenplano\",\r\n\t\'@E:\' +" +
+            " \'TOTALES\' + \';\' + \'\' + \'TOTAL_BRUTO:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu" +
+            "\', \'lb\',\'COP\') THEN Cast(Cast(Sum(A1.\"LineTotal\") as Decimal(15,2)) as Nvarchar(" +
+            "100)) WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(Sum(A1.\"TotalSumSy\") as Decimal(15" +
+            ",2)) as Nvarchar(100)) ELSE Cast(Cast(Sum(A1.\"TotalFrgn\") as Decimal(15,2)) as N" +
+            "varchar(100)) END + \';\' + \r\n\t\'TOTAL_BASE_IMPONIBLE:\' + CASE WHEN A0.\"DocCur\" in " +
+            "(\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"VatSum\" as Decimal(15,2)) as Nva" +
+            "rchar(100)) WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"VatSumSy\" as Decimal(15," +
+            "2)) as Nvarchar(100)) ELSE Cast(Cast(A0.\"VatSumFC\" as Decimal(15,2)) as Nvarchar" +
+            "(100)) END + \';\' + \r\n\t\'TOTAL_NETO:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', " +
+            "\'lb\',\'COP\') THEN Cast(Cast(A0.\"DocTotal\" as Decimal(15,2)) as Nvarchar(100)) WHE" +
+            "N A0.\"DocCur\" = \'usd\' Then Cast(Cast(A0.\"DocTotalSy\" as Decimal(15,2)) as Nvarch" +
+            "ar(100)) ELSE Cast(Cast(A0.\"DocTotalFC\" as Decimal(15,2)) as Nvarchar(100)) END " +
+            "+ \';\' +\r\n\t\'TOTAL_DESCUENTOS:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'" +
+            "COP\') THEN Cast(Cast(A0.\"DiscSum\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"D" +
+            "ocCur\" = \'usd\' Then Cast(Cast(A0.\"DiscSumSy\" as Decimal(15,2)) as Nvarchar(100))" +
+            " ELSE Cast(Cast(A0.\"DiscSumFC\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' +\r\n" +
+            "\t\'TOTAL_FACTURA:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN C" +
+            "ast(Cast(A0.\"DocTotal\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'u" +
+            "sd\' Then Cast(Cast(A0.\"DocTotalSy\" as Decimal(15,2)) as Nvarchar(100)) ELSE Cast" +
+            "(Cast(A0.\"DocTotalFC\" as Decimal(15,2)) as Nvarchar(100)) END + \'\' as \"cadena\"\r\n" +
+            "\tFrom \"ORIN\" A0 \r\n\tInner Join \"RIN1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tWhere" +
+            " A0.\"DocEntry\" = {0}\r\n\tGroup By A0.\"DocCur\", A0.\"DocTotal\", A0.\"DiscSum\", A0.\"Va" +
+            "tSum\", A0.\"DpmAmnt\", A0.\"WTSum\", A0.\"CurSource\", A0.\"VatSumFC\", A0.\"DocTotalFC\"," +
+            " A0.\"VatSumSy\", A0.\"DocTotalSy\", A0.\"DiscSum\", A0.\"DiscSumFC\", A0.\"DiscSumSy\"\r\n\r" +
+            "\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", " +
+            "27 as \"ordenplano\",\r\n\t\'@E:\' + \'DETALLE\' + \';\' + \'LINEA:\' +  Cast(IsNull(A1.\"Line" +
+            "Num\",0) as Nvarchar(10)) + \';\' + \'NOTA:\' + Cast(IsNull(A1.\"FreeTxt\",\'\') as nvarc" +
+            "har(100)) + \';\' + \'CANTIDAD:\' + Cast(Cast(A1.\"Quantity\" as Decimal(12,2)) as Nva" +
+            "rchar(100)) + \';\' + \'VALOR_TOTAL:\' + \';\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\'," +
+            " \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A1.\"LineTotal\" as Decimal(15,2)) as Nvarchar(1" +
+            "00)) WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A1.\"TotalSumSy\" as Decimal(15,2)) a" +
+            "s Nvarchar(100)) ELSE Cast(Cast(A1.\"TotalFrgn\" as Decimal(15,2)) as Nvarchar(100" +
+            ")) END + \r\n\t\';\' + \'CODIGO_VENDEDOR:\' + IsNull(Cast(A1.\"SlpCode\" as nvarchar(10))" +
+            ",\'\') + \';\' + \'PRECIO:\' + Cast(Cast(A1.\"Price\" as Decimal(15,2)) as Nvarchar(100)" +
+            ") + \';\' + \'ID_UNIDAD_MEDIDA:\' + \r\n\tCASE WHEN IsNull(A1.\"UomCode\",\'\') = \'Manual\' " +
+            "Then IsNull(A2.\"U_DIAN_UM\",\'\') Else IsNull(A3.\"U_SAP_UM\",\'\') End + \';\' + \'CANTID" +
+            "AD_BASE:\' + Cast(Cast(A1.\"Quantity\" as Decimal(12,2)) as Nvarchar(100))\r\n\tFrom \"" +
+            "ORIN\" A0 \r\n\tInner Join \"RIN1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tLeft Join \"@" +
+            "FEDIAN_HOMOL_UM\" A2 On A1.\"unitMsr\" = A2.\"U_SAP_UM\"\r\n\tLeft Join \"@FEDIAN_HOMOL_U" +
+            "M\" A3 On A1.\"UomCode\" = A2.\"U_SAP_UM\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r" +
+            "\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 28 as \"orden" +
+            "plano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'PAGO_REFERENCIA\' +\';\' + \'VALOR:\' + Cast(Cas" +
+            "t(A1.\"Price\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'TIPO_PRECIO:\' + IsNull" +
+            "(A1.\"U_SEI_FETipPrec\",\'\') + \'\' As \"cadena\"\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"RIN1\" " +
+            "A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A1.\"U" +
+            "_SEI_FETipPrec\",\'\') = \'03\'\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect ROW_NUMBER() OVER (ORDER B" +
+            "Y A1.\"VisOrder\") as \"LineNum\", 29 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'" +
+            "DESC_CARGO\' + \';\' + \'IDENTIFICADOR:\' + Cast(A1.\"LineNum\" as nvarchar(100)) + \';\'" +
+            " + \'ES_CARGO:\' + \'false\' + \';\' +\r\n\t\'RAZON:\' + \'\' + \';\' + \'PORCENTAJE:\' + Cast(Ca" +
+            "st(A1.\"DiscPrcnt\" as Decimal(15,0)) as Nvarchar(100)) + \';\' + \'MONTO:\' +\r\n\tCast(" +
+            "Cast(A1.\"PriceBefDi\"-A1.\"Price\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MON" +
+            "TO_BASE:\' + \r\n\tCast(Cast(A1.\"PriceBefDi\" as Decimal(15,2)) as Nvarchar(100)) as " +
+            "\"cadena\"\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"RIN1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry" +
+            "\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A1.\"DiscPrcnt\",0) > 0\r\n\t\r\n\tUnion all\r\n\t" +
+            "\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 30 as \"ordenp" +
+            "lano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'DESC_CARGO\' + \';\' + \'IDENTIFICADOR:\' + Cast(" +
+            "A2.\"LineNum\" as nvarchar(100)) + \';\' + \'ES_CARGO:\' + \'true\' + \';\' +\r\n\t\'RAZON:\' +" +
+            " A3.\"ExpnsName\" + \';\' + \'PORCENTAJE:\' + Cast(Cast(0 as Decimal(15,2)) as Nvarcha" +
+            "r(100)) + \';\' + \'MONTO:\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP" +
+            "\') THEN Cast(Cast(A2.\"TaxSum\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"Do" +
+            "cCur\" = \'usd\' THEN Cast(Cast(A2.\"TaxSumSys\" as Decimal(15,2)) as Nvarchar(100)) " +
+            "\r\n\tELSE Cast(Cast(A2.\"TaxSumFrgn\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' " +
+            "+ \'MONTO_BASE:\' + \r\n\tCast(Cast(A1.\"PriceBefDi\" as Decimal(15,2)) as Nvarchar(100" +
+            ")) as \"cadena\"\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"RIN1\" A1 On A0.\"DocEntry\" = A1.\"Do" +
+            "cEntry\"\r\n\tInner Join \"RIN4\" A2 On A1.\"DocEntry\" = A2.\"DocEntry\" And A1.\"LineNum\"" +
+            " = A2.\"LineNum\" And A2.\"RelateType\" = \'3\'\r\n\tInner Join \"OEXD\" A3 On A2.\"ExpnsCod" +
+            "e\" = A3.\"ExpnsCode\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A2.\"TaxSum\",0) != 0\r\n" +
+            "\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A0.\"VisOrder\") as \"LineNum\"," +
+            " 31 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUESTOS\' + \';\' + \'MONTO_TOTA" +
+            "L:\' + Cast(Cast(IsNull(A0.\"VatSum\",0) as numeric(15,2)) as Nvarchar(100)) As \"ca" +
+            "dena\"\r\n\tFrom \"RIN1\" A0\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_" +
+            "NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 32 as \"ordenplano\",\r\n\t\'@S:\'" +
+            " + \'DETALLE\' + \';\' + \'IMPUESTOS/SUBTOTAL\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum" +
+            "(A2.\"BaseSum\") as numeric(15,2)) as Nvarchar(100)) \r\n\t+ \';\' + \'MONTO:\' + Cast(Ca" +
+            "st(Sum(A2.\"TaxSum\") as numeric(15,2)) as Nvarchar(100)) + \';\' + \'VALOR_UNITARIO:" +
+            "\' + Cast(Cast(Sum(A1.\"Price\") as Decimal(15,2)) as Nvarchar(100))\r\n\t+ \';\' + \'POR" +
+            "CENTAJE:\' + Cast(Cast(A2.\"TaxRate\" as Decimal(2,0)) as Nvarchar(100)) + \';\' + \'I" +
+            "D_TRIBUTO:\' + IsNull(A3.\"U_SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + I" +
+            "sNull(A4.\"Name\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"RIN1\" A1 On " +
+            "A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tLeft Join \"RIN4\" A2 On A1.\"DocEntry\" = A2.\"DocEn" +
+            "try\" And A1.\"LineNum\" = A2.\"LineNum\" And A2.\"RelateType\" = \'1\'\r\n\tLeft Join \"OSTC" +
+            "\" A3 On A2.\"StcCode\" = A3.\"Code\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A4 On A3.\"U_SEI_FET" +
+            "ributo\" = A4.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\tGroup by A1.\"VisOrder\", A2.\"T" +
+            "axRate\", A3.\"U_SEI_FETributo\", A4.\"Name\"\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() O" +
+            "VER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 33 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALL" +
+            "E\' + \';\' + \'PRODUCTO\' + \';\' + \'DESCRIPCION:\' + Cast(IsNull(A1.\"Dscription\",\'\') a" +
+            "s Nvarchar(300)) + \';\' + \'MARCA:\' + IsNull(A3.\"FirmName\",\'\') + \';\' + \'MODELO:\' +" +
+            " IsNull(A2.\"U_SEI_FEModelo\",\'\') as \"cadena\"\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"RIN1\"" +
+            " A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tLeft Join \"OITM\" A2 On A1.\"ItemCode\" = A2" +
+            ".\"ItemCode\"\r\n\tLeft Join \"OMRC\" A3 On A2.\"FirmCode\" = A3.\"FirmCode\"\r\n\tWhere A0.\"D" +
+            "ocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder" +
+            "\") as \"LineNum\", 34 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'PRODUCTO/ESTAN" +
+            "DAR\' + \';\' + \'CODIGO:\' + Cast(IsNull(A3.\"Code\",\'\') as Nvarchar(300)) + \';\' + \'NO" +
+            "MBRE:\' + IsNull(A3.\"Name\",\'\') + \';\' + \'CODIGO_POR_ESTANDAR:\' +  IsNull(A2.\"ItemC" +
+            "ode\",\'\') as \"cadena\"\r\n\tFrom \"ORIN\" A0\r\n\tInner Join \"RIN1\" A1 On A0.\"DocEntry\" = " +
+            "A1.\"DocEntry\"\r\n\tInner Join \"OITM\" A2 On A1.\"ItemCode\" = A2.\"ItemCode\"\r\n\tInner Jo" +
+            "in \"@FEDIAN_IDENT_ARTI\" A3 on A2.\"U_SEI_FEIdent\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntr" +
+            "y\" = {0}\r\n\t)A0\r\nOrder By \"LineNum\", \"ordenplano\";")]
         public string NotaCredito {
             get {
                 return ((string)(this["NotaCredito"]));
@@ -121,29 +338,29 @@ namespace AddOn_FE_DIAN {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select \"cadena\" From\r\n(\r\n\tSelect 0 As \"LineNum\", 0 As \"ordenplano\",\r\n\t\'@E:\' + \'CA" +
-            "BECERA\' + \';\' + \'OPERACION:\' + \'10\' + \';\' + \'AMBIENTE:\' + IsNull(A3.\"U_Ambiente\"" +
-            ",\'\') + \';\' + \'FOLIO:\' + Cast(A0.\"DocNum\" as Nvarchar(100)) + \';\' + \'PREFIJO:\' + " +
-            "IsNull(A4.\"BeginStr\",\'\') + \';\' + \'CUFE:\' + \';\' + \r\n\t\'FECHA_EMISION:\' + CONVERT(c" +
-            "har(10), A0.\"DocDate\",126) + \';\' + \r\n\t\'HORA_EMISION:\' + convert(varchar(10), GET" +
-            "DATE(), 108) + \';\' + \'TIPO_DOCUMENTO:\' + IsNull(A6.\"U_DocDIAN\",\'\') + \';\' + \'NOTA" +
-            ":\' + \';\' + REPLACE(REPLACE(REPLACE(Cast(IsNull(A0.\"Comments\",\'\') as Nvarchar(max" +
-            ")),CHAR(10),\' \'),CHAR(13),\' \'), \',\', \';\') + \';\' +\r\n\t\'MONEDA:\' + CASE WHEN IsNull" +
-            "(A0.\"DocCur\",\'\') = \'\' THEN \'COP\' WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\'" +
-            ") THEN \'COP\' ELSE A0.\"DocCur\" END + \';\' + \'TOTAL_LINEAS:\' + Cast(A5.\"NLineas\" as" +
-            " Nvarchar(100))  + \'\' As \"cadena\"\r\n\tFrom \"OINV\" A0 \r\n\tInner Join \"OCRD\" A1 On A0" +
-            ".\"CardCode\" = A1.\"CardCode\" \r\n\tInner Join \"OADM\" A2 on 1 = 1\r\n\tLeft Join \"@FEDIA" +
-            "N_PARAMG\" A3 On 1 = 1\r\n\tLeft Join \"NNM1\" A4 On A0.\"Series\" = A4.\"Series\"\r\n\tLeft " +
-            "Join (Select \"DocEntry\", Count(*) As \"NLineas\" From \"INV1\" Group By \"DocEntry\") " +
-            "A5 On A0.\"DocEntry\" = A5.\"DocEntry\"\r\n\tLeft Join \"@FEDIAN_NUMAUTORI\" A6 On A0.\"Se" +
-            "ries\" = A6.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\t\t\t\t\t\r\n\tUnion All\r\n\r\n\tSelect 0 A" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Select \"cadena\" From \r\n(\r\n\tSelect 0 As \"LineNum\", 0 As \"ordenplano\",\r\n\t\'@E:\' + \'C" +
+            "ABECERA\' + \';\' + \'OPERACION:\' + \'10\' + \';\' + \'AMBIENTE:\' + IsNull(A3.\"U_Ambiente" +
+            "\",\'\') + \';\' + \'FOLIO:\' + Cast(A0.\"DocNum\" as Nvarchar(100)) + \';\' + \'PREFIJO:\' +" +
+            " IsNull(A4.\"BeginStr\",\'\') + \';\' + \'CUFE:\' + \';\' + \r\n\t\'FECHA_EMISION:\' + Convert(" +
+            "char(10), A0.\"DocDate\",126) + \';\' + \r\n\t\'HORA_EMISION:\' + Convert(varchar(10), GE" +
+            "TDATE(), 108) + \';\' + \'TIPO_DOCUMENTO:\' + IsNull(A6.\"U_DocDIAN\",\'\') + \';\' + \'NOT" +
+            "A:\' + \';\' + REPLACE(REPLACE(REPLACE(Cast(IsNull(A0.\"Comments\",\'\') as Nvarchar(50" +
+            "0)),CHAR(10),\' \'),CHAR(13),\' \'), \',\', \';\') + \';\' +\r\n\t\'MONEDA:\' + CASE WHEN IsNul" +
+            "l(A0.\"DocCur\",\'\') = \'\' THEN \'COP\' WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP" +
+            "\') THEN \'COP\' ELSE A0.\"DocCur\" END + \';\' + \'TOTAL_LINEAS:\' + Cast(A5.\"NLineas\" a" +
+            "s Nvarchar(100))  + \'\' As \"cadena\"\r\n\tFrom \"OINV\" A0 \r\n\tInner Join \"OCRD\" A1 On A" +
+            "0.\"CardCode\" = A1.\"CardCode\" \r\n\tInner Join \"OADM\" A2 on 1 = 1\r\n\tLeft Join \"@FEDI" +
+            "AN_PARAMG\" A3 On 1 = 1\r\n\tLeft Join \"NNM1\" A4 On A0.\"Series\" = A4.\"Series\"\r\n\tLeft" +
+            " Join (Select \"DocEntry\", Count(*) As \"NLineas\" From \"INV1\" Group By \"DocEntry\")" +
+            " A5 On A0.\"DocEntry\" = A5.\"DocEntry\"\r\n\tLeft Join \"@FEDIAN_NUMAUTORI\" A6 On A0.\"S" +
+            "eries\" = A6.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\t\t\t\t\t\r\n\tUnion all\r\n\r\n\tSelect 0 A" +
             "s \"LineNum\", 1 As \"ordenplano\",\r\n\t\'@E:\' + \'ORDEN_REF\' + \';\' + \'FOLIO:\' + IsNull(" +
             "A0.\"NumAtCard\",\'\') + \'\' As \"cadena\" From \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" = {0} A" +
-            "nd IsNull(A0.\"NumAtCard\",\'\') != \'\'\r\n\r\n\tUnion All\r\n\r\n\tSelect 0 As \"LineNum\", 3 as" +
+            "nd IsNull(A0.\"NumAtCard\",\'\') != \'\'\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 3 as" +
             " \"ordenplano\",\r\n\t\'@E:\' + \'REFERENCIA\' + \';\' + \'NOTA\' + \';\' + \'TIPO_REFERENCIA:\' " +
             "+ IsNull(A0.\"U_SEI_FEConcepNC\",\'\') + \';\' + \'CONTENIDO:\' + IsNull(A0.\"U_SEI_FECon" +
             "cepNC\",\'\') + \'\' From \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(\"U_SEI_FEC" +
-            "oncepNC\",\'\') != \'\'\r\n\r\n\tUnion All\r\n\r\n\tSelect 0 as \"LineNum\", 4 as \"ordenplano\",\r\n" +
+            "oncepNC\",\'\') != \'\'\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 as \"LineNum\", 4 as \"ordenplano\",\r\n" +
             "\t\'@E:\' + \'EMISOR\' + \';\' + \'TIPO_ORGANIZACION:\' + IsNull(\"U_HBT_TipEnt\",\'\') + \';\'" +
             " + \'CODIGO_ACTECO:\' + IsNull(A0.\"U_SEI_FEActEco\",\'\') + \';\' + \'RAZON_SOCIAL:\' + I" +
             "sNull(A0.\"PrintHeadr\",\'\') + \';\' +\r\n\t\'NIT:\' + Case When CharIndex(\'-\', A0.\"TaxIdN" +
@@ -151,200 +368,278 @@ namespace AddOn_FE_DIAN {
             "TaxIdNum\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + SubString(A0.\"TaxIdNum\", (CharIndex(\'-\'," +
             " A0.\"TaxIdNum\")+1),1) + \';\' + \'TIPO_IDENTIDAD:\' + IsNull(A0.\"U_SEI_FETipDoc\",0) " +
             "+ \';\' + \'CODIGO_OBLIGACION:\' + IsNull(A3.\"U_Codigo\",\'\') +\';\' +\r\n\t\'NOMBRE_OBLIGAC" +
-            "ION:\' + Case When IsNull(\"U_HBT_RegTrib\",0) = \'RS\' Then \'04\' When IsNull(\"U_HBT_" +
-            "RegTrib\",0) = \'RC\'  Then \'05\' Else \'\' End + \';\' + \'IDIOMA:\' + \'es\'  as \"cadena\"\r" +
-            "\n\tFrom \"OADM\" A0\r\n\tInner Join \"ADM1\" A1 ON A0.\"Code\"= A1.\"Code\"\r\n\tInner Join \"OC" +
-            "RY\" A2 On A1.\"Country\" = A2.\"Code\"\r\n\tLeft Join (SELECT Top 1 T1.\"Code\" , \"U_Codi" +
-            "go\"=STUFF(\r\n\t\t\t\t(SELECT \';\' + \"U_Codigo\" AS [text()]\r\n\t\t\t\t\tFROM \"@FEDIAN_SN_RESP" +
-            "O\" XT\r\n\t\t\t\t\tWhere \"Code\" = (Select \"TaxIdNum\" From \"OADM\")\r\n\t\t\t\t\tOrder By \"U_Cod" +
-            "igo\"\r\n\t\t\t\t\tFOR XML PATH(\'\')), 1, 1, \'\') \r\n\t\t\t\tFROM \"@FEDIAN_SN_RESPO\" T\r\n\t\t\t\tINN" +
-            "ER JOIN \"@FEDIAN_SN\" T1 ON T.\"Code\" = T1.\"Code\"\r\n\t\t\t\tGROUP BY T1.\"Code\", \"U_Codi" +
-            "go\") A3 On A0.\"TaxIdNum\" = A3.\"Code\"\r\n\r\n\tUnion All\r\n\r\n\tSelect 0 AS \"LineNum\", 5 " +
-            "as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'DIRECCION_EXPEDICION\' + \';\' +\r\n\t\'CO" +
-            "DIGO_MUNICIPIO:\' + IsNull(A0.\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + Is" +
-            "Null(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t" +
-            "\'NOMBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPAR" +
-            "TAMENTO:\' + SUBSTRING(A0.\"U_HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"S" +
-            "treet\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS" +
-            ":\' + IsNull(A3.\"Name\",\'\') as \"cadena\"\r\n\tFrom \"OADM\" A0\r\n\tInner Join \"ADM1\" A1 ON" +
-            " A0.\"Code\" = A1.\"Code\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A0.\"U_HBT_MunMed\" = A" +
-            "2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\r\n\tUnion All\r\n\r\n\tSe" +
-            "lect Top 1 0 As \"LineNum\", 6 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'INFO_T" +
-            "RIBUTARIA\' + \';\' + \'CODIGO_TRIBUTO:\' + IsNull(A1.\"U_Codigo\",\'\') + \';\' + \'NOMBRE_" +
-            "TRIBUTO:\' + IsNull(A1.\"U_Desc\",\'\') + \'\' As \"cadena\"\r\n\tFrom \"@FEDIAN_SN\" A0\r\n\tInn" +
-            "er Join \"@FEDIAN_SN_TRIB\" A1 on A0.\"Code\" = A1.\"Code\"\r\n\tWhere A1.\"Code\" = (Selec" +
-            "t \"TaxIdNum\" From \"OADM\")\r\n\r\n\tUnion All\r\n\r\n\tSelect 0 As \"LineNum\", 7 as \"ordenpl" +
-            "ano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'INFO_COMERCIAL\' + \';\' + \'PREFIJO:\' + IsNull(A1" +
-            ".\"BeginStr\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"NNM1\" A1 On A0.\"" +
-            "Series\" = A1.\"Series\"\r\n\tWhere A0.\"DocEntry\" = {0}  \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"" +
-            "LineNum\", 8 as \"ordenplano\",\r\n\t\'@EMISOR\' + \';\' + \'INFO_COMERCIAL\' + \';\' + \'NOMBR" +
-            "E:\' + Cast(IsNull(A0.\"AliasName\",\'\') as nvarchar(100)) + \';\' + \'TELEFONO:\' + Cas" +
-            "t(IsNull(A0.\"Phone1\",\'\') as nvarchar(100)) + \';\'\r\n\t+ \'FAX:\' + Cast(IsNull(A0.\"Fa" +
-            "x\",\'\') as nvarchar(100)) + \';\' + \'CORREO:\' + isNull(A0.\"E_Mail\",\'\') + \'\'\r\n\tFrom " +
-            "\"OADM\" A0 \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 As \"LineNum\", 9 as \"ordenplano\",\r\n\t\'@E:\' +" +
-            " \'RECEPTOR\' + \';\' + \'TIPO_ORGANIZACION:\' + Case When A1.\"U_HBT_TipEnt\" = \'1\' The" +
-            "n \'2\' When A1.\"U_HBT_TipEnt\" = \'2\' Then \'1\' Else \'1\' End + \';\' + \'RAZON_SOCIAL:\'" +
-            " + IsNull(A1.\"CardName\",\'\') + \';\' +\r\n\t\'NIT:\' + Case When CharIndex(\'-\', A1.\"LicT" +
-            "radNum\") = 0 Then A1.\"LicTradNum\" Else SubString(A0.\"LicTradNum\", 1, CharIndex(\'" +
-            "-\', A0.\"LicTradNum\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + SubString(A0.\"LicTradNum\", (Ch" +
-            "arIndex(\'-\', A0.\"LicTradNum\")+1),1) + \';\' + \'TIPO_IDENTIDAD:\' + IsNull(A1.\"U_HBT" +
-            "_TipDoc\",\'\') + \';\' + \'CODIGO_OBLIGACION:\' + IsNull(A2.\"U_Codigo\",\'\') + \';\' + \'NO" +
-            "MBRE_OBLIGACION:\' + \r\n\tCase When IsNull(A1.U_HBT_RegTrib,0) = \'RS\' Then \'04\' Whe" +
-            "n IsNull(A1.U_HBT_RegTrib,0) = \'RC\'  Then \'05\' Else \'\' End + \';\' +\r\n\t\'IDIOMA:\' +" +
-            " \'es\' + \'\'\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OCRD\" A1 On A0.\"CardCode\" = A1.\"CardCo" +
-            "de\"\r\n\tLeft Join (SELECT Top 1 T1.\"Code\", \"U_Codigo\"=STUFF(\r\n\t\t\t\t\t(SELECT \';\' + \"" +
-            "U_Codigo\" AS [text()]\r\n\t\t\t\t\t\tFROM \"@FEDIAN_SN_TRIB\" XT\r\n\t\t\t\t\t\tINNER JOIN \"@FEDIA" +
-            "N_SN\" XT1 ON XT.\"Code\" = XT1.\"Code\"\r\n\t\t\t\t\t\t--*************CAMBIAR DOCENTRY POR V" +
-            "ARIABLE*************\r\n\t\t\t\t\t\tWhere XT1.\"Code\" = (Select \"CardCode\" From \"OINV\" Wh" +
-            "ere \"DocEntry\" = {0})\r\n\t\t\t\t\t\tOrder By \"U_Codigo\"\r\n\t\t\t\t\t\tFOR XML PATH(\'\')), 1, 1," +
-            " \'\') \r\n\t\t\t\t\tFROM \"@FEDIAN_SN_TRIB\" T\r\n\t\t\t\t\tINNER JOIN \"@FEDIAN_SN\" T1 ON T.\"Code" +
-            "\" = T1.\"Code\" And T1.\"Code\" = (Select \"CardCode\" From \"OINV\" Where \"DocEntry\" = " +
-            "{0})\r\n\t\t\t\t\tGROUP BY T1.\"Code\", \"U_Codigo\") A2 On A1.\"CardCode\" = A2.\"Code\"\r\n\tWhe" +
-            "re A0.\"DocEntry\" = {0}\r\n\r\n\tUnion All\r\n\r\n\tSelect 0 As \"LineNum\", 10 as \"ordenplan" +
-            "o\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'DIRECCION_EXPEDICION\' + \';\' + \'CODIGO_MUNICIPI" +
-            "O:\' + IsNull(A1.\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name" +
-            "\",\'\') + \';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPAR" +
-            "TAMENTO:\' + IsNull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + S" +
-            "UBSTRING(A1.\"U_HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"Address\",\'\') +" +
-            " \';\' + \'CODIGO_PAIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(" +
-            "A3.\"Name\",\'\') + \'\'\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OCRD\" A1 On A0.\"CardCode\" = A1" +
-            ".\"CardCode\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A1.\"U_HBT_MunMed\" = A2.\"Code\"\r\n\t" +
-            "Inner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\r" +
-            "\n\tUnion All\r\n\r\n\tSelect 0 \"LineNum\", 11 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \'" +
-            ";\' + \'DIRECCION_FISCAL\' + \';\' + \'CODIGO_MUNICIPIO:\' + IsNull(A1.\"U_HBT_MunMed\",\'" +
-            "\') + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' +" +
-            " IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepa" +
-            "rtamento\",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING(A1.\"U_HBT_MunMed\",1,2) " +
-            "+ \';\' + \'DIRECCION:\' + IsNull(A1.\"Address\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A" +
-            "1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\') + \'\'\r\n\tFrom \"OINV\"" +
-            " A0\r\n\tInner Join \"OCRD\" A1 On A0.\"CardCode\" = A1.\"CardCode\"\r\n\tInner Join \"@HBT_M" +
-            "UNICIPIO\" A2 On A1.\"U_HBT_MunMed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Coun" +
-            "try\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"LineNu" +
-            "m\", 12 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'INFO_TRIBUTARIA\' + \';\' + \'" +
-            "CODIGO_TRIBUTO:\' + IsNull(A3.\"U_Codigo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' + IsNull(A" +
-            "3.\"U_Desc\",\'\')\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OCRD\" A1 On A0.\"CardCode\" = A1.\"Ca" +
-            "rdCode\"\r\n\tInner Join \"@FEDIAN_SN\" A2 On A1.\"CardCode\" = A2.\"Code\"\r\n\tInner Join \"" +
-            "@FEDIAN_SN_RESPO\" A3 On A2.\"Code\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUn" +
-            "ion All\r\n\r\n\tSelect 0 as \"LineNum\", 13 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';" +
-            "\' + \'INFO_COMERCIAL\' + \';\' + \'PREFIJO:\' + IsNull(A1.\"BeginStr\",\'\') + \'\' as \"cade" +
-            "na\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"NNM1\" A1 On A0.\"Series\" = A1.\"Series\"\r\n\tWhere" +
-            " A0.\"DocEntry\" = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"LineNum\", 14 as \"ordenplano\",\r" +
-            "\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'CONTACTO\' + \';\' + \'NOMBRE:\' + IsNull(A1.\"CardCode\"" +
-            ",\'\') + \';\' + \'TELEFONO:\' + IsNull(A1.\"Phone1\",\'\') + \';\' + \'FAX:\' + IsNull(A1.\"Fa" +
-            "x\",\'\') + \';\' + \'CORREO:\' + IsNull(A1.\"E_Mail\",\'\') + \';\'\r\n\tFrom \"OINV\" A0\r\n\tInner" +
-            " Join \"OCRD\" A1 On A0.\"CardCode\" = A1.\"CardCode\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\r" +
-            "\n\tUnion All\r\n\r\n\tSelect 0 \"LineNum\", 15 as \"ordenplano\",\r\n\t\'@E:\' + \'REPRESENTANTE" +
-            "\' + \';\' + \'NIT:\' + Case When CharIndex(\'-\', A0.\"TaxIdNum\") = 0 Then A0.\"TaxIdNum" +
-            "\" Else SubString(A0.\"TaxIdNum\", 1, CharIndex(\'-\', A0.\"TaxIdNum\")-1) End +\r\n\t\';\' " +
-            "+ \'NIT_DV:\' + SubString(A0.\"TaxIdNum\", (CharIndex(\'-\', A0.\"TaxIdNum\")+1),1) + \';" +
-            "\' + \'TIPO_IDENTIDAD:\' + IsNull(A0.\"U_SEI_FETipDoc\",0)\r\n\tFrom \"OADM\" A0\r\n\r\n\tUnion" +
-            " all\r\n\r\n\tSelect 0 \"LineNum\", 16 as \"ordenplano\",\r\n\t\'@E:\' + \'PAGO\' + \';\' + \'CODIG" +
-            "O_METODO_PAGO:\' + Cast(IsNull(A1.\"GroupNum\",\'\') as nvarchar(50)) + \';\' + \'CODIGO" +
-            "_MEDIO_PAGO:\' + IsNull(A0.\"U_SEI_FEMedPago\",\'\') + \';\' + \'FECHA_VENCIMIENTO:\' + C" +
-            "ONVERT(char(10), A0.\"DocDueDate\",126) + \'\'\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OCRD\" " +
-            "A1 On A0.\"CardCode\" = A1.\"CardCode\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\r\n\tUnion all\r\n" +
-            "\r\n\tSelect 0 As \"LineNum\", 17 as \"ordenplano\",\r\n\t\'@E:\' + \'MONEDA_CAMBIO\' + \';\' + " +
-            "\'TIPO_MONEDA:\' + IsNull(A1.\"Currency\",\'\') + \';\' + \'TASA_CAMBIO:\' + \r\n\tCASE WHEN " +
-            "A0.\"CurSource\" != \'L\' Then Cast(Cast(A0.\"DocRate\" as Decimal(15,2)) as Nvarchar(" +
-            "100)) Else Cast(Cast(A1.\"Rate\" as Decimal(15,2)) as Nvarchar(100)) End +\r\n\t\';\' +" +
-            " \'\' + \'FECHA_TASA:\' + CONVERT(char(10), A1.\"RateDate\",126)\r\n\tFrom \"OINV\" A0\r\n\tIn" +
-            "ner Join \"ORTT\" A1 On A0.\"DocDate\" = A1.\"RateDate\"\r\n\tWhere A0.\"DocEntry\" = {0} \r" +
-            "\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"LineNum\", 18 as \"ordenplano\",\r\n\t\'@E:\' + \'IMPUESTOS\' " +
-            "+ \';\' + \'MONTO_TOTAL:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') T" +
-            "HEN Cast(Cast(A0.\"VatSum\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur" +
-            "\" = \'usd\' THEN Cast(Cast(A0.\"VatSumSy\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tEL" +
-            "SE Cast(Cast(A0.\"VatSumFC\" as Decimal(15,2)) as Nvarchar(100)) END  + \'\' as \"cad" +
-            "ena\"\r\n\tFrom \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"L" +
-            "ineNum\", 19 as \"ordenplano\",\r\n\t\'@S:\' + \'IMPUESTOS\' + \';\' + \'SUBTOTAL\' + \';\' + \'M" +
-            "ONTO_BASE:\' + Cast(Cast(A0.\"BaseSum\" as Decimal(15,2)) as Nvarchar(100)) + \':\' +" +
-            " \'MONTO:\' + Cast(Cast(A0.\"TaxSum\" as Decimal(15,2)) as Nvarchar(100)) +\r\n\t\'PORCE" +
-            "NTAJE:\' + Cast(Cast(A0.\"TaxRate\" as Decimal(2,0)) as Nvarchar(100)) + \';\' + \'ID_" +
-            "TRIBUTO:\' + IsNull(A1.\"U_SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsN" +
-            "ull(A2.\"Name\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"INV4\" A0\r\n\tInner Join \"OSTC\" A1 On A0" +
-            ".\"StcCode\" = A1.\"Code\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A2 On A1.\"U_SEI_FETributo\" = " +
-            "A2.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"LineNum\", 20 " +
-            "as \"ordenplano\",\r\n\t\'@E:\' + \'IMPUESTOS_RETENIDOS\' + \';\' + \'MONTO_TOTAL:\' + CASE W" +
-            "HEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"WTSum\" as Dec" +
-            "imal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"WTS" +
-            "umSC\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE Cast(Cast(A0.\"WTSumFC\" as Deci" +
-            "mal(15,2)) as Nvarchar(100)) END  + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tWhere A0.\"" +
-            "DocEntry\" = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"LineNum\", 21 as \"ordenplano\",\r\n\t\'@S" +
-            ":\' + \'IMPUESTOS_RETENIDOS\' + \';\' + \'SUBTOTAL\' + \';\' + \'MONTO_BASE:\' + Cast(Cast(" +
-            "A0.\"U_HBT_BaseRet\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MONTO:\' + Cast(C" +
-            "ast(A0.\"WTAmnt\" as Decimal(15,2)) as Nvarchar(100)) +\r\n\t\'PORCENTAJE:\' + Cast(Cas" +
-            "t(A0.\"Rate\" as numeric(8,0)) as Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\' + IsNull(A1" +
-            ".\"U_SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A2.\"Name\",\'\') + \'" +
-            "\' as \"cadena\"\r\n\tFrom \"INV5\" A0\r\n\tInner Join \"OWHT\" A1 On A0.\"WTCode\" = A1.\"WTCod" +
-            "e\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A2 On A1.\"U_SEI_FETributo\" = A2.\"Code\"\r\n\tWhere A0" +
-            ".\"AbsEntry\" = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect 0 \"LineNum\", 22 as \"ordenplano\",\r\n\t\'" +
-            "@E:\' + \'TOTALES\' + \';\' + \'\' + \'TOTAL_BRUTO:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us" +
-            "\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(Sum(A1.\"LineTotal\") as Decimal(15,2)) as Nva" +
-            "rchar(100)) WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(Sum(A1.\"TotalSumSy\") as Deci" +
-            "mal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(Sum(A1.\"TotalFrgn\") as Decimal(15,2)" +
-            ") as Nvarchar(100)) END + \';\' + \r\n\t\'TOTAL_BASE_IMPONIBLE:\' + CASE WHEN A0.\"DocCu" +
-            "r\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"VatSum\" as Decimal(15,2)) " +
-            "as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"VatSumSy\" as Decim" +
-            "al(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.\"VatSumFC\" as Decimal(15,2)) as Nv" +
-            "archar(100)) END + \';\' + \r\n\t\'TOTAL_NETO:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', " +
-            "\'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"DocTotal\" as Decimal(15,2)) as Nvarchar(100" +
-            ")) WHEN A0.\"DocCur\" = \'usd\' Then Cast(Cast(A0.\"DocTotalSy\" as Decimal(15,2)) as " +
-            "Nvarchar(100)) ELSE Cast(Cast(A0.\"DocTotalFC\" as Decimal(15,2)) as Nvarchar(100)" +
-            ") END + \';\' +\r\n\t\'TOTAL_DESCUENTOS:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', " +
-            "\'lb\',\'COP\') THEN Cast(Cast(A0.\"DiscSum\" as Decimal(15,2)) as Nvarchar(100)) WHEN" +
-            " A0.\"DocCur\" = \'usd\' Then Cast(Cast(A0.\"DiscSumSy\" as Decimal(15,2)) as Nvarchar" +
-            "(100)) ELSE Cast(Cast(A0.\"DiscSumFC\" as Decimal(15,2)) as Nvarchar(100)) END + \'" +
-            ";\' +\r\n\t\'TOTAL_FACTURA:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') " +
-            "THEN Cast(Cast(A0.\"DocTotal\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur" +
-            "\" = \'usd\' Then Cast(Cast(A0.\"DocTotalSy\" as Decimal(15,2)) as Nvarchar(100)) ELS" +
-            "E Cast(Cast(A0.\"DocTotalFC\" as Decimal(15,2)) as Nvarchar(100)) END + \'\' as \"cad" +
-            "ena\"\r\n\tFrom \"OINV\" A0 \r\n\tInner Join \"INV1\" A1 On A0.\"Docentry\" = A1.\"DocEntry\"\r\n" +
-            "\tWhere A0.\"DocEntry\" = {0} And A0.\"DocCur\" != \'\' \r\n\tGroup By A0.\"DocCur\", A0.\"Do" +
-            "cTotal\", A0.\"DiscSum\", A0.\"VatSum\", A0.\"DpmAmnt\", A0.\"WTSum\", A0.\"CurSource\", A0" +
-            ".\"VatSumFC\", A0.\"DocTotalFC\", A0.\"VatSumSy\", A0.\"DocTotalSy\", A0.\"DiscSum\", A0.\"" +
-            "DiscSumFC\", A0.\"DiscSumSy\"\r\n\r\n\tUnion All\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY " +
-            "A1.\"VisOrder\") as \"LineNum\", 23 as \"ordenplano\",\r\n\t\'@E:\' + \'DETALLE\' + \';\' + \'LI" +
-            "NEA:\' +  Cast(IsNull(A1.\"LineNum\",\'\') as Nvarchar(10)) + \';\' + \'NOTA:\' + Cast(Is" +
-            "Null(A1.\"FreeTxt\",\'\') as nvarchar(100)) + \';\' + \'CANTIDAD:\' + Cast(Cast(A1.\"Quan" +
-            "tity\" as Decimal(12,2)) as Nvarchar(100)) + \';\' + \'VALOR_TOTAL:\' + \';\' +\r\n\tCASE " +
-            "WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A1.\"LineTotal\" a" +
-            "s Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A1.\"T" +
-            "otalSumSy\" as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A1.\"TotalFrgn\" as " +
-            "Decimal(15,2)) as Nvarchar(100)) END + \r\n\t\';\' + \'CODIGO_VENDEDOR:\' + IsNull(Cast" +
-            "(A1.\"SlpCode\" as nvarchar(10)),\'\') + \';\' + \'PRECIO:\' + Cast(Cast(A1.\"Price\" as D" +
-            "ecimal(15,2)) as Nvarchar(100)) + \';\' + \'ID_UNIDAD_MEDIDA:\' + \r\n\tCASE WHEN IsNul" +
-            "l(A1.\"UomCode\",\'\') = \'Manual\' Then IsNull(A2.\"U_DIAN_UM\",\'\') Else IsNull(A3.\"U_S" +
-            "AP_UM\",\'\') End + \';\' + \'CANTIDAD_BASE:\' + Cast(Cast(A1.\"Quantity\" as Decimal(12," +
-            "2)) as Nvarchar(100))\r\n\tFrom \"OINV\" A0 \r\n\tInner Join \"INV1\" A1 On A0.\"Docentry\" " +
-            "= A1.\"DocEntry\"\r\n\tLeft Join \"@FEDIAN_HOMOL_UM\" A2 On A1.\"unitMsr\" = A2.\"U_SAP_UM" +
-            "\"\r\n\tLeft Join \"@FEDIAN_HOMOL_UM\" A3 On A1.\"UomCode\" = A2.\"U_SAP_UM\"\r\n\tWhere A0.\"" +
-            "DocEntry\" = {0} \r\n\r\n\tUnion All\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrd" +
-            "er\") as \"LineNum\", 24 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'PAGO_REFEREN" +
-            "CIA\' +\';\' + \'VALOR:\' + Cast(Cast(A1.\"Price\" as Decimal(15,2)) as Nvarchar(100)) " +
-            "+ \';\' + \'TIPO_PRECIO:\' + IsNull(A1.\"U_SEI_FETipPrec\",\'\') + \'\' As \"cadena\"\r\n\tFrom" +
-            " \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"Docentry\" = A1.\"DocEntry\"\r\n\tWhere A0.\"D" +
-            "ocEntry\" = {0} And IsNull(A1.\"U_SEI_FETipPrec\",\'\') = \'03\'\r\n\r\n\tUnion All\r\n\r\n\tSele" +
-            "ct 0 as \"LineNum\", 25 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUESTOS\' +" +
-            " \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum(A0.\"VatSum\") as numeric(15,2)) as Nvarchar" +
-            "(100)) As \"cadena\"\r\n\tFrom \"INV1\" A0\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\r\n\tUnion All\r\n" +
-            "\r\n\tSelect 0 as \"LineNum\", 26 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUE" +
-            "STOS/SUBTOTAL\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum(A2.\"BaseSum\") as numeric(1" +
-            "5,2)) as Nvarchar(100)) \r\n\t+ \';\' + \'MONTO:\' + Cast(Cast(Sum(A2.\"TaxSum\") as nume" +
-            "ric(15,2)) as Nvarchar(100)) + \';\' + \'VALOR_UNITARIO:\' + Cast(Cast(Sum(A1.\"Price" +
-            "\") as Decimal(15,2)) as Nvarchar(100))\r\n\t+ \';\' + \'PORCENTAJE:\' + Cast(Cast(A2.\"T" +
-            "axRate\" as Decimal(2,0)) as Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\' + IsNull(A3.\"U_" +
-            "SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A4.\"Name\",\'\') + \'\' as" +
-            " \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntr" +
-            "y\"\r\n\tLeft Join \"INV4\" A2 On A1.\"DocEntry\" = A2.\"DocEntry\" And A1.\"LineNum\" = A2." +
-            "\"LineNum\"\r\n\tInner Join \"OSTC\" A3 On A2.\"StcCode\" = A3.\"Code\"\r\n\tLeft Join \"@FEDIA" +
-            "N_TRIBU\" A4 On A3.\"U_SEI_FETributo\" = A4.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\tG" +
-            "roup by A2.\"TaxRate\", A3.\"U_SEI_FETributo\", A4.\"Name\"\r\n\r\n\tUnion All\r\n\t\r\n\tSelect " +
-            "ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 27 as \"ordenplano\",\r\n\t\'" +
-            "@S:\' + \'DETALLE\' + \';\' + \'PRODUCTO\' + \';\' + \'DESCRIPCION:\' + Cast(IsNull(A1.\"Dsc" +
-            "ription\",\'\') as Nvarchar(300)) + \';\' + \'MARCA:\' + IsNull(A3.\"FirmName\",\'\') + \';\'" +
-            " + \'MODELO:\' +  IsNull(A2.\"U_FEDIAN_MODELO\",\'\') as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tI" +
-            "nner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tInner Join \"OITM\" A2 On A" +
-            "1.\"ItemCode\" = A2.\"ItemCode\"\r\n\tLeft Join \"OMRC\" A3 On A2.\"FirmCode\" = A3.\"FirmCo" +
-            "de\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\t)A0\r\nOrder By \"LineNum\", \"ordenplano\"")]
+            "ION:\' + IsNull(A0.\"U_SEI_FERegFis\",\'\') + \';\' + \'IDIOMA:\' + \'es\'  as \"cadena\"\r\n\tF" +
+            "rom \"OADM\" A0\r\n\tInner Join \"ADM1\" A1 ON A0.\"Code\"= A1.\"Code\"\r\n\tInner Join \"OCRY\"" +
+            " A2 On A1.\"Country\" = A2.\"Code\"\r\n\tLeft Join (SELECT Top 1 T1.\"Code\" , \"U_Codigo\"" +
+            "=STUFF(\r\n\t\t\t\t(SELECT \';\' + \"U_Codigo\" AS [text()]\r\n\t\t\t\t\tFROM \"@FEDIAN_SN_RESPO\" " +
+            "XT\r\n\t\t\t\t\tWhere \"Code\" = (Select \"TaxIdNum\" From \"OADM\")\r\n\t\t\t\t\tOrder By \"U_Codigo" +
+            "\"\r\n\t\t\t\t\tFOR XML PATH(\'\')), 1, 1, \'\') \r\n\t\t\t\tFROM \"@FEDIAN_SN_RESPO\" T\r\n\t\t\t\tINNER " +
+            "JOIN \"@FEDIAN_SN\" T1 ON T.\"Code\" = T1.\"Code\"\r\n\t\t\t\tGROUP BY T1.\"Code\", \"U_Codigo\"" +
+            ") A3 On A0.\"TaxIdNum\" = A3.\"Code\"\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 AS \"LineNum\", 5 as " +
+            "\"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'DIRECCION_EXPEDICION\' + \';\' +\r\n\t\'CODIG" +
+            "O_MUNICIPIO:\' + IsNull(A0.\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNul" +
+            "l(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NO" +
+            "MBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPARTAM" +
+            "ENTO:\' + SUBSTRING(A0.\"U_HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"Stre" +
+            "et\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' " +
+            "+ IsNull(A3.\"Name\",\'\') as \"cadena\"\r\n\tFrom \"OADM\" A0\r\n\tInner Join \"ADM1\" A1 ON A0" +
+            ".\"Code\" = A1.\"Code\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A0.\"U_HBT_MunMed\" = A2.\"" +
+            "Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\r\n\tUnion all\r\n\r\n\tSelec" +
+            "t Top 1 0 As \"LineNum\", 6 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'INFO_TRIB" +
+            "UTARIA\' + \';\' + \'CODIGO_TRIBUTO:\' + IsNull(A1.\"U_Codigo\",\'\') + \';\' + \'NOMBRE_TRI" +
+            "BUTO:\' + IsNull(A1.\"U_Desc\",\'\') + \'\' As \"cadena\"\r\n\tFrom \"@FEDIAN_SN\" A0\r\n\tInner " +
+            "Join \"@FEDIAN_SN_TRIB\" A1 on A0.\"Code\" = A1.\"Code\"\r\n\tWhere A1.\"Code\" = (Select \"" +
+            "TaxIdNum\" From \"OADM\")\r\n\t\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 7 as \"ordenplan" +
+            "o\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'INFO_COMERCIAL\' + \';\' + \'PREFIJO:\' + IsNull(A1.\"" +
+            "BeginStr\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"NNM1\" A1 On A0.\"Se" +
+            "ries\" = A1.\"Series\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"Line" +
+            "Num\", 8 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'INFO_COMERCIAL\' + \';\' + \'NO" +
+            "MBRE:\' + Cast(IsNull(A0.\"AliasName\",\'\') as nvarchar(100)) + \';\' + \'TELEFONO:\' + " +
+            "Cast(IsNull(A0.\"Phone1\",\'\') as nvarchar(100)) + \';\'\r\n\t+ \'FAX:\' + Cast(IsNull(A0." +
+            "\"Fax\",\'\') as nvarchar(100)) + \';\' + \'CORREO:\' + Cast(IsNull(A0.\"E_Mail\",\'\') as N" +
+            "varchar(100)) + \'\'\r\n\tFrom \"OADM\" A0\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect 0 \"LineNum\", 9 as" +
+            " \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'CONTACTO\' + \';\' + \'NOMBRE:\' + Cast(Is" +
+            "Null(A2.\"AliasName\",\'\') as nvarchar(100)) + \';\' + \r\n\t\'TELEFONO:\' + IsNull(A2.\"Ph" +
+            "one1\",\'\') + \';\' + \'FAX:\' + IsNull(A2.\"Fax\",\'\') + \';\' + \'CORREO:\' + IsNull(A2.\"E_" +
+            "Mail\",\'\') + \';\' + \r\n\t\'NOTA:\' + Cast(A1.\"SlpName\" as nVarchar(100)) as \"Cadena\"\r\n" +
+            "\tFrom \"OINV\" A0\r\n\tInner Join \"OSLP\" A1 On A0.\"SlpCode\" = A1.\"SlpCode\"\r\n\tInner Jo" +
+            "in \"OADM\" A2 On 1 = 1\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 As " +
+            "\"LineNum\", 10 as \"ordenplano\",\r\n\t\'@E:\' + \'RECEPTOR\' + \';\' + \'TIPO_ORGANIZACION:\'" +
+            " + Case When A1.\"U_HBT_TipEnt\" = \'1\' Then \'2\' When A1.\"U_HBT_TipEnt\" = \'2\' Then " +
+            "\'1\' Else \'1\' End + \';\' + \'RAZON_SOCIAL:\' + IsNull(A1.\"CardName\",\'\') + \';\' +\r\n\t\'N" +
+            "IT:\' + Case When CharIndex(\'-\', A1.\"LicTradNum\") = 0 Then A1.\"LicTradNum\" Else S" +
+            "ubString(A0.\"LicTradNum\", 1, CharIndex(\'-\', A0.\"LicTradNum\")-1) End +\r\n\t\';\' + \'N" +
+            "IT_DV:\' + SubString(A0.\"LicTradNum\", (CharIndex(\'-\', A0.\"LicTradNum\")+1),1) + \';" +
+            "\' + \'TIPO_IDENTIDAD:\' + IsNull(A1.\"U_HBT_TipDoc\",\'\') + \';\' + \'CODIGO_OBLIGACION:" +
+            "\' + IsNull(A2.\"U_Codigo\",\'\') + \';\' + \'NOMBRE_OBLIGACION:\' + \r\n\tIsNull(A1.\"U_SEI_" +
+            "FERegFis\",\'\') + \';\' +\r\n\t\'IDIOMA:\' + \'es\' + \'\'\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OCR" +
+            "D\" A1 On A0.\"CardCode\" = A1.\"CardCode\"\r\n\tLeft Join (SELECT Top 1 T1.\"Code\", \"U_C" +
+            "odigo\"=STUFF(\r\n\t\t\t\t\t(SELECT \';\' + \"U_Codigo\" AS [text()]\r\n\t\t\t\t\t\tFROM \"@FEDIAN_SN" +
+            "_TRIB\" XT\r\n\t\t\t\t\t\tINNER JOIN \"@FEDIAN_SN\" XT1 ON XT.\"Code\" = XT1.\"Code\"\r\n\t\t\t\t\t\t--" +
+            "*************CAMBIAR DOCENTRY POR VARIABLE*************\r\n\t\t\t\t\t\tWhere XT1.\"Code\" " +
+            "= (Select \"CardCode\" From \"OINV\" Where \"DocEntry\" = {0})\r\n\t\t\t\t\t\tOrder By \"U_Codi" +
+            "go\"\r\n\t\t\t\t\t\tFOR XML PATH(\'\')), 1, 1, \'\') \r\n\t\t\t\t\tFROM \"@FEDIAN_SN_TRIB\" T\r\n\t\t\t\t\tIN" +
+            "NER JOIN \"@FEDIAN_SN\" T1 ON T.\"Code\" = T1.\"Code\" And T1.\"Code\" = (Select \"CardCo" +
+            "de\" From \"OINV\" Where \"DocEntry\" = {0})\r\n\t\t\t\t\tGROUP BY T1.\"Code\", \"U_Codigo\") A2" +
+            " On A1.\"CardCode\" = A2.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSele" +
+            "ct 0 As \"LineNum\", 11 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'DIRECCION_E" +
+            "XPEDICION\' + \';\' + \'CODIGO_MUNICIPIO:\' + IsNull(A1.\"U_HBT_MunMed\",\'\') + \';\' + \'N" +
+            "OMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"Z" +
+            "ipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepartamento\",\'\')" +
+            " + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING(A1.\"U_HBT_MunMed\",1,2) + \';\' + \'DIRE" +
+            "CCION:\' + IsNull(A1.\"Street\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A1.\"Country\",\'\'" +
+            ") + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\') + \'\'\r\n\tFrom \"OINV\" A0\r\n\tInner Jo" +
+            "in \"CRD1\" A1 On A0.\"CardCode\" = A1.\"CardCode\" And A0.\"ShipToCode\" = A1.\"Address\"" +
+            "\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A1.\"U_HBT_MunMed\" = A2.\"Code\"\r\n\tInner Join " +
+            "\"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r" +
+            "\n\r\n\tSelect 0 As \"LineNum\", 12 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'DIR" +
+            "ECCION_FISCAL\' + \';\' + \'CODIGO_MUNICIPIO:\' + IsNull(A1.\"U_HBT_MunMed\",\'\') + \';\' " +
+            "+ \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' + IsNull(A" +
+            "1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepartamento\"" +
+            ",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING(A1.\"U_HBT_MunMed\",1,2) + \';\' + \'" +
+            "DIRECCION:\' + IsNull(A1.\"Street\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A1.\"Country" +
+            "\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\') + \'\'\r\n\tFrom \"OINV\" A0\r\n\tInne" +
+            "r Join \"CRD1\" A1 On A0.\"CardCode\" = A1.\"CardCode\" And A0.\"PayToCode\" = A1.\"Addre" +
+            "ss\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A1.\"U_HBT_MunMed\" = A2.\"Code\"\r\n\tInner Jo" +
+            "in \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion a" +
+            "ll\r\n\r\n\tSelect 0 \"LineNum\", 13 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'INF" +
+            "O_TRIBUTARIA\' + \';\' + \'CODIGO_TRIBUTO:\' + IsNull(A3.\"U_Codigo\",\'\') + \';\' + \'NOMB" +
+            "RE_TRIBUTO:\' + IsNull(A3.\"U_Desc\",\'\')\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OCRD\" A1 On" +
+            " A0.\"CardCode\" = A1.\"CardCode\"\r\n\tInner Join \"@FEDIAN_SN\" A2 On A1.\"CardCode\" = A" +
+            "2.\"Code\"\r\n\tInner Join \"@FEDIAN_SN_RESPO\" A3 On A2.\"Code\" = A3.\"Code\"\r\n\tWhere A0." +
+            "\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 as \"LineNum\", 14 as \"ordenplano\",\r\n\t" +
+            "\'@S:\' + \'RECEPTOR\' + \';\' + \'INFO_COMERCIAL\' + \';\' + \'PREFIJO:\' + IsNull(A1.\"Begi" +
+            "nStr\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"NNM1\" A1 On A0.\"Series" +
+            "\" = A1.\"Series\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\"" +
+            ", 15 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'CONTACTO\' + \';\' + \'NOMBRE:\' " +
+            "+ IsNull(A1.\"Name\",\'\') + \';\' + \r\n\t\'TELEFONO:\' + IsNull(A1.\"Tel1\",\'\') + \';\' + \'FA" +
+            "X:\' + IsNull(A1.\"Cellolar\",\'\') + \';\' + \'CORREO:\' + IsNull(A1.\"E_MailL\",\'\') + \';\'" +
+            " + \r\n\t\'NOTA:\' + IsNull(A1.\"Notes1\",\'\')\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OCPR\" A1 O" +
+            "n A0.\"CardCode\" = A1.\"CardCode\" And A0.\"CntctCode\" = A1.\"CntctCode\"\r\n\tWhere A0.\"" +
+            "DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 16 as \"ordenplano\",\r\n\t\'@E:" +
+            "\' + \'REPRESENTANTE\' + \';\' + \'NIT:\' + Case When CharIndex(\'-\', A0.\"TaxIdNum\") = 0" +
+            " Then A0.\"TaxIdNum\" Else SubString(A0.\"TaxIdNum\", 1, CharIndex(\'-\', A0.\"TaxIdNum" +
+            "\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + SubString(A0.\"TaxIdNum\", (CharIndex(\'-\', A0.\"Tax" +
+            "IdNum\")+1),1) + \';\' + \'TIPO_IDENTIDAD:\' + IsNull(A0.\"U_SEI_FETipDoc\",0) as \"cade" +
+            "na\"\r\n\tFrom \"OADM\" A0\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect 0 As \"LineNum\", 17 as \"ordenplan" +
+            "o\",\r\n\t\'@S:\' + \'ENTREGA\' + \';\' + \'DIRECCIÓN\' + \';\' + \'CODIGO_MUNICIPIO:\' + IsNull" +
+            "(A1.\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' " +
+            "+ \'CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + " +
+            "IsNull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING(A1." +
+            "\"U_HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"Street\",\'\') + \';\' + \'CODIG" +
+            "O_PAIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\')" +
+            " + \'\'\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"CRD1\" A1 On A0.\"CardCode\" = A1.\"CardCode\" A" +
+            "nd A0.\"ShipToCode\" = A1.\"Address\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A1.\"U_HBT_" +
+            "MunMed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\tWhere A" +
+            "0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 18 as \"ordenplano\",\r\n\t\'" +
+            "@E:\' + \'PAGO\' + \';\' + \'CODIGO_METODO_PAGO:\' + Case When A1.\"ExtraMonth\" + A1.\"Ex" +
+            "traDays\" <= 0 Then \'1\' Else \'2\' End + \';\' + \r\n\t\'CODIGO_MEDIO_PAGO:\' + Cast(IsNul" +
+            "l(A0.\"U_SEI_FEMedPago\",\'\') as nvarchar(100)) + \';\' + \'FECHA_VENCIMIENTO:\' + Conv" +
+            "ert(char(10), A0.\"DocDueDate\",126) as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OC" +
+            "TG\" A1 On A0.\"GroupNum\" = A1.\"GroupNum\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion al" +
+            "l\r\n\t\r\n\tSelect 0 As \"LineNum\", 19 as \"ordenplano\",\r\n\t\'@E:\' + \'DESC_CARGO\' + \';\' +" +
+            " \'IDENTIFICADOR:\' + \'1\' + \';\' + \'ES_CARGO:\' + \'false\' + \';\' + \'TIPO_DESCUENTO:\' " +
+            "+ IsNull(A0.\"U_SEI_FEDescu\",\'\') + \';\' +\r\n\t\'RAZON:\' + IsNull(A2.\"Descr\",\'\') + \';\'" +
+            " + \'PORCENTAJE:\' + Cast(Cast(A0.\"DiscPrcnt\" as Decimal(15,2)) as Nvarchar(100)) " +
+            "+ \';\' + \'MONTO:\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN " +
+            "Cast(Cast(A0.\"DiscSum\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" =" +
+            " \'usd\' THEN Cast(Cast(A0.\"DiscSumSy\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE" +
+            " Cast(Cast(A0.\"DiscSumFC\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' + \r\n\t\'MO" +
+            "NTO_BASE:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cas" +
+            "t(Sum(A3.\"LineTotal\") as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'us" +
+            "d\' THEN Cast(Cast(Sum(A3.\"TotalSumSy\") as Decimal(15,2)) as Nvarchar(100)) ELSE " +
+            "Cast(Cast(Sum(A3.\"TotalFrgn\") as Decimal(15,2)) as Nvarchar(100)) END\r\n\tFrom \"OI" +
+            "NV\" A0\r\n\tLeft Join \"CUFD\" A1 On A1.\"TableID\" = \'OINV\' And A1.\"AliasID\" = \'SEI_FE" +
+            "Descu\'\r\n\tLeft Join \"UFD1\" A2 On A2.\"TableID\" = A1.\"TableID\" And A2.\"FieldID\" = A" +
+            "1.\"FieldID\" And A0.\"U_SEI_FEDescu\" = A2.\"FldValue\"\r\n\tLeft Join \"INV1\" A3 On A0.\"" +
+            "DocEntry\" = A3.\"DocEntry\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A0.\"DiscSum\",0)" +
+            " != 0\r\n\tGroup By A0.\"DocCur\", A0.\"U_SEI_FEDescu\", A2.\"Descr\", A0.\"DiscPrcnt\", A0" +
+            ".\"DiscSumFC\", A0.\"DiscSum\", A0.\"DiscSumSy\"\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect 0 As \"Line" +
+            "Num\", 20 as \"ordenplano\",\r\n\t\'@E:\' + \'DESC_CARGO\' + \';\' + \'IDENTIFICADOR:\' + Cast" +
+            "(A1.\"ExpnsCode\" as nvarchar(100)) + \';\' + \'ES_CARGO:\' + \'true\' + \';\' + \'TIPO_DES" +
+            "CUENTO:\' + \'\' + \';\' +\r\n\t\'RAZON:\' + A2.\"ExpnsName\" + \';\' + \'PORCENTAJE:\' + Cast(C" +
+            "ast(0 as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MONTO:\' +\r\n\tCASE WHEN A0.\"Doc" +
+            "Cur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A1.\"LineTotal\" as Decimal(15" +
+            ",2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A1.\"TotalSumSy" +
+            "\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE Cast(Cast(A1.\"TotalFrgn\" as Decima" +
+            "l(15,2)) as Nvarchar(100)) END + \';\' + \'MONTO_BASE:\' + Cast(Cast(\'0\' as Decimal(" +
+            "15,2)) as Nvarchar(100))\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV3\" A1 On A0.\"DocEntry" +
+            "\" = A1.\"DocEntry\"\r\n\tInner Join \"OEXD\" A2 On A1.\"ExpnsCode\" = A2.\"ExpnsCode\"\r\n\tWh" +
+            "ere A0.\"DocEntry\" = {0} And IsNull(A1.\"LineTotal\",0) != 0\r\n\t\r\n\tUnion all\r\n\r\n\tSel" +
+            "ect 0 As \"LineNum\", 21 as \"ordenplano\",\r\n\t\'@E:\' + \'MONEDA_CAMBIO\' + \';\' + \'TIPO_" +
+            "MONEDA:\' + IsNull(A1.\"Currency\",\'\') + \';\' + \'TASA_CAMBIO:\' + \r\n\tCASE WHEN A0.\"Cu" +
+            "rSource\" != \'L\' Then Cast(Cast(A0.\"DocRate\" as Decimal(15,2)) as Nvarchar(100)) " +
+            "Else Cast(Cast(A1.\"Rate\" as Decimal(15,2)) as Nvarchar(100)) End +\r\n\t\';\' + \'\' + " +
+            "\'FECHA_TASA:\' + Convert(char(10), A1.\"RateDate\",126)\r\n\tFrom \"OINV\" A0\r\n\tInner Jo" +
+            "in \"ORTT\" A1 On A0.\"DocDate\" = A1.\"RateDate\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUni" +
+            "on all\r\n\r\n\tSelect 0 \"LineNum\", 22 as \"ordenplano\",\r\n\t\'@E:\' + \'IMPUESTOS\' + \';\' +" +
+            " \'MONTO_TOTAL:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cas" +
+            "t(Cast(A0.\"VatSum\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'us" +
+            "d\' THEN Cast(Cast(A0.\"VatSumSy\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE Cast" +
+            "(Cast(A0.\"VatSumFC\" as Decimal(15,2)) as Nvarchar(100)) END  + \'\' as \"cadena\"\r\n\t" +
+            "From \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\"," +
+            " 23 as \"ordenplano\",\r\n\t\'@S:\' + \'IMPUESTOS\' + \';\' + \'SUBTOTAL\' + \';\' + \'MONTO_BAS" +
+            "E:\' + Cast(Cast(Sum(A0.\"BaseSum\") as Decimal(15,2)) as Nvarchar(100)) + \':\' + \'M" +
+            "ONTO:\' + Cast(Cast(Sum(A0.\"TaxSum\") as Decimal(15,2)) as Nvarchar(100)) +\r\n\t\'POR" +
+            "CENTAJE:\' + Cast(Cast(A0.\"TaxRate\" as Decimal(2,0)) as Nvarchar(100)) + \';\' + \'I" +
+            "D_TRIBUTO:\' + IsNull(A1.\"U_SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + I" +
+            "sNull(A2.\"Name\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"INV4\" A0\r\n\tInner Join \"OSTC\" A1 On " +
+            "A0.\"StcCode\" = A1.\"Code\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A2 On A1.\"U_SEI_FETributo\" " +
+            "= A2.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\tGroup By A0.\"TaxRate\", A1.\"U_SEI_FETri" +
+            "buto\", A2.\"Name\"\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 24 as \"ordenplano\",\r\n\t\'@E" +
+            ":\' + \'IMPUESTOS_RETENIDOS\' + \';\' + \'MONTO_TOTAL:\' + CASE WHEN A0.\"DocCur\" in (\'$" +
+            "\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"WTSum\" as Decimal(15,2)) as Nvarcha" +
+            "r(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"WTSumSC\" as Decimal(15,2)" +
+            ") as Nvarchar(100)) \r\n\tELSE Cast(Cast(A0.\"WTSumFC\" as Decimal(15,2)) as Nvarchar" +
+            "(100)) END  + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" = {0} And Is" +
+            "Null(A0.\"WTSum\",0) != 0\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 22 as \"ordenplano\"" +
+            ",\r\n\t\'@S:\' + \'IMPUESTOS_RETENIDOS\' + \';\' + \'SUBTOTAL\' + \';\' + \'MONTO_BASE:\' + Cas" +
+            "t(Cast(A0.\"U_HBT_BaseRet\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MONTO:\' +" +
+            " Cast(Cast(A0.\"WTAmnt\" as Decimal(15,2)) as Nvarchar(100)) +\r\n\t\'PORCENTAJE:\' + C" +
+            "ast(Cast(A0.\"Rate\" as numeric(8,0)) as Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\' + Is" +
+            "Null(A1.\"U_SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A2.\"Name\"," +
+            "\'\') + \'\' as \"cadena\"\r\n\tFrom \"INV5\" A0\r\n\tInner Join \"OWHT\" A1 On A0.\"WTCode\" = A1" +
+            ".\"WTCode\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A2 On A1.\"U_SEI_FETributo\" = A2.\"Code\"\r\n\tW" +
+            "here A0.\"AbsEntry\" = {0} And IsNull(A0.\"WTAmnt\",0) != 0\r\n\r\n\tUnion all\r\n\r\n\tSelect" +
+            " 0 \"LineNum\", 26 as \"ordenplano\",\r\n\t\'@E:\' + \'TOTALES\' + \';\' + \'\' + \'TOTAL_BRUTO:" +
+            "\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(Sum(A1." +
+            "\"LineTotal\") as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' THEN C" +
+            "ast(Cast(Sum(A1.\"TotalSumSy\") as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast" +
+            "(Sum(A1.\"TotalFrgn\") as Decimal(15,2)) as Nvarchar(100)) END + \';\' + \r\n\t\'TOTAL_B" +
+            "ASE_IMPONIBLE:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cas" +
+            "t(Cast(A0.\"VatSum\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' " +
+            "THEN Cast(Cast(A0.\"VatSumSy\" as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(" +
+            "A0.\"VatSumFC\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' + \r\n\t\'TOTAL_NETO:\' +" +
+            " CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"DocTot" +
+            "al\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' Then Cast(Cast(" +
+            "A0.\"DocTotalSy\" as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.\"DocTotalF" +
+            "C\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' +\r\n\t\'TOTAL_DESCUENTOS:\' + CASE " +
+            "WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"DiscSum\" as " +
+            "Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' Then Cast(Cast(A0.\"Dis" +
+            "cSumSy\" as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.\"DiscSumFC\" as Dec" +
+            "imal(15,2)) as Nvarchar(100)) END + \';\' +\r\n\t\'TOTAL_FACTURA:\' + CASE WHEN A0.\"Doc" +
+            "Cur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"DocTotal\" as Decimal(15," +
+            "2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' Then Cast(Cast(A0.\"DocTotalSy\" as" +
+            " Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.\"DocTotalFC\" as Decimal(15,2" +
+            ")) as Nvarchar(100)) END + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0 \r\n\tInner Join \"INV1\" " +
+            "A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\tGroup By A0.\"D" +
+            "ocCur\", A0.\"DocTotal\", A0.\"DiscSum\", A0.\"VatSum\", A0.\"DpmAmnt\", A0.\"WTSum\", A0.\"" +
+            "CurSource\", A0.\"VatSumFC\", A0.\"DocTotalFC\", A0.\"VatSumSy\", A0.\"DocTotalSy\", A0.\"" +
+            "DiscSum\", A0.\"DiscSumFC\", A0.\"DiscSumSy\"\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() O" +
+            "VER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 27 as \"ordenplano\",\r\n\t\'@E:\' + \'DETALL" +
+            "E\' + \';\' + \'LINEA:\' +  Cast(IsNull(A1.\"LineNum\",0) as Nvarchar(10)) + \';\' + \'NOT" +
+            "A:\' + Cast(IsNull(A1.\"FreeTxt\",\'\') as nvarchar(100)) + \';\' + \'CANTIDAD:\' + Cast(" +
+            "Cast(A1.\"Quantity\" as Decimal(12,2)) as Nvarchar(100)) + \';\' + \'VALOR_TOTAL:\' + " +
+            "\';\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A1." +
+            "\"LineTotal\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' THEN Ca" +
+            "st(Cast(A1.\"TotalSumSy\" as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A1.\"T" +
+            "otalFrgn\" as Decimal(15,2)) as Nvarchar(100)) END + \r\n\t\';\' + \'CODIGO_VENDEDOR:\' " +
+            "+ IsNull(Cast(A1.\"SlpCode\" as nvarchar(10)),\'\') + \';\' + \'PRECIO:\' + Cast(Cast(A1" +
+            ".\"Price\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'ID_UNIDAD_MEDIDA:\' + \r\n\tCA" +
+            "SE \r\n\tWHEN IsNull(A1.\"UomCode\",\'\') = \'Manual\' Then (Select IsNull(P0.\"U_DIAN_UM\"" +
+            ",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"unitMsr\") \r\n\tElse (Sel" +
+            "ect IsNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A" +
+            "1.\"UomCode\") End + \';\' + \'CANTIDAD_BASE:\' + Cast(Cast(A1.\"Quantity\" as Decimal(1" +
+            "2,2)) as Nvarchar(100))\r\n\tFrom \"OINV\" A0 \r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry" +
+            "\" = A1.\"DocEntry\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBE" +
+            "R() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 28 as \"ordenplano\",\r\n\t\'@S:\' + \'D" +
+            "ETALLE\' + \';\' + \'PAGO_REFERENCIA\' +\';\' + \'VALOR:\' + Cast(Cast(A1.\"Price\" as Deci" +
+            "mal(15,2)) as Nvarchar(100)) + \';\' + \'TIPO_PRECIO:\' + IsNull(A1.\"U_SEI_FETipPrec" +
+            "\",\'\') + \'\' As \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" " +
+            "= A1.\"DocEntry\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A1.\"U_SEI_FETipPrec\",\'\') " +
+            "= \'03\'\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as " +
+            "\"LineNum\", 29 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'DESC_CARGO\' + \';\' + " +
+            "\'IDENTIFICADOR:\' + Cast(A1.\"LineNum\" as nvarchar(100)) + \';\' + \'ES_CARGO:\' + \'fa" +
+            "lse\' + \';\' +\r\n\t\'RAZON:\' + \'\' + \';\' + \'PORCENTAJE:\' + Cast(Cast(A1.\"DiscPrcnt\" as" +
+            " Decimal(15,0)) as Nvarchar(100)) + \';\' + \'MONTO:\' +\r\n\tCast(Cast(A1.\"PriceBefDi\"" +
+            "-A1.\"Price\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MONTO_BASE:\' + \r\n\tCast(" +
+            "Cast(A1.\"PriceBefDi\" as Decimal(15,2)) as Nvarchar(100)) as \"cadena\"\r\n\tFrom \"OIN" +
+            "V\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tWhere A0.\"DocEnt" +
+            "ry\" = {0} And IsNull(A1.\"DiscPrcnt\",0) > 0\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect ROW_NUMBER" +
+            "() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 30 as \"ordenplano\",\r\n\t\'@S:\' + \'DE" +
+            "TALLE\' + \';\' + \'DESC_CARGO\' + \';\' + \'IDENTIFICADOR:\' + Cast(A2.\"LineNum\" as nvar" +
+            "char(100)) + \';\' + \'ES_CARGO:\' + \'true\' + \';\' +\r\n\t\'RAZON:\' + A3.\"ExpnsName\" + \';" +
+            "\' + \'PORCENTAJE:\' + Cast(Cast(0 as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MON" +
+            "TO:\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A2" +
+            ".\"TaxSum\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN C" +
+            "ast(Cast(A2.\"TaxSumSys\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE Cast(Cast(A2" +
+            ".\"TaxSumFrgn\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' + \'MONTO_BASE:\' + \r\n" +
+            "\tCast(Cast(A1.\"PriceBefDi\" as Decimal(15,2)) as Nvarchar(100)) as \"cadena\"\r\n\tFro" +
+            "m \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tInner Join" +
+            " \"INV4\" A2 On A1.\"DocEntry\" = A2.\"DocEntry\" And A1.\"LineNum\" = A2.\"LineNum\" And " +
+            "A2.\"RelateType\" = \'3\'\r\n\tInner Join \"OEXD\" A3 On A2.\"ExpnsCode\" = A3.\"ExpnsCode\"\r" +
+            "\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A2.\"TaxSum\",0) != 0\r\n\r\n\tUnion all\r\n\r\n\tSel" +
+            "ect ROW_NUMBER() OVER (ORDER BY A0.\"VisOrder\") as \"LineNum\", 31 as \"ordenplano\"," +
+            "\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUESTOS\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(IsNu" +
+            "ll(A0.\"VatSum\",0) as numeric(15,2)) as Nvarchar(100)) As \"cadena\"\r\n\tFrom \"INV1\" " +
+            "A0\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER" +
+            " BY A1.\"VisOrder\") as \"LineNum\", 32 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' +" +
+            " \'IMPUESTOS/SUBTOTAL\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum(A2.\"BaseSum\") as nu" +
+            "meric(15,2)) as Nvarchar(100)) \r\n\t+ \';\' + \'MONTO:\' + Cast(Cast(Sum(A2.\"TaxSum\") " +
+            "as numeric(15,2)) as Nvarchar(100)) + \';\' + \'VALOR_UNITARIO:\' + Cast(Cast(Sum(A1" +
+            ".\"Price\") as Decimal(15,2)) as Nvarchar(100))\r\n\t+ \';\' + \'PORCENTAJE:\' + Cast(Cas" +
+            "t(A2.\"TaxRate\" as Decimal(2,0)) as Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\' + IsNull" +
+            "(A3.\"U_SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A4.\"Name\",\'\') " +
+            "+ \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"" +
+            "DocEntry\"\r\n\tLeft Join \"INV4\" A2 On A1.\"DocEntry\" = A2.\"DocEntry\" And A1.\"LineNum" +
+            "\" = A2.\"LineNum\" And A2.\"RelateType\" = \'1\'\r\n\tLeft Join \"OSTC\" A3 On A2.\"StcCode\"" +
+            " = A3.\"Code\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A4 On A3.\"U_SEI_FETributo\" = A4.\"Code\"\r" +
+            "\n\tWhere A0.\"DocEntry\" = {0} \r\n\tGroup by A1.\"VisOrder\", A2.\"TaxRate\", A3.\"U_SEI_F" +
+            "ETributo\", A4.\"Name\"\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"Vi" +
+            "sOrder\") as \"LineNum\", 33 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'PRODUCTO" +
+            "\' + \';\' + \'DESCRIPCION:\' + Cast(IsNull(A1.\"Dscription\",\'\') as Nvarchar(300)) + \'" +
+            ";\' + \'MARCA:\' + IsNull(A3.\"FirmName\",\'\') + \';\' + \'MODELO:\' + IsNull(A2.\"U_SEI_FE" +
+            "Modelo\",\'\') as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\"" +
+            " = A1.\"DocEntry\"\r\n\tLeft Join \"OITM\" A2 On A1.\"ItemCode\" = A2.\"ItemCode\"\r\n\tLeft J" +
+            "oin \"OMRC\" A3 On A2.\"FirmCode\" = A3.\"FirmCode\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tU" +
+            "nion all\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 34 " +
+            "as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'PRODUCTO/ESTANDAR\' + \';\' + \'CODIGO" +
+            ":\' + Cast(IsNull(A3.\"Code\",\'\') as Nvarchar(300)) + \';\' + \'NOMBRE:\' + IsNull(A3.\"" +
+            "Name\",\'\') + \';\' + \'CODIGO_POR_ESTANDAR:\' +  IsNull(A2.\"ItemCode\",\'\') as \"cadena\"" +
+            "\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tInne" +
+            "r Join \"OITM\" A2 On A1.\"ItemCode\" = A2.\"ItemCode\"\r\n\tInner Join \"@FEDIAN_IDENT_AR" +
+            "TI\" A3 on A2.\"U_SEI_FEIdent\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\t)A0\r\nOrde" +
+            "r By \"LineNum\", \"ordenplano\";")]
         public string FacturaVenta {
             get {
                 return ((string)(this["FacturaVenta"]));
@@ -361,7 +656,7 @@ A0.""U_Det_Peticion"" as ""Detalle Peticion"", A0.""U_Respuesta_Int"" as ""Respu
 A0.""U_ID_Seguimiento"" as ""FebosID""
 From ""@FEDIAN_MONITORLOG"" A0
 Left Join ""@FEDIAN_CODDOC"" A1 On A0.""U_DocType"" = A1.""Code""
-Where (A0.""U_Fecha_Envio"" Between '{0}' and '{1}' or IsNull(A0.""U_Fecha_Envio"",'') = '') and (A0.""U_DocType"" = '{2}' OR IsNull('{2}','')='') and (A0.""U_Status"" = '{3}' OR IsNull('{3}','')='')
+Where (A0.""U_Fecha_Envio"" Between '{0}' and '{1}'or A0.""U_Fecha_Envio"" = '') and (A0.""U_DocType"" = '{2}' OR IsNull('{2}','')='') and (A0.""U_Status"" = '{3}' OR IsNull('{3}','')='')
 Order By Cast(A0.""Code"" as int)")]
         public string CargueMonitor {
             get {
@@ -389,9 +684,9 @@ Order By Cast(A0.""Code"" as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select \"Code\", \"U_ProcessID\", \"U_ID_Seguimiento\", \"U_Det_Peticion\" \r\n\t\t\t\t\tFrom \"@" +
-            "FEDIAN_MONITORLOG\"\r\n\t\t\t\t\tWhere \"U_Status\" In ({0})and IsNull(Cast(\"U_Archivo_PDF" +
-            "\" as Nvarchar(2500)), \'\') = \'\'")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"Select ""Code"", ""U_ProcessID"" as ""ProcessID"", ""U_ID_Seguimiento"" as ""ID_Seguimiento"", ""U_Det_Peticion"" as ""Det_Peticion""
+From ""@FEDIAN_MONITORLOG""
+Where (IsNull(""U_Status"",'') in ({0})) Or (IsNull(""U_Status"",'') = '' And IsNull(Cast(""U_Archivo_PDF"" as Nvarchar(2500)), '') = '' )")]
         public string ProcessStatus {
             get {
                 return ((string)(this["ProcessStatus"]));
@@ -418,93 +713,312 @@ Order By Cast(A0.""Code"" as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Select cadena From (\r\nSelect 0 \'LineNum\', 0 as \'ordenplano\',\r\n\'@CABECERA\' + \';\' +" +
-            " Cast(A0.DocNum as nVarchar(100)) + \';\' + CONVERT(char(10), A0.DocDate,126) + \';" +
-            "\' + \r\nconvert(varchar(10), GETDATE(), 108) + \';\' + \'1\' + \';\' + \r\nCase When A0.Do" +
-            "cCur = \'$\' Then \'COP\' Else A0.DocCur End + \';\' + \'\' as \'cadena\'\r\nFrom OINV A0 \r\n" +
-            "Inner Join OCRD A1 On A0.CardCode = A1.CardCode \r\nInner Join OADM A2 on 1 = 1 \r\n" +
-            "Where A0.DocEntry = {0} and A0.DocSubType = \'DN\'\r\n\r\nUnion All \r\n\r\nSelect  0 \'Lin" +
-            "eNum\', 0 as \'ordenplano\', \'@REFERENCIA\' + \';\' + \'Cambio del valor\' + \';\' + \'3\' \r" +
-            "\nFrom OINV A0 \r\nWhere A0.DocEntry = {0} and A0.DocSubType = \'DN\'\r\n\r\nUnion All \r\n" +
-            "\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@EMISOR\' + \';\' + \'1\' + \';\' + \'31\' + \'" +
-            ";\' +\r\nCase When CharIndex(\'-\', A0.TaxIdNum) = 0 Then A0.TaxIdNum Else SubString(" +
-            "A0.TaxIdNum, 1, CharIndex(\'-\', A0.TaxIdNum)-1) End + \';\' +\r\nIsNull(A0.CompnyName" +
-            ",\'\') + \';\' + IsNull(A0.State,\'\') + \';\' + IsNull(A1.County,\'\')  + \';\' + IsNUll(A1" +
-            ".City,\'\') + \';\' + IsNull(A1.Street,\'\') + \';\' + \r\nIsNull(A1.Country,\'\') + \';\' + I" +
-            "sNull(A2.Name,\'\') + \';\' + \'\' + \';\' + \'\' + \';\' + \'\' as \'cadena\'\r\nFrom OADM A0\r\nIn" +
-            "ner Join ADM1 A1 ON A0.Code= A1.Code\r\nInner Join OCRY A2 On A1.Country = A2.Code" +
-            "\r\n\r\nUnion All \r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\'" +
-            " + \';\' + \'Impuesto sobre la renta y complementario régimen ordinario\' + \';\' + \'O" +
-            "-05\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenpl" +
-            "ano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Retención en la fuente a título de renta\'" +
-            " + \';\' + \'O-07\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 2 " +
-            "as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Retención en la fuente en el i" +
-            "mpuesto sobre las ventas\' + \';\' + \'O-09\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r" +
-            "\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Venta" +
-            "s régimen común\' + \';\' + \'O-11\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect" +
-            " 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Informante de " +
-            "exógena\' + \';\' + \'O-14\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'Line" +
-            "Num\', 2 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Usuario aduanero\' + \';" +
-            "\' + \'O-10\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 2 as \'o" +
-            "rdenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Obligado a Llevar Contabilidad\' + \'" +
-            ";\' + \'O-42\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 2 as \'" +
-            "ordenplano\',\r\n\'@INFO_TRIBUTARIA_EMI\' + \';\' + \'Exportador\' + \';\' + \'A-22\' as \'cad" +
-            "ena\'\r\nFrom OADM A0\r\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INF" +
-            "O_TRIBUTARIA_EMI\' + \';\' + \'Importador\' + \';\' + \'A-23\' as \'cadena\'\r\nFrom OADM A0\r" +
-            "\n\r\nUnion All \r\n\r\nSelect 0 \'LineNum\', 2 as \'ordenplano\',\r\n\'@INFO_CAM_COMERCIO_EMI" +
-            "\' + \';\' + A0.PrintHeadr\r\nFrom OADM A0\r\n\r\nUnion All \r\n\r\nSelect 0 \'LineNum\', 3 as " +
-            "\'ordenplano\',\r\n\'@RECEPTOR\' + \';\' + \r\nCase When A1.U_HBT_TipEnt = \'1\' Then \'2\' Wh" +
-            "en A1.U_HBT_TipEnt = \'2\' Then \'1\' Else \'1\' End + \';\' + IsNull(A1.U_HBT_TipDoc,\'\'" +
-            ") + \';\' +\r\nCase When CharIndex(\'-\',A1.LicTradNum) = 0 Then A1.LicTradNum Else Su" +
-            "bString(A1.LicTradNum, 1, CharIndex(\'-\', A1.LicTradNum)-1) End + \';\' +\r\nA1.CardN" +
-            "ame + \';\' + IsNull(A1.U_HBT_MunMed,\'\') + \';\' + IsNull(A1.State1,\'\') + \';\' + \r\nCa" +
-            "se When IsNull(A1.City,\'\') = \'\' Then IsNull(A1.U_BPCO_City,\'\') Else IsNull(A1.Ci" +
-            "ty,\'\') End + \';\' + \r\nCase When IsNull(A1.Address,\'\') = \'\' Then IsNull(A1.U_BPCO_" +
-            "Address,\'\') Else IsNull(A1.Address,\'\') End  + \';\' +\r\nIsNull(A1.Country,\'\') + \';\'" +
-            " + IsNull(A2.Name,\'\') + \';\' +\r\nCase When A1.U_HBT_TipEnt = \'1\' Then IsNull(A1.U_" +
-            "HBT_Nombres,\'\') Else \'\' End + \';\' +\r\nCase When A1.U_HBT_TipEnt = \'1\' Then IsNull" +
-            "(A1.U_HBT_Apellido1,\'\') Else \'\' End + \';\' +\r\nCase When A1.U_HBT_TipEnt = \'1\' The" +
-            "n IsNull(A1.U_HBT_Apellido2,\'\') Else \'\' End + \';\' +\r\nIsNull(A1.Phone1,\'\') + \';\' " +
-            "+ IsNull(A1.Phone2,\'\') + \';\' + IsNull(A1.E_Mail,\'\') as \'cadena\'\r\nFrom OINV A0 \r\n" +
-            "Inner Join OCRD A1 On A0.CardCode = A1.CardCode \r\nInner Join OCRY A2 On A1.Count" +
-            "ry = A2.Code\r\nWhere A0.DocEntry = {0} and A0.DocSubType = \'DN\'\r\n\r\nUnion All \r\n\r\n" +
-            "Select 0 \'LineNum\', 3 as \'ordenplano\',\r\n\'@INFO_TRIBUTARIA_REC\' + \';\' + \'Otro tip" +
-            "o de obligado\' + \';\' + \'O-99\' as \'cadena\'\r\nFrom OADM A0\r\n\r\nUnion All \r\n\r\nSelect " +
-            "0 \'LineNum\', 3 as \'ordenplano\',\r\n\'@INFO_CAM_COMERCIO_REC\' + \';\' + A1.CardName as" +
-            " \'cadena\'\r\nFrom OINV A0 \r\nInner Join OCRD A1 On A0.CardCode = A1.CardCode \r\nInne" +
-            "r Join OCRY A2 On A1.Country = A2.Code\r\nWhere A0.DocEntry = {0} and A0.DocSubTyp" +
-            "e = \'DN\'\r\n\r\nUnion All\r\n\r\nSelect 0 \'LineNum\', 6 as \'ordenplano\',\r\n\'@TOTALES\' + \';" +
-            "\' + Case When A0.DocCur = \'$\' Then \'COP\' Else A0.DocCur End + \';\' + \r\nCast(Cast(" +
-            "Sum(A1.Linetotal) as Decimal(15,2)) as Nvarchar(100)) + \';\' + \r\nCast(Cast(A0.Vat" +
-            "Sum as Decimal(15,2)) as Nvarchar(100)) + \';\' + Cast(Cast(A0.DocTotal as Decimal" +
-            "(15,2)) as Nvarchar(100)) + \';\' +\r\nCast(Cast(A0.WTSum as Decimal(15,2)) as Nvarc" +
-            "har(100)) + \';\' + Cast(Cast(A0.DiscSum as Decimal(15,2)) as Nvarchar(100)) + \';\'" +
-            " + \'0.00\' + \';\' + \r\nCast(Cast(A0.DpmAmnt as Decimal(15,2)) as Nvarchar(100)) as " +
-            "\'cadena\'\r\nFrom OINV A0 \r\nInner Join INV1 A1 On A0.Docentry = A1.DocEntry\r\nWhere " +
-            "A0.DocEntry = {0} and A0.DocSubType = \'DN\'\r\nGroup By A0.DocCur, A0.DocTotal, A0." +
-            "DiscSum, A0.VatSum, A0.DpmAmnt, A0.WTSum\r\n\r\nUnion All \r\n\r\nSelect * From (\r\n\tSele" +
-            "ct A1.LineNum, 7 as \'ordenplano\', \'@DETALLE\' + \';\' + \r\n\tCase When A0.DocCur = \'$" +
-            "\' Then \'COP\' Else A0.DocCur End + \';\' +\r\n\tCast(A1.LineNum + 1 as Nvarchar(100)) " +
-            "+ \';\' +  Cast(A1.LineTotal + 1 as Nvarchar(100)) + \';\' +\r\n\tCast(Cast(A1.Quantity" +
-            " as Decimal(12,0)) as Nvarchar(100)) + \';\' +\r\n\tCast(Cast(A1.Price as Decimal(15," +
-            "2)) as Nvarchar(100)) + \';\' + \r\n\tCase When A0.DocType = \'I\' Then A1.ItemCode Els" +
-            "e A1.AcctCode end + \';\' +\r\n\t\'\' + \';\' + \'\' + \';\' + \'\' + \';\' + \'\' + \';\' + \'\' + \';\'" +
-            " + \'\' + \';\' + \'\' as \'cadena\'\r\n\tFrom OINV A0 \r\n\tInner Join INV1 A1 On A0.DocEntry" +
-            " = A1.DocEntry\r\n\tWhere A0.DocEntry = {0} and A0.DocSubType = \'DN\'\r\n\r\n\tUnion All\r" +
-            "\n\r\n\tSelect A1.LineNum, 8 as \'ordenplano\', \'@DESCRIPCION_DET\' + \';\' + \'es-CO\' + \'" +
-            ";\' + IsNull(A1.Dscription,\'\')\'cadena\'\r\n\tFrom OINV A0 \r\n\tInner Join INV1 A1 On A0" +
-            ".DocEntry = A1.DocEntry\r\n\tWhere A0.DocEntry = {0} and A0.DocSubType = \'DN\'\r\n\r\n\tU" +
-            "nion All\r\n\r\n\tSelect A1.LineNum, 9 as \'ordenplano\', \'@ADICIONAL_PRODUCTO\' + \';\' +" +
-            " \'codigo\' + \';\' + \r\n\tCase When A0.DocType = \'I\' Then A1.ItemCode Else A1.AcctCod" +
-            "e end \'cadena\'\r\n\tFrom OINV A0 \r\n\tInner Join INV1 A1 On A0.DocEntry = A1.DocEntry" +
-            "\r\n\tWhere A0.DocEntry = {0} and A0.DocSubType = \'DN\'\r\n)C0\r\nUnion All\r\n\r\nSelect 10" +
-            "00 \'LineNum\', 10 as \'ordenplano\',\r\n\'@PERSONALIZADO\' + \';\' + \'numero-pedido\' + \';" +
-            "\' + A0.NumAtCard \r\nFrom OINV A0 \r\nWhere A0.DocEntry = {0} and A0.DocSubType = \'D" +
-            "N\' And IsNull(A0.NumAtCard,\'\') != \'\'\r\n\r\nUnion All\r\n\r\nSelect 2000 \'LineNum\',11 as" +
-            " \'ordenplano\',\r\n\'@PERSONALIZADO\' + \';\' + \'persona-contacto\' + \';\' + A1.CntctPrsn" +
-            "\r\nFrom OINV A0 \r\nInner Join OCRD A1 ON A0.CardCode = A1.CardCode\r\nWhere A0.DocEn" +
-            "try = {0} and A0.DocSubType = \'DN\' And IsNull(A1.CntctPrsn,\'\') != \'\'\r\n)A0\r\nOrder" +
-            " By LineNum, ordenplano;")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select \"cadena\" From \r\n(\r\n\tSelect 0 As \"LineNum\", 0 As \"ordenplano\",\r\n\t\'@E:\' + \'C" +
+            "ABECERA\' + \';\' + \'OPERACION:\' + \'10\' + \';\' + \'AMBIENTE:\' + IsNull(A3.\"U_Ambiente" +
+            "\",\'\') + \';\' + \'FOLIO:\' + Cast(A0.\"DocNum\" as Nvarchar(100)) + \';\' + \'PREFIJO:\' +" +
+            " IsNull(A4.\"BeginStr\",\'\') + \';\' + \'CUFE:\' + \';\' + \r\n\t\'FECHA_EMISION:\' + Convert(" +
+            "char(10), A0.\"DocDate\",126) + \';\' + \r\n\t\'HORA_EMISION:\' + Convert(varchar, A0.\"Do" +
+            "cTime\",108) + \';\' + \'TIPO_DOCUMENTO:\' + IsNull(A6.\"U_DocDIAN\",\'\') + \';\' + \'NOTA:" +
+            "\' + \';\' + REPLACE(REPLACE(REPLACE(Cast(IsNull(A0.\"Comments\",\'\') as Nvarchar(500)" +
+            "),CHAR(10),\' \'),CHAR(13),\' \'), \',\', \';\') + \';\' +\r\n\t\'MONEDA:\' + CASE WHEN IsNull(" +
+            "A0.\"DocCur\",\'\') = \'\' THEN \'COP\' WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\')" +
+            " THEN \'COP\' ELSE A0.\"DocCur\" END + \';\' + \'TOTAL_LINEAS:\' + Cast(A5.\"NLineas\" as " +
+            "Nvarchar(100))  + \'\' As \"cadena\"\r\n\tFrom \"OINV\" A0 \r\n\tInner Join \"OCRD\" A1 On A0." +
+            "\"CardCode\" = A1.\"CardCode\" \r\n\tInner Join \"OADM\" A2 on 1 = 1\r\n\tLeft Join \"@FEDIAN" +
+            "_PARAMG\" A3 On 1 = 1\r\n\tLeft Join \"NNM1\" A4 On A0.\"Series\" = A4.\"Series\"\r\n\tLeft J" +
+            "oin (Select \"DocEntry\", Count(*) As \"NLineas\" From \"INV1\" Group By \"DocEntry\") A" +
+            "5 On A0.\"DocEntry\" = A5.\"DocEntry\"\r\n\tLeft Join \"@FEDIAN_NUMAUTORI\" A6 On A0.\"Ser" +
+            "ies\" = A6.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\t\t\t\t\t\r\n\tUnion all\r\n\r\n\tSelect 0 As " +
+            "\"LineNum\", 1 As \"ordenplano\",\r\n\t\'@E:\' + \'ORDEN_REF\' + \';\' + \'FOLIO:\' + IsNull(A0" +
+            ".\"NumAtCard\",\'\') + \'\' As \"cadena\" \r\n\tFrom \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" = {0} " +
+            "And IsNull(A0.\"NumAtCard\",\'\') != \'\'\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 2 as \"" +
+            "ordenplano\",\r\n\t\'@E:\' + \'NOTAS_REF\' + \';\' + \'NOTA_DEBITO_REF\' + \';\' + \'FOLIO:\' + " +
+            "Cast(A0.\"DocNum\" as Nvarchar(100)) +\';\' + \'FECHA_EMISION:\' + CONVERT(char(10), A" +
+            "0.\"DocDate\",126) + \'\' \r\n\tFrom \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" = {0} And A0.\"DocS" +
+            "ubType\" = \'ND\' And IsNull(A0.\"U_SEI_FEConcepND\",\'\') != \'\'\r\n\r\n\tUnion all\r\n\r\n\tSele" +
+            "ct 0 As \"LineNum\", 3 as \"ordenplano\",\r\n\t\'@E:\' + \'REFERENCIA\' + \';\' + \'NOTA\' + \';" +
+            "\' + \'TIPO_REFERENCIA:\' + IsNull(A0.\"U_SEI_FEConcepNC\",\'\') + \';\' + \'CONTENIDO:\' +" +
+            " IsNull(A0.\"U_SEI_FEConcepNC\",\'\') + \'\' \r\n\tFrom \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" =" +
+            " {0} And IsNull(\"U_SEI_FEConcepNC\",\'\') != \'\'\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 as \"Line" +
+            "Num\", 4 as \"ordenplano\",\r\n\t\'@E:\' + \'EMISOR\' + \';\' + \'TIPO_ORGANIZACION:\' + IsNul" +
+            "l(\"U_HBT_TipEnt\",\'\') + \';\' + \'CODIGO_ACTECO:\' + IsNull(A0.\"U_SEI_FEActEco\",\'\') +" +
+            " \';\' + \'RAZON_SOCIAL:\' + IsNull(A0.\"PrintHeadr\",\'\') + \';\' +\r\n\t\'NIT:\' + Case When" +
+            " CharIndex(\'-\', A0.\"TaxIdNum\") = 0 Then A0.\"TaxIdNum\" Else SubString(A0.\"TaxIdNu" +
+            "m\", 1, CharIndex(\'-\', A0.\"TaxIdNum\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + SubString(A0.\"" +
+            "TaxIdNum\", (CharIndex(\'-\', A0.\"TaxIdNum\")+1),1) + \';\' + \'TIPO_IDENTIDAD:\' + IsNu" +
+            "ll(A0.\"U_SEI_FETipDoc\",0) + \';\' + \'CODIGO_OBLIGACION:\' + IsNull(A3.\"U_Codigo\",\'\'" +
+            ") +\';\' +\r\n\t\'NOMBRE_OBLIGACION:\' + IsNull(A0.\"U_SEI_FERegFis\",\'\') + \';\' + \'IDIOMA" +
+            ":\' + \'es\'  as \"cadena\"\r\n\tFrom \"OADM\" A0\r\n\tInner Join \"ADM1\" A1 ON A0.\"Code\"= A1." +
+            "\"Code\"\r\n\tInner Join \"OCRY\" A2 On A1.\"Country\" = A2.\"Code\"\r\n\tLeft Join (SELECT To" +
+            "p 1 T1.\"Code\" , \"U_Codigo\"=STUFF(\r\n\t\t\t\t(SELECT \';\' + \"U_Codigo\" AS [text()]\r\n\t\t\t" +
+            "\t\tFROM \"@FEDIAN_SN_RESPO\" XT\r\n\t\t\t\t\tWhere \"Code\" = (Select \"TaxIdNum\" From \"OADM\"" +
+            ")\r\n\t\t\t\t\tOrder By \"U_Codigo\"\r\n\t\t\t\t\tFOR XML PATH(\'\')), 1, 1, \'\') \r\n\t\t\t\tFROM \"@FEDI" +
+            "AN_SN_RESPO\" T\r\n\t\t\t\tINNER JOIN \"@FEDIAN_SN\" T1 ON T.\"Code\" = T1.\"Code\"\r\n\t\t\t\tGROU" +
+            "P BY T1.\"Code\", \"U_Codigo\") A3 On A0.\"TaxIdNum\" = A3.\"Code\"\r\n\r\n\tUnion all\r\n\r\n\tSe" +
+            "lect 0 AS \"LineNum\", 5 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'DIRECCION_EX" +
+            "PEDICION\' + \';\' +\r\n\t\'CODIGO_MUNICIPIO:\' + IsNull(A0.\"U_HBT_MunMed\",\'\') + \';\' + \'" +
+            "NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"" +
+            "ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepartamento\",\'\'" +
+            ") + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING(A0.\"U_HBT_MunMed\",1,2) + \';\' + \'DIR" +
+            "ECCION:\' + IsNull(A1.\"Street\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A1.\"Country\",\'" +
+            "\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\') as \"cadena\"\r\n\tFrom \"OADM\" A0\r\n\t" +
+            "Inner Join \"ADM1\" A1 ON A0.\"Code\" = A1.\"Code\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 O" +
+            "n A0.\"U_HBT_MunMed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Cod" +
+            "e\"\r\n\r\n\tUnion all\r\n\r\n\tSelect Top 1 0 As \"LineNum\", 6 as \"ordenplano\",\r\n\t\'@S:\' + \'" +
+            "EMISOR\' + \';\' + \'INFO_TRIBUTARIA\' + \';\' + \'CODIGO_TRIBUTO:\' + IsNull(A1.\"U_Codig" +
+            "o\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' + IsNull(A1.\"U_Desc\",\'\') + \'\' As \"cadena\"\r\n\tFro" +
+            "m \"@FEDIAN_SN\" A0\r\n\tInner Join \"@FEDIAN_SN_TRIB\" A1 on A0.\"Code\" = A1.\"Code\"\r\n\tW" +
+            "here A1.\"Code\" = (Select \"TaxIdNum\" From \"OADM\")\r\n\t\r\n\tUnion all\r\n\r\n\tSelect 0 As " +
+            "\"LineNum\", 7 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'INFO_COMERCIAL\' + \';\' " +
+            "+ \'PREFIJO:\' + IsNull(A1.\"BeginStr\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInne" +
+            "r Join \"NNM1\" A1 On A0.\"Series\" = A1.\"Series\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUn" +
+            "ion all\r\n\r\n\tSelect 0 \"LineNum\", 8 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'I" +
+            "NFO_COMERCIAL\' + \';\' + \'NOMBRE:\' + Cast(IsNull(A0.\"AliasName\",\'\') as nvarchar(10" +
+            "0)) + \';\' + \'TELEFONO:\' + Cast(IsNull(A0.\"Phone1\",\'\') as nvarchar(100)) + \';\'\r\n\t" +
+            "+ \'FAX:\' + Cast(IsNull(A0.\"Fax\",\'\') as nvarchar(100)) + \';\' + \'CORREO:\' + Cast(I" +
+            "sNull(A0.\"E_Mail\",\'\') as Nvarchar(100)) + \'\'\r\n\tFrom \"OADM\" A0\r\n\t\r\n\tUnion all\r\n\t\r" +
+            "\n\tSelect 0 \"LineNum\", 9 as \"ordenplano\",\r\n\t\'@S:\' + \'EMISOR\' + \';\' + \'CONTACTO\' +" +
+            " \';\' + \'NOMBRE:\' + Cast(IsNull(A2.\"AliasName\",\'\') as nvarchar(100)) + \';\' + \r\n\t\'" +
+            "TELEFONO:\' + IsNull(A2.\"Phone1\",\'\') + \';\' + \'FAX:\' + IsNull(A2.\"Fax\",\'\') + \';\' +" +
+            " \'CORREO:\' + IsNull(A2.\"E_Mail\",\'\') + \';\' + \r\n\t\'NOTA:\' + Cast(A1.\"SlpName\" as nV" +
+            "archar(100)) as \"Cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"OSLP\" A1 On A0.\"SlpCode\"" +
+            " = A1.\"SlpCode\"\r\n\tInner Join \"OADM\" A2 On 1 = 1\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\t" +
+            "Union all\r\n\r\n\tSelect 0 As \"LineNum\", 10 as \"ordenplano\",\r\n\t\'@E:\' + \'RECEPTOR\' + " +
+            "\';\' + \'TIPO_ORGANIZACION:\' + Case When A1.\"U_HBT_TipEnt\" = \'1\' Then \'2\' When A1." +
+            "\"U_HBT_TipEnt\" = \'2\' Then \'1\' Else \'1\' End + \';\' + \'RAZON_SOCIAL:\' + IsNull(A1.\"" +
+            "CardName\",\'\') + \';\' +\r\n\t\'NIT:\' + Case When CharIndex(\'-\', A1.\"LicTradNum\") = 0 T" +
+            "hen A1.\"LicTradNum\" Else SubString(A0.\"LicTradNum\", 1, CharIndex(\'-\', A0.\"LicTra" +
+            "dNum\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + SubString(A0.\"LicTradNum\", (CharIndex(\'-\', A" +
+            "0.\"LicTradNum\")+1),1) + \';\' + \'TIPO_IDENTIDAD:\' + IsNull(A1.\"U_HBT_TipDoc\",\'\') +" +
+            " \';\' + \'CODIGO_OBLIGACION:\' + IsNull(A2.\"U_Codigo\",\'\') + \';\' + \'NOMBRE_OBLIGACIO" +
+            "N:\' + \r\n\tIsNull(A0.\"U_SEI_FERegFis\",\'\') + \';\' +\r\n\t\'IDIOMA:\' + \'es\' + \'\'\r\n\tFrom \"" +
+            "OINV\" A0\r\n\tInner Join \"OCRD\" A1 On A0.\"CardCode\" = A1.\"CardCode\"\r\n\tLeft Join (SE" +
+            "LECT Top 1 T1.\"Code\", \"U_Codigo\"=STUFF(\r\n\t\t\t\t\t(SELECT \';\' + \"U_Codigo\" AS [text(" +
+            ")]\r\n\t\t\t\t\t\tFROM \"@FEDIAN_SN_TRIB\" XT\r\n\t\t\t\t\t\tINNER JOIN \"@FEDIAN_SN\" XT1 ON XT.\"Co" +
+            "de\" = XT1.\"Code\"\r\n\t\t\t\t\t\t--*************CAMBIAR DOCENTRY POR VARIABLE************" +
+            "*\r\n\t\t\t\t\t\tWhere XT1.\"Code\" = (Select \"CardCode\" From \"OINV\" Where \"DocEntry\" = {0" +
+            "})\r\n\t\t\t\t\t\tOrder By \"U_Codigo\"\r\n\t\t\t\t\t\tFOR XML PATH(\'\')), 1, 1, \'\') \r\n\t\t\t\t\tFROM \"@" +
+            "FEDIAN_SN_TRIB\" T\r\n\t\t\t\t\tINNER JOIN \"@FEDIAN_SN\" T1 ON T.\"Code\" = T1.\"Code\" And T" +
+            "1.\"Code\" = (Select \"CardCode\" From \"OINV\" Where \"DocEntry\" = {0})\r\n\t\t\t\t\tGROUP BY" +
+            " T1.\"Code\", \"U_Codigo\") A2 On A1.\"CardCode\" = A2.\"Code\"\r\n\tWhere A0.\"DocEntry\" = " +
+            "{0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 11 as \"ordenplano\",\r\n\t\'@S:\' + \'RECE" +
+            "PTOR\' + \';\' + \'DIRECCION_EXPEDICION\' + \';\' + \'CODIGO_MUNICIPIO:\' + IsNull(A1.\"U_" +
+            "HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' + \'CODI" +
+            "GO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + IsNull(" +
+            "A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING(A1.\"U_HBT_" +
+            "MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"Street\",\'\') + \';\' + \'CODIGO_PAIS:" +
+            "\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\') + \'\'\r\n" +
+            "\tFrom \"OINV\" A0\r\n\tInner Join \"CRD1\" A1 On A0.\"CardCode\" = A1.\"CardCode\" And A0.\"" +
+            "ShipToCode\" = A1.\"Address\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A1.\"U_HBT_MunMed\"" +
+            " = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\tWhere A0.\"DocE" +
+            "ntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 12 as \"ordenplano\",\r\n\t\'@S:\'" +
+            " + \'RECEPTOR\' + \';\' + \'DIRECCION_FISCAL\' + \';\' + \'CODIGO_MUNICIPIO:\' + IsNull(A1" +
+            ".\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + IsNull(A2.\"Name\",\'\') + \';\' + \'" +
+            "CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n\t\'NOMBRE_DEPARTAMENTO:\' + IsN" +
+            "ull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPARTAMENTO:\' + SUBSTRING(A1.\"U_" +
+            "HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"Street\",\'\') + \';\' + \'CODIGO_P" +
+            "AIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAIS:\' + IsNull(A3.\"Name\",\'\') + " +
+            "\'\'\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"CRD1\" A1 On A0.\"CardCode\" = A1.\"CardCode\" And " +
+            "A0.\"PayToCode\" = A1.\"Address\"\r\n\tInner Join \"@HBT_MUNICIPIO\" A2 On A1.\"U_HBT_MunM" +
+            "ed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Country\" = A3.\"Code\"\r\n\tWhere A0.\"D" +
+            "ocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 13 as \"ordenplano\",\r\n\t\'@S:\'" +
+            " + \'RECEPTOR\' + \';\' + \'INFO_TRIBUTARIA\' + \';\' + \'CODIGO_TRIBUTO:\' + IsNull(A3.\"U" +
+            "_Codigo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' + IsNull(A3.\"U_Desc\",\'\')\r\n\tFrom \"OINV\" A0" +
+            "\r\n\tInner Join \"OCRD\" A1 On A0.\"CardCode\" = A1.\"CardCode\"\r\n\tInner Join \"@FEDIAN_S" +
+            "N\" A2 On A1.\"CardCode\" = A2.\"Code\"\r\n\tInner Join \"@FEDIAN_SN_RESPO\" A3 On A2.\"Cod" +
+            "e\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 as \"LineNu" +
+            "m\", 14 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'INFO_COMERCIAL\' + \';\' + \'P" +
+            "REFIJO:\' + IsNull(A1.\"BeginStr\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Jo" +
+            "in \"NNM1\" A1 On A0.\"Series\" = A1.\"Series\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion " +
+            "all\r\n\r\n\tSelect 0 \"LineNum\", 15 as \"ordenplano\",\r\n\t\'@S:\' + \'RECEPTOR\' + \';\' + \'CO" +
+            "NTACTO\' + \';\' + \'NOMBRE:\' + IsNull(A1.\"Name\",\'\') + \';\' + \r\n\t\'TELEFONO:\' + IsNull" +
+            "(A1.\"Tel1\",\'\') + \';\' + \'FAX:\' + IsNull(A1.\"Cellolar\",\'\') + \';\' + \'CORREO:\' + IsN" +
+            "ull(A1.\"E_MailL\",\'\') + \';\' + \r\n\t\'NOTA:\' + IsNull(A1.\"Notes1\",\'\')\r\n\tFrom \"OINV\" A" +
+            "0\r\n\tInner Join \"OCPR\" A1 On A0.\"CardCode\" = A1.\"CardCode\" And A0.\"CntctCode\" = A" +
+            "1.\"CntctCode\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", " +
+            "16 as \"ordenplano\",\r\n\t\'@E:\' + \'REPRESENTANTE\' + \';\' + \'NIT:\' + Case When CharInd" +
+            "ex(\'-\', A0.\"TaxIdNum\") = 0 Then A0.\"TaxIdNum\" Else SubString(A0.\"TaxIdNum\", 1, C" +
+            "harIndex(\'-\', A0.\"TaxIdNum\")-1) End +\r\n\t\';\' + \'NIT_DV:\' + SubString(A0.\"TaxIdNum" +
+            "\", (CharIndex(\'-\', A0.\"TaxIdNum\")+1),1) + \';\' + \'TIPO_IDENTIDAD:\' + IsNull(A0.\"U" +
+            "_SEI_FETipDoc\",0) as \"cadena\"\r\n\tFrom \"OADM\" A0\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect 0 As \"" +
+            "LineNum\", 17 as \"ordenplano\",\r\n\t\'@S:\' + \'ENTREGA\' + \';\' + \'DIRECCIÓN\' + \';\' + \'C" +
+            "ODIGO_MUNICIPIO:\' + IsNull(A1.\"U_HBT_MunMed\",\'\') + \';\' + \'NOMBRE_MUNICIPIO:\' + I" +
+            "sNull(A2.\"Name\",\'\') + \';\' + \'CODIGO_POSTAL:\' + IsNull(A1.\"ZipCode\",\'\') + \';\' +\r\n" +
+            "\t\'NOMBRE_DEPARTAMENTO:\' + IsNull(A2.\"U_NomDepartamento\",\'\') + \';\' + \'CODIGO_DEPA" +
+            "RTAMENTO:\' + SUBSTRING(A1.\"U_HBT_MunMed\",1,2) + \';\' + \'DIRECCION:\' + IsNull(A1.\"" +
+            "Street\",\'\') + \';\' + \'CODIGO_PAIS:\' + IsNull(A1.\"Country\",\'\') + \';\' + \'NOMBRE_PAI" +
+            "S:\' + IsNull(A3.\"Name\",\'\') + \'\'\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"CRD1\" A1 On A0.\"C" +
+            "ardCode\" = A1.\"CardCode\" And A0.\"ShipToCode\" = A1.\"Address\"\r\n\tInner Join \"@HBT_M" +
+            "UNICIPIO\" A2 On A1.\"U_HBT_MunMed\" = A2.\"Code\"\r\n\tInner Join \"OCRY\" A3 On A1.\"Coun" +
+            "try\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum" +
+            "\", 18 as \"ordenplano\",\r\n\t\'@E:\' + \'PAGO\' + \';\' + \'CODIGO_METODO_PAGO:\' + Case Whe" +
+            "n A1.\"ExtraMonth\" + A1.\"ExtraDays\" <= 0 Then \'1\' Else \'2\' End + \';\' + \r\n\t\'CODIGO" +
+            "_MEDIO_PAGO:\' + Cast(IsNull(A0.\"U_SEI_FEMedPago\",\'\') as nvarchar(100)) + \';\' + \'" +
+            "FECHA_VENCIMIENTO:\' + Convert(char(10), A0.\"DocDueDate\",126) as \"cadena\"\r\n\tFrom " +
+            "\"OINV\" A0\r\n\tInner Join \"OCTG\" A1 On A0.\"GroupNum\" = A1.\"GroupNum\"\r\n\tWhere A0.\"Do" +
+            "cEntry\" = {0}\r\n\r\n\tUnion all\r\n\t\r\n\tSelect 0 As \"LineNum\", 19 as \"ordenplano\",\r\n\t\'@" +
+            "E:\' + \'DESC_CARGO\' + \';\' + \'IDENTIFICADOR:\' + \'1\' + \';\' + \'ES_CARGO:\' + \'false\' " +
+            "+ \';\' + \'TIPO_DESCUENTO:\' + IsNull(A0.\"U_SEI_FEDescu\",\'\') + \';\' +\r\n\t\'RAZON:\' + I" +
+            "sNull(A2.\"Descr\",\'\') + \';\' + \'PORCENTAJE:\' + Cast(Cast(A0.\"DiscPrcnt\" as Decimal" +
+            "(15,2)) as Nvarchar(100)) + \';\' + \'MONTO:\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us" +
+            "\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"DiscSum\" as Decimal(15,2)) as Nvarchar(1" +
+            "00)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"DiscSumSy\" as Decimal(15,2))" +
+            " as Nvarchar(100)) \r\n\tELSE Cast(Cast(A0.\"DiscSumFC\" as Decimal(15,2)) as Nvarcha" +
+            "r(100)) END + \';\' + \r\n\t\'MONTO_BASE:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\'," +
+            " \'lb\',\'COP\') THEN Cast(Cast(Sum(A3.\"LineTotal\") as Decimal(15,2)) as Nvarchar(10" +
+            "0)) WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(Sum(A3.\"TotalSumSy\") as Decimal(15,2" +
+            ")) as Nvarchar(100)) ELSE Cast(Cast(Sum(A3.\"TotalFrgn\") as Decimal(15,2)) as Nva" +
+            "rchar(100)) END\r\n\tFrom \"OINV\" A0\r\n\tLeft Join \"CUFD\" A1 On A1.\"TableID\" = \'OINV\' " +
+            "And A1.\"AliasID\" = \'SEI_FEDescu\'\r\n\tLeft Join \"UFD1\" A2 On A2.\"TableID\" = A1.\"Tab" +
+            "leID\" And A2.\"FieldID\" = A1.\"FieldID\" And A0.\"U_SEI_FEDescu\" = A2.\"FldValue\"\r\n\tL" +
+            "eft Join \"INV1\" A3 On A0.\"DocEntry\" = A3.\"DocEntry\"\r\n\tWhere A0.\"DocEntry\" = {0} " +
+            "And IsNull(A0.\"DiscSum\",0) != 0\r\n\tGroup By A0.\"DocCur\", A0.\"U_SEI_FEDescu\", A2.\"" +
+            "Descr\", A0.\"DiscPrcnt\", A0.\"DiscSumFC\", A0.\"DiscSum\", A0.\"DiscSumSy\"\r\n\t\r\n\tUnion " +
+            "all\r\n\t\r\n\tSelect 0 As \"LineNum\", 20 as \"ordenplano\",\r\n\t\'@E:\' + \'DESC_CARGO\' + \';\'" +
+            " + \'IDENTIFICADOR:\' + Cast(A1.\"ExpnsCode\" as nvarchar(100)) + \';\' + \'ES_CARGO:\' " +
+            "+ \'true\' + \';\' + \'TIPO_DESCUENTO:\' + \'\' + \';\' +\r\n\t\'RAZON:\' + A2.\"ExpnsName\" + \';" +
+            "\' + \'PORCENTAJE:\' + Cast(Cast(0 as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MON" +
+            "TO:\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A1" +
+            ".\"LineTotal\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THE" +
+            "N Cast(Cast(A1.\"TotalSumSy\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE Cast(Cas" +
+            "t(A1.\"TotalFrgn\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' + \'MONTO_BASE:\' +" +
+            " Cast(Cast(\'0\' as Decimal(15,2)) as Nvarchar(100))\r\n\tFrom \"OINV\" A0\r\n\tInner Join" +
+            " \"INV3\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tInner Join \"OEXD\" A2 On A1.\"ExpnsC" +
+            "ode\" = A2.\"ExpnsCode\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A1.\"LineTotal\",0) !" +
+            "= 0\r\n\t\r\n\tUnion all\r\n\r\n\tSelect 0 As \"LineNum\", 21 as \"ordenplano\",\r\n\t\'@E:\' + \'MON" +
+            "EDA_CAMBIO\' + \';\' + \'TIPO_MONEDA:\' + IsNull(A1.\"Currency\",\'\') + \';\' + \'TASA_CAMB" +
+            "IO:\' + \r\n\tCASE WHEN A0.\"CurSource\" != \'L\' Then Cast(Cast(A0.\"DocRate\" as Decimal" +
+            "(15,2)) as Nvarchar(100)) Else Cast(Cast(A1.\"Rate\" as Decimal(15,2)) as Nvarchar" +
+            "(100)) End +\r\n\t\';\' + \'\' + \'FECHA_TASA:\' + Convert(char(10), A1.\"RateDate\",126)\r\n" +
+            "\tFrom \"OINV\" A0\r\n\tInner Join \"ORTT\" A1 On A0.\"DocDate\" = A1.\"RateDate\"\r\n\tWhere A" +
+            "0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 22 as \"ordenplano\",\r\n\t\'" +
+            "@E:\' + \'IMPUESTOS\' + \';\' + \'MONTO_TOTAL:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', " +
+            "\'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"VatSum\" as Decimal(15,2)) as Nvarchar(100))" +
+            " \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"VatSumSy\" as Decimal(15,2)) as N" +
+            "varchar(100)) \r\n\tELSE Cast(Cast(A0.\"VatSumFC\" as Decimal(15,2)) as Nvarchar(100)" +
+            ") END  + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion a" +
+            "ll\r\n\r\n\tSelect 0 \"LineNum\", 23 as \"ordenplano\",\r\n\t\'@S:\' + \'IMPUESTOS\' + \';\' + \'SU" +
+            "BTOTAL\' + \';\' + \'MONTO_BASE:\' + Cast(Cast(Sum(A0.\"BaseSum\") as Decimal(15,2)) as" +
+            " Nvarchar(100)) + \':\' + \'MONTO:\' + Cast(Cast(Sum(A0.\"TaxSum\") as Decimal(15,2)) " +
+            "as Nvarchar(100)) +\r\n\t\'PORCENTAJE:\' + Cast(Cast(A0.\"TaxRate\" as Decimal(2,0)) as" +
+            " Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\' + IsNull(A1.\"U_SEI_FETributo\",\'\') + \';\' + " +
+            "\'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A2.\"Name\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"INV4\" A0\r" +
+            "\n\tInner Join \"OSTC\" A1 On A0.\"StcCode\" = A1.\"Code\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A" +
+            "2 On A1.\"U_SEI_FETributo\" = A2.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\tGroup By A0." +
+            "\"TaxRate\", A1.\"U_SEI_FETributo\", A2.\"Name\"\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\"," +
+            " 24 as \"ordenplano\",\r\n\t\'@E:\' + \'IMPUESTOS_RETENIDOS\' + \';\' + \'MONTO_TOTAL:\' + CA" +
+            "SE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"WTSum\" as" +
+            " Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0." +
+            "\"WTSumSC\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE Cast(Cast(A0.\"WTSumFC\" as " +
+            "Decimal(15,2)) as Nvarchar(100)) END  + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tWhere " +
+            "A0.\"DocEntry\" = {0} And IsNull(A0.\"WTSum\",0) != 0\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"Li" +
+            "neNum\", 22 as \"ordenplano\",\r\n\t\'@S:\' + \'IMPUESTOS_RETENIDOS\' + \';\' + \'SUBTOTAL\' +" +
+            " \';\' + \'MONTO_BASE:\' + Cast(Cast(A0.\"U_HBT_BaseRet\" as Decimal(15,2)) as Nvarcha" +
+            "r(100)) + \';\' + \'MONTO:\' + Cast(Cast(A0.\"WTAmnt\" as Decimal(15,2)) as Nvarchar(1" +
+            "00)) +\r\n\t\'PORCENTAJE:\' + Cast(Cast(A0.\"Rate\" as numeric(8,0)) as Nvarchar(100)) " +
+            "+ \';\' + \'ID_TRIBUTO:\' + IsNull(A1.\"U_SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:" +
+            "\' +\';\' + IsNull(A2.\"Name\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"INV5\" A0\r\n\tInner Join \"OW" +
+            "HT\" A1 On A0.\"WTCode\" = A1.\"WTCode\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A2 On A1.\"U_SEI_" +
+            "FETributo\" = A2.\"Code\"\r\n\tWhere A0.\"AbsEntry\" = {0} And IsNull(A0.\"WTAmnt\",0) != " +
+            "0\r\n\r\n\tUnion all\r\n\r\n\tSelect 0 \"LineNum\", 26 as \"ordenplano\",\r\n\t\'@E:\' + \'TOTALES\' " +
+            "+ \';\' + \'\' + \'TOTAL_BRUTO:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'CO" +
+            "P\') THEN Cast(Cast(Sum(A1.\"LineTotal\") as Decimal(15,2)) as Nvarchar(100)) WHEN " +
+            "A0.\"DocCur\" = \'usd\' THEN Cast(Cast(Sum(A1.\"TotalSumSy\") as Decimal(15,2)) as Nva" +
+            "rchar(100)) ELSE Cast(Cast(Sum(A1.\"TotalFrgn\") as Decimal(15,2)) as Nvarchar(100" +
+            ")) END + \';\' + \r\n\t\'TOTAL_BASE_IMPONIBLE:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', " +
+            "\'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0.\"VatSum\" as Decimal(15,2)) as Nvarchar(100))" +
+            " WHEN A0.\"DocCur\" = \'usd\' THEN Cast(Cast(A0.\"VatSumSy\" as Decimal(15,2)) as Nvar" +
+            "char(100)) ELSE Cast(Cast(A0.\"VatSumFC\" as Decimal(15,2)) as Nvarchar(100)) END " +
+            "+ \';\' + \r\n\t\'TOTAL_NETO:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\')" +
+            " THEN Cast(Cast(A0.\"DocTotal\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCu" +
+            "r\" = \'usd\' Then Cast(Cast(A0.\"DocTotalSy\" as Decimal(15,2)) as Nvarchar(100)) EL" +
+            "SE Cast(Cast(A0.\"DocTotalFC\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' +\r\n\t\'" +
+            "TOTAL_DESCUENTOS:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN " +
+            "Cast(Cast(A0.\"DiscSum\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'u" +
+            "sd\' Then Cast(Cast(A0.\"DiscSumSy\" as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(" +
+            "Cast(A0.\"DiscSumFC\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' +\r\n\t\'TOTAL_FAC" +
+            "TURA:\' + CASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cast(Cast(A0" +
+            ".\"DocTotal\" as Decimal(15,2)) as Nvarchar(100)) WHEN A0.\"DocCur\" = \'usd\' Then Ca" +
+            "st(Cast(A0.\"DocTotalSy\" as Decimal(15,2)) as Nvarchar(100)) ELSE Cast(Cast(A0.\"D" +
+            "ocTotalFC\" as Decimal(15,2)) as Nvarchar(100)) END + \'\' as \"cadena\"\r\n\tFrom \"OINV" +
+            "\" A0 \r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tWhere A0.\"DocEnt" +
+            "ry\" = {0}\r\n\tGroup By A0.\"DocCur\", A0.\"DocTotal\", A0.\"DiscSum\", A0.\"VatSum\", A0.\"" +
+            "DpmAmnt\", A0.\"WTSum\", A0.\"CurSource\", A0.\"VatSumFC\", A0.\"DocTotalFC\", A0.\"VatSum" +
+            "Sy\", A0.\"DocTotalSy\", A0.\"DiscSum\", A0.\"DiscSumFC\", A0.\"DiscSumSy\"\r\n\r\n\tUnion all" +
+            "\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 27 as \"orde" +
+            "nplano\",\r\n\t\'@E:\' + \'DETALLE\' + \';\' + \'LINEA:\' +  Cast(IsNull(A1.\"LineNum\",0) as " +
+            "Nvarchar(10)) + \';\' + \'NOTA:\' + Cast(IsNull(A1.\"FreeTxt\",\'\') as nvarchar(100)) +" +
+            " \';\' + \'CANTIDAD:\' + Cast(Cast(A1.\"Quantity\" as Decimal(12,2)) as Nvarchar(100))" +
+            " + \';\' + \'VALOR_TOTAL:\' + \';\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\'" +
+            ",\'COP\') THEN Cast(Cast(A1.\"LineTotal\" as Decimal(15,2)) as Nvarchar(100)) WHEN A" +
+            "0.\"DocCur\" = \'usd\' THEN Cast(Cast(A1.\"TotalSumSy\" as Decimal(15,2)) as Nvarchar(" +
+            "100)) ELSE Cast(Cast(A1.\"TotalFrgn\" as Decimal(15,2)) as Nvarchar(100)) END + \r\n" +
+            "\t\';\' + \'CODIGO_VENDEDOR:\' + IsNull(Cast(A1.\"SlpCode\" as nvarchar(10)),\'\') + \';\' " +
+            "+ \'PRECIO:\' + Cast(Cast(A1.\"Price\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'" +
+            "ID_UNIDAD_MEDIDA:\' + \r\n\tCASE WHEN IsNull(A1.\"UomCode\",\'\') = \'Manual\' Then IsNull" +
+            "(A2.\"U_DIAN_UM\",\'\') Else IsNull(A3.\"U_SAP_UM\",\'\') End + \';\' + \'CANTIDAD_BASE:\' +" +
+            " Cast(Cast(A1.\"Quantity\" as Decimal(12,2)) as Nvarchar(100))\r\n\tFrom \"OINV\" A0 \r\n" +
+            "\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tLeft Join \"@FEDIAN_HOMO" +
+            "L_UM\" A2 On A1.\"unitMsr\" = A2.\"U_SAP_UM\"\r\n\tLeft Join \"@FEDIAN_HOMOL_UM\" A3 On A1" +
+            ".\"UomCode\" = A2.\"U_SAP_UM\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect " +
+            "ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 28 as \"ordenplano\",\r\n\t\'" +
+            "@S:\' + \'DETALLE\' + \';\' + \'PAGO_REFERENCIA\' +\';\' + \'VALOR:\' + Cast(Cast(A1.\"Price" +
+            "\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'TIPO_PRECIO:\' + IsNull(A1.\"U_SEI_" +
+            "FETipPrec\",\'\') + \'\' As \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"D" +
+            "ocEntry\" = A1.\"DocEntry\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A1.\"U_SEI_FETipP" +
+            "rec\",\'\') = \'03\'\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOr" +
+            "der\") as \"LineNum\", 29 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'DESC_CARGO\'" +
+            " + \';\' + \'IDENTIFICADOR:\' + Cast(A1.\"LineNum\" as nvarchar(100)) + \';\' + \'ES_CARG" +
+            "O:\' + \'false\' + \';\' +\r\n\t\'RAZON:\' + \'\' + \';\' + \'PORCENTAJE:\' + Cast(Cast(A1.\"Disc" +
+            "Prcnt\" as Decimal(15,0)) as Nvarchar(100)) + \';\' + \'MONTO:\' +\r\n\tCast(Cast(A1.\"Pr" +
+            "iceBefDi\"-A1.\"Price\" as Decimal(15,2)) as Nvarchar(100)) + \';\' + \'MONTO_BASE:\' +" +
+            " \r\n\tCast(Cast(A1.\"PriceBefDi\" as Decimal(15,2)) as Nvarchar(100)) as \"cadena\"\r\n\t" +
+            "From \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tWhere A" +
+            "0.\"DocEntry\" = {0} And IsNull(A1.\"DiscPrcnt\",0) > 0\r\n\t\r\n\tUnion all\r\n\t\r\n\tSelect R" +
+            "OW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 30 as \"ordenplano\",\r\n\t\'@" +
+            "S:\' + \'DETALLE\' + \';\' + \'DESC_CARGO\' + \';\' + \'IDENTIFICADOR:\' + Cast(A2.\"LineNum" +
+            "\" as nvarchar(100)) + \';\' + \'ES_CARGO:\' + \'true\' + \';\' +\r\n\t\'RAZON:\' + A3.\"ExpnsN" +
+            "ame\" + \';\' + \'PORCENTAJE:\' + Cast(Cast(0 as Decimal(15,2)) as Nvarchar(100)) + \'" +
+            ";\' + \'MONTO:\' +\r\n\tCASE WHEN A0.\"DocCur\" in (\'$\',\'us\', \'eu\', \'lb\',\'COP\') THEN Cas" +
+            "t(Cast(A2.\"TaxSum\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tWHEN A0.\"DocCur\" = \'us" +
+            "d\' THEN Cast(Cast(A2.\"TaxSumSys\" as Decimal(15,2)) as Nvarchar(100)) \r\n\tELSE Cas" +
+            "t(Cast(A2.\"TaxSumFrgn\" as Decimal(15,2)) as Nvarchar(100)) END + \';\' + \'MONTO_BA" +
+            "SE:\' + \r\n\tCast(Cast(A1.\"PriceBefDi\" as Decimal(15,2)) as Nvarchar(100)) as \"cade" +
+            "na\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\n\tI" +
+            "nner Join \"INV4\" A2 On A1.\"DocEntry\" = A2.\"DocEntry\" And A1.\"LineNum\" = A2.\"Line" +
+            "Num\" And A2.\"RelateType\" = \'3\'\r\n\tInner Join \"OEXD\" A3 On A2.\"ExpnsCode\" = A3.\"Ex" +
+            "pnsCode\"\r\n\tWhere A0.\"DocEntry\" = {0} And IsNull(A2.\"TaxSum\",0) != 0\r\n\r\n\tUnion al" +
+            "l\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A0.\"VisOrder\") as \"LineNum\", 31 as \"ord" +
+            "enplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'IMPUESTOS\' + \';\' + \'MONTO_TOTAL:\' + Cast(" +
+            "Cast(IsNull(A0.\"VatSum\",0) as numeric(15,2)) as Nvarchar(100)) As \"cadena\"\r\n\tFro" +
+            "m \"INV1\" A0\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() OV" +
+            "ER (ORDER BY A1.\"VisOrder\") as \"LineNum\", 32 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE" +
+            "\' + \';\' + \'IMPUESTOS/SUBTOTAL\' + \';\' + \'MONTO_TOTAL:\' + Cast(Cast(Sum(A2.\"BaseSu" +
+            "m\") as numeric(15,2)) as Nvarchar(100)) \r\n\t+ \';\' + \'MONTO:\' + Cast(Cast(Sum(A2.\"" +
+            "TaxSum\") as numeric(15,2)) as Nvarchar(100)) + \';\' + \'VALOR_UNITARIO:\' + Cast(Ca" +
+            "st(Sum(A1.\"Price\") as Decimal(15,2)) as Nvarchar(100))\r\n\t+ \';\' + \'PORCENTAJE:\' +" +
+            " Cast(Cast(A2.\"TaxRate\" as Decimal(2,0)) as Nvarchar(100)) + \';\' + \'ID_TRIBUTO:\'" +
+            " + IsNull(A3.\"U_SEI_FETributo\",\'\') + \';\' + \'NOMBRE_TRIBUTO:\' +\';\' + IsNull(A4.\"N" +
+            "ame\",\'\') + \'\' as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntr" +
+            "y\" = A1.\"DocEntry\"\r\n\tLeft Join \"INV4\" A2 On A1.\"DocEntry\" = A2.\"DocEntry\" And A1" +
+            ".\"LineNum\" = A2.\"LineNum\" And A2.\"RelateType\" = \'1\'\r\n\tLeft Join \"OSTC\" A3 On A2." +
+            "\"StcCode\" = A3.\"Code\"\r\n\tLeft Join \"@FEDIAN_TRIBU\" A4 On A3.\"U_SEI_FETributo\" = A" +
+            "4.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0} \r\n\tGroup by A1.\"VisOrder\", A2.\"TaxRate\", A3" +
+            ".\"U_SEI_FETributo\", A4.\"Name\"\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER " +
+            "BY A1.\"VisOrder\") as \"LineNum\", 33 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + " +
+            "\'PRODUCTO\' + \';\' + \'DESCRIPCION:\' + Cast(IsNull(A1.\"Dscription\",\'\') as Nvarchar(" +
+            "300)) + \';\' + \'MARCA:\' + IsNull(A3.\"FirmName\",\'\') + \';\' + \'MODELO:\' + IsNull(A2." +
+            "\"U_SEI_FEModelo\",\'\') as \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"" +
+            "DocEntry\" = A1.\"DocEntry\"\r\n\tLeft Join \"OITM\" A2 On A1.\"ItemCode\" = A2.\"ItemCode\"" +
+            "\r\n\tLeft Join \"OMRC\" A3 On A2.\"FirmCode\" = A3.\"FirmCode\"\r\n\tWhere A0.\"DocEntry\" = " +
+            "{0}\r\n\r\n\tUnion all\r\n\r\n\tSelect ROW_NUMBER() OVER (ORDER BY A1.\"VisOrder\") as \"Line" +
+            "Num\", 34 as \"ordenplano\",\r\n\t\'@S:\' + \'DETALLE\' + \';\' + \'PRODUCTO/ESTANDAR\' + \';\' " +
+            "+ \'CODIGO:\' + Cast(IsNull(A3.\"Code\",\'\') as Nvarchar(300)) + \';\' + \'NOMBRE:\' + Is" +
+            "Null(A3.\"Name\",\'\') + \';\' + \'CODIGO_POR_ESTANDAR:\' +  IsNull(A2.\"ItemCode\",\'\') as" +
+            " \"cadena\"\r\n\tFrom \"OINV\" A0\r\n\tInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntr" +
+            "y\"\r\n\tInner Join \"OITM\" A2 On A1.\"ItemCode\" = A2.\"ItemCode\"\r\n\tInner Join \"@FEDIAN" +
+            "_IDENT_ARTI\" A3 on A2.\"U_SEI_FEIdent\" = A3.\"Code\"\r\n\tWhere A0.\"DocEntry\" = {0}\r\n\t" +
+            ")A0\r\nOrder By \"LineNum\", \"ordenplano\";")]
         public string NotaDebito {
             get {
                 return ((string)(this["NotaDebito"]));
@@ -523,7 +1037,7 @@ Order By Cast(A0.""Code"" as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect * from [@FEDIAN_CODDOC] Order By Code\r\n\t\t\t\t")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select * from \"@FEDIAN_CODDOC\" Order By \"Code\"")]
         public string cmbTipodoc {
             get {
                 return ((string)(this["cmbTipodoc"]));
@@ -554,9 +1068,9 @@ Order By Cast(A0.""Code"" as int)")]
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\r\n\t\t\t\t\tSelect Code,U_DocNum,U_DocType, IsNull(Cast(U_Fecha_Envio as nvarchar(100)" +
-            "),\'\') as\'U_Fecha_Envio\'\r\n\t\t\t\t\tFrom [@FEDIAN_MONITORLOG] A0\r\n\t\t\t\t\tWhere IsNull(U_" +
-            "Status,\'\') = \'\' or IsNull(U_Status,\'\') In ({0})\r\n\t\t\t\t")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"Select A0.""Code"", A0.""U_DocNum"", A0.""U_Folio"", A0.""U_Prefijo"", A0.""U_DocType"", A0.""U_ObjType"", IsNull(Cast(A0.""U_Fecha_Envio"" as nvarchar(100)),'') as ""U_Fecha_Envio""
+From ""@FEDIAN_MONITORLOG"" A0
+Where IsNull(A0.""U_Status"",'') = '' or IsNull(A0.""U_Status"",'') In ({0})")]
         public string ReSendAuto {
             get {
                 return ((string)(this["ReSendAuto"]));

@@ -22,8 +22,8 @@
     <MetadataSource Address="https://enviardocumentos.dispafel.com:443/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="enviarDocumento1.xsd" MetadataType="Schema" ID="fb3864e4-1c6d-4eb9-be88-8bd113824fa5" SourceId="1" SourceUrl="https://enviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?xsd=1" />
     <MetadataFile FileName="enviarDocumento.wsdl" MetadataType="Wsdl" ID="57379fe8-b399-4698-a539-e9e2d23e6c1a" SourceId="1" SourceUrl="https://enviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?wsdl" />
-    <MetadataFile FileName="enviarDocumento.xsd" MetadataType="Schema" ID="2c3185d6-db3c-45cf-a3c1-14e67c648d83" SourceId="1" SourceUrl="http://enviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

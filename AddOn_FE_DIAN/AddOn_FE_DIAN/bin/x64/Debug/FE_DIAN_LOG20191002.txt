@@ -1,0 +1,248 @@
+2/10/2019 6:37:26 a. m. : FEDIAN_MEDPAGO - 39: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:26 a. m. : FEDIAN_MEDPAGO - 40: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:27 a. m. : Proveedor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:28 a. m. : NIT_Emisor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:28 a. m. : Email_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:28 a. m. : Clave_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:29 a. m. : Token: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:29 a. m. : Ambiente: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:29 a. m. : URL: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:30 a. m. : DocType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:30 a. m. : Folio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:30 a. m. : Prefijo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:30 a. m. : ObjType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:31 a. m. : DocNum: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:31 a. m. : Resultado: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:31 a. m. : Status: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:32 a. m. : ProcessID: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:32 a. m. : Fecha_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:32 a. m. : Hora_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:33 a. m. : Usuario_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:33 a. m. : Fecha_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:33 a. m. : Hora_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:34 a. m. : Usuario_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:34 a. m. : Det_Peticion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:34 a. m. : Respuesta_Int: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:34 a. m. : Archivo_PDF: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:35 a. m. : Enlace_XML: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:35 a. m. : ID_Seguimiento: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:37 a. m. : SEI_FEConcepNC: Sin registros 
+2/10/2019 6:37:38 a. m. : SEI_FEConcepND: Sin registros 
+2/10/2019 6:37:38 a. m. : SEI_FEMedPago: Sin registros 
+2/10/2019 6:37:38 a. m. : SEI_FETipOper: Sin registros 
+2/10/2019 6:37:38 a. m. : SEI_FETributo: Sin registros 
+2/10/2019 6:37:39 a. m. : SEI_FETributo: Sin registros 
+2/10/2019 6:37:39 a. m. : SEI_FEIdent: Sin registros 
+2/10/2019 6:37:39 a. m. : SEI_FEDescu: Sin registros 
+2/10/2019 6:37:40 a. m. : SEI_FEIncoTerm: Sin registros 
+2/10/2019 6:37:40 a. m. : SEI_FEDescu: Sin registros 
+2/10/2019 6:37:40 a. m. : SEI_FEUMDIAN: Sin registros 
+2/10/2019 6:37:41 a. m. : SEI_FETipPrec: Sin registros 
+2/10/2019 6:37:41 a. m. : SEI_FEActEco: Sin registros 
+2/10/2019 6:37:41 a. m. : SEI_FETipDoc: Sin registros 
+2/10/2019 6:37:42 a. m. : SEI_FERegFis: Sin registros 
+2/10/2019 6:37:42 a. m. : Descripcion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:42 a. m. : SAP_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:42 a. m. : DIAN_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:43 a. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:43 a. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:43 a. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:44 a. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:44 a. m. : SEI_FEModelo: Sin registros 
+2/10/2019 6:37:44 a. m. : DocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:44 a. m. : NumResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:45 a. m. : FechaResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:45 a. m. : ClaveTec: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:45 a. m. : FechaDesde: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:46 a. m. : FechaHasta: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:37:46 a. m. : SEI_FERegFis: Sin registros 
+2/10/2019 6:41:21 a. m. : FEDIAN_UM - A16: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:19 a. m. : FEDIAN_MEDPAGO - 39: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:19 a. m. : FEDIAN_MEDPAGO - 40: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:21 a. m. : Proveedor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:21 a. m. : NIT_Emisor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:22 a. m. : Email_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:22 a. m. : Clave_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:22 a. m. : Token: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:23 a. m. : Ambiente: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:23 a. m. : URL: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:23 a. m. : DocType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:23 a. m. : Folio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:24 a. m. : Prefijo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:24 a. m. : ObjType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:24 a. m. : DocNum: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:25 a. m. : Resultado: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:25 a. m. : Status: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:25 a. m. : ProcessID: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:26 a. m. : Fecha_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:26 a. m. : Hora_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:26 a. m. : Usuario_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:27 a. m. : Fecha_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:27 a. m. : Hora_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:27 a. m. : Usuario_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:27 a. m. : Det_Peticion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:28 a. m. : Respuesta_Int: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:28 a. m. : Archivo_PDF: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:28 a. m. : Enlace_XML: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:29 a. m. : ID_Seguimiento: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:29 a. m. : SEI_FEConcepNC: Sin registros 
+2/10/2019 6:42:29 a. m. : SEI_FEConcepND: Sin registros 
+2/10/2019 6:42:29 a. m. : SEI_FEMedPago: Sin registros 
+2/10/2019 6:42:30 a. m. : SEI_FETipOper: Sin registros 
+2/10/2019 6:42:30 a. m. : SEI_FETributo: Sin registros 
+2/10/2019 6:42:30 a. m. : SEI_FETributo: Sin registros 
+2/10/2019 6:42:31 a. m. : SEI_FEIdent: Sin registros 
+2/10/2019 6:42:31 a. m. : SEI_FEDescu: Sin registros 
+2/10/2019 6:42:31 a. m. : SEI_FEIncoTerm: Sin registros 
+2/10/2019 6:42:32 a. m. : SEI_FEDescu: Sin registros 
+2/10/2019 6:42:32 a. m. : SEI_FEUMDIAN: Sin registros 
+2/10/2019 6:42:32 a. m. : SEI_FETipPrec: Sin registros 
+2/10/2019 6:42:33 a. m. : SEI_FEActEco: Sin registros 
+2/10/2019 6:42:33 a. m. : SEI_FETipDoc: Sin registros 
+2/10/2019 6:42:33 a. m. : SEI_FERegFis: Sin registros 
+2/10/2019 6:42:34 a. m. : Descripcion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:34 a. m. : SAP_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:34 a. m. : DIAN_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:34 a. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:35 a. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:35 a. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:35 a. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:36 a. m. : SEI_FEModelo: Sin registros 
+2/10/2019 6:42:36 a. m. : DocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:36 a. m. : NumResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:36 a. m. : FechaResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:37 a. m. : ClaveTec: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:37 a. m. : FechaDesde: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:37 a. m. : FechaHasta: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:42:38 a. m. : SEI_FERegFis: Sin registros 
+2/10/2019 6:43:30 a. m. : FEDIAN_UM - A16: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:05 a. m. : FEDIAN_UM - XDN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:07 a. m. : FEDIAN_UM - XGI: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:16 a. m. : FEDIAN_UM - XSY: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:19 a. m. : FEDIAN_UM - XVN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:30 a. m. : FEDIAN_RYT: Sin registros 
+2/10/2019 6:45:30 a. m. : FEDIAN_RYT: Sin registros 
+2/10/2019 6:45:30 a. m. : formID: FEDIAN_HOMOL_UM QueryName: UM_Pendientes: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:30 a. m. : formID: FEDIAN_HOMOL_UM QueryName: ListaUM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: 133 QueryName: UM_DIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: 185 QueryName: ListaDocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: ListaRespon: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: DescRespon: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: ListaTribu: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: DescTribu: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: NombreSN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: 136 QueryName: TipoDoc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: FEDIAN_NUMAUTORI QueryName: ListaNume: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 6:45:31 a. m. : formID: FEDIAN_NUMAUTORI QueryName: DescNume: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:52 a. m. : FEDIAN_DESCU - 0: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:52 a. m. : FEDIAN_DESCU - 1: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:52 a. m. : FEDIAN_DESCU - 2: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:52 a. m. : FEDIAN_DESCU - 3: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:52 a. m. : FEDIAN_DESCU - 6: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:52 a. m. : FEDIAN_DESCU - 7: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:52 a. m. : FEDIAN_DESCU - 9: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:53 a. m. : Proveedor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:54 a. m. : NIT_Emisor: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:54 a. m. : Email_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:55 a. m. : Clave_Usuario: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:55 a. m. : Token: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:55 a. m. : Ambiente: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:56 a. m. : URL: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:56 a. m. : DocType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:56 a. m. : Folio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:57 a. m. : Prefijo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:57 a. m. : ObjType: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:57 a. m. : DocNum: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:58 a. m. : Resultado: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:59 a. m. : Status: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:02:59 a. m. : ProcessID: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:00 a. m. : Fecha_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:00 a. m. : Hora_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:00 a. m. : Usuario_Envio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:01 a. m. : Fecha_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:01 a. m. : Hora_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:01 a. m. : Usuario_ReEnvio: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:02 a. m. : Det_Peticion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:02 a. m. : Respuesta_Int: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:03 a. m. : Archivo_PDF: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:04 a. m. : Enlace_XML: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:04 a. m. : ID_Seguimiento: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:07 a. m. : SEI_FEConcepNC: Sin registros 
+2/10/2019 7:03:08 a. m. : SEI_FEConcepND: Sin registros 
+2/10/2019 7:03:09 a. m. : SEI_FEMedPago: Sin registros 
+2/10/2019 7:03:09 a. m. : SEI_FETipOper: Sin registros 
+2/10/2019 7:03:10 a. m. : SEI_FETributo: Sin registros 
+2/10/2019 7:03:10 a. m. : SEI_FETributo: Sin registros 
+2/10/2019 7:03:11 a. m. : SEI_FEIdent: Sin registros 
+2/10/2019 7:03:12 a. m. : SEI_FEDescu: Sin registros 
+2/10/2019 7:03:13 a. m. : SEI_FEIncoTerm: Sin registros 
+2/10/2019 7:03:13 a. m. : SEI_FEDescu: Sin registros 
+2/10/2019 7:03:14 a. m. : SEI_FEUMDIAN: Sin registros 
+2/10/2019 7:03:14 a. m. : SEI_FETipPrec: Sin registros 
+2/10/2019 7:03:15 a. m. : SEI_FEActEco: Sin registros 
+2/10/2019 7:03:15 a. m. : SEI_FETipDoc: Sin registros 
+2/10/2019 7:03:16 a. m. : SEI_FERegFis: Sin registros 
+2/10/2019 7:03:16 a. m. : Descripcion: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:17 a. m. : SAP_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:17 a. m. : DIAN_UM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:18 a. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:18 a. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:19 a. m. : Codigo: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:19 a. m. : Desc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:19 a. m. : SEI_FEModelo: Sin registros 
+2/10/2019 7:03:20 a. m. : DocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:20 a. m. : NumResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:21 a. m. : FechaResol: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:22 a. m. : ClaveTec: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:22 a. m. : FechaDesde: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:23 a. m. : FechaHasta: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:03:24 a. m. : SEI_FERegFis: Sin registros 
+2/10/2019 7:03:28 a. m. : FEDIAN_UM - A16: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:04 a. m. : FEDIAN_UM - XDN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:04 a. m. : FEDIAN_UM - XGI: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:06 a. m. : FEDIAN_UM - XSY: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:07 a. m. : FEDIAN_UM - XVN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:09 a. m. : FEDIAN_RYT: Sin registros 
+2/10/2019 7:04:09 a. m. : FEDIAN_RYT: Sin registros 
+2/10/2019 7:04:09 a. m. : formID: FEDIAN_HOMOL_UM QueryName: UM_Pendientes: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: FEDIAN_HOMOL_UM QueryName: ListaUM: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: 133 QueryName: UM_DIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: 185 QueryName: ListaDocDIAN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: ListaRespon: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: DescRespon: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: ListaTribu: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: DescTribu: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: UDO_FT_FEDIAN_SN QueryName: NombreSN: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: 136 QueryName: TipoDoc: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: FEDIAN_NUMAUTORI QueryName: ListaNume: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:04:10 a. m. : formID: FEDIAN_NUMAUTORI QueryName: DescNume: Esta entrada ya existe en las tablas siguientes (ODBC -2035)
+2/10/2019 7:09:10 a. m. : SendFE: DocEntry: 203 TipoDoc: 01
+2/10/2019 7:09:11 a. m. : documentos: requestStream{"contenidoArchivoIntegracion":"QEU6Q0FCRUNFUkE7T1BFUkFDSU9OOjEwO0FNQklFTlRFOjAyO0ZPTElPOjIyNztQUkVGSUpPOjtDVUZFOjtGRUNIQV9FTUlTSU9OOjIwMTktMDktMTc7SE9SQV9FTUlTSU9OOjA3OjA5OjExO1RJUE9fRE9DVU1FTlRPOjtOT1RBOjs7TU9ORURBOkNPUDtUT1RBTF9MSU5FQVM6MQ0KQEU6RU1JU09SO1RJUE9fT1JHQU5JWkFDSU9OOjE7Q09ESUdPX0FDVEVDTzo7UkFaT05fU09DSUFMOkpBUE9ORVNBIERFIFJFUFVFU1RPUyBMVERBO05JVDo4NjA1MTI1Nzc7TklUX0RWOjU7VElQT19JREVOVElEQUQ6MzE7Q09ESUdPX09CTElHQUNJT046QS0wMTtBLTU4O05PTUJSRV9PQkxJR0FDSU9OOjA0O0lESU9NQTplcw0KQFM6RU1JU09SO0RJUkVDQ0lPTl9FWFBFRElDSU9OO0NPRElHT19NVU5JQ0lQSU86MTEwMDE7Tk9NQlJFX01VTklDSVBJTzpCT0dPVMOBO0NPRElHT19QT1NUQUw6O05PTUJSRV9ERVBBUlRBTUVOVE86Qk9HT1TDgTtDT0RJR09fREVQQVJUQU1FTlRPOjExO0RJUkVDQ0lPTjpDYWxsZSA5M2IgIzEzLTMwO0NPRElHT19QQUlTOkNPO05PTUJSRV9QQUlTOkNvbG9tYmlhDQpAUzpFTUlTT1I7SU5GT19UUklCVVRBUklBO0NPRElHT19UUklCVVRPOjAxO05PTUJSRV9UUklCVVRPOklWQQ0KQFM6RU1JU09SO0lORk9fQ09NRVJDSUFMO1BSRUZJSk86DQpAUzpFTUlTT1I7SU5GT19DT01FUkNJQUw7Tk9NQlJFOlNlaWRvcjtURUxFRk9OTzo3NDQ3ODEwO0ZBWDo7Q09SUkVPOg0KQFM6RU1JU09SO0NPTlRBQ1RPO05PTUJSRTpTZWlkb3I7VEVMRUZPTk86NzQ0NzgxMDtGQVg6O0NPUlJFTzo7Tk9UQTotTmluZ8O6biBlbXBsZWFkbyBkZWwgZGVwYXJ0YW1lbnQNCkBFOlJFQ0VQVE9SO1RJUE9fT1JHQU5JWkFDSU9OOjE7UkFaT05fU09DSUFMOkNsaWVudGUgUHVudG8gZGUgVmVudGE7TklUOjkwMDMwMzMwMztOSVRfRFY6MjtUSVBPX0lERU5USURBRDozMTtDT0RJR09fT0JMSUdBQ0lPTjowNzsyMjtOT01CUkVfT0JMSUdBQ0lPTjowNDtJRElPTUE6ZXMNCkBTOlJFQ0VQVE9SO0lORk9fVFJJQlVUQVJJQTtDT0RJR09fVFJJQlVUTzpPLTAxO05PTUJSRV9UUklCVVRPOkFwb3J0ZSBlc3BlY2lhbCBwYXJhIGxhIGFkbWluaXN0cmFjaW9uIGRlIGp1c3RpY2lhDQpAUzpSRUNFUFRPUjtJTkZPX1RSSUJVVEFSSUE7Q09ESUdPX1RSSUJVVE86QS0wODtOT01CUkVfVFJJQlVUTzpDb21lcmNpYW50ZXMgZGUgbGEgem9uYSBkZSByZWdpbWVuIGFkdWFuZXJvIGVzcGVjaWFsIGRlIFVyYWJhLCBUdW1hY28geSBHdWFwaQ0KQFM6UkVDRVBUT1I7SU5GT19DT01FUkNJQUw7UFJFRklKTzoNCkBFOlJFUFJFU0VOVEFOVEU7TklUOjg2MDUxMjU3NztOSVRfRFY6NTtUSVBPX0lERU5USURBRDozMQ0KQEU6UEFHTztDT0RJR09fTUVUT0RPX1BBR086MTtDT0RJR09fTUVESU9fUEFHTzoxMDtGRUNIQV9WRU5DSU1JRU5UTzoyMDE5LTA5LTE3DQpARTpNT05FREFfQ0FNQklPO1RJUE9fTU9ORURBOlVTRDtUQVNBX0NBTUJJTzozMDAwLjAwO0ZFQ0hBX1RBU0E6MjAxOS0wOS0xNw0KQEU6SU1QVUVTVE9TO01PTlRPX1RPVEFMOjE2MDAwMC4wMA0KQFM6SU1QVUVTVE9TO1NVQlRPVEFMO01PTlRPX0JBU0U6MTAwMDAwMC4wMDpNT05UTzoxNjAwMDAuMDBQT1JDRU5UQUpFOjE2O0lEX1RSSUJVVE86MDE7Tk9NQlJFX1RSSUJVVE86O0lWQQ0KQEU6VE9UQUxFUztUT1RBTF9CUlVUTzoxMDAwMDAwLjAwO1RPVEFMX0JBU0VfSU1QT05JQkxFOjE2MDAwMC4wMDtUT1RBTF9ORVRPOjExNjAwMDAuMDA7VE9UQUxfREVTQ1VFTlRPUzowLjAwO1RPVEFMX0ZBQ1RVUkE6MTE2MDAwMC4wMA0KQEU6REVUQUxMRTtMSU5FQTowO05PVEE6O0NBTlRJREFEOjEuMDA7VkFMT1JfVE9UQUw6OzEwMDAwMDAuMDA7Q09ESUdPX1ZFTkRFRE9SOi0xO1BSRUNJTzoxMDAwMDAwLjAwO0lEX1VOSURBRF9NRURJREE6QzYyO0NBTlRJREFEX0JBU0U6MS4wMA0KQFM6REVUQUxMRTtJTVBVRVNUT1M7TU9OVE9fVE9UQUw6MTYwMDAwLjAwDQpAUzpERVRBTExFO0lNUFVFU1RPUy9TVUJUT1RBTDtNT05UT19UT1RBTDoxMDAwMDAwLjAwO01PTlRPOjE2MDAwMC4wMDtWQUxPUl9VTklUQVJJTzoxMDAwMDAwLjAwO1BPUkNFTlRBSkU6MTY7SURfVFJJQlVUTzowMTtOT01CUkVfVFJJQlVUTzo7SVZBDQpAUzpERVRBTExFO1BST0RVQ1RPO0RFU0NSSVBDSU9OOkFJUkUgQUNPTkRJQ0lPTkFETztNQVJDQTpFTVJDT1JQIEdST1VQO01PREVMTzoNCkBTOkRFVEFMTEU7UFJPRFVDVE8vRVNUQU5EQVI7Q09ESUdPOjk5OTtOT01CUkU6RXN0w6FuZGFyIGRlIGFkb3BjacOzbiBkZWwgY29udHJpYnV5ZW50ZTtDT0RJR09fUE9SX0VTVEFOREFSOkFDMDAwMQ0K"}
+2/10/2019 7:09:11 a. m. : documentos: HeadersContent-Type: application/json
+token: NTczNzZmMDYxYmQwNDE0ODMwMTlkMWExYjYzNWM4MzRlOTc5
+empresa: 860512577
+Host: api.febos.co
+
+
+2/10/2019 7:09:11 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/v2/documentos?xml=si&imagen=si&tipoDocumento=01&foliar=no&folio=227&prefijo=
+2/10/2019 7:09:27 a. m. : documentos_webResponse: {"duracion":7174,"codigo":158,"seguimientoId":"cbb53c6e-ed22-42c0-aa16-3553ad1387e8","mensaje":"No se puede cargar un rango de folios que ya existe.","duration":0,"code":0,"hora":"2019-10-02 12:09:13.466","message":"No se puede cargar un rango de folios que ya existe.","errores":["No se encontró un rango de folios válido para el número de folio 227"]}
+2/10/2019 7:14:10 a. m. : SendFE: DocEntry: 203 TipoDoc: 01
+2/10/2019 7:14:11 a. m. : documentos: requestStream{"contenidoArchivoIntegracion":"QEU6Q0FCRUNFUkE7T1BFUkFDSU9OOjEwO0FNQklFTlRFOjAyO0ZPTElPOjIyNztQUkVGSUpPOjtDVUZFOjtGRUNIQV9FTUlTSU9OOjIwMTktMDktMTc7SE9SQV9FTUlTSU9OOjA3OjE0OjEwO1RJUE9fRE9DVU1FTlRPOjtOT1RBOjs7TU9ORURBOkNPUDtUT1RBTF9MSU5FQVM6MQ0KQEU6RU1JU09SO1RJUE9fT1JHQU5JWkFDSU9OOjE7Q09ESUdPX0FDVEVDTzo7UkFaT05fU09DSUFMOkpBUE9ORVNBIERFIFJFUFVFU1RPUyBMVERBO05JVDo4NjA1MTI1Nzc7TklUX0RWOjU7VElQT19JREVOVElEQUQ6MzE7Q09ESUdPX09CTElHQUNJT046QS0wMTtBLTU4O05PTUJSRV9PQkxJR0FDSU9OOjA0O0lESU9NQTplcw0KQFM6RU1JU09SO0RJUkVDQ0lPTl9FWFBFRElDSU9OO0NPRElHT19NVU5JQ0lQSU86MTEwMDE7Tk9NQlJFX01VTklDSVBJTzpCT0dPVMOBO0NPRElHT19QT1NUQUw6O05PTUJSRV9ERVBBUlRBTUVOVE86Qk9HT1TDgTtDT0RJR09fREVQQVJUQU1FTlRPOjExO0RJUkVDQ0lPTjpDYWxsZSA5M2IgIzEzLTMwO0NPRElHT19QQUlTOkNPO05PTUJSRV9QQUlTOkNvbG9tYmlhDQpAUzpFTUlTT1I7SU5GT19UUklCVVRBUklBO0NPRElHT19UUklCVVRPOjAxO05PTUJSRV9UUklCVVRPOklWQQ0KQFM6RU1JU09SO0lORk9fQ09NRVJDSUFMO1BSRUZJSk86DQpAUzpFTUlTT1I7SU5GT19DT01FUkNJQUw7Tk9NQlJFOlNlaWRvcjtURUxFRk9OTzo3NDQ3ODEwO0ZBWDo7Q09SUkVPOg0KQFM6RU1JU09SO0NPTlRBQ1RPO05PTUJSRTpTZWlkb3I7VEVMRUZPTk86NzQ0NzgxMDtGQVg6O0NPUlJFTzo7Tk9UQTotTmluZ8O6biBlbXBsZWFkbyBkZWwgZGVwYXJ0YW1lbnQNCkBFOlJFQ0VQVE9SO1RJUE9fT1JHQU5JWkFDSU9OOjE7UkFaT05fU09DSUFMOkNsaWVudGUgUHVudG8gZGUgVmVudGE7TklUOjkwMDMwMzMwMztOSVRfRFY6MjtUSVBPX0lERU5USURBRDozMTtDT0RJR09fT0JMSUdBQ0lPTjowNzsyMjtOT01CUkVfT0JMSUdBQ0lPTjowNDtJRElPTUE6ZXMNCkBTOlJFQ0VQVE9SO0lORk9fVFJJQlVUQVJJQTtDT0RJR09fVFJJQlVUTzpPLTAxO05PTUJSRV9UUklCVVRPOkFwb3J0ZSBlc3BlY2lhbCBwYXJhIGxhIGFkbWluaXN0cmFjaW9uIGRlIGp1c3RpY2lhDQpAUzpSRUNFUFRPUjtJTkZPX1RSSUJVVEFSSUE7Q09ESUdPX1RSSUJVVE86QS0wODtOT01CUkVfVFJJQlVUTzpDb21lcmNpYW50ZXMgZGUgbGEgem9uYSBkZSByZWdpbWVuIGFkdWFuZXJvIGVzcGVjaWFsIGRlIFVyYWJhLCBUdW1hY28geSBHdWFwaQ0KQFM6UkVDRVBUT1I7SU5GT19DT01FUkNJQUw7UFJFRklKTzoNCkBFOlJFUFJFU0VOVEFOVEU7TklUOjg2MDUxMjU3NztOSVRfRFY6NTtUSVBPX0lERU5USURBRDozMQ0KQEU6UEFHTztDT0RJR09fTUVUT0RPX1BBR086MTtDT0RJR09fTUVESU9fUEFHTzoxMDtGRUNIQV9WRU5DSU1JRU5UTzoyMDE5LTA5LTE3DQpARTpNT05FREFfQ0FNQklPO1RJUE9fTU9ORURBOlVTRDtUQVNBX0NBTUJJTzozMDAwLjAwO0ZFQ0hBX1RBU0E6MjAxOS0wOS0xNw0KQEU6SU1QVUVTVE9TO01PTlRPX1RPVEFMOjE2MDAwMC4wMA0KQFM6SU1QVUVTVE9TO1NVQlRPVEFMO01PTlRPX0JBU0U6MTAwMDAwMC4wMDpNT05UTzoxNjAwMDAuMDBQT1JDRU5UQUpFOjE2O0lEX1RSSUJVVE86MDE7Tk9NQlJFX1RSSUJVVE86O0lWQQ0KQEU6VE9UQUxFUztUT1RBTF9CUlVUTzoxMDAwMDAwLjAwO1RPVEFMX0JBU0VfSU1QT05JQkxFOjE2MDAwMC4wMDtUT1RBTF9ORVRPOjExNjAwMDAuMDA7VE9UQUxfREVTQ1VFTlRPUzowLjAwO1RPVEFMX0ZBQ1RVUkE6MTE2MDAwMC4wMA0KQEU6REVUQUxMRTtMSU5FQTowO05PVEE6O0NBTlRJREFEOjEuMDA7VkFMT1JfVE9UQUw6OzEwMDAwMDAuMDA7Q09ESUdPX1ZFTkRFRE9SOi0xO1BSRUNJTzoxMDAwMDAwLjAwO0lEX1VOSURBRF9NRURJREE6QzYyO0NBTlRJREFEX0JBU0U6MS4wMA0KQFM6REVUQUxMRTtJTVBVRVNUT1M7TU9OVE9fVE9UQUw6MTYwMDAwLjAwDQpAUzpERVRBTExFO0lNUFVFU1RPUy9TVUJUT1RBTDtNT05UT19UT1RBTDoxMDAwMDAwLjAwO01PTlRPOjE2MDAwMC4wMDtWQUxPUl9VTklUQVJJTzoxMDAwMDAwLjAwO1BPUkNFTlRBSkU6MTY7SURfVFJJQlVUTzowMTtOT01CUkVfVFJJQlVUTzo7SVZBDQpAUzpERVRBTExFO1BST0RVQ1RPO0RFU0NSSVBDSU9OOkFJUkUgQUNPTkRJQ0lPTkFETztNQVJDQTpFTVJDT1JQIEdST1VQO01PREVMTzoNCkBTOkRFVEFMTEU7UFJPRFVDVE8vRVNUQU5EQVI7Q09ESUdPOjk5OTtOT01CUkU6RXN0w6FuZGFyIGRlIGFkb3BjacOzbiBkZWwgY29udHJpYnV5ZW50ZTtDT0RJR09fUE9SX0VTVEFOREFSOkFDMDAwMQ0K"}
+2/10/2019 7:14:11 a. m. : documentos: HeadersContent-Type: application/json
+token: NTczNzZmMDYxYmQwNDE0ODMwMTlkMWExYjYzNWM4MzRlOTc5
+empresa: 860512577
+Host: api.febos.co
+
+
+2/10/2019 7:14:11 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/v2/documentos?xml=si&imagen=si&tipoDocumento=01&foliar=no&folio=227&prefijo=
+2/10/2019 7:14:14 a. m. : documentos_webResponse: {"duracion":2078,"codigo":158,"seguimientoId":"0d3c267e-89a3-4be9-8ec1-a1f4fb2410a3","mensaje":"No se puede cargar un rango de folios que ya existe.","duration":0,"code":0,"hora":"2019-10-02 07:14:11.196","message":"No se puede cargar un rango de folios que ya existe.","errores":["No se encontró un rango de folios válido para el número de folio 227"]}
+2/10/2019 7:19:10 a. m. : SendFE: DocEntry: 203 TipoDoc: 01
+2/10/2019 7:19:11 a. m. : documentos: requestStream{"contenidoArchivoIntegracion":"QEU6Q0FCRUNFUkE7T1BFUkFDSU9OOjEwO0FNQklFTlRFOjAyO0ZPTElPOjIyNztQUkVGSUpPOjtDVUZFOjtGRUNIQV9FTUlTSU9OOjIwMTktMDktMTc7SE9SQV9FTUlTSU9OOjA3OjE5OjEwO1RJUE9fRE9DVU1FTlRPOjtOT1RBOjs7TU9ORURBOkNPUDtUT1RBTF9MSU5FQVM6MQ0KQEU6RU1JU09SO1RJUE9fT1JHQU5JWkFDSU9OOjE7Q09ESUdPX0FDVEVDTzo7UkFaT05fU09DSUFMOkpBUE9ORVNBIERFIFJFUFVFU1RPUyBMVERBO05JVDo4NjA1MTI1Nzc7TklUX0RWOjU7VElQT19JREVOVElEQUQ6MzE7Q09ESUdPX09CTElHQUNJT046QS0wMTtBLTU4O05PTUJSRV9PQkxJR0FDSU9OOjA0O0lESU9NQTplcw0KQFM6RU1JU09SO0RJUkVDQ0lPTl9FWFBFRElDSU9OO0NPRElHT19NVU5JQ0lQSU86MTEwMDE7Tk9NQlJFX01VTklDSVBJTzpCT0dPVMOBO0NPRElHT19QT1NUQUw6O05PTUJSRV9ERVBBUlRBTUVOVE86Qk9HT1TDgTtDT0RJR09fREVQQVJUQU1FTlRPOjExO0RJUkVDQ0lPTjpDYWxsZSA5M2IgIzEzLTMwO0NPRElHT19QQUlTOkNPO05PTUJSRV9QQUlTOkNvbG9tYmlhDQpAUzpFTUlTT1I7SU5GT19UUklCVVRBUklBO0NPRElHT19UUklCVVRPOjAxO05PTUJSRV9UUklCVVRPOklWQQ0KQFM6RU1JU09SO0lORk9fQ09NRVJDSUFMO1BSRUZJSk86DQpAUzpFTUlTT1I7SU5GT19DT01FUkNJQUw7Tk9NQlJFOlNlaWRvcjtURUxFRk9OTzo3NDQ3ODEwO0ZBWDo7Q09SUkVPOg0KQFM6RU1JU09SO0NPTlRBQ1RPO05PTUJSRTpTZWlkb3I7VEVMRUZPTk86NzQ0NzgxMDtGQVg6O0NPUlJFTzo7Tk9UQTotTmluZ8O6biBlbXBsZWFkbyBkZWwgZGVwYXJ0YW1lbnQNCkBFOlJFQ0VQVE9SO1RJUE9fT1JHQU5JWkFDSU9OOjE7UkFaT05fU09DSUFMOkNsaWVudGUgUHVudG8gZGUgVmVudGE7TklUOjkwMDMwMzMwMztOSVRfRFY6MjtUSVBPX0lERU5USURBRDozMTtDT0RJR09fT0JMSUdBQ0lPTjowNzsyMjtOT01CUkVfT0JMSUdBQ0lPTjowNDtJRElPTUE6ZXMNCkBTOlJFQ0VQVE9SO0lORk9fVFJJQlVUQVJJQTtDT0RJR09fVFJJQlVUTzpPLTAxO05PTUJSRV9UUklCVVRPOkFwb3J0ZSBlc3BlY2lhbCBwYXJhIGxhIGFkbWluaXN0cmFjaW9uIGRlIGp1c3RpY2lhDQpAUzpSRUNFUFRPUjtJTkZPX1RSSUJVVEFSSUE7Q09ESUdPX1RSSUJVVE86QS0wODtOT01CUkVfVFJJQlVUTzpDb21lcmNpYW50ZXMgZGUgbGEgem9uYSBkZSByZWdpbWVuIGFkdWFuZXJvIGVzcGVjaWFsIGRlIFVyYWJhLCBUdW1hY28geSBHdWFwaQ0KQFM6UkVDRVBUT1I7SU5GT19DT01FUkNJQUw7UFJFRklKTzoNCkBFOlJFUFJFU0VOVEFOVEU7TklUOjg2MDUxMjU3NztOSVRfRFY6NTtUSVBPX0lERU5USURBRDozMQ0KQEU6UEFHTztDT0RJR09fTUVUT0RPX1BBR086MTtDT0RJR09fTUVESU9fUEFHTzoxMDtGRUNIQV9WRU5DSU1JRU5UTzoyMDE5LTA5LTE3DQpARTpNT05FREFfQ0FNQklPO1RJUE9fTU9ORURBOlVTRDtUQVNBX0NBTUJJTzozMDAwLjAwO0ZFQ0hBX1RBU0E6MjAxOS0wOS0xNw0KQEU6SU1QVUVTVE9TO01PTlRPX1RPVEFMOjE2MDAwMC4wMA0KQFM6SU1QVUVTVE9TO1NVQlRPVEFMO01PTlRPX0JBU0U6MTAwMDAwMC4wMDpNT05UTzoxNjAwMDAuMDBQT1JDRU5UQUpFOjE2O0lEX1RSSUJVVE86MDE7Tk9NQlJFX1RSSUJVVE86O0lWQQ0KQEU6VE9UQUxFUztUT1RBTF9CUlVUTzoxMDAwMDAwLjAwO1RPVEFMX0JBU0VfSU1QT05JQkxFOjE2MDAwMC4wMDtUT1RBTF9ORVRPOjExNjAwMDAuMDA7VE9UQUxfREVTQ1VFTlRPUzowLjAwO1RPVEFMX0ZBQ1RVUkE6MTE2MDAwMC4wMA0KQEU6REVUQUxMRTtMSU5FQTowO05PVEE6O0NBTlRJREFEOjEuMDA7VkFMT1JfVE9UQUw6OzEwMDAwMDAuMDA7Q09ESUdPX1ZFTkRFRE9SOi0xO1BSRUNJTzoxMDAwMDAwLjAwO0lEX1VOSURBRF9NRURJREE6QzYyO0NBTlRJREFEX0JBU0U6MS4wMA0KQFM6REVUQUxMRTtJTVBVRVNUT1M7TU9OVE9fVE9UQUw6MTYwMDAwLjAwDQpAUzpERVRBTExFO0lNUFVFU1RPUy9TVUJUT1RBTDtNT05UT19UT1RBTDoxMDAwMDAwLjAwO01PTlRPOjE2MDAwMC4wMDtWQUxPUl9VTklUQVJJTzoxMDAwMDAwLjAwO1BPUkNFTlRBSkU6MTY7SURfVFJJQlVUTzowMTtOT01CUkVfVFJJQlVUTzo7SVZBDQpAUzpERVRBTExFO1BST0RVQ1RPO0RFU0NSSVBDSU9OOkFJUkUgQUNPTkRJQ0lPTkFETztNQVJDQTpFTVJDT1JQIEdST1VQO01PREVMTzoNCkBTOkRFVEFMTEU7UFJPRFVDVE8vRVNUQU5EQVI7Q09ESUdPOjk5OTtOT01CUkU6RXN0w6FuZGFyIGRlIGFkb3BjacOzbiBkZWwgY29udHJpYnV5ZW50ZTtDT0RJR09fUE9SX0VTVEFOREFSOkFDMDAwMQ0K"}
+2/10/2019 7:19:11 a. m. : documentos: HeadersContent-Type: application/json
+token: NTczNzZmMDYxYmQwNDE0ODMwMTlkMWExYjYzNWM4MzRlOTc5
+empresa: 860512577
+Host: api.febos.co
+
+
+2/10/2019 7:19:11 a. m. : documentos: RequestUrihttps://api.febos.co/pruebas/v2/documentos?xml=si&imagen=si&tipoDocumento=01&foliar=no&folio=227&prefijo=
+2/10/2019 7:19:12 a. m. : documentos_webResponse: {"duracion":1078,"codigo":158,"seguimientoId":"5fcbd350-e280-42eb-9b5f-61ec7ff25f1a","mensaje":"No se puede cargar un rango de folios que ya existe.","duration":0,"code":0,"hora":"2019-10-02 07:19:10.879","message":"No se puede cargar un rango de folios que ya existe.","errores":["No se encontró un rango de folios válido para el número de folio 227"]}
