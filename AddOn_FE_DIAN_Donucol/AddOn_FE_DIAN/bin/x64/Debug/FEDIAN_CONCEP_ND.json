@@ -1,16 +1,16 @@
 [{
-	"Codigo": "1",
-	"Nombre": "Intereses"
+	"Codigo": "7",
+	"Nombre": "INTERESES"
 },
 {
-	"Codigo": "2",
+	"Codigo": "8",
 	"Nombre": "Gastos por Cobrar"
 },
 {
-	"Codigo": "3",
+	"Codigo": "9",
 	"Nombre": "Cambio del Valor"
 },
 {
-	"Codigo": "4",
+	"Codigo": "10",
 	"Nombre": "Otro"
 }]

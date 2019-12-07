@@ -27,7 +27,7 @@
     "FormID": "133",
     "QueryName": "UM_DIAN",
     "Refresh": "tYES",
-    "FieldID": "1470002145"
+    "FieldID": "1"
   },
   {
     "FormStand": "tYES",
@@ -44,7 +44,7 @@
     "ByField": "tNO",
     "CollumID": "C_0_1",
     "ItemID": "0_U_G",
-    "FormID": "UDO_FT_FEDIAN_SN",
+    "FormID": "UDO_FT_Fediansn",
     "QueryName": "ListaRespon",
     "Refresh": "tNO",
     "FieldID": ""
@@ -54,7 +54,7 @@
     "ByField": "tNO",
     "CollumID": "C_0_2",
     "ItemID": "0_U_G",
-    "FormID": "UDO_FT_FEDIAN_SN",
+    "FormID": "UDO_FT_Fediansn",
     "QueryName": "DescRespon",
     "Refresh": "tYES",
     "FieldID": "C_0_1"
@@ -64,7 +64,7 @@
     "ByField": "tNO",
     "CollumID": "C_1_1",
     "ItemID": "1_U_G",
-    "FormID": "UDO_FT_FEDIAN_SN",
+    "FormID": "UDO_FT_Fediansn",
     "QueryName": "ListaTribu",
     "Refresh": "tNO",
     "FieldID": ""
@@ -74,7 +74,7 @@
     "ByField": "tNO",
     "CollumID": "C_1_2",
     "ItemID": "1_U_G",
-    "FormID": "UDO_FT_FEDIAN_SN",
+    "FormID": "UDO_FT_Fediansn",
     "QueryName": "DescTribu",
     "Refresh": "tYES",
     "FieldID": "C_1_1"
@@ -84,7 +84,7 @@
     "ByField": "tYES",
     "CollumID": "-1",
     "ItemID": "1_U_E",
-    "FormID": "UDO_FT_FEDIAN_SN",
+    "FormID": "UDO_FT_Fediansn",
     "QueryName": "NombreSN",
     "Refresh": "tYES",
     "FieldID": "0"

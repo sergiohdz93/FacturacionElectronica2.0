@@ -80,12 +80,12 @@
     "TableType": "bott_MasterData"
   },
   {
-    "TableName": "FEDIAN_SN_RESPO",
+    "TableName": "FEDIAN_SNRES",
     "TableDescription": "Responsabilidades SN",
     "TableType": "bott_MasterDataLines"
   },
   {
-    "TableName": "FEDIAN_SN_TRIB",
+    "TableName": "FEDIAN_SNTRI",
     "TableDescription": "Tributos SN",
     "TableType": "bott_MasterDataLines"
   },

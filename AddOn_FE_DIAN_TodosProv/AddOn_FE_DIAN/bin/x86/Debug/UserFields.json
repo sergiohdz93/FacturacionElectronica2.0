@@ -98,6 +98,18 @@
   },
   {
     "UserFieldsMD": {
+      "Name": "idEmpresa",
+      "Type": "db_Alpha",
+      "Size": "30",
+      "Description": "ID Empresa",
+      "SubType": "st_None",
+      "TableName": "@FEDIAN_PARAMG",
+      "EditSize": "30",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
       "Name": "URL",
       "Type": "db_Alpha",
       "Size": "245",
@@ -419,6 +431,19 @@
   },
   {
     "UserFieldsMD": {
+      "Name": "SEI_FEIncoTerm",
+      "Type": "db_Alpha",
+      "Size": "10",
+      "Description": "(FE) IncoTerms",
+      "SubType": "st_None",
+      "TableName": "OINV",
+      "EditSize": "10",
+      "Mandatory": "tNO",
+      "LinkedTable": "FEDIAN_INCOTERMS"
+    }
+  },
+  {
+    "UserFieldsMD": {
       "Name": "SEI_FEDescu",
       "Type": "db_Alpha",
       "Size": "10",
@@ -458,14 +483,6 @@
       {
         "Value": "01",
         "Description": "Valor Comercial"
-      },
-      {
-        "Value": "02",
-        "Description": "Valor en Inventarios"
-      },
-      {
-        "Value": "03",
-        "Description": "Otro Valor"
       }
     ]
   },
@@ -474,12 +491,46 @@
       "Name": "SEI_FEActEco",
       "Type": "db_Alpha",
       "Size": "50",
-      "Description": "Actividad Economica",
+      "Description": "(FE) Actividad Economica",
       "SubType": "st_None",
       "TableName": "OADM",
       "EditSize": "50",
       "Mandatory": "tNO"
     }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FETipDoc",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "(FE) Tipo de documento",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    }
+  },
+  {
+    "UserFieldsMD": {
+      "Name": "SEI_FERegFis",
+      "Type": "db_Alpha",
+      "Size": "50",
+      "Description": "(FE) Regimen Fiscal",
+      "SubType": "st_None",
+      "TableName": "OADM",
+      "EditSize": "50",
+      "Mandatory": "tNO"
+    },
+    "ValidValuesMD": [
+      {
+        "Value": "04",
+        "Description": "Régimen Simple"
+      },
+      {
+        "Value": "05",
+        "Description": "Régimen Ordinario"
+      }
+    ]
   },
   {
     "UserFieldsMD": {
@@ -524,7 +575,7 @@
       "Size": "30",
       "Description": "Codigo Responsabilidad",
       "SubType": "st_None",
-      "TableName": "@FEDIAN_SN_RESPO",
+      "TableName": "@FEDIAN_SNRES",
       "EditSize": "30",
       "Mandatory": "tNO"
     }
@@ -536,7 +587,7 @@
       "Size": "100",
       "Description": "Descripcion Responsabilidad",
       "SubType": "st_None",
-      "TableName": "@FEDIAN_SN_RESPO",
+      "TableName": "@FEDIAN_SNRES",
       "EditSize": "100",
       "Mandatory": "tNO"
     }
@@ -548,7 +599,7 @@
       "Size": "30",
       "Description": "Codigo Tributo",
       "SubType": "st_None",
-      "TableName": "@FEDIAN_SN_TRIB",
+      "TableName": "@FEDIAN_SNTRI",
       "EditSize": "30",
       "Mandatory": "tNO"
     }
@@ -560,44 +611,20 @@
       "Size": "100",
       "Description": "Descripcion Tributo",
       "SubType": "st_None",
-      "TableName": "@FEDIAN_SN_TRIB",
+      "TableName": "@FEDIAN_SNTRI",
       "EditSize": "100",
       "Mandatory": "tNO"
     }
   },
   {
     "UserFieldsMD": {
-      "Name": "FEDIAN_MODELO",
+      "Name": "SEI_FEModelo",
       "Type": "db_Alpha",
       "Size": "10",
       "Description": "(FE) Modelo",
       "SubType": "st_None",
       "TableName": "OITM",
       "EditSize": "10",
-      "Mandatory": "tNO"
-    }
-  },
-  {
-    "UserFieldsMD": {
-      "Name": "SEI_FETipDoc",
-      "Type": "db_Alpha",
-      "Size": "50",
-      "Description": "Tipo de documento",
-      "SubType": "st_None",
-      "TableName": "OADM",
-      "EditSize": "50",
-      "Mandatory": "tNO"
-    }
-  },
-  {
-    "UserFieldsMD": {
-      "Name": "SEI_FETipDoc",
-      "Type": "db_Alpha",
-      "Size": "50",
-      "Description": "Tipo de documento",
-      "SubType": "st_None",
-      "TableName": "OADM",
-      "EditSize": "50",
       "Mandatory": "tNO"
     }
   },
@@ -676,38 +703,48 @@
   },
   {
     "UserFieldsMD": {
-      "Name": "HBT_TipEnt",
+      "Name": "InitialNum",
       "Type": "db_Alpha",
-      "Size": "50",
-      "Description": "Tipo Entidad",
+      "Size": "15",
+      "Description": "Secuencia Inicio",
       "SubType": "st_None",
-      "TableName": "OADM",
-      "EditSize": "50",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "15",
       "Mandatory": "tNO"
     }
   },
   {
     "UserFieldsMD": {
-      "Name": "HBT_RegTrib",
+      "Name": "LastNum",
       "Type": "db_Alpha",
-      "Size": "50",
-      "Description": "Regimen tributario",
+      "Size": "15",
+      "Description": "Secuencia Final",
       "SubType": "st_None",
-      "TableName": "OADM",
-      "EditSize": "50",
+      "TableName": "@FEDIAN_NUMAUTORI",
+      "EditSize": "15",
       "Mandatory": "tNO"
     }
   },
   {
     "UserFieldsMD": {
-      "Name": "HBT_MunMed",
+      "Name": "SEI_FERegFis",
       "Type": "db_Alpha",
       "Size": "50",
-      "Description": "Municipio Medios",
+      "Description": "(FE) Regimen Fiscal",
       "SubType": "st_None",
-      "TableName": "OADM",
+      "TableName": "OCRD",
       "EditSize": "50",
       "Mandatory": "tNO"
-    }
+    },
+    "ValidValuesMD": [
+      {
+        "Value": "04",
+        "Description": "Régimen Simple"
+      },
+      {
+        "Value": "05",
+        "Description": "Régimen Ordinario"
+      }
+    ]
   }
 ]

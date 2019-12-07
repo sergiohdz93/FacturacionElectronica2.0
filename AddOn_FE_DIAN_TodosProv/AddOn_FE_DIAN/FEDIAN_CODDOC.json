@@ -5,7 +5,7 @@
  },
  {
    "Codigo": "02",
-   "Nombre": "Factura de Exportación"
+   "Nombre": "Factura de Exportacion"
  },
  {
    "Codigo": "03",
@@ -13,10 +13,10 @@
  },
  {
    "Codigo": "91",
-   "Nombre": "Nota Crédito"
+   "Nombre": "Nota Credito"
  },
   {
     "Codigo": "92",
-    "Nombre": "Nota Débito"
+    "Nombre": "Nota Debito"
   }
 ]

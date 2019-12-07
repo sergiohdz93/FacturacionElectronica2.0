@@ -317,8 +317,8 @@
     <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.UploadSyncResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\CarvajalWS\invoiceService1.wsdl" />
-    <None Include="Service References\CarvajalWS\InvoiceServiceImplService1.wsdl" />
+    <None Include="Service References\CarvajalWS\invoiceService.wsdl" />
+    <None Include="Service References\CarvajalWS\InvoiceServiceImplService.wsdl" />
     <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

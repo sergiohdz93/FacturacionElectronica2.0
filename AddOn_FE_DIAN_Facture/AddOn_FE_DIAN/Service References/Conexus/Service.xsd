@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://demo.conexusit.com/ServicioWCF/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServiceData" />
+  <xs:element name="SetDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServiceData" minOccurs="0" name="Invoice" nillable="true" type="q1:DocumentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFServiceData" minOccurs="0" name="SetDocumentResult" nillable="true" type="q2:ResponseType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaccion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CUFE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="periodo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaccionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFServiceData" minOccurs="0" name="GetTransaccionResult" nillable="true" type="q3:ResponseType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaccionbyIdentificacion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nroDocumento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="periodo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaccionbyIdentificacionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFServiceData" minOccurs="0" name="GetTransaccionbyIdentificacionResult" nillable="true" type="q4:ResponseType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentJson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DocJson" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDocumentJsonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetDocumentJsonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaccionJson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CUFE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="periodo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaccionJsonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTransaccionJsonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaccionbyIdentificacionJson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nroDocumento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="periodo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransaccionbyIdentificacionJsonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTransaccionbyIdentificacionJsonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

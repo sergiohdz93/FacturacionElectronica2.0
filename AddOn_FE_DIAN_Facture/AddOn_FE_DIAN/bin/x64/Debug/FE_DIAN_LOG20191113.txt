@@ -1,0 +1,115 @@
+13/11/2019 9:57:36 a. m. : <?xml version="1.0"?>
+<DocumentType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AutorizacionFactura>
+    <AutFechaFinal>2030-01-19</AutFechaFinal>
+    <AutFechaInicio>2019-01-19</AutFechaInicio>
+    <AutNumAutorizacion>18760000001</AutNumAutorizacion>
+    <AutPrefijo>SETT</AutPrefijo>
+    <AutSecuenciaFinal>5000000</AutSecuenciaFinal>
+    <AutSecuenciaInicio>1</AutSecuenciaInicio>
+  </AutorizacionFactura>
+  <CompradorFactura>
+    <CompradorApellidos>Hernandez Pachon</CompradorApellidos>
+    <CompradorCiudad>BOGOTÁ</CompradorCiudad>
+    <CompradorCodCiudad>11001</CompradorCodCiudad>
+    <CompradorCodDepartamento>11001</CompradorCodDepartamento>
+    <CompradorCodPostal />
+    <CompradorCorreoElectronico>sergio.hernandez@seidor.com</CompradorCorreoElectronico>
+    <CompradorDVIdentificacion>2</CompradorDVIdentificacion>
+    <CompradorDepartamento>BOGOTÁ</CompradorDepartamento>
+    <CompradorDireccion>Calle 1  2 67</CompradorDireccion>
+    <CompradorEnviarCorreo>true</CompradorEnviarCorreo>
+    <CompradorIdentificacion>900303303</CompradorIdentificacion>
+    <CompradorImpuesto>ZZ</CompradorImpuesto>
+    <CompradorNombreCompleto>Cliente Punto de Venta</CompradorNombreCompleto>
+    <CompradorNombrePais>Colombia</CompradorNombrePais>
+    <CompradorPais>CO</CompradorPais>
+    <CompradorPrimerNombre>Sergio</CompradorPrimerNombre>
+    <CompradorRazonSocial>Cliente Punto de Venta</CompradorRazonSocial>
+    <CompradorRespFiscal>ZZ</CompradorRespFiscal>
+    <CompradorSegundoNombre />
+    <CompradorTelefonoCont>1234567</CompradorTelefonoCont>
+    <CompradorTipoIdentificacion>31</CompradorTipoIdentificacion>
+    <CompradorTipoPersona>1</CompradorTipoPersona>
+    <CompradorTipoRegimen>04</CompradorTipoRegimen>
+  </CompradorFactura>
+  <EmisorData>
+    <EmiDVIdentificacion>7</EmiDVIdentificacion>
+    <EmiIdentificacion>901180226</EmiIdentificacion>
+    <EmiTipoIdentificacion>31</EmiTipoIdentificacion>
+    <EmiTipoPersona>2</EmiTipoPersona>
+  </EmisorData>
+  <EncabezadoData>
+    <FacCodOperacion>05</FacCodOperacion>
+    <FacFechaContingencia />
+    <FacFechaFin />
+    <FacFechaHoraFactura>2019-10-07 1:47:04</FacFechaHoraFactura>
+    <FacFechaIni />
+    <FacRefContigencia />
+    <FacTipoFactura>01</FacTipoFactura>
+    <FacTipoRefContigencia />
+  </EncabezadoData>
+  <InfoMonetarioData>
+    <FacCodMoneda>COP</FacCodMoneda>
+    <FacTotalAnticipos>0</FacTotalAnticipos>
+    <FacTotalBaseImponible>1000000</FacTotalBaseImponible>
+    <FacTotalBrutoMasImp>1160000</FacTotalBrutoMasImp>
+    <FacTotalCargos>0</FacTotalCargos>
+    <FacTotalDescuentos>0</FacTotalDescuentos>
+    <FacTotalFactura>1160000</FacTotalFactura>
+    <FacTotalImporteBruto>1000000</FacTotalImporteBruto>
+  </InfoMonetarioData>
+  <LsDetalle>
+    <DetalleType>
+      <Cantidad>1</Cantidad>
+      <Codificacion>999</Codificacion>
+      <Codigo>AC0001</Codigo>
+      <CodigoEstandar>AC0001</CodigoEstandar>
+      <Descripcion>AIRE ACONDICIONADO</Descripcion>
+      <DetFacConsecutivo>1</DetFacConsecutivo>
+      <PrecioSinImpuestos>1000000</PrecioSinImpuestos>
+      <PrecioTotal>1160000</PrecioTotal>
+      <PrecioUnitario>1000000</PrecioUnitario>
+      <UnidadMedida>C62</UnidadMedida>
+    </DetalleType>
+  </LsDetalle>
+  <LsDetalleImpuesto>
+    <ImpuestoDetalleType>
+      <BaseImponible>1000000</BaseImponible>
+      <CodigoImpuesto>01</CodigoImpuesto>
+      <EsRetencionImpuesto>false</EsRetencionImpuesto>
+      <NombreImpuesto>IVA GENERADO VENTAS 16%</NombreImpuesto>
+      <Porcentaje>16</Porcentaje>
+      <Secuencia>1</Secuencia>
+      <ValorImpuesto>160000</ValorImpuesto>
+    </ImpuestoDetalleType>
+  </LsDetalleImpuesto>
+  <LsImpuestos>
+    <ImpuestoType>
+      <BaseImponible>1000000</BaseImponible>
+      <CodigoImpuesto>01</CodigoImpuesto>
+      <EsRetencionImpuesto>false</EsRetencionImpuesto>
+      <NombreImpuesto>IVA GENERADO VENTAS 16%</NombreImpuesto>
+      <Porcentaje>16</Porcentaje>
+      <ValorImpuesto>160000</ValorImpuesto>
+    </ImpuestoType>
+  </LsImpuestos>
+  <SoftwareSeguridad>
+    <ClaveTecnica>fc8eac422eba16e22ffd8c6f94b3f40a6e38162c</ClaveTecnica>
+    <CodigoErp>214</CodigoErp>
+    <GuidEmpresa>92063fe528f34ab4add59a441822e7e1</GuidEmpresa>
+    <GuidOrigen>3b3cca1a9b124bffb82e0003dafb1616</GuidOrigen>
+    <HashSeguridad>77e7c1be44b8e0340815fe688270bcf28cac68dbd15e334f6a830f22cf09bbff</HashSeguridad>
+    <NumeroDocumento>SETT4000003</NumeroDocumento>
+    <TipoDocumento>FAC</TipoDocumento>
+  </SoftwareSeguridad>
+  <lsFormaPago>
+    <FormaPagoType>
+      <FacFormaPago>10</FacFormaPago>
+      <FacMetodoPago>1</FacMetodoPago>
+      <FacVencimientoFac>2019-10-07</FacVencimientoFac>
+    </FormaPagoType>
+  </lsFormaPago>
+</DocumentType>
+13/11/2019 9:57:38 a. m. : CodigoSeguimiento: 4000003
+13/11/2019 9:57:38 a. m. : Update log

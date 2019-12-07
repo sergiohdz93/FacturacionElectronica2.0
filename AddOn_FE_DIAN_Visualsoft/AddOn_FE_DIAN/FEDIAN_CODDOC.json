@@ -1,0 +1,22 @@
+[
+ {
+   "Codigo": "01",
+   "Nombre": "Factura de Venta"
+ },
+ {
+   "Codigo": "02",
+   "Nombre": "Factura de Exportación"
+ },
+ {
+   "Codigo": "03",
+   "Nombre": "Factura de Contingencia"
+ },
+ {
+   "Codigo": "91",
+   "Nombre": "Nota Crédito"
+ },
+  {
+    "Codigo": "92",
+    "Nombre": "Nota Débito"
+  }
+]

@@ -1,0 +1,13 @@
+13/11/2019 3:47:38 p. m. : SendFE: Inicio
+13/11/2019 3:48:07 p. m. : UpdateLogDispapeles: Inicio
+13/11/2019 3:48:07 p. m. : updateLogDispapeles: Referencia a objeto no establecida como instancia de un objeto.
+13/11/2019 3:51:14 p. m. : SendFE: Inicio
+13/11/2019 3:51:16 p. m. : UpdateLogDispapeles: Inicio
+13/11/2019 3:51:16 p. m. : updateLogDispapeles: Referencia a objeto no establecida como instancia de un objeto.
+13/11/2019 3:53:31 p. m. : SendFE: Inicio
+13/11/2019 3:53:34 p. m. : strtxt: El proceso no puede obtener acceso al archivo 'C:\ReportSAP\DetalleSETT4000003.csv' porque está siendo utilizado en otro proceso.
+13/11/2019 3:53:34 p. m. : UpdateLogDispapeles: Inicio
+13/11/2019 3:53:34 p. m. : updateLogDispapeles: Referencia a objeto no establecida como instancia de un objeto.
+13/11/2019 3:57:16 p. m. : SendFE: Inicio
+13/11/2019 3:57:19 p. m. : UpdateLogDispapeles: Inicio
+13/11/2019 3:57:19 p. m. : updateLogDispapeles: Referencia a objeto no establecida como instancia de un objeto.

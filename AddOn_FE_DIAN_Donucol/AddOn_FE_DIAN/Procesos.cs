@@ -28,7 +28,7 @@ namespace AddOn_FE_DIAN
         public static System.Timers.Timer aTimer, bTimer;
         public static int lRetCode;
         public static string sErrMsg;
-        public static string sSQL;        
+        public static string sSQL;
         public static bool senalActiva = true;
         public static bool banderaReenviar = true;
         public static bool banderaVerificaEstados = true;
@@ -467,7 +467,7 @@ namespace AddOn_FE_DIAN
 
             // Start the timer
             bTimer.Enabled = true;
-    #endregion TimerReSend
+            #endregion TimerReSend
 
             #region TimerAddDTE
             // Alternate method: create a Timer with an interval argument to the constructor.
@@ -814,7 +814,7 @@ namespace AddOn_FE_DIAN
                 MetodosCarvajal.DocStatusFE(codeLog, sNumSegui, sRequest, reSend, filestr);
             }
 
-            else if(Procesos.proveedor == "F")
+            else if (Procesos.proveedor == "F")
             {
                 string dataJSON = "", urlFebos = "";
                 SAPbobsCOM.UserTables tbls = null;
@@ -876,6 +876,7 @@ namespace AddOn_FE_DIAN
                 respuesta = null;
                 System.Data.DataTable Doc = new System.Data.DataTable();
                 System.Data.DataTable impDoc = new System.Data.DataTable();
+                System.Data.DataTable listAdi = new System.Data.DataTable();
 
                 Recordset oRS = null;
                 if (oRS != null) // Not sure why this is needed as rs will always be null but leaving it in anyway
@@ -896,28 +897,37 @@ namespace AddOn_FE_DIAN
 
                         oRS.DoQuery(string.Format(Querys.Default.impFac, docentry));
                         impDoc = RecordSet_DataTable(oRS);
+
+                        oRS.DoQuery(string.Format(Querys.Default.listaAdiFac, docentry));
+                        listAdi = RecordSet_DataTable(oRS);
                         break;
 
-                    case "2":
+                    case "91":
 
                         oRS.DoQuery(string.Format(Querys.Default.NotaCredito, docentry));
                         Doc = RecordSet_DataTable(oRS);
 
                         oRS.DoQuery(string.Format(Querys.Default.impNC, docentry));
                         impDoc = RecordSet_DataTable(oRS);
+
+                        oRS.DoQuery(string.Format(Querys.Default.listaAdiNC, docentry));
+                        listAdi = RecordSet_DataTable(oRS);
                         break;
 
-                    case "3":
+                    case "92":
 
                         oRS.DoQuery(string.Format(Querys.Default.NotaDebito, docentry));
                         Doc = RecordSet_DataTable(oRS);
 
                         oRS.DoQuery(string.Format(Querys.Default.impND, docentry));
                         impDoc = RecordSet_DataTable(oRS);
+
+                        oRS.DoQuery(string.Format(Querys.Default.listaAdiND, docentry));
+                        listAdi = RecordSet_DataTable(oRS);
                         break;
                 }
 
-                respuesta = WebServiceDispapelesController.EnviarFactura(Doc, impDoc, urlWS);
+                respuesta = WebServiceDispapelesController.EnviarFactura(Doc, impDoc, listAdi, urlWS);
                 sRequest = requestSend;
                 UpdateLogDispapeles(codeLog, respuesta, sRequest, reSend);
 
@@ -1257,23 +1267,18 @@ namespace AddOn_FE_DIAN
                 consultarArchivosDispape.felRepuestaDescargaDocumentos consultarArchivos;
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
-                //SAPbobsCOM.UserTables tblscnf = null;
-                //SAPbobsCOM.UserTable tblcnf = null;
 
                 tbls = oCompany.UserTables;
                 tbl = tbls.Item("FEDIAN_MONITORLOG");
-                if(tbl.GetByKey(codeLog.ToString()))
+                if (tbl.GetByKey(codeLog.ToString()))
                 {
                     numDoc = tbl.UserFields.Fields.Item("U_Folio").Value;
                     prefijo = tbl.UserFields.Fields.Item("U_Prefijo").Value;
                     tipoDoc = tbl.UserFields.Fields.Item("U_DocType").Value;
                 }
 
-                //tblscnf = oCompany.UserTables;
-                //tblcnf = tblscnf.Item("FEDIAN_INTERF_CFG");
-                //if (tblcnf.GetByKey(tipoDoc)) urlWS = tblcnf.UserFields.Fields.Item("U_URL").Value;
-
                 consultarArchivos = WebServiceDispapelesController.consultaArchivos(numDoc, prefijo, tipoDoc);
+
                 if (consultarArchivos != null && consultarArchivos.listaArchivos != null)
                 {
                     for (int i = 0; i < consultarArchivos.listaArchivos.Length; i++)
@@ -1287,34 +1292,16 @@ namespace AddOn_FE_DIAN
                                 base64 = Convert.ToBase64String(consultarArchivos.listaArchivos[i].streamFile);
                                 if (base64.Length > 256000)
                                 {
-                                    
                                     tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = base64.Substring(0, 256000);
+                                    tbl.UserFields.Fields.Item("U_Status").Value = "1";
+                                    tbl.UserFields.Fields.Item("U_Resultado").Value = "OK";
                                 }
                                 else
                                 {
                                     tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = base64;
+                                    tbl.UserFields.Fields.Item("U_Status").Value = "1";
+                                    tbl.UserFields.Fields.Item("U_Resultado").Value = "OK";
                                 }
-
-                                //Documents oInvoice = null;
-                                //oInvoice = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oInvoices);
-                                //oInvoice.Browser.GetByKeys(tbl.UserFields.Fields.Item("U_DocNum").Value);
-
-                                //SAPbobsCOM.Attachments2 oATT = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oAttachments2) as SAPbobsCOM.Attachments2;
-                                //string FileName = "FE_PDF_" + numDoc;
-                                //oATT.Lines.Add();
-                                //oATT.Lines.FileName = FileName;
-                                //oATT.Lines.FileExtension = ".pdf";
-                                //oATT.Lines.SourcePath = FileName + ;
-                                //oATT.Lines.Override = SAPbobsCOM.BoYesNoEnum.tYES;
-
-
-                                //int iAttEntry = -1;
-                                //if (oATT.Add() == 0)
-                                //{
-                                //    iAttEntry = int.Parse(oCompany.GetNewObjectKey());
-                                //    //Assign the attachment to the GR object (GR is my SAPbobsCOM.Documents object)
-                                //    oInvoice.AttachmentEntry = iAttEntry;
-                                //}
 
                                 break;
                             case ".xml":
@@ -1322,14 +1309,23 @@ namespace AddOn_FE_DIAN
                                 if (base64.Length > 256000)
                                 {
                                     tbl.UserFields.Fields.Item("U_Enlace_XML").Value = base64.Substring(0, 256000);
+                                    tbl.UserFields.Fields.Item("U_Status").Value = "1";
+                                    tbl.UserFields.Fields.Item("U_Resultado").Value = "OK";
                                 }
                                 else
                                 {
                                     tbl.UserFields.Fields.Item("U_Enlace_XML").Value = base64;
+                                    tbl.UserFields.Fields.Item("U_Status").Value = "1";
+                                    tbl.UserFields.Fields.Item("U_Resultado").Value = "OK";
                                 }
                                 break;
                         }
                     }
+                }
+                if (consultarArchivos.descripcionRespuesta == "La base de datos no reporta existencia del archivo PDF")
+                {
+                    tbl.UserFields.Fields.Item("U_Status").Value = "2";
+                    tbl.UserFields.Fields.Item("U_Resultado").Value = consultarArchivos.descripcionRespuesta;
                 }
 
                 lRetCode = tbl.Update();
@@ -1339,10 +1335,6 @@ namespace AddOn_FE_DIAN
                     Procesos.EscribirLogFileTXT("updateLogDispapelesDocs: " + sErrMsg);
                 }
 
-                //System.Runtime.InteropServices.Marshal.ReleaseComObject(tblscnf);
-                //tblscnf = null;
-                //System.Runtime.InteropServices.Marshal.ReleaseComObject(tblcnf);
-                //tblcnf = null;
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
                 tbl = null;
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
@@ -1421,7 +1413,7 @@ namespace AddOn_FE_DIAN
                         default:
                             break;
                     }
-                    
+
                     xmlResult = MetodosCarvajal.DownloadDocFE(codeline, documentType, documentNumber, "SIGNED_XML");
                     if (xmlResult == "El recurso solicitado no ha sido encontrado.")
                     {
@@ -1477,7 +1469,7 @@ namespace AddOn_FE_DIAN
                 }
                 else
                 {
-                    
+
                 }
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(tbl);
                 tbl = null;
@@ -1634,6 +1626,7 @@ namespace AddOn_FE_DIAN
 
                 if (srequest != "")
                 {
+                    Procesos.EscribirLogFileTXT("request : " + srequest);
                     tbl.UserFields.Fields.Item("U_Det_Peticion").Value = srequest;
                 }
 
@@ -1642,6 +1635,7 @@ namespace AddOn_FE_DIAN
                 serxml.Serialize(ms, response);
                 string xmlresponse = Encoding.UTF8.GetString(ms.ToArray());
 
+                Procesos.EscribirLogFileTXT("response : " + xmlresponse);
                 tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = xmlresponse;
 
                 if (response.estadoProceso == 1)
@@ -1652,8 +1646,8 @@ namespace AddOn_FE_DIAN
                     consultarArchivosDispape.felRepuestaDescargaDocumentos consultarArchivos;
 
                     tbl.UserFields.Fields.Item("U_Status").Value = "1";
-
                     tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
+
                     if (response.cufe != null)
                     {
                         tbl.UserFields.Fields.Item("U_ProcessID").Value = response.cufe;
@@ -1663,14 +1657,6 @@ namespace AddOn_FE_DIAN
                     prefijo = Convert.ToString(tbl.UserFields.Fields.Item("U_Prefijo").Value);
                     tipoDoc = Convert.ToString(tbl.UserFields.Fields.Item("U_DocType").Value);
                     System.Threading.Thread.Sleep(10000);
-
-                    //SAPbobsCOM.UserTables tblscnf = null;
-                    //SAPbobsCOM.UserTable tblcnf = null;
-
-                    //tblscnf = oCompany.UserTables;
-                    //tblcnf = tblscnf.Item("FEDIAN_INTERF_CFG");
-                    //tblcnf.GetByKey(tipoDoc);
-                    //urlWS = tblcnf.UserFields.Fields.Item("U_URL").Value;
 
                     consultarArchivos = WebServiceDispapelesController.consultaArchivos(docnum, prefijo, tipoDoc);
 
@@ -1688,51 +1674,39 @@ namespace AddOn_FE_DIAN
                                     if (base64.Length > 256000)
                                     {
                                         tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = base64.Substring(0, 256000);
+                                        tbl.UserFields.Fields.Item("U_Status").Value = "1";
+                                        tbl.UserFields.Fields.Item("U_Resultado").Value = "OK";
                                     }
                                     else
                                     {
                                         tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = base64;
+                                        tbl.UserFields.Fields.Item("U_Status").Value = "1";
+                                        tbl.UserFields.Fields.Item("U_Resultado").Value = "OK";
                                     }
+
                                     break;
                                 case ".xml":
                                     base64 = Convert.ToBase64String(consultarArchivos.listaArchivos[i].streamFile);
                                     if (base64.Length > 256000)
                                     {
                                         tbl.UserFields.Fields.Item("U_Enlace_XML").Value = base64.Substring(0, 256000);
+                                        tbl.UserFields.Fields.Item("U_Status").Value = "1";
+                                        tbl.UserFields.Fields.Item("U_Resultado").Value = "OK";
                                     }
                                     else
                                     {
                                         tbl.UserFields.Fields.Item("U_Enlace_XML").Value = base64;
+                                        tbl.UserFields.Fields.Item("U_Status").Value = "1";
+                                        tbl.UserFields.Fields.Item("U_Resultado").Value = "OK";
                                     }
                                     break;
                             }
                         }
-                        //Procesos.EscribirLogFileTXT("ConsultaXML : No Null");
-                        
-                        ////string serverDirectory = Properties.Settings.Default.RutaPDF;
-                        //if (base64.Length > 256000)
-                        //{
-                        //    tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = base64.Substring(0, 256000);
-                        //}
-                        //else
-                        //{
-                        //    tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = base64;
-                        //}
-
-                        //string valuepdf = base64;
-                        //try
-                        //{
-                        //    byte[] bytes = Convert.FromBase64String(valuepdf);
-                        //    System.IO.FileStream stream = new FileStream(serverDirectory, FileMode.CreateNew);
-                        //    System.IO.BinaryWriter writer = new BinaryWriter(stream);
-                        //    writer.Write(bytes, 0, bytes.Length);
-                        //    writer.Close();
-                        //    tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = serverDirectory;
-                        //}
-                        //finally
-                        //{
-
-                        //}
+                    }
+                    if (consultarArchivos.descripcionRespuesta == "La base de datos no reporta existencia del archivo PDF")
+                    {
+                        tbl.UserFields.Fields.Item("U_Status").Value = "2";
+                        tbl.UserFields.Fields.Item("U_Resultado").Value = consultarArchivos.descripcionRespuesta;
                     }
 
                     //if (respuestaXML != null && respuestaXML.listaArchivos != null)
@@ -1744,19 +1718,19 @@ namespace AddOn_FE_DIAN
 
                 }
 
-                else if (response.descripcionProceso == "La factura fue ingresada previamente")
-                {
-                    Procesos.EscribirLogFileTXT("UpdateLogDispapeles: La factura fue ingresada previamente");
+                //else if (response.descripcionProceso == "La factura fue ingresada previamente")
+                //{
+                //    Procesos.EscribirLogFileTXT("UpdateLogDispapeles: La factura fue ingresada previamente");
 
-                    tbl.UserFields.Fields.Item("U_Status").Value = "2";
+                //    tbl.UserFields.Fields.Item("U_Status").Value = "2";
 
-                    tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
-                    if (response.cufe != null)
-                    {
-                        tbl.UserFields.Fields.Item("U_ProcessID").Value = response.cufe;
-                        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: OK " + response.cufe);
-                    }
-                }
+                //    tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
+                //    if (response.cufe != null)
+                //    {
+                //        tbl.UserFields.Fields.Item("U_ProcessID").Value = response.cufe;
+                //        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: OK " + response.cufe);
+                //    }
+                //}
 
                 else
                 {
@@ -1788,41 +1762,62 @@ namespace AddOn_FE_DIAN
                     //}
                     //else
                     //{
-                        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + "3");
-                        tbl.UserFields.Fields.Item("U_Status").Value = "3";
-                        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + response.descripcionProceso);
-                        tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
+                    Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + "3");
+                    tbl.UserFields.Fields.Item("U_Status").Value = "3";
+                    if (response.listaMensajesProceso != null && response.listaMensajesProceso[0].descripcionMensaje.Contains("Documento procesado anteriormente"))
+                    {
+                        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: La factura fue ingresada previamente");
+
+                        tbl.UserFields.Fields.Item("U_Status").Value = "2";
+                        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + response.listaMensajesProceso[0].descripcionMensaje.ToString());
+                        if (response.cufe != null)
+                        {
+                            tbl.UserFields.Fields.Item("U_ProcessID").Value = response.cufe;
+                            Procesos.EscribirLogFileTXT("UpdateLogDispapeles: OK " + response.cufe);
+                        }
+                    }
+                    //Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + response.descripcionProceso);
+                    //tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
                     //}
                 }
 
-                if (reSend == false)
+                if (srequest != "")
                 {
-                    Procesos.EscribirLogFileTXT("reSend: " + reSend);
-                    if (response.fechaFactura != null)
-                    {
-                        Procesos.EscribirLogFileTXT("FechaDispapeles: " + dateSend.ToString("yyyy/MM/dd"));
-                        tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
-                        tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
-                        tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
-                        //tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = response.fechaFactura.ToString("yyyy/MM/dd");//dateSend.ToString("yyyy/MM/dd");
-                        //tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm"); //response.fechaFactura.ToString("HH:mm");
-                    }
-
-                    else
-                    {
-                        Procesos.EscribirLogFileTXT("FechaSistema: " + dateSend.ToString("yyyy/MM/dd"));
-                        tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = dateSend.ToString("yyyy/MM/dd");
-                        tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm");
-                    }
+                    Procesos.EscribirLogFileTXT("request : " + srequest);
+                    tbl.UserFields.Fields.Item("U_Det_Peticion").Value = srequest;
                 }
 
-                else if (reSend == true)
-                {
-                    Procesos.EscribirLogFileTXT("reSend: " + reSend);
-                    tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
-                    tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
-                    tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
-                }
+                Procesos.EscribirLogFileTXT("response : " + xmlresponse);
+                tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = xmlresponse;
+
+                //if (reSend == false)
+                //{
+                //    Procesos.EscribirLogFileTXT("reSend: " + reSend);
+                //    if (response.fechaFactura != null)
+                //    {
+                //        Procesos.EscribirLogFileTXT("FechaDispapeles: " + dateSend.ToString("yyyy/MM/dd"));
+                //        tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
+                //        tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
+                //        tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
+                //        //tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = response.fechaFactura.ToString("yyyy/MM/dd");//dateSend.ToString("yyyy/MM/dd");
+                //        //tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm"); //response.fechaFactura.ToString("HH:mm");
+                //    }
+
+                //    else
+                //    {
+                //        Procesos.EscribirLogFileTXT("FechaSistema: " + dateSend.ToString("yyyy/MM/dd"));
+                //        tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = dateSend.ToString("yyyy/MM/dd");
+                //        tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm");
+                //    }
+                //}
+
+                //else if (reSend == true)
+                //{
+                //    Procesos.EscribirLogFileTXT("reSend: " + reSend);
+                //    tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
+                //    tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
+                //    tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
+                //}
 
                 lRetCode = tbl.Update();
 
@@ -1874,7 +1869,7 @@ namespace AddOn_FE_DIAN
                         string numSeg;
                         string strReq;
 
-                        if(Procesos.proveedor == "C")
+                        if (Procesos.proveedor == "C")
                         {
                             idLog = Convert.ToString(ResultQuery.Rows[i]["Code"]); //Getting value CodeLog
                             numSeg = Convert.ToString(ResultQuery.Rows[i]["U_ProcessID"]); //Getting value IdProcess
@@ -2121,7 +2116,7 @@ namespace AddOn_FE_DIAN
 
                 //if (i > 0)
                 //{
-                    
+
                 //}
                 //else
                 //{
@@ -2142,7 +2137,7 @@ namespace AddOn_FE_DIAN
                 //    }
                 //    else
                 //    {
-                       
+
                 //    }
                 //}
                 //System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
@@ -2170,7 +2165,7 @@ namespace AddOn_FE_DIAN
                 }
                 j++;
             }
-            salto:
+        salto:
             return sRes;
         }
     }

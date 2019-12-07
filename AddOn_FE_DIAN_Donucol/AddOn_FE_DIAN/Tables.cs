@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
+using System.Text;
 
 namespace AddOn_FE_DIAN
 {
@@ -1034,22 +1035,22 @@ namespace AddOn_FE_DIAN
             //GC.Collect();
             //oUserObjectMD = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserObjectsMD) as SAPbobsCOM.UserObjectsMD;
 
-            var retval = oUserObjectMD.GetByKey("FEDIAN_SN");
+            var retval = oUserObjectMD.GetByKey("Fediansn");
             if (!retval)
             {
-                oUserObjectMD.Code = "FEDIAN_SN";
+                oUserObjectMD.Code = "Fediansn";
                 oUserObjectMD.Name = "Responsabilidades y Tributos SN";
                 oUserObjectMD.TableName = "FEDIAN_SN";
                 oUserObjectMD.ObjectType = SAPbobsCOM.BoUDOObjType.boud_MasterData;
 
                 oUserObjectMD.ManageSeries = SAPbobsCOM.BoYesNoEnum.tNO;
-                oUserObjectMD.CanDelete = SAPbobsCOM.BoYesNoEnum.tNO;
+                oUserObjectMD.CanDelete = SAPbobsCOM.BoYesNoEnum.tYES;
                 oUserObjectMD.CanClose = SAPbobsCOM.BoYesNoEnum.tNO;
                 oUserObjectMD.CanCancel = SAPbobsCOM.BoYesNoEnum.tNO;
                 oUserObjectMD.CanFind = SAPbobsCOM.BoYesNoEnum.tYES;
                 oUserObjectMD.CanYearTransfer = SAPbobsCOM.BoYesNoEnum.tNO;
                 oUserObjectMD.CanCreateDefaultForm = SAPbobsCOM.BoYesNoEnum.tYES;
-                oUserObjectMD.CanLog = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.CanLog = SAPbobsCOM.BoYesNoEnum.tNO;
                 oUserObjectMD.OverwriteDllfile = SAPbobsCOM.BoYesNoEnum.tYES;
                 oUserObjectMD.CanArchive = SAPbobsCOM.BoYesNoEnum.tNO;
                 oUserObjectMD.MenuItem = SAPbobsCOM.BoYesNoEnum.tNO;
@@ -1083,11 +1084,11 @@ namespace AddOn_FE_DIAN
 
 
                 oUserObjectMD.ChildTables.SetCurrentLine(0);
-                oUserObjectMD.ChildTables.TableName = "FEDIAN_SN_RESPO";
+                oUserObjectMD.ChildTables.TableName = "FEDIAN_SNRES";
                 oUserObjectMD.ChildTables.Add();
 
                 oUserObjectMD.ChildTables.SetCurrentLine(1);
-                oUserObjectMD.ChildTables.TableName = "FEDIAN_SN_TRIB";
+                oUserObjectMD.ChildTables.TableName = "FEDIAN_SNTRI";
                 //oUserObjectMD.ChildTables.Add();
 
 
@@ -1237,7 +1238,7 @@ namespace AddOn_FE_DIAN
                 oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
                 oUserFieldsMD.Size = 50;
                 oUserFieldsMD.EditSize = 50;
-                oUserFieldsMD.LinkedUDO = "FEDIAN_SN";
+                oUserFieldsMD.LinkedUDO = "Fediansn";
 
                 lRetCode = oUserFieldsMD.Add();
 
@@ -1267,7 +1268,7 @@ namespace AddOn_FE_DIAN
                 oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
                 oUserFieldsMD.Size = 50;
                 oUserFieldsMD.EditSize = 50;
-                oUserFieldsMD.LinkedUDO = "FEDIAN_SN";
+                oUserFieldsMD.LinkedUDO = "Fediansn";
 
                 lRetCode = oUserFieldsMD.Add();
 

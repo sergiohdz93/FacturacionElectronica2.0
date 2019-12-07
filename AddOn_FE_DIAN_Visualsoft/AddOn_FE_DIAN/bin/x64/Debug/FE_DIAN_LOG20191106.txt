@@ -1,0 +1,28 @@
+6/11/2019 7:40:42 a. m. : [ERROR-DI4]: El comprobante: Nota Crédito 14.xml, no fue procesado. El número de comprobante enviado no se encuentra dentro de un rango de numeración asignado por la DIAN para el emisor.[ERROR-DI4]: El comprobante: Nota Crédito 14.xml, no fue procesado. El número de comprobante enviado no se encuentra dentro de un rango de numeración asignado por la DIAN para el emisor.
+6/11/2019 7:40:43 a. m. : CodigoSeguimiento: c77b54e5a0f248039bb99d884b0a8a1d
+6/11/2019 7:40:43 a. m. : Reenvio-False 2019/11/0607:40
+6/11/2019 7:40:43 a. m. : Update log
+6/11/2019 7:55:04 a. m. : [ERROR-VA0]: Documento transformado: H,0680df4335884217bb9170566ffda269 - Nota DÃ©bito 1.txt,,860506831,,2019-11-06 07:54:54
+D,,,W001,El comprobante Nota DÃ©bito 1.txt no fue procesado, el campo DRF - 6 Rango de NumeraciÃ³n (mÃ¡ximo) es obligatorio,,Campo: 'DRF - 6 Rango de NumeraciÃ³n (mÃ¡ximo)', Numero Linea: '15', Seccion: 'cdt:To',
+[ERROR-VA0]: Documento transformado: H,0680df4335884217bb9170566ffda269 - Nota DÃ©bito 1.txt,,860506831,,2019-11-06 07:54:54
+D,,,W001,El comprobante Nota DÃ©bito 1.txt no fue procesado, el campo DRF - 6 Rango de NumeraciÃ³n (mÃ¡ximo) es obligatorio,,Campo: 'DRF - 6 Rango de NumeraciÃ³n (mÃ¡ximo)', Numero Linea: '15', Seccion: 'cdt:To',
+
+6/11/2019 7:55:05 a. m. : CodigoSeguimiento: 74dda1b3ad4b47b5a5895b8ee4e07127
+6/11/2019 7:55:05 a. m. : Reenvio-False 2019/11/0607:55
+6/11/2019 7:55:05 a. m. : Update log
+6/11/2019 7:56:05 a. m. : [ERROR-VA0]: Documento transformado: H,40e6bc7126fe4323b2fbbfbb98545f7f - Nota CrÃ©dito 14.txt,,860506831,,2019-11-06 07:55:54
+D,,,W001,El comprobante Nota CrÃ©dito 14.txt no fue procesado, el campo DRF - 6 Rango de NumeraciÃ³n (mÃ¡ximo) es obligatorio,,Campo: 'DRF - 6 Rango de NumeraciÃ³n (mÃ¡ximo)', Numero Linea: '15', Seccion: 'cdt:To',
+[ERROR-VA0]: Documento transformado: H,40e6bc7126fe4323b2fbbfbb98545f7f - Nota CrÃ©dito 14.txt,,860506831,,2019-11-06 07:55:54
+D,,,W001,El comprobante Nota CrÃ©dito 14.txt no fue procesado, el campo DRF - 6 Rango de NumeraciÃ³n (mÃ¡ximo) es obligatorio,,Campo: 'DRF - 6 Rango de NumeraciÃ³n (mÃ¡ximo)', Numero Linea: '15', Seccion: 'cdt:To',
+
+6/11/2019 7:56:05 a. m. : CodigoSeguimiento: 4b624b1292654a82b91d737cf36fdc3f
+6/11/2019 7:56:05 a. m. : Reenvio-True 2019/11/0607:56
+6/11/2019 7:56:05 a. m. : Update log
+6/11/2019 8:14:22 a. m. : [ERROR-DI4]: El comprobante: Nota Crédito 14.xml, no fue procesado. El número de comprobante enviado no se encuentra dentro de un rango de numeración asignado por la DIAN para el emisor.[ERROR-DI4]: El comprobante: Nota Crédito 14.xml, no fue procesado. El número de comprobante enviado no se encuentra dentro de un rango de numeración asignado por la DIAN para el emisor.
+6/11/2019 8:14:22 a. m. : CodigoSeguimiento: 746285d30c004fdf81a60df4632bb5c8
+6/11/2019 8:14:22 a. m. : Reenvio-True 2019/11/0608:14
+6/11/2019 8:14:22 a. m. : Update log
+6/11/2019 8:14:50 a. m. : [ERROR-DI4]: El comprobante: Nota Débito 1.xml, no fue procesado. El número de comprobante enviado no se encuentra dentro de un rango de numeración asignado por la DIAN para el emisor.[ERROR-DI4]: El comprobante: Nota Débito 1.xml, no fue procesado. El número de comprobante enviado no se encuentra dentro de un rango de numeración asignado por la DIAN para el emisor.
+6/11/2019 8:14:51 a. m. : CodigoSeguimiento: f9fb98db8ca545b6a809119d18587418
+6/11/2019 8:14:51 a. m. : Reenvio-True 2019/11/0608:14
+6/11/2019 8:14:51 a. m. : Update log

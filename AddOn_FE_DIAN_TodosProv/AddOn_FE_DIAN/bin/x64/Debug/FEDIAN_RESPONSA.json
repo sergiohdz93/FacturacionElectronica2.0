@@ -1,231 +1,19 @@
 [
   {
-    "Codigo": "R-00-PN",
-    "Nombre": "No obligado a registrarse en el RUT PN"
-  },
-  {
-    "Codigo": "R-01-PN",
-    "Nombre": "Administrador judicial PN"
-  },
-  {
-    "Codigo": "R-02-PN",
-    "Nombre": "Administrador privado PN"
-  },
-  {
-    "Codigo": "R-03-PN",
-    "Nombre": "Agente exclusivo de negocios en Colombia PN"
-  },
-  {
-    "Codigo": "R-04-PN",
-    "Nombre": "Agente oficioso PN"
-  },
-  {
-    "Codigo": "R-05-PN",
-    "Nombre": "Albacea PN"
-  },
-  {
-    "Codigo": "R-06-PN",
-    "Nombre": "Apoderado especial PN"
-  },
-  {
-    "Codigo": "R-07-PN",
-    "Nombre": "Apoderado general PN"
-  },
-  {
-    "Codigo": "R-08-PN",
-    "Nombre": "Asignatario PN"
-  },
-  {
-    "Codigo": "R-09-PN",
-    "Nombre": "Comunero PN"
-  },
-  {
-    "Codigo": "R-10-PN",
-    "Nombre": "Curador PN"
-  },
-  {
-    "Codigo": "R-11-PN",
-    "Nombre": "Donatario PN"
-  },
-  {
-    "Codigo": "R-12-PN",
-    "Nombre": "Factor PN"
-  },
-  {
-    "Codigo": "R-14-PN",
-    "Nombre": "Heredero con administración de bienes PN"
-  },
-  {
-    "Codigo": "R-15-PN",
-    "Nombre": "Liquidador PN"
-  },
-  {
-    "Codigo": "R-16-PN",
-    "Nombre": "Mandatario PN"
-  },
-  {
-    "Codigo": "R-17-PN",
-    "Nombre": "Padre PN"
-  },
-  {
-    "Codigo": "R-21-PN",
-    "Nombre": "Tutor PN"
-  },
-  {
-    "Codigo": "R-22-PN",
-    "Nombre": "Representante aduanero PN"
-  },
-  {
-    "Codigo": "R-23-PN",
-    "Nombre": "Liquidador suplente PN"
-  },
-  {
-    "Codigo": "R-24-PN",
-    "Nombre": "Depositario Provisional PN"
-  },
-  {
-    "Codigo": "R-25-PN",
-    "Nombre": "Agente Interventor PN"
-  },
-  {
-    "Codigo": "R-28-PN",
-    "Nombre": "Heredero designado PN"
-  },
-  {
-    "Codigo": "R-29-PN",
-    "Nombre": "Persona Natural sin residencia en Colombia con EP PN"
-  },
-  {
-    "Codigo": "R-99-PN",
-    "Nombre": "Otro tipo de responsable PN"
-  },
-  {
-    "Codigo": "R-01-PJ",
-    "Nombre": "Administrador judicial PJ"
-  },
-  {
-    "Codigo": "R-02-PJ",
-    "Nombre": "Administrador privado PJ"
-  },
-  {
-    "Codigo": "R-03-PJ",
-    "Nombre": "Agente exclusivo de negocios en Colombia PJ"
-  },
-  {
-    "Codigo": "R-06-PJ",
-    "Nombre": "Apoderado especial PJ"
-  },
-  {
-    "Codigo": "R-07-PJ",
-    "Nombre": "Apoderado general PJ"
-  },
-  {
-    "Codigo": "R-09-PJ",
-    "Nombre": "Comunero PJ"
-  },
-  {
-    "Codigo": "R-12-PJ",
-    "Nombre": "Factor PJ"
-  },
-  {
-    "Codigo": "R-13-PJ",
-    "Nombre": "Funcionario delegado para cumplir deberes formales PJ"
-  },
-  {
-    "Codigo": "R-15-PJ",
-    "Nombre": "Liquidador PJ"
-  },
-  {
-    "Codigo": "R-16-PJ",
-    "Nombre": "Mandatario PJ"
-  },
-  {
-    "Codigo": "R-18-PJ",
-    "Nombre": "Representante legal principal PJ"
-  },
-  {
-    "Codigo": "R-19-PJ",
-    "Nombre": "Representante legal suplente PJ"
-  },
-  {
-    "Codigo": "R-20-PJ",
-    "Nombre": "Síndico PJ"
-  },
-  {
-    "Codigo": "R-22-PJ",
-    "Nombre": "Representante aduanero PJ"
-  },
-  {
-    "Codigo": "R-23-PJ",
-    "Nombre": "Liquidador suplente PJ"
-  },
-  {
-    "Codigo": "R-24-PJ",
-    "Nombre": "Depositario Provisional PJ"
-  },
-  {
-    "Codigo": "R-25-PJ",
-    "Nombre": "Agente Interventor PJ"
-  },
-  {
-    "Codigo": "R-26-PJ",
-    "Nombre": "Agente de Aduanas PJ"
-  },
-  {
-    "Codigo": "R-27-PJ",
-    "Nombre": "Funcionario delegado para cumplir funciones OEA PJ"
-  },
-  {
-    "Codigo": "R-99-PJ",
-    "Nombre": "Otro tipo de responsable PJ"
-  },
-  {
-    "Codigo": "O-01",
-    "Nombre": "Aporte especial para la administración de justicia"
-  },
-  {
-    "Codigo": "O-02",
-    "Nombre": "Gravamen a los movimientos financieros"
-  },
-  {
-    "Codigo": "O-03",
-    "Nombre": "Impuesto al patrimonio"
-  },
-  {
-    "Codigo": "O-04",
-    "Nombre": "Impuesto sobre la renta y complementario régimen tributario especial"
-  },
-  {
-    "Codigo": "O-05",
-    "Nombre": "Impuesto sobre la renta y complementario régimen ordinario"
-  },
-  {
     "Codigo": "O-06",
     "Nombre": "Ingresos y patrimonio"
   },
   {
     "Codigo": "O-07",
-    "Nombre": "Retención en la fuente a título de renta"
+    "Nombre": "Retencion en la fuente a titulo de renta"
   },
   {
     "Codigo": "O-08",
-    "Nombre": "Retención timbre nacional"
+    "Nombre": "Retencion timbre nacional"
   },
   {
     "Codigo": "O-09",
-    "Nombre": "Retención en la fuente en el impuesto sobre las ventas"
-  },
-  {
-    "Codigo": "O-10",
-    "Nombre": "Usuario aduanero"
-  },
-  {
-    "Codigo": "O-11",
-    "Nombre": "Ventas régimen común"
-  },
-  {
-    "Codigo": "O-12",
-    "Nombre": "Ventas régimen simplificado"
+    "Nombre": "Retencion en la fuente en el impuesto sobre las ventas"
   },
   {
     "Codigo": "O-13",
@@ -233,7 +21,7 @@
   },
   {
     "Codigo": "O-14",
-    "Nombre": "Informante de exógena"
+    "Nombre": "Informante de exogena"
   },
   {
     "Codigo": "O-15",
@@ -241,27 +29,15 @@
   },
   {
     "Codigo": "O-16",
-    "Nombre": "Obligación de facturar por ingresos de bienes y/o servicios excluidos"
+    "Nombre": "Obligacion de facturar por ingresos de bienes y/o servicios excluidos"
   },
   {
     "Codigo": "O-17",
     "Nombre": "Profesionales de compra y venta de divisas"
   },
   {
-    "Codigo": "O-18",
-    "Nombre": "Precios de Transferencia"
-  },
-  {
     "Codigo": "O-19",
     "Nombre": "Productor y/o exportador de bienes exentos"
-  },
-  {
-    "Codigo": "O-20",
-    "Nombre": "Obtención NIT"
-  },
-  {
-    "Codigo": "O-21",
-    "Nombre": "Declarar el ingreso o salida del país de divisas o moneda legal colombiana"
   },
   {
     "Codigo": "O-22",
@@ -269,15 +45,7 @@
   },
   {
     "Codigo": "O-23",
-    "Nombre": "Agente de retención en el impuesto sobre las ventas"
-  },
-  {
-    "Codigo": "O-24",
-    "Nombre": "Declaración Informativa Consolidada Precios de transferencia"
-  },
-  {
-    "Codigo": "O-26",
-    "Nombre": "Declaración Informativa Individual Precios de transferencia"
+    "Nombre": "Agente de retencion en el impuesto sobre las ventas"
   },
   {
     "Codigo": "O-32",
@@ -289,11 +57,7 @@
   },
   {
     "Codigo": "O-34",
-    "Nombre": "Régimen simplificado impuesto nacional consumo rest y bares"
-  },
-  {
-    "Codigo": "O-35",
-    "Nombre": "Impuesto sobre la renta para la equidad CREE"
+    "Nombre": "Regimen simplificado impuesto nacional consumo rest y bares"
   },
   {
     "Codigo": "O-36",
@@ -301,31 +65,75 @@
   },
   {
     "Codigo": "O-37",
-    "Nombre": "Obligado a Facturar Electrónicamente Modelo 2242"
+    "Nombre": "Obligado a Facturar Electronicamente Modelo 2242"
   },
   {
     "Codigo": "O-38",
-    "Nombre": "Facturación Electrónica Voluntaria Modelo 2242"
+    "Nombre": "Facturacion Electronica Voluntaria Modelo 2242"
   },
   {
     "Codigo": "O-39",
-    "Nombre": "Proveedor de Servicios Tecnológicos PST Modelo 2242"
+    "Nombre": "Proveedor de Servicios Tecnologicos PST Modelo 2242"
   },
   {
-    "Codigo": "O-40",
-    "Nombre": "Impuesto a la Riqueza"
+    "Codigo": "O-47 ",
+    "Nombre": "Regimen Simple de Tributacion – SIMPLE "
   },
   {
-    "Codigo": "O-41",
-    "Nombre": "Declaración anual de activos en el exterior"
+    "Codigo": "O-48 ",
+    "Nombre": "Impuesto sobre las ventas – IVA "
   },
   {
-    "Codigo": "O-42",
-    "Nombre": "Obligado a Llevar Contabilidad"
+    "Codigo": "O-49 ",
+    "Nombre": "No responsable de IVA "
+  },
+  {
+    "Codigo": "O-52 ",
+    "Nombre": "Facturador electronico "
   },
   {
     "Codigo": "O-99",
     "Nombre": "Otro tipo de obligado"
+  },
+  {
+    "Codigo": "R-00-PN",
+    "Nombre": "Clientes del Exterior"
+  },
+  {
+    "Codigo": "R-12-PN",
+    "Nombre": "Factor PN"
+  },
+  {
+    "Codigo": "R-16-PN",
+    "Nombre": "Mandatario PN"
+  },
+  {
+    "Codigo": "R-25-PN",
+    "Nombre": "Agente Interventor PN"
+  },
+  {
+    "Codigo": "R-99-PN ",
+    "Nombre": "No responsable PN "
+  },
+  {
+    "Codigo": "R-06-PJ",
+    "Nombre": "Apoderado especial PJ"
+  },
+  {
+    "Codigo": "R-07-PJ",
+    "Nombre": "Apoderado general PJ"
+  },
+  {
+    "Codigo": "R-12-PJ",
+    "Nombre": "Factor PJ"
+  },
+  {
+    "Codigo": "R-16-PJ",
+    "Nombre": "Mandatario PJ"
+  },
+  {
+    "Codigo": "R-99-PJ",
+    "Nombre": "Otro tipo de responsable PJ"
   },
   {
     "Codigo": "A-01",
@@ -333,11 +141,11 @@
   },
   {
     "Codigo": "A-02",
-    "Nombre": "Agente marítimo"
+    "Nombre": "Agente maritimo"
   },
   {
     "Codigo": "A-03",
-    "Nombre": "Almacén general de depósito"
+    "Nombre": "Almacen general de deposito"
   },
   {
     "Codigo": "A-04",
@@ -345,71 +153,71 @@
   },
   {
     "Codigo": "A-05",
-    "Nombre": "Comerciante de la zona aduanera especial de Inírida, Puerto Carreño, Cumaribo y Primavera"
+    "Nombre": "Comerciante de la zona aduanera especial de Inirida, Puerto Carre&ntilde;o, Cumaribo y Primavera"
   },
   {
     "Codigo": "A-06",
-    "Nombre": "Comerciantes de la zona de régimen aduanero especial de Leticia"
+    "Nombre": "Comerciantes de la zona de regimen aduanero especial de Leticia"
   },
   {
     "Codigo": "A-07",
-    "Nombre": "Comerciantes de la zona de régimen aduanero especial de Maicao, Uribia y Manaure"
+    "Nombre": "Comerciantes de la zona de regimen aduanero especial de Maicao, Uribia y Manaure"
   },
   {
     "Codigo": "A-08",
-    "Nombre": "Comerciantes de la zona de régimen aduanero especial de Urabá, Tumaco y Guapí"
+    "Nombre": "Comerciantes de la zona de regimen aduanero especial de Uraba, Tumaco y Guapi"
   },
   {
     "Codigo": "A-09",
-    "Nombre": "Comerciantes del puerto libre de San Andrés, Providencia y Santa Catalina"
+    "Nombre": "Comerciantes del puerto libre de San Andres, Providencia y Santa Catalina"
   },
   {
     "Codigo": "A-10",
-    "Nombre": "Depósito público de apoyo logístico internacional"
+    "Nombre": "Deposito publico de apoyo logistico internacional"
   },
   {
     "Codigo": "A-11",
-    "Nombre": "Depósito privado para procesamiento industrial"
+    "Nombre": "Deposito privado para procesamiento industrial"
   },
   {
     "Codigo": "A-12",
-    "Nombre": "Depósito privado de transformación o ensamble"
+    "Nombre": "Deposito privado de transformacion o ensamble"
   },
   {
     "Codigo": "A-13",
-    "Nombre": "Depósito franco"
+    "Nombre": "Deposito franco"
   },
   {
     "Codigo": "A-14",
-    "Nombre": "Depósito privado aeronáutico"
+    "Nombre": "Deposito privado aeronautico"
   },
   {
     "Codigo": "A-15",
-    "Nombre": "Depósito privado para distribución internacional"
+    "Nombre": "Deposito privado para distribucion internacional"
   },
   {
     "Codigo": "A-16",
-    "Nombre": "Depósito privado de provisiones de a bordo para consumo y para llevar"
+    "Nombre": "Deposito privado de provisiones de a bordo para consumo y para llevar"
   },
   {
     "Codigo": "A-17",
-    "Nombre": "Depósito privado para envíos urgentes"
+    "Nombre": "Deposito privado para envios urgentes"
   },
   {
     "Codigo": "A-18",
-    "Nombre": "Depósito privado"
+    "Nombre": "Deposito privado"
   },
   {
     "Codigo": "A-19",
-    "Nombre": "Depósito público"
+    "Nombre": "Deposito publico"
   },
   {
     "Codigo": "A-20",
-    "Nombre": "Depósito público para distribución internacional"
+    "Nombre": "Deposito publico para distribucion internacional"
   },
   {
     "Codigo": "A-21",
-    "Nombre": "Exportador de café"
+    "Nombre": "Exportador de cafe"
   },
   {
     "Codigo": "A-22",
@@ -421,7 +229,7 @@
   },
   {
     "Codigo": "A-24",
-    "Nombre": "Intermediario de tráfico postal y envíos urgentes"
+    "Nombre": "Intermediario de trafico postal y envios urgentes"
   },
   {
     "Codigo": "A-25",
@@ -429,19 +237,19 @@
   },
   {
     "Codigo": "A-26",
-    "Nombre": "Sociedad de intermediación aduanera"
+    "Nombre": "Sociedad de intermediacion aduanera"
   },
   {
     "Codigo": "A-27",
-    "Nombre": "Titular de puertos y muelles de servicio público o privado"
+    "Nombre": "Titular de puertos y muelles de servicio publico o privado"
   },
   {
     "Codigo": "A-28",
-    "Nombre": "Transportador aereo régimen de importación y/o exportación"
+    "Nombre": "Transportador 229nfor regimen de importacion y/o exportacion"
   },
   {
     "Codigo": "A-29",
-    "Nombre": "Transportista nacional para operaciones del régimen de tránsito aduanero"
+    "Nombre": "Transportista nacional para operaciones del regimen de transito aduanero"
   },
   {
     "Codigo": "A-30",
@@ -469,7 +277,7 @@
   },
   {
     "Codigo": "A-39",
-    "Nombre": "Usuario de zonas económicas especiales de exportación"
+    "Nombre": "Usuario de zonas economicas especiales de exportacion"
   },
   {
     "Codigo": "A-40",
@@ -477,27 +285,27 @@
   },
   {
     "Codigo": "A-41",
-    "Nombre": "Beneficiarios de programas especiales de exportación PEX"
+    "Nombre": "Beneficiarios de programas especiales de exportacion PEX"
   },
   {
     "Codigo": "A-42",
-    "Nombre": "Depósitos privados para mercancías en tránsito San Andrés"
+    "Nombre": "Depositos privados para mercancias en transito San Andres"
   },
   {
     "Codigo": "A-43",
-    "Nombre": "Observadores de las operaciones de importación"
+    "Nombre": "Observadores de las operaciones de importacion"
   },
   {
     "Codigo": "A-44",
-    "Nombre": "Usuarios sistemas especiales Importación exportación"
+    "Nombre": "Usuarios sistemas especiales Importacion exportacion"
   },
   {
     "Codigo": "A-46",
-    "Nombre": "Transportador maritimo régimen de importación y/o exportación"
+    "Nombre": "Transportador 229nformac regimen de importacion y/o exportacion"
   },
   {
     "Codigo": "A-47",
-    "Nombre": "Transportador terrestre régimen de importación y/o exportación"
+    "Nombre": "Transportador terrestre regimen de importacion y/o exportacion"
   },
   {
     "Codigo": "A-48",
@@ -505,7 +313,7 @@
   },
   {
     "Codigo": "A-49",
-    "Nombre": "Transportador fluvial régimen de importación"
+    "Nombre": "Transportador fluvial regimen de importacion"
   },
   {
     "Codigo": "A-50",
@@ -533,11 +341,11 @@
   },
   {
     "Codigo": "A-58",
-    "Nombre": "Transportador aéreo nacional"
+    "Nombre": "Transportador aereo nacional"
   },
   {
     "Codigo": "A-60",
-    "Nombre": "Transportador aéreo, marítimo o fluvial modalidad Cabotaje"
+    "Nombre": "Transportador aereo, maritimo o fluvial modalidad Cabotaje"
   },
   {
     "Codigo": "A-61",
@@ -549,7 +357,7 @@
   },
   {
     "Codigo": "A-63",
-    "Nombre": "Importador de maquinaría y sus partes Decreto 2261 de 2012"
+    "Nombre": "Importador de maquinaria y sus partes Decreto 2261 de 2012"
   },
   {
     "Codigo": "A-64",
@@ -569,23 +377,23 @@
   },
   {
     "Codigo": "E-03",
-    "Nombre": "Centro de explotación agrícola"
+    "Nombre": "Centro de explotacion agricola"
   },
   {
     "Codigo": "E-04",
-    "Nombre": "Centro de explotación animal"
+    "Nombre": "Centro de explotacion animal"
   },
   {
     "Codigo": "E-05",
-    "Nombre": "Centro de explotación minera"
+    "Nombre": "Centro de explotacion minera"
   },
   {
     "Codigo": "E-06",
-    "Nombre": "Centro de explotación de transformación"
+    "Nombre": "Centro de explotacion de transformacion"
   },
   {
     "Codigo": "E-07",
-    "Nombre": "Centro de explotación de servicios"
+    "Nombre": "Centro de explotacion de servicios"
   },
   {
     "Codigo": "E-08",
@@ -629,7 +437,7 @@
   },
   {
     "Codigo": "E-18",
-    "Nombre": "Fábrica"
+    "Nombre": "Fabrica"
   },
   {
     "Codigo": "E-19",
@@ -641,11 +449,11 @@
   },
   {
     "Codigo": "E-21",
-    "Nombre": "Pozo de Petróleo y Gas"
+    "Nombre": "Pozo de Petroleo y Gas"
   },
   {
     "Codigo": "E-22",
-    "Nombre": "Otro lug de tipo de extrac explotación de recursos naturales"
+    "Nombre": "Otro lug de tipo de extrac explotacion de recursos naturales"
   },
   {
     "Codigo": "E-99",

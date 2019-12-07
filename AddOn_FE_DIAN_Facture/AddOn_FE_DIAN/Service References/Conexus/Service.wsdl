@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://demo.conexusit.com/ServicioWCF/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://demo.conexusit.com/ServicioWCF/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://demo.conexusit.com/ServicioWCF/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServiceData" />
+      <xsd:import schemaLocation="https://demo.conexusit.com/ServicioWCF/Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_SetDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDocument" />
+  </wsdl:message>
+  <wsdl:message name="IService_SetDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTransaccion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaccion" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTransaccion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaccionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTransaccionbyIdentificacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaccionbyIdentificacion" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTransaccionbyIdentificacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaccionbyIdentificacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_SetDocumentJson_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDocumentJson" />
+  </wsdl:message>
+  <wsdl:message name="IService_SetDocumentJson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDocumentJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTransaccionJson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaccionJson" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTransaccionJson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaccionJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTransaccionbyIdentificacionJson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaccionbyIdentificacionJson" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetTransaccionbyIdentificacionJson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransaccionbyIdentificacionJsonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="SetDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SetDocument" message="tns:IService_SetDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SetDocumentResponse" message="tns:IService_SetDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaccion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetTransaccion" message="tns:IService_GetTransaccion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetTransaccionResponse" message="tns:IService_GetTransaccion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaccionbyIdentificacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetTransaccionbyIdentificacion" message="tns:IService_GetTransaccionbyIdentificacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetTransaccionbyIdentificacionResponse" message="tns:IService_GetTransaccionbyIdentificacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentJson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SetDocumentJson" message="tns:IService_SetDocumentJson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SetDocumentJsonResponse" message="tns:IService_SetDocumentJson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaccionJson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetTransaccionJson" message="tns:IService_GetTransaccionJson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetTransaccionJsonResponse" message="tns:IService_GetTransaccionJson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaccionbyIdentificacionJson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetTransaccionbyIdentificacionJson" message="tns:IService_GetTransaccionbyIdentificacionJson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetTransaccionbyIdentificacionJsonResponse" message="tns:IService_GetTransaccionbyIdentificacionJson_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpsBinding_IService" type="tns:IService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetDocument">
+      <soap:operation soapAction="http://tempuri.org/IService/SetDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaccion">
+      <soap:operation soapAction="http://tempuri.org/IService/GetTransaccion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaccionbyIdentificacion">
+      <soap:operation soapAction="http://tempuri.org/IService/GetTransaccionbyIdentificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDocumentJson">
+      <soap:operation soapAction="http://tempuri.org/IService/SetDocumentJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaccionJson">
+      <soap:operation soapAction="http://tempuri.org/IService/GetTransaccionJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransaccionbyIdentificacionJson">
+      <soap:operation soapAction="http://tempuri.org/IService/GetTransaccionbyIdentificacionJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpsBinding_IService" binding="tns:BasicHttpsBinding_IService">
+      <soap:address location="https://demo.conexusit.com/ServicioWCF/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

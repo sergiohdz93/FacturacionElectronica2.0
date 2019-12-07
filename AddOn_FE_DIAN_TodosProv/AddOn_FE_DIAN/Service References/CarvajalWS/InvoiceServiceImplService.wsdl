@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://server.cloud.service.web.invoice.carvajal.com/" xmlns:ns1="http://invoice.carvajal.com/invoiceService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" name="InvoiceServiceImplService" targetNamespace="http://server.cloud.service.web.invoice.carvajal.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://invoice.carvajal.com/invoiceService/" location="https://wscenf.cen.biz/isows/InvoiceService?wsdl=invoiceService.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="InvoiceServiceImplServiceSoapBinding" type="ns1:invoiceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateSentFiles">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/ValidateSentFiles" style="document" />
+      <wsdl:input name="ValidateSentFiles">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ValidateSentFilesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentStatesByDocumentsRequest">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/PaymentStatesByDocumentsRequest" style="document" />
+      <wsdl:input name="PaymentStatesByDocumentsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PaymentStatesByDocumentsRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocument">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/UploadDocument" style="document" />
+      <wsdl:input name="UploadDocument">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadDocumentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentStatusByNumber">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/DocumentStatusByNumber" style="document" />
+      <wsdl:input name="DocumentStatusByNumber">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DocumentStatusByNumberResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EventStatus">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/EventStatus" style="document" />
+      <wsdl:input name="EventStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="EventStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadSync">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/UploadSync" style="document" />
+      <wsdl:input name="UploadSync">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadSyncResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/Upload" style="document" />
+      <wsdl:input name="Upload">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadLogFiles">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/UploadLogFiles" style="document" />
+      <wsdl:input name="UploadLogFiles">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadLogFilesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadResolution">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/UploadResolution" style="document" />
+      <wsdl:input name="UploadResolution">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadResolutionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UploadCompany">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/UploadCompany" style="document" />
+      <wsdl:input name="UploadCompany">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadCompanyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentStates">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/PaymentStates" style="document" />
+      <wsdl:input name="PaymentStates">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PaymentStatesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadReceiver">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/DownloadReceiver" style="document" />
+      <wsdl:input name="DownloadReceiver">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadReceiverResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DocumentStatus">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/DocumentStatus" style="document" />
+      <wsdl:input name="DocumentStatus">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DocumentStatusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAppMobile">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/UpdateAppMobile" style="document" />
+      <wsdl:input name="UpdateAppMobile">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateAppMobileResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAvailableDocuments">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/CheckAvailableDocuments" style="document" />
+      <wsdl:input name="CheckAvailableDocuments">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CheckAvailableDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/Download" style="document" />
+      <wsdl:input name="Download">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadAvailableDocuments">
+      <soap:operation soapAction="http://invoice.carvajal.com/invoiceService/DownloadAvailableDocuments" style="document" />
+      <wsdl:input name="DownloadAvailableDocuments">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DownloadAvailableDocumentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvoiceServiceFaultException">
+        <soap:fault use="literal" name="InvoiceServiceFaultException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InvoiceServiceImplService">
+    <wsdl:port name="InvoiceServiceImplPort" binding="tns:InvoiceServiceImplServiceSoapBinding">
+      <soap:address location="https://wscenf.cen.biz/isows/InvoiceService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

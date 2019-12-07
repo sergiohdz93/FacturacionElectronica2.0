@@ -1,0 +1,66 @@
+[
+  {
+    "Codigo": "CFR",
+    "Nombre": "Costo y flete"
+  },
+  {
+    "Codigo": "CIF",
+    "Nombre": "Costo, seguro y flete"
+  },
+  {
+    "Codigo": "CIP",
+    "Nombre": "Flete y seguro pagado hasta"
+  },
+  {
+    "Codigo": "CPT",
+    "Nombre": "Flete pagado hasta"
+  },
+  {
+    "Codigo": "DAF",
+    "Nombre": "Entregado en frontera o “a mitad de puente”"
+  },
+  {
+    "Codigo": "DAP",
+    "Nombre": "Entregado en un punto"
+  },
+  {
+    "Codigo": "DAT",
+    "Nombre": "Entregado en terminal"
+  },
+  {
+    "Codigo": "DDP",
+    "Nombre": "Entregado en destino con derechos pagados"
+  },
+  {
+    "Codigo": "DDU",
+    "Nombre": "Entregado en destino de derechos no pagados"
+  },
+  {
+    "Codigo": "DEQ",
+    "Nombre": "Entregado en muelle de destino con derechos pagados"
+  },
+  {
+    "Codigo": "DES",
+    "Nombre": "Entregado sobre buque en puerto de destino"
+  },
+  {
+    "Codigo": "EXW",
+    "Nombre": "En fábrica"
+  },
+  {
+    "Codigo": "FAS",
+    "Nombre": "Libre al costado del buque"
+  },
+  {
+    "Codigo": "FCA",
+    "Nombre": "Libre transportista"
+  },
+  {
+    "Codigo": "FOB",
+    "Nombre": "Libre a bordo"
+  },
+  {
+    "Codigo": "OTR",
+    "Nombre": "Otras condiciones de entrega distintas a las anteriores."
+  }
+]

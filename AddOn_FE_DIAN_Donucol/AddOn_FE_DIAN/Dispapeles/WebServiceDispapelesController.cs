@@ -39,7 +39,7 @@ namespace AddOn_FE_DIAN.Controllers
             return binding;
         }
 
-        public static enviarDocumentoDispape.felRespuestaEnvio EnviarFactura(DataTable Fac, DataTable impFactura, string wsURL)
+        public static enviarDocumentoDispape.felRespuestaEnvio EnviarFactura(DataTable Fac, DataTable impFactura, DataTable listAdi, string wsURL)
         {
             DateTime _createdDate;
             _createdDate = DateTime.Now;
@@ -86,6 +86,7 @@ namespace AddOn_FE_DIAN.Controllers
                     Factura.tiponota = Procesos.Buscar_ValorCab("tiponota", i, Fac);
                     Factura.aplicafel = Procesos.Buscar_ValorCab("aplicafel", i, Fac);
                     Factura.tipoOperacion = Procesos.Buscar_ValorCab("tipoOperacion", i, Fac);
+                    //Factura.documentoemitidoen = Procesos.Buscar_ValorCab("documentoemitidoen", i, Fac);
 
                     enviarDocumentoDispape.felPagos pago = new enviarDocumentoDispape.felPagos();
                     pago.moneda = Procesos.Buscar_ValorCab("moneda", i, Fac);
@@ -104,7 +105,42 @@ namespace AddOn_FE_DIAN.Controllers
                     pago.periododepagoaSpecified = true;
                     pago.fechavencimiento = Convert.ToDateTime(Procesos.Buscar_ValorCab("fechavencimiento", i, Fac));
                     pago.fechavencimientoSpecified = true;
+                    pago.totalDescuento = Convert.ToDouble(Procesos.Buscar_ValorCab("totalDescuento", i, Fac));
+                    pago.totalDescuentoSpecified = true;
                     Factura.pago = pago;
+
+                    if(Convert.ToDouble(Procesos.Buscar_ValorCab("porcentajeDescuentoCab", i, Fac)) > 0)
+                    {
+                        enviarDocumentoDispape.felDescuento[] cabDescuentos = new enviarDocumentoDispape.felDescuento[1];
+                        enviarDocumentoDispape.felDescuento cabDescuento = new enviarDocumentoDispape.felDescuento();
+                        cabDescuento.codigoDescuento = Procesos.Buscar_ValorCab("codigoDescuentoCab", i, Fac);
+                        cabDescuento.descuento = Convert.ToDouble(Procesos.Buscar_ValorCab("descuentoCab", i, Fac));
+                        cabDescuento.descuentoSpecified = true;
+                        cabDescuento.porcentajeDescuento = Convert.ToDouble(Procesos.Buscar_ValorCab("porcentajeDescuentoCab", i, Fac));
+                        cabDescuento.porcentajeDescuentoSpecified = true;
+                        //cabDescuento.descripcion = Procesos.Buscar_ValorCab("DescripDescuentoCan", i, Fac);
+
+                        cabDescuentos[0] = cabDescuento;
+                        Factura.listaDescuentos = cabDescuentos;
+                    }
+
+
+                    i = 0;
+                    if (listAdi.Rows.Count > 0)
+                    {
+                        enviarDocumentoDispape.felCampoAdicional[] camposAdi = new enviarDocumentoDispape.felCampoAdicional[listAdi.Rows.Count];
+                        foreach (DataRow _row in listAdi.Rows)
+                        {
+                            enviarDocumentoDispape.felCampoAdicional campoAdi = new enviarDocumentoDispape.felCampoAdicional();
+                            campoAdi.nombreCampo = Procesos.Buscar_ValorCab("nombreCampo", i, listAdi);
+                            campoAdi.valorCampo = Procesos.Buscar_ValorCab("valorCampo", i, listAdi);
+                            //campoAdi.seccion = Procesos.Buscar_ValorCab("seccion", i, listAdi);
+
+                            camposAdi[i] = campoAdi;
+                            i++;
+                        }
+                        Factura.listaCamposAdicionales = camposAdi;
+                    }
 
                     enviarDocumentoDispape.felDetalleDocumento[] Factura_Detalles = new enviarDocumentoDispape.felDetalleDocumento[NumDetalles];
                     i = 0;
@@ -125,6 +161,21 @@ namespace AddOn_FE_DIAN.Controllers
                             LineaDetalle.preciosinimpuestos = Convert.ToDouble(Procesos.Buscar_ValorCab("preciosinimpuestos", i, Fac));
                             LineaDetalle.preciototal = Convert.ToDouble(Procesos.Buscar_ValorCab("preciototal", i, Fac));
                             LineaDetalle.tipoImpuesto = Convert.ToInt32(Procesos.Buscar_ValorCab("tipoImpuesto", i, Fac));
+
+                            if(Convert.ToDouble(Procesos.Buscar_ValorCab("porcentajeDescuentoLin", i, Fac)) > 0)
+                            {
+                                enviarDocumentoDispape.felDescuento[] DetDescuentos = new enviarDocumentoDispape.felDescuento[1];
+                                enviarDocumentoDispape.felDescuento DetDescuento = new enviarDocumentoDispape.felDescuento();
+                                DetDescuento.codigoDescuento = Procesos.Buscar_ValorCab("codigoDescuentoLin", i, Fac);
+                                DetDescuento.descuento = Convert.ToDouble(Procesos.Buscar_ValorCab("descuentoLin", i, Fac));
+                                DetDescuento.descuentoSpecified = true;
+                                DetDescuento.porcentajeDescuento = Convert.ToDouble(Procesos.Buscar_ValorCab("porcentajeDescuentoLin", i, Fac));
+                                DetDescuento.porcentajeDescuentoSpecified = true;
+                                //DetDescuento.descripcion = Procesos.Buscar_ValorCab("DescripDescuentoLin", i, Fac);
+
+                                DetDescuentos[0] = DetDescuento;
+                                LineaDetalle.listaDescuentos = DetDescuentos;
+                            }
 
                             enviarDocumentoDispape.felImpuesto[] DetImpuestos = new enviarDocumentoDispape.felImpuesto[1];
                             enviarDocumentoDispape.felImpuesto DetImpuesto = new enviarDocumentoDispape.felImpuesto();
@@ -202,8 +253,11 @@ namespace AddOn_FE_DIAN.Controllers
                     adquirente.regimen = Procesos.Buscar_ValorCab("regimen", i, Fac);
                     adquirente.email = Procesos.Buscar_ValorCab("email", i, Fac);
                     adquirente.pais = Procesos.Buscar_ValorCab("pais", i, Fac);
+                    adquirente.paisnombre = Procesos.Buscar_ValorCab("paisnombre", i, Fac);
                     adquirente.departamento = Procesos.Buscar_ValorCab("departamento", i, Fac);
+                    adquirente.nombredepartamento = Procesos.Buscar_ValorCab("nombredepartamento", i, Fac);
                     adquirente.ciudad = Procesos.Buscar_ValorCab("codigoCiudad", i, Fac);
+                    adquirente.descripcionCiudad = Procesos.Buscar_ValorCab("descripcionCiudad", i, Fac);
                     adquirente.direccion = Procesos.Buscar_ValorCab("direccion", i, Fac);
                     adquirente.telefono = Procesos.Buscar_ValorCab("telefono", i, Fac);
                     adquirente.envioPorEmailPlataforma = Procesos.Buscar_ValorCab("envioPorEmailPlataforma", i, Fac);
@@ -213,12 +267,13 @@ namespace AddOn_FE_DIAN.Controllers
                     Factura.listaAdquirentes = adquirentes;
 
 
-                    //enviarDocumentoDispape.felDatoEntrega[] entregas = new enviarDocumentoDispape.felDatoEntrega[1];
-                    //enviarDocumentoDispape.felDatoEntrega entrega = new enviarDocumentoDispape.felDatoEntrega();
-                    //    entrega.direccionEntrega = Procesos.Buscar_ValorCab("direccionEntrega", i, Fac);
-                    //    entrega.telefonoEntrega = Procesos.Buscar_ValorCab("telefonoEntrega", i, Fac);
-                    //    entregas[i] = entrega;
-                    //Factura.listaDatosEntrega = entregas;
+                    enviarDocumentoDispape.felDatoEntrega[] entregas = new enviarDocumentoDispape.felDatoEntrega[1];
+                    enviarDocumentoDispape.felDatoEntrega entrega = new enviarDocumentoDispape.felDatoEntrega();
+                    entrega.direccionEntrega = Procesos.Buscar_ValorCab("direccionEntrega", i, Fac);
+                    entrega.telefonoEntrega = Procesos.Buscar_ValorCab("telefonoEntrega", i, Fac);
+                    entrega.paisEntrega = Procesos.Buscar_ValorCab("paisEntrega", i, Fac);
+                    entregas[i] = entrega;
+                    Factura.listaDatosEntrega = entregas;
 
 
                     enviarDocumentoDispape.felMedioPago[] mediosPago = new enviarDocumentoDispape.felMedioPago[1];

@@ -122,11 +122,11 @@
     <comment>Obtiene el nombre de la numeracion</comment>
   </data>
   <data name="DescRespon" xml:space="preserve">
-    <value>Select "Name" From "@FEDIAN_RESPONSA" Where "Code" =  $[@FEDIAN_SN_RESPO.U_Codigo]</value>
+    <value>Select "Name" From "@FEDIAN_RESPONSA" Where "Code" =  $[@FEDIAN_SNRES.U_Codigo]</value>
     <comment>Obtiene descripcion responsabilidades</comment>
   </data>
   <data name="DescTribu" xml:space="preserve">
-    <value>Select "Name" From "@FEDIAN_TRIBU" Where "Code" =  $[@FEDIAN_SN_TRIB.U_Codigo]</value>
+    <value>Select "Name" From "@FEDIAN_TRIBU" Where "Code" =  $[@FEDIAN_SNTRI.U_Codigo]</value>
     <comment>Obtiene descripcion tributos</comment>
   </data>
   <data name="ListaDocDIAN" xml:space="preserve">

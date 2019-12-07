@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="GBH0oR6aNnI1cwWi5zLJDqqDJr4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="rKjMNgpmJ/OEYLjolAqzHKX4LFM=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="InvoiceServiceImplServiceSoapBinding">
       <properties>
@@ -221,10 +221,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="InvoiceServiceImplPort" contract="CarvajalWS.invoiceService" bindingType="basicHttpBinding" address="https://wscenflab.cen.biz/isows/InvoiceService" bindingConfiguration="InvoiceServiceImplServiceSoapBinding">
+    <endpoint name="InvoiceServiceImplPort" contract="CarvajalWS.invoiceService" bindingType="basicHttpBinding" address="https://wscenf.cen.biz/isows/InvoiceService" bindingConfiguration="InvoiceServiceImplServiceSoapBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>https://wscenflab.cen.biz/isows/InvoiceService</serializedValue>
+          <serializedValue>https://wscenf.cen.biz/isows/InvoiceService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

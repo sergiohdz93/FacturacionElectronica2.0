@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://wscenflab.cen.biz/isows/InvoiceService?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://wscenf.cen.biz/isows/InvoiceService?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="InvoiceServiceImplService1.wsdl" MetadataType="Wsdl" ID="9a68d6e2-b027-4d13-b301-1c93875c4e64" SourceId="1" SourceUrl="https://wscenflab.cen.biz/isows/InvoiceService?wsdl" />
-    <MetadataFile FileName="invoiceService1.wsdl" MetadataType="Wsdl" ID="bb96fe34-f926-42ff-919a-45297f921693" SourceId="1" SourceUrl="https://wscenflab.cen.biz/isows/InvoiceService?wsdl=invoiceService.wsdl" />
+    <MetadataFile FileName="InvoiceServiceImplService.wsdl" MetadataType="Wsdl" ID="ab4bdce7-ed9c-4d03-b929-cc50d23ca712" SourceId="1" SourceUrl="https://wscenf.cen.biz/isows/InvoiceService?wsdl" />
+    <MetadataFile FileName="invoiceService.wsdl" MetadataType="Wsdl" ID="ef29d5e3-5d20-4e72-842a-84be1ea1beb5" SourceId="1" SourceUrl="https://wscenf.cen.biz/isows/InvoiceService?wsdl=invoiceService.wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

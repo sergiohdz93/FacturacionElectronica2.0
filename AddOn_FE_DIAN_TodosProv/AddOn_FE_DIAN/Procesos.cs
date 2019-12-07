@@ -55,7 +55,7 @@ namespace AddOn_FE_DIAN
                 oCompany = oCmpn;
                 SBO_Application = SBO_App;
                 //Creacion de timer para actualziacion de formulario Monitor Log
-                //StartMonitorSAPB1();
+                StartMonitorSAPB1();
                 //Cargue inicial de parametrizacion
                 user = SBO_Application.Company.UserName;
                 CargueInicial();
@@ -433,57 +433,57 @@ namespace AddOn_FE_DIAN
 
         //Definicion timer
         public static void StartMonitorSAPB1()
-                {
-                    #region TimerVerificaEstados
-                    // Alternate method: create a Timer with an interval argument to the constructor.
-                    //aTimer = new System.Timers.Timer(2000);
+        {
+            #region TimerVerificaEstados
+            // Alternate method: create a Timer with an interval argument to the constructor.
+            //aTimer = new System.Timers.Timer(2000);
 
-                    // Create a timer with a five second interval.
-                    aTimer = new System.Timers.Timer(Properties.Settings.Default.TimerStatus);
+            // Create a timer with a five second interval.
+            aTimer = new System.Timers.Timer(Properties.Settings.Default.TimerStatus);
 
-                    // Hook up the Elapsed event for the timer. 
-                    aTimer.Elapsed += OnTimedEventStatus;
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += OnTimedEventStatus;
 
-                    // Have the timer fire repeated events (true is the default)
-                    aTimer.AutoReset = true;
+            // Have the timer fire repeated events (true is the default)
+            aTimer.AutoReset = true;
 
-                    // Start the timer
-                    aTimer.Enabled = true;
-                    #endregion TimerVerificaEstados
+            // Start the timer
+            aTimer.Enabled = true;
+            #endregion TimerVerificaEstados
 
-                    #region TimerReSend
-                    // Alternate method: create a Timer with an interval argument to the constructor.
-                    //aTimer = new System.Timers.Timer(2000);
+            #region TimerReSend
+            // Alternate method: create a Timer with an interval argument to the constructor.
+            //aTimer = new System.Timers.Timer(2000);
 
-                    // Create a timer with a five second interval.
-                    bTimer = new System.Timers.Timer(Properties.Settings.Default.TimerResend);
+            // Create a timer with a five second interval.
+            bTimer = new System.Timers.Timer(Properties.Settings.Default.TimerResend);
 
-                    // Hook up the Elapsed event for the timer. 
-                   bTimer.Elapsed += OnTimedEventReSend;
+            // Hook up the Elapsed event for the timer. 
+            bTimer.Elapsed += OnTimedEventReSend;
 
-                    // Have the timer fire repeated events (true is the default)
-                    bTimer.AutoReset = true;
+            // Have the timer fire repeated events (true is the default)
+            bTimer.AutoReset = true;
 
-                    // Start the timer
-                    bTimer.Enabled = true;
+            // Start the timer
+            bTimer.Enabled = true;
             #endregion TimerReSend
 
-                    #region TimerAddDTE
-                    // Alternate method: create a Timer with an interval argument to the constructor.
-                    //aTimer = new System.Timers.Timer(2000);
+            #region TimerAddDTE
+            // Alternate method: create a Timer with an interval argument to the constructor.
+            //aTimer = new System.Timers.Timer(2000);
 
-                    // Create a timer with a five second interval.
-                    bTimer = new System.Timers.Timer(Properties.Settings.Default.TimerResend);
+            // Create a timer with a five second interval.
+            bTimer = new System.Timers.Timer(Properties.Settings.Default.TimerResend);
 
-                    // Hook up the Elapsed event for the timer. 
-                    bTimer.Elapsed += OnTimedEventAddDTEMonitor;
+            // Hook up the Elapsed event for the timer. 
+            bTimer.Elapsed += OnTimedEventAddDTEMonitor;
 
-                    // Have the timer fire repeated events (true is the default)
-                    bTimer.AutoReset = true;
+            // Have the timer fire repeated events (true is the default)
+            bTimer.AutoReset = true;
 
-                    // Start the timer
-                    bTimer.Enabled = true;
-                    #endregion TimerAddDTE
+            // Start the timer
+            bTimer.Enabled = true;
+            #endregion TimerAddDTE
         }
 
         //Timer verificar estado
@@ -817,7 +817,7 @@ namespace AddOn_FE_DIAN
                 }
             }
 
-            else if(Procesos.proveedor == "F")
+            else if (Procesos.proveedor == "F")
             {
                 string dataJSON = "";
                 string urlFebos;
@@ -1399,7 +1399,7 @@ namespace AddOn_FE_DIAN
 
                 tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = responseStatus;
 
-                if (response.processStatus == "FAIL")
+                if (response.processStatus == "FAIL" || response.legalStatus != "ACCEPTED")
                 {
                     if (response.errorMessage.Contains("Ya existe un comprobante con ese mismo tipo y número"))
                     {
@@ -1411,27 +1411,27 @@ namespace AddOn_FE_DIAN
                         string documentType = "";
                         switch (tipoDoc)
                         {
-                            case "1":
+                            case "01":
                                 documentType = "FV";
                                 oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                                 oSeriesParams.Series = oInvoice.Series;
                                 break;
-                            case "2":
+                            case "02":
                                 documentType = "FC";
                                 oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                                 oSeriesParams.Series = oInvoice.Series;
                                 break;
-                            case "3":
+                            case "03":
                                 documentType = "FE";
                                 oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                                 oSeriesParams.Series = oInvoice.Series;
                                 break;
-                            case "4":
+                            case "91":
                                 documentType = "NC";
                                 oCreditNote.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                                 oSeriesParams.Series = oCreditNote.Series;
                                 break;
-                            case "5":
+                            case "93":
                                 documentType = "ND";
                                 oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                                 oSeriesParams.Series = oInvoice.Series;
@@ -1507,27 +1507,27 @@ namespace AddOn_FE_DIAN
                     string documentType = "";
                     switch (tipoDoc)
                     {
-                        case "1":
+                        case "01":
                             documentType = "FV";
                             oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oInvoice.Series;
                             break;
-                        case "2":
+                        case "02":
                             documentType = "FC";
                             oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oInvoice.Series;
                             break;
-                        case "3":
+                        case "03":
                             documentType = "FE";
                             oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oInvoice.Series;
                             break;
-                        case "4":
+                        case "91":
                             documentType = "NC";
                             oCreditNote.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oCreditNote.Series;
                             break;
-                        case "5":
+                        case "92":
                             documentType = "ND";
                             oInvoice.GetByKey(tbl.UserFields.Fields.Item("U_DocNum").Value);
                             oSeriesParams.Series = oInvoice.Series;
@@ -1670,19 +1670,6 @@ namespace AddOn_FE_DIAN
 
                 tbl.UserFields.Fields.Item("U_ProcessID").Value = codseg;
                 Procesos.EscribirLogFileTXT("CodigoSeguimiento: " + codseg);
-                if (reSend == false)
-                {
-                    Procesos.EscribirLogFileTXT("Reenvio-False " + dateSend.ToString("yyyy/MM/dd") + dateSend.ToString("HH:mm"));
-                    tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = dateSend.ToString("yyyy/MM/dd");
-                    tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm");
-                }
-                else if (reSend == true)
-                {
-                    Procesos.EscribirLogFileTXT("Reenvio-True " + dateSend.ToString("yyyy/MM/dd") + dateSend.ToString("HH:mm"));
-                    tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
-                    tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
-                    tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
-                }
 
                 Procesos.EscribirLogFileTXT("Update log");
                 lRetCode = tbl.Update();
@@ -1690,12 +1677,6 @@ namespace AddOn_FE_DIAN
                 {
                     oCompany.GetLastError(out lRetCode, out sErrMsg);
                     Procesos.EscribirLogFileTXT("updateLog: " + sErrMsg);
-                    //oCompany.GetLastError(out lRetCode, out sErrMsg);
-                    //SBO_Application.MessageBox(sErrMsg);
-                }
-                else
-                {
-                    
                 }
 
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(tbls);
@@ -2356,7 +2337,7 @@ namespace AddOn_FE_DIAN
 
         //        if (i > 0)
         //        {
-                    
+
         //        }
         //        else
         //        {
@@ -2377,7 +2358,7 @@ namespace AddOn_FE_DIAN
         //            //}
         //            //else
         //            //{
-                       
+
         //            //}
         //        }
         //        System.Runtime.InteropServices.Marshal.ReleaseComObject(oRS);
@@ -2406,7 +2387,7 @@ namespace AddOn_FE_DIAN
                 }
                 j++;
             }
-            salto:
+        salto:
             return sRes;
         }
     }

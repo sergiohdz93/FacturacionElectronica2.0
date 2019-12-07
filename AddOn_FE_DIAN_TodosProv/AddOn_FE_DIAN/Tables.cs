@@ -58,7 +58,7 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                string outputJSON = File.ReadAllText("UserTables.json", System.Text.Encoding.Default);
+                string outputJSON = File.ReadAllText("UserTables.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 JArray parsedArray = JArray.Parse(outputJSON);
                 int cantidad = parsedArray.Count;
                 Console.WriteLine("Cantidad de tablas " + cantidad);
@@ -82,7 +82,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_TIPOPERA.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_TIPOPERA.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -132,7 +132,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_RESPONSA.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_RESPONSA.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -181,7 +181,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_MEDPAGO.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_MEDPAGO.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -230,7 +230,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_DESCU.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_DESCU.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -279,7 +279,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_ND.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_ND.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -328,7 +328,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_NC.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_CONCEP_NC.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -377,7 +377,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_TRIBU.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_TRIBU.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -426,7 +426,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_IDENT_ARTI.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_IDENT_ARTI.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -475,7 +475,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_INCOTERMS.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_INCOTERMS.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -522,7 +522,8 @@ namespace AddOn_FE_DIAN
             SAPbobsCOM.UserFieldsMD oUserFieldsMD;
             try
             {
-                string outputJSON = File.ReadAllText("UserFields.json", System.Text.Encoding.Default), validValues = "";
+                string outputJSON = File.ReadAllText("UserFields.json", System.Text.Encoding.GetEncoding("UTF-8"));
+                string validValues = "";
                 JArray parsedArray = JArray.Parse(outputJSON);
                 var bodyField = "";
                 string name = "";
@@ -646,7 +647,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_CODDOC.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_CODDOC.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -695,7 +696,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_INTERF_CFG.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_INTERF_CFG.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -745,7 +746,7 @@ namespace AddOn_FE_DIAN
                 SAPbobsCOM.UserTables tbls = null;
                 SAPbobsCOM.UserTable tbl = null;
 
-                string inputJSON = File.ReadAllText("FEDIAN_UM.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FEDIAN_UM.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -794,7 +795,7 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                string inputJSON = File.ReadAllText("UserQueries.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("UserQueries.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
                 foreach (var item in dynJson)
                 {
@@ -816,7 +817,7 @@ namespace AddOn_FE_DIAN
                 string formID = "";
                 SAPbobsCOM.Recordset oRecordSet = null;
                 SAPbobsCOM.FormattedSearches oFormattedSearches = null;
-                string inputJSON = File.ReadAllText("FormattedSearches.json", System.Text.Encoding.Default);
+                string inputJSON = File.ReadAllText("FormattedSearches.json", System.Text.Encoding.GetEncoding("UTF-8"));
                 dynamic dynJson = JsonConvert.DeserializeObject(inputJSON);
 
                 foreach (var item in dynJson)
@@ -1039,11 +1040,11 @@ namespace AddOn_FE_DIAN
             //GC.Collect();
             //oUserObjectMD = oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserObjectsMD) as SAPbobsCOM.UserObjectsMD;
 
-            var retval = oUserObjectMD.GetByKey("FEDIAN_SN");
+            var retval = oUserObjectMD.GetByKey("Fediansn");
             if (!retval)
             {
-                oUserObjectMD.Code = "FEDIAN_SN";
-                oUserObjectMD.Name = "Responsabilidades y Tributos SN";
+                oUserObjectMD.Code = "Fediansn";
+                oUserObjectMD.Name = "Fediansn";
                 oUserObjectMD.TableName = "FEDIAN_SN";
                 oUserObjectMD.ObjectType = SAPbobsCOM.BoUDOObjType.boud_MasterData;
 
@@ -1054,7 +1055,7 @@ namespace AddOn_FE_DIAN
                 oUserObjectMD.CanFind = SAPbobsCOM.BoYesNoEnum.tYES;
                 oUserObjectMD.CanYearTransfer = SAPbobsCOM.BoYesNoEnum.tNO;
                 oUserObjectMD.CanCreateDefaultForm = SAPbobsCOM.BoYesNoEnum.tYES;
-                oUserObjectMD.CanLog = SAPbobsCOM.BoYesNoEnum.tYES;
+                oUserObjectMD.CanLog = SAPbobsCOM.BoYesNoEnum.tNO;
                 oUserObjectMD.OverwriteDllfile = SAPbobsCOM.BoYesNoEnum.tYES;
                 oUserObjectMD.CanArchive = SAPbobsCOM.BoYesNoEnum.tNO;
                 oUserObjectMD.MenuItem = SAPbobsCOM.BoYesNoEnum.tNO;
@@ -1088,11 +1089,11 @@ namespace AddOn_FE_DIAN
 
 
                 oUserObjectMD.ChildTables.SetCurrentLine(0);
-                oUserObjectMD.ChildTables.TableName = "FEDIAN_SN_RESPO";
+                oUserObjectMD.ChildTables.TableName = "FEDIAN_SNRES";
                 oUserObjectMD.ChildTables.Add();
 
                 oUserObjectMD.ChildTables.SetCurrentLine(1);
-                oUserObjectMD.ChildTables.TableName = "FEDIAN_SN_TRIB";
+                oUserObjectMD.ChildTables.TableName = "FEDIAN_SNTRI";
                 //oUserObjectMD.ChildTables.Add();
 
 
@@ -1234,7 +1235,7 @@ namespace AddOn_FE_DIAN
             try
             {
                 oUserFieldsMD = (SAPbobsCOM.UserFieldsMD)oCompany.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
-
+                
                 oUserFieldsMD.TableName = "OCRD";
                 oUserFieldsMD.Name = "FEDIAN_RYT";
                 oUserFieldsMD.Description = "(FE) Responsabilidades y Tributos";
@@ -1242,7 +1243,7 @@ namespace AddOn_FE_DIAN
                 oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
                 oUserFieldsMD.Size = 50;
                 oUserFieldsMD.EditSize = 50;
-                oUserFieldsMD.LinkedUDO = "FEDIAN_SN";
+                oUserFieldsMD.LinkedUDO = "Fediansn";
 
                 lRetCode = oUserFieldsMD.Add();
 
@@ -1272,7 +1273,7 @@ namespace AddOn_FE_DIAN
                 oUserFieldsMD.SubType = SAPbobsCOM.BoFldSubTypes.st_None;
                 oUserFieldsMD.Size = 50;
                 oUserFieldsMD.EditSize = 50;
-                oUserFieldsMD.LinkedUDO = "FEDIAN_SN";
+                oUserFieldsMD.LinkedUDO = "Fediansn";
 
                 lRetCode = oUserFieldsMD.Add();
 

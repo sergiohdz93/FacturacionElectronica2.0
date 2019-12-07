@@ -911,7 +911,7 @@ namespace AddOn_FE_DIAN
                         System.Diagnostics.Process.Start("iexplore.exe", tempDirectory);
                     }
 
-                    else if(pVal.ColUID == "Respuesta Integracion")
+                    else if (pVal.ColUID == "Respuesta Integracion")
                     {
                         SAPbouiCOM.Grid grd = SBO_Application.Forms.ActiveForm.Items.Item("Grid").Specific;
                         int index = grd.GetDataTableRowIndex(pVal.Row);
@@ -1400,7 +1400,7 @@ namespace AddOn_FE_DIAN
                     }
                     catch
                     {
-                        
+
                     }
                 }
             }

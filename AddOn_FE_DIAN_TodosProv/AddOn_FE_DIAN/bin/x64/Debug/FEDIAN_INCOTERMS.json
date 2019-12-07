@@ -1,66 +1,46 @@
 [
   {
-    "Codigo": "CFR",
-    "Nombre": "Costo y flete"
+    "Codigo": "CFR ",
+    "Nombre": "Costo y flete "
   },
   {
-    "Codigo": "CIF",
-    "Nombre": "Costo, seguro y flete"
+    "Codigo": "CIF ",
+    "Nombre": "Costo, flete y seguro "
   },
   {
-    "Codigo": "CIP",
-    "Nombre": "Flete y seguro pagado hasta"
+    "Codigo": "CIP ",
+    "Nombre": "Transporte y Seguro Pagados hasta "
   },
   {
-    "Codigo": "CPT",
-    "Nombre": "Flete pagado hasta"
+    "Codigo": "CPT ",
+    "Nombre": "Transporte Pagado Hasta "
   },
   {
-    "Codigo": "DAF",
-    "Nombre": "Entregado en frontera o “a mitad de puente”"
+    "Codigo": "DAP ",
+    "Nombre": "Entregado en un Lugar "
   },
   {
-    "Codigo": "DAP",
-    "Nombre": "Entregado en un punto"
+    "Codigo": "DAT ",
+    "Nombre": "Entregado en Terminal "
   },
   {
-    "Codigo": "DAT",
-    "Nombre": "Entregado en terminal"
+    "Codigo": "DDP ",
+    "Nombre": "Entregado con Pago de Derechos "
   },
   {
-    "Codigo": "DDP",
-    "Nombre": "Entregado en destino con derechos pagados"
+    "Codigo": "EXW ",
+    "Nombre": "En Fabrica "
   },
   {
-    "Codigo": "DDU",
-    "Nombre": "Entregado en destino de derechos no pagados"
+    "Codigo": "FAS ",
+    "Nombre": "Franco al costado del buque "
   },
   {
-    "Codigo": "DEQ",
-    "Nombre": "Entregado en muelle de destino con derechos pagados"
+    "Codigo": "FCA ",
+    "Nombre": "Franco transportista "
   },
   {
-    "Codigo": "DES",
-    "Nombre": "Entregado sobre buque en puerto de destino"
-  },
-  {
-    "Codigo": "EXW",
-    "Nombre": "En fábrica"
-  },
-  {
-    "Codigo": "FAS",
-    "Nombre": "Libre al costado del buque"
-  },
-  {
-    "Codigo": "FCA",
-    "Nombre": "Libre transportista"
-  },
-  {
-    "Codigo": "FOB",
-    "Nombre": "Libre a bordo"
-  },
-  {
-    "Codigo": "OTR",
-    "Nombre": "Otras condiciones de entrega distintas a las anteriores."
+    "Codigo": "FOB ",
+    "Nombre": "Franco a bordo "
   }
 ]

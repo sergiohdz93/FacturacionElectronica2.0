@@ -1,11 +1,11 @@
 [
  {
    "Codigo": "1",
-   "Nombre": "Devolución de parte de los bienes; no aceptación de partes del servicio"
+   "Nombre": "Devolucion de parte de los bienes; no aceptacion de partes del servicio"
  },
  {
    "Codigo": "2",
-   "Nombre": "Anulación de Factura Electrónica"
+   "Nombre": "Anulacion de Factura Electronica"
  },
  {
    "Codigo": "3",
@@ -17,7 +17,7 @@
  },
   {
     "Codigo": "5",
-    "Nombre": "Rescición: Nulidad por Falta de Requisitos"
+    "Nombre": "Rescicion: Nulidad por Falta de Requisitos"
   },
  {
    "Codigo": "6",

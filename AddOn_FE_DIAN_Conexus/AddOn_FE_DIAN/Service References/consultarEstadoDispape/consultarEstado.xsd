@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://wsconsultaestadofactura.webservice.dispapeles.com/" targetNamespace="http://wsconsultaestadofactura.webservice.dispapeles.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="consultarEstado" type="tns:consultarEstado" />
+  <xs:element name="consultarEstadoResponse" type="tns:consultarEstadoResponse" />
+  <xs:complexType name="consultarEstado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="felConsultaFactura" type="tns:felConsultaFactura" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="felConsultaFactura">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="consecutivo" type="xs:long" />
+      <xs:element minOccurs="0" name="contrasenia" type="xs:string" />
+      <xs:element minOccurs="0" name="idEmpresa" type="xs:long" />
+      <xs:element minOccurs="0" name="prefijo" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoDocumento" type="xs:string" />
+      <xs:element minOccurs="0" name="token" type="xs:string" />
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="version" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consultarEstadoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:felRespuestaEstado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="felRespuestaEstado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoQr" type="xs:string" />
+      <xs:element name="codigoUltimoEstadoAdquirente" type="xs:int" />
+      <xs:element name="codigoUltimoEstadoDian" type="xs:int" />
+      <xs:element name="codigoUltimoEstadoDispapeles" type="xs:int" />
+      <xs:element name="codigoUltimoEstadoEmail" type="xs:int" />
+      <xs:element minOccurs="0" name="consecutivo" type="xs:long" />
+      <xs:element minOccurs="0" name="cufe" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcionUltimoEstadoAdquirente" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcionUltimoEstadoDian" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcionUltimoEstadoDispapeles" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcionUltimoEstadoEmail" type="xs:string" />
+      <xs:element name="estadoProceso" type="xs:int" />
+      <xs:element minOccurs="0" name="fechaFactura" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaRespuesta" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaRespuestaUltimoEstadoAdquirente" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaRespuestaUltimoEstadoDian" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaRespuestaUltimoEstadoDispapeles" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="fechaRespuestaUltimoEstadoEmail" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="firmaDelDocumento" type="xs:string" />
+      <xs:element minOccurs="0" name="idErp" type="xs:string" />
+      <xs:element minOccurs="0" name="idLote" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="listaMensajesProceso" nillable="true" type="tns:felMensajesProceso" />
+      <xs:element minOccurs="0" name="prefijo" type="xs:string" />
+      <xs:element minOccurs="0" name="selloDeValidacion" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoDocumento" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="felMensajesProceso">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigoMensaje" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcionMensaje" type="xs:string" />
+      <xs:element minOccurs="0" name="rechazoNotificacion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -583,7 +583,7 @@
       "Size": "30",
       "Description": "Codigo Responsabilidad",
       "SubType": "st_None",
-      "TableName": "@FEDIAN_SN_RESPO",
+      "TableName": "@FEDIAN_SNRES",
       "EditSize": "30",
       "Mandatory": "tNO"
     }
@@ -595,7 +595,7 @@
       "Size": "100",
       "Description": "Descripcion Responsabilidad",
       "SubType": "st_None",
-      "TableName": "@FEDIAN_SN_RESPO",
+      "TableName": "@FEDIAN_SNRES",
       "EditSize": "100",
       "Mandatory": "tNO"
     }
@@ -607,7 +607,7 @@
       "Size": "30",
       "Description": "Codigo Tributo",
       "SubType": "st_None",
-      "TableName": "@FEDIAN_SN_TRIB",
+      "TableName": "@FEDIAN_SNTRI",
       "EditSize": "30",
       "Mandatory": "tNO"
     }
@@ -619,7 +619,7 @@
       "Size": "100",
       "Description": "Descripcion Tributo",
       "SubType": "st_None",
-      "TableName": "@FEDIAN_SN_TRIB",
+      "TableName": "@FEDIAN_SNTRI",
       "EditSize": "100",
       "Mandatory": "tNO"
     }

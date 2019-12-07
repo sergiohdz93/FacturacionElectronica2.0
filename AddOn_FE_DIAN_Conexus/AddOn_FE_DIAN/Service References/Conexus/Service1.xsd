@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfDetalleCargosType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleCargosType" nillable="true" type="tns:DetalleCargosType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetalleCargosType" nillable="true" type="tns:ArrayOfDetalleCargosType" />
+  <xs:complexType name="DetalleCargosType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DetSecuencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacCargoBase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacCargoPorc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacCargoRazon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacCargoSecuencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacCargoTipo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FacCargoTotal" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetalleCargosType" nillable="true" type="tns:DetalleCargosType" />
+</xs:schema>

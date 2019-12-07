@@ -2,31 +2,31 @@
   {
     "Codigo": "01",
     "Nombre": "Factura de Venta",
-    "U_URL": "https://cenflab.cen.biz/"
+    "U_URL": "https://cenf.cen.biz/"
   },
   {
     "Codigo": "02",
     "Nombre": "Factura de Exportación",
-    "U_URL": "https://cenflab.cen.biz/"
+    "U_URL": "https://cenf.cen.biz/"
   },
   {
     "Codigo": "03",
     "Nombre": "Factura de Contingencia",
-    "U_URL": "https://cenflab.cen.biz/"
+    "U_URL": "https://cenf.cen.biz/"
   },
   {
     "Codigo": "91",
     "Nombre": "Nota Crédito",
-    "U_URL": "https://cenflab.cen.biz/"
+    "U_URL": "https://cenf.cen.biz/"
   },
   {
     "Codigo": "92",
     "Nombre": "Nota Débito",
-    "U_URL": "https://cenflab.cen.biz/"
+    "U_URL": "https://cenf.cen.biz/"
   },
   {
     "Codigo": "7",
     "Nombre": "Lectura por Folio",
-    "U_URL": "https://cenflab.cen.biz/"
+    "U_URL": "https://cenf.cen.biz/"
   }
 ]

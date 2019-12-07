@@ -70,7 +70,7 @@ namespace AddOn_FE_DIAN.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_RESPONSA&quot; Where &quot;Code&quot; =  $[@FEDIAN_SN_RESPO.U_Codigo].
+        ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_RESPONSA&quot; Where &quot;Code&quot; =  $[@FEDIAN_SNRES.U_Codigo].
         /// </summary>
         internal static string DescRespon {
             get {
@@ -79,7 +79,7 @@ namespace AddOn_FE_DIAN.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_TRIBU&quot; Where &quot;Code&quot; =  $[@FEDIAN_SN_TRIB.U_Codigo].
+        ///   Busca una cadena traducida similar a Select &quot;Name&quot; From &quot;@FEDIAN_TRIBU&quot; Where &quot;Code&quot; =  $[@FEDIAN_SNTRI.U_Codigo].
         /// </summary>
         internal static string DescTribu {
             get {
