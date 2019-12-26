@@ -122,23 +122,19 @@ namespace AddOn_FE_DIAN.Carvajal
                 resultadoCliente = new CarvajalWS.DocumentStatusResponse();
                 resultadoCliente = client.DocumentStatus(cuerpo.DocumentStatusRequest);
 
-                if (resultadoCliente.processStatus == "FAIL")
-                {
-                    Procesos.EscribirLogFileTXT(resultadoCliente.errorMessage + "" + resultadoCliente.errorMessage);
-                    
-                }
-                else if (resultadoCliente.processStatus == "PROCESSING")
-                {
-                    Procesos.EscribirLogFileTXT(resultadoCliente.errorMessage + "" + resultadoCliente.errorMessage);
-                    
-                }
+                //if (resultadoCliente.processStatus == "FAIL")
+                //{
+                //    Procesos.EscribirLogFileTXT("DocStatusFE: " + resultadoCliente.errorMessage + "n/" + resultadoCliente.errorMessage);
+                //}
+                //else if (resultadoCliente.processStatus == "PROCESSING")
+                //{
+                //    Procesos.EscribirLogFileTXT("DocStatusFE: " + resultadoCliente.errorMessage + "n/" + resultadoCliente.errorMessage);
+                //}
 
-                if(resultadoCliente != null)
+                if (resultadoCliente != null)
                 {
                     Procesos.UpdateLog(codeLog, transID, resultadoCliente, request, ReSend, strtext);
                 }
-                
-
                 client.Close();
             }
             catch (Exception ex)
@@ -189,6 +185,7 @@ namespace AddOn_FE_DIAN.Carvajal
                 Procesos.EscribirLogFileTXT(downloadType + resultadoCliente.status);
                 //Procesos.EscribirLogFileTXT("Archivo" + resultadoCliente.downloadData);
                 client.Close();
+                //if()
                 return resultadoCliente.downloadData;
             }
             catch (Exception ex)

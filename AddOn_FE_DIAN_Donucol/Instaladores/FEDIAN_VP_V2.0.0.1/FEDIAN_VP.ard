@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AddOnRegData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SlientInstallation="No" SlientUpgrade="No" Partnernmsp="FEDIAN_VP" SchemaVersion="3.0" Type="" MultipleVersion="false" OnDemand="" OnPremise="" ExtName="FEDIAN_VP" ExtVersion="2.0.0.1" Contdata="www.seidor.com" Partner="Seidor" DBType="Both" ClientType="A">
+  <Validity>
+    <SBOCompatibility>
+      <Version From="920.000.00" To="930.999.99" />
+    </SBOCompatibility>
+  </Validity>
+  <Configuration>
+    <Repository>
+      <Properties />
+    </Repository>
+    <Deployment>
+      <Properties />
+    </Deployment>
+    <Assignment>
+      <Properties />
+    </Assignment>
+  </Configuration>
+  <Addons>
+    <Addon Name="FEDIAN_VP" Group="" ForceFlag="" Visible="" AutoAssign="" SelfUpgrd="">
+      <x86 AddonExe="AddOn_FE_DIAN.exe" AddonSig="8C81A3EF4E25D7D096CE5895948235C8" ExeDir="X86Client">
+        <Installation>
+          <Files>
+            <File FileName="X86Client\AddOn_FE_DIAN.exe">
+              <Actions />
+            </File>
+            <File FileName="X86Client\AddOn_FE_DIAN.exe.config">
+              <Actions />
+            </File>
+            <File FileName="X86Client\AddOn_FE_DIAN.pdb">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_CODDOC.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_CONCEP_NC.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_CONCEP_ND.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_DESCU.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_IDENT_ARTI.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_INCOTERMS.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_INTERF_CFG.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_MEDPAGO.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_RESPONSA.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_TIPOPERA.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_TRIBU.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_UM.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FormattedSearches.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\Microsoft.Web.Services3.dll">
+              <Actions />
+            </File>
+            <File FileName="X86Client\Newtonsoft.Json.dll">
+              <Actions />
+            </File>
+            <File FileName="X86Client\Newtonsoft.Json.xml">
+              <Actions />
+            </File>
+            <File FileName="X86Client\UI.bmp">
+              <Actions />
+            </File>
+            <File FileName="X86Client\UserFields.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\UserQueries.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\UserTables.json">
+              <Actions />
+            </File>
+          </Files>
+        </Installation>
+        <Uninstallation>
+          <Files>
+            <File FileName="X86Client\AddOn_FE_DIAN.exe">
+              <Actions />
+            </File>
+            <File FileName="X86Client\AddOn_FE_DIAN.exe.config">
+              <Actions />
+            </File>
+            <File FileName="X86Client\AddOn_FE_DIAN.pdb">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_CODDOC.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_CONCEP_NC.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_CONCEP_ND.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_DESCU.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_IDENT_ARTI.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_INCOTERMS.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_INTERF_CFG.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_MEDPAGO.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_RESPONSA.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_TIPOPERA.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_TRIBU.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FEDIAN_UM.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\FormattedSearches.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\Microsoft.Web.Services3.dll">
+              <Actions />
+            </File>
+            <File FileName="X86Client\Newtonsoft.Json.dll">
+              <Actions />
+            </File>
+            <File FileName="X86Client\Newtonsoft.Json.xml">
+              <Actions />
+            </File>
+            <File FileName="X86Client\UI.bmp">
+              <Actions />
+            </File>
+            <File FileName="X86Client\UserFields.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\UserQueries.json">
+              <Actions />
+            </File>
+            <File FileName="X86Client\UserTables.json">
+              <Actions />
+            </File>
+          </Files>
+        </Uninstallation>
+      </x86>
+      <x64 AddonExe="AddOn_FE_DIAN.exe" AddonSig="9D867275F895532B57AA0BF95E2CA220" ExeDir="X64Client">
+        <Installation>
+          <Files>
+            <File FileName="X64Client\AddOn_FE_DIAN.exe">
+              <Actions />
+            </File>
+            <File FileName="X64Client\AddOn_FE_DIAN.exe.config">
+              <Actions />
+            </File>
+            <File FileName="X64Client\AddOn_FE_DIAN.pdb">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_CODDOC.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_CONCEP_NC.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_CONCEP_ND.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_DESCU.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_IDENT_ARTI.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_INCOTERMS.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_INTERF_CFG.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_MEDPAGO.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_RESPONSA.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_TIPOPERA.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_TRIBU.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_UM.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FormattedSearches.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\Microsoft.Web.Services3.dll">
+              <Actions />
+            </File>
+            <File FileName="X64Client\Newtonsoft.Json.dll">
+              <Actions />
+            </File>
+            <File FileName="X64Client\Newtonsoft.Json.xml">
+              <Actions />
+            </File>
+            <File FileName="X64Client\UI.bmp">
+              <Actions />
+            </File>
+            <File FileName="X64Client\UserFields.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\UserQueries.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\UserTables.json">
+              <Actions />
+            </File>
+          </Files>
+        </Installation>
+        <Uninstallation>
+          <Files>
+            <File FileName="X64Client\AddOn_FE_DIAN.exe">
+              <Actions />
+            </File>
+            <File FileName="X64Client\AddOn_FE_DIAN.exe.config">
+              <Actions />
+            </File>
+            <File FileName="X64Client\AddOn_FE_DIAN.pdb">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_CODDOC.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_CONCEP_NC.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_CONCEP_ND.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_DESCU.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_IDENT_ARTI.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_INCOTERMS.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_INTERF_CFG.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_MEDPAGO.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_RESPONSA.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_TIPOPERA.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_TRIBU.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FEDIAN_UM.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\FormattedSearches.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\Microsoft.Web.Services3.dll">
+              <Actions />
+            </File>
+            <File FileName="X64Client\Newtonsoft.Json.dll">
+              <Actions />
+            </File>
+            <File FileName="X64Client\Newtonsoft.Json.xml">
+              <Actions />
+            </File>
+            <File FileName="X64Client\UI.bmp">
+              <Actions />
+            </File>
+            <File FileName="X64Client\UserFields.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\UserQueries.json">
+              <Actions />
+            </File>
+            <File FileName="X64Client\UserTables.json">
+              <Actions />
+            </File>
+          </Files>
+        </Uninstallation>
+      </x64>
+    </Addon>
+  </Addons>
+  <XApps>
+    <XApp Name="" Path="" FileName="" />
+  </XApps>
+  <UDQs>
+    <UDQ udqname="">
+      <Hana FileName="" />
+    </UDQ>
+  </UDQs>
+</AddOnRegData>

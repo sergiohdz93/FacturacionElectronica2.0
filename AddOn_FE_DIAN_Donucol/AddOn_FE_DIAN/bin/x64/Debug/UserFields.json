@@ -483,14 +483,6 @@
       {
         "Value": "01",
         "Description": "Valor Comercial"
-      },
-      {
-        "Value": "02",
-        "Description": "Valor en Inventarios"
-      },
-      {
-        "Value": "03",
-        "Description": "Otro Valor"
       }
     ]
   },

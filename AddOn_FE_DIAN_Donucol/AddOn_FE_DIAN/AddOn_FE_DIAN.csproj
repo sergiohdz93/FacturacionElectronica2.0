@@ -311,23 +311,26 @@
     <None Include="Service References\CarvajalWS\AddOn_FE_DIAN.CarvajalWS.UploadSyncResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.consultarEstadoResponse.datasource">
+    <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.enviarDocumentoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.felRespuestaEstado.datasource">
+    <None Include="Service References\consultarEstadoDispape\AddOn_FE_DIAN.consultarEstadoDispape.felRespuestaEnvio.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\consultarEstadoDispape\consultarEstado.wsdl" />
+    <None Include="Service References\consultarEstadoDispape\enviarDocumento.wsdl" />
+    <None Include="Service References\consultarEstadoDispape\enviarDocumento.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\enviarDocumentoDispape\AddOn_FE_DIAN.enviarDocumentoDispape.enviarDocumentoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\enviarDocumentoDispape\AddOn_FE_DIAN.enviarDocumentoDispape.felRespuestaEnvio.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\enviarDocumentoDispape\enviarDocumento.wsdl" />
-    <None Include="Service References\enviarDocumentoDispape\enviarDocumento1.xsd">
+    <None Include="Service References\enviarDocumentoDispape\enviarDocumento.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\enviarDocumentoDispape\enviarDocumento1.wsdl" />
     <None Include="UserFields.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -338,6 +341,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Web References\consultarArchivosDispape\consultarArchivos.wsdl" />
+    <None Include="Web References\consultarArchivosDispape\consultarArchivos.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\consultarArchivosDispape\felRepuestaDescargaDocumentos.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -398,10 +404,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos%3fwsdl">
+    <WebReferenceUrl Include="https://wsconsultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\consultarArchivosDispape\</RelPath>
-      <UpdateFromURL>https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>https://wsconsultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

@@ -37,65 +37,64 @@ namespace AddOn_FE_DIAN {
             "is\" \"regimen\",\r\nA0.\"DocTotal\" + IfNull(A14.\"TotalRet\",0) as \"totalfactura\", A0.\"" +
             "DpmAppl\" as \"pagoanticipado\",  A0.\"Comments\" as \"descripcion\",\r\nCase When A2.\"U_" +
             "HBT_TipEnt\" = \'1\' Then \'2\' When A2.\"U_HBT_TipEnt\" = \'2\' Then \'1\' Else \'1\' End \"t" +
-            "ipopersona\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'2\' Then IfNull(A2.\"CardName\",\'\') El" +
-            "se \'\' End \"nombreCompleto\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U" +
-            "_HBT_Nombres\",\'\') Else \'\' End \"primernombre\", \'\' as \"segundonombre\",\r\nCase When " +
-            "A2.\"U_HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U_HBT_Apellido1\",\'\') Else \'\' End \"primer" +
-            "apellido\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U_HBT_Apellido2\",\'" +
-            "\') Else \'\' End \"segundoapellido\", \r\nIfNull(A2.\"U_HBT_TipDoc\",\'\') as \"tipoidentif" +
-            "icacion\",\r\nCase When Locate(A1.\"LicTradNum\",\'-\') = 0 Then A1.\"LicTradNum\" Else S" +
-            "ubString(A0.\"LicTradNum\", 1, Locate(A0.\"LicTradNum\", \'-\')-1) End \"numeroidentifi" +
-            "cacion\",\r\nCase When Locate(A1.\"LicTradNum\",\'-\') = 0 Then \'\' Else SubString(A0.\"L" +
-            "icTradNum\", (Locate(A0.\"LicTradNum\", \'-\')+1),1) End \"digitoverificacion\",\r\n\'SI\' " +
-            "as \"aplicafel\", \'EMAIL\' as \"envioPorEmailPlataforma\", A2.\"E_Mail\" as \"email\", \r\n" +
-            "A2.\"Country\" as \"pais\", A13.\"Name\" as \"paisnombre\",\r\nSUBSTRING(A2.\"U_HBT_MunMed\"" +
-            ",1,2) as \"departamento\", A4.\"U_NomDepartamento\" as \"nombredepartamento\",\r\nA2.\"U_" +
-            "HBT_MunMed\" as \"codigoCiudad\", A4.\"Name\" as \"descripcionCiudad\",\r\nA2.\"Address\" a" +
-            "s \"direccion\", A2.\"Phone1\" as \"telefono\", Case When A0.\"GroupNum\" = \'-1\' Then \'1" +
-            "\' Else \'2\' End \"tipocompra\",\r\nA2.\"BillToDef\" as \"despachadoANombre\", A2.\"Phone1\"" +
-            " as \"telefonoEntrega\", A2.\"Address\" as \"direccionEntrega\", A2.\"Country\" as \"pais" +
-            "Entrega\",\r\nCase When A0.\"DocType\" = \'S\' Then A1.\"AcctCode\" Else A1.\"ItemCode\" En" +
-            "d as \"codigoproducto\", \r\nA10.\"U_SEI_FEIdent\" as \"tipocodigoproducto\",\r\nA1.\"Dscri" +
-            "ption\" as \"referencia\", A1.\"Dscription\" as \"descripcionLine\", A1.\"Dscription\" as" +
-            " \"nombreProducto\", \r\nCase When A0.\"DocType\" = \'S\' Then 1 Else Cast(A1.\"Quantity\"" +
-            " as decimal(28,8)) End as \"cantidad\",\r\nCASE \r\nWHEN IfNull(A1.\"UomCode\",\'\') = \'Ma" +
-            "nual\' Then (Select IfNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0" +
-            ".\"U_SAP_UM\" = A1.\"unitMsr\") \r\nElse (Select IfNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDI" +
-            "AN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"UomCode\") End \"unidadmedida\", \r\nA1.\"Pr" +
-            "iceBefDi\" as \"valorunitario\", \r\nA1.\"LineTotal\" \"preciosinimpuestos\", \r\nA1.\"LineT" +
-            "otal\" as \"preciototal\", Cast(A1.\"DiscPrcnt\" as decimal(28,8)) as \"porcentajedesc" +
-            "uento\",\r\nA0.\"U_SEI_FEMedPago\" as \"medioPago\", A5.\"PymntGroup\" as \"nombreCondPago" +
-            "\", A0.\"U_CuidadEmi\" as \"documentoEmitidoEn\",\r\nCase When A0.\"GroupNum\" = \'-1\' The" +
-            "n \'1\' Else A5.\"ExtraMonth\"*30 + A5.\"ExtraDays\" End \"periododepagoa\",\r\nCase\r\nWhen" +
-            " A1.\"TaxCode\" = \'IVAEXENT\' Then \'3\'\r\nWhen A1.\"TaxCode\" = \'IVANOGRV\' Then \'2\'\r\nEl" +
-            "se \'1\' End \"tipoImpuesto\", \r\nA12.\"U_SEI_FETributo\" as \"codigoImpuestoRetencion\"," +
-            " Cast(A11.\"TaxRate\" as decimal(28,8)) as \"porcentaje\",\r\nA11.\"TaxSum\" as \"valorIm" +
-            "puestoRetencion\", Case When IfNull(A11.\"TaxSum\",0) = 0 Then 0 Else A11.\"BaseSum\"" +
-            " End as \"baseimponible\",\r\n\'false\' as \"isAutoRetenido\", IfNull(A9.\"string\",\'ZZ\') " +
-            "as \"tipoobligacion\",\r\nIfNull(A0.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoCab\", A0." +
-            "\"DiscSum\" as \"descuentoCab\", A0.\"DiscPrcnt\" as \"porcentajeDescuentoCab\",\r\nIfNull" +
-            "(A1.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoLin\", A1.\"PriceBefDi\"*(A1.\"DiscPrcnt\"" +
-            "/100) as \"descuentoLin\", A1.\"DiscPrcnt\" as \"porcentajeDescuentoLin\",\r\nA15.\"U_Fol" +
-            "io\" as \"consecutivofacturamodificada\", A15.\"U_ProcessID\" as \"cufefacturamodifica" +
-            "da\", A15.\"U_Fecha_Envio\" as \"fechafacturamodificada\"\r\nFrom \"ORIN\" A0\r\nInner Join" +
-            " \"RIN1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\nInner Join \"OCRD\" A2 On A0.\"CardCod" +
-            "e\" = A2.\"CardCode\"\r\nInner Join \"NNM1\" A3 On A0.\"Series\" = A3.\"Series\"\r\nLeft Join" +
-            " \"@HBT_MUNICIPIO\" A4 On A2.\"U_HBT_MunMed\" = A4.\"Code\"\r\nInner Join \"OCTG\" A5 On A" +
-            "0.\"GroupNum\" = A5.\"GroupNum\"\r\nLeft Join (Select \"DocEntry\", Sum(\"LineTotal\") as " +
-            "\"SubTotal\" From \"RIN1\" Group By \"DocEntry\") A6 On A0.\"DocEntry\" = A6.\"DocEntry\"\r" +
-            "\nLeft Join (Select \"DocEntry\", Sum(\"BaseSum\") as \"baseimpu\" From \"RIN4\" Where If" +
-            "Null(\"TaxSum\",0) != 0 Group By \"DocEntry\") A7 On A0.\"DocEntry\" = A7.\"DocEntry\"\r\n" +
-            "Left Join \"OADM\" A8 On 1 = 1\r\nLeft Join (Select \"Code\", STRING_AGG(\"U_Codigo\",\';" +
-            "\') As \"string\" From \"@FEDIAN_SN_RESPO\"\r\n\t\t\t\tGroup By \"Code\") A9 On A2.\"CardCode\"" +
-            " = A9.\"Code\"\r\nLeft Join \"OITM\" A10 On A1.\"ItemCode\" = A10.\"ItemCode\"\r\nLeft Join " +
-            "\"RIN4\" A11 On A1.\"DocEntry\" = A11.\"DocEntry\" And A1.\"LineNum\" = A11.\"LineNum\" An" +
-            "d A11.\"RelateType\" = \'1\'\r\nLeft Join \"OSTC\" A12 On A11.\"StcCode\" = A12.\"Code\"\r\nLe" +
-            "ft Join \"OCRY\" A13 On A2.\"Country\" = A13.\"Code\"\r\nLeft Join (\r\n\t\t\tSelect B0.\"AbsE" +
-            "ntry\" , Sum(B0.\"WTAmnt\") as \"TotalRet\"\r\n\t\t\tFrom \"RIN5\" B0 \r\n\t\t\tInner Join \"OWHT\"" +
-            " B1 On B0.\"WTCode\" = B1.\"WTCode\" And B1.\"U_HBT_TipRet\" != 0\r\n\t\t\tGroup By B1.\"U_H" +
-            "BT_TipRet\", B0.\"AbsEntry\"\r\n\t\t  ) A14 On A0.\"DocEntry\" = A14.\"AbsEntry\"\r\nLeft Joi" +
-            "n \"@FEDIAN_MONITORLOG\" A15 On A1.\"BaseType\" = A15.\"U_ObjType\" And A1.\"BaseEntry\"" +
-            " = A15.\"U_DocNum\"\r\nWhere A0.\"DocEntry\" = {0} And A1.\"TreeType\" != \'I\'")]
+            "ipopersona\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'2\' Then IfNull(A2.\"CardName\",\'\') \r\n" +
+            "Else IfNull(A2.\"U_HBT_Nombres\",\'\') || \' \' || IfNull(A2.\"U_HBT_Apellido1\",\'\') || " +
+            "\' \' || IfNull(A2.\"U_HBT_Apellido2\",\'\') End \"nombreCompleto\",\r\nIfNull(A2.\"U_HBT_T" +
+            "ipDoc\",\'\') as \"tipoidentificacion\",\r\nCase When IfNull(Locate(A2.\"LicTradNum\",\'-\'" +
+            "),0) = 0 Then A2.\"LicTradNum\" Else SubString(A2.\"LicTradNum\", 1, Locate(A2.\"LicT" +
+            "radNum\", \'-\')-1) End \"numeroidentificacion\",\r\nCase When Locate(A1.\"LicTradNum\",\'" +
+            "-\') = 0 Then \'\' Else SubString(A0.\"LicTradNum\", (Locate(A0.\"LicTradNum\", \'-\')+1)" +
+            ",1) End \"digitoverificacion\",\r\n\'SI\' as \"aplicafel\", \'EMAIL\' as \"envioPorEmailPla" +
+            "taforma\", A2.\"E_Mail\" as \"email\", \r\nA2.\"Country\" as \"pais\", A13.\"Name\" as \"paisn" +
+            "ombre\",\r\nSUBSTRING(A2.\"U_HBT_MunMed\",1,2) as \"departamento\", A4.\"U_NomDepartamen" +
+            "to\" as \"nombredepartamento\",\r\nA2.\"U_HBT_MunMed\" as \"codigoCiudad\", A4.\"Name\" as " +
+            "\"descripcionCiudad\",\r\nA2.\"Address\" as \"direccion\", A2.\"Phone1\" as \"telefono\", Ca" +
+            "se When A0.\"GroupNum\" = \'-1\' Then \'1\' Else \'2\' End \"tipocompra\",\r\nA2.\"BillToDef\"" +
+            " as \"despachadoANombre\", A2.\"Phone1\" as \"telefonoEntrega\", A2.\"Address\" as \"dire" +
+            "ccionEntrega\", A2.\"Country\" as \"paisEntrega\",\r\nCase When A0.\"DocType\" = \'S\' Then" +
+            " A1.\"AcctCode\" Else A1.\"ItemCode\" End as \"codigoproducto\", \r\nA10.\"U_SEI_FEIdent\"" +
+            " as \"tipocodigoproducto\",\r\nA1.\"Dscription\" as \"referencia\", A1.\"Dscription\" as \"" +
+            "descripcionLine\", A1.\"Dscription\" as \"nombreProducto\", \r\nCase When A0.\"DocType\" " +
+            "= \'S\' Then 1 Else Cast(A1.\"Quantity\" as decimal(28,8)) End as \"cantidad\",\r\nCASE " +
+            "\r\nWHEN IfNull(A1.\"UomCode\",\'\') = \'Manual\' Then (Select IfNull(P0.\"U_DIAN_UM\",\'\')" +
+            " From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"unitMsr\") \r\nElse (Select I" +
+            "fNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"Uo" +
+            "mCode\") End \"unidadmedida\", \r\nA1.\"PriceBefDi\" as \"valorunitario\", \r\nA1.\"LineTota" +
+            "l\" as \"preciosinimpuestos\", \r\nA1.\"LineTotal\" as \"preciototal\", Cast(A1.\"DiscPrcn" +
+            "t\" as decimal(28,8)) as \"porcentajedescuento\",\r\nA0.\"U_SEI_FEMedPago\" as \"medioPa" +
+            "go\", A5.\"PymntGroup\" as \"nombreCondPago\", A0.\"U_CuidadEmi\" as \"documentoEmitidoE" +
+            "n\",\r\nCase When A0.\"GroupNum\" = \'-1\' Then \'1\' Else A5.\"ExtraMonth\"*30 + A5.\"Extra" +
+            "Days\" End \"periododepagoa\",\r\nCase\r\nWhen A1.\"TaxCode\" = \'IVAEXENT\' Then \'3\'\r\nWhen" +
+            " A1.\"TaxCode\" = \'IVAGEV0\' Then \'2\'\r\nWhen A1.\"TaxCode\" = \'IVANOGRV\' Then \'2\'\r\nEls" +
+            "e \'1\' End \"tipoImpuesto\", \r\nA12.\"U_SEI_FETributo\" as \"codigoImpuestoRetencion\", " +
+            "Cast(A11.\"TaxRate\" as decimal(28,8)) as \"porcentaje\",\r\nA11.\"TaxSum\" as \"valorImp" +
+            "uestoRetencion\", Case When IfNull(A11.\"TaxSum\",0) = 0 Then 0 Else A11.\"BaseSum\" " +
+            "End as \"baseimponible\",\r\n\'false\' as \"isAutoRetenido\", IfNull(A9.\"string\",\'ZZ\') a" +
+            "s \"tipoobligacion\",\r\nIfNull(A0.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoCab\", A0.\"" +
+            "DiscSum\" as \"descuentoCab\", A0.\"DiscPrcnt\" as \"porcentajeDescuentoCab\",\r\nIfNull(" +
+            "A1.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoLin\", A1.\"PriceBefDi\"*(A1.\"DiscPrcnt\"/" +
+            "100) as \"descuentoLin\", A1.\"DiscPrcnt\" as \"porcentajeDescuentoLin\",\r\nA15.\"U_Foli" +
+            "o\" as \"consecutivofacturamodificada\", A15.\"U_Prefijo\" as \"prefijoFacturaModifica" +
+            "da\", A15.\"U_ProcessID\" as \"cufefacturamodificada\", \r\nA15.\"U_Fecha_Envio\" as \"fec" +
+            "hafacturamodificada\",\'1\' as \"tipoDocumentoFacturaModificada\"\r\nFrom \"ORIN\" A0\r\nIn" +
+            "ner Join \"RIN1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\nInner Join \"OCRD\" A2 On A0." +
+            "\"CardCode\" = A2.\"CardCode\"\r\nInner Join \"NNM1\" A3 On A0.\"Series\" = A3.\"Series\"\r\nL" +
+            "eft Join \"@HBT_MUNICIPIO\" A4 On A2.\"U_HBT_MunMed\" = A4.\"Code\"\r\nInner Join \"OCTG\"" +
+            " A5 On A0.\"GroupNum\" = A5.\"GroupNum\"\r\nLeft Join (Select \"DocEntry\", Sum(\"LineTot" +
+            "al\") as \"SubTotal\" From \"RIN1\" Group By \"DocEntry\") A6 On A0.\"DocEntry\" = A6.\"Do" +
+            "cEntry\"\r\nLeft Join (Select \"DocEntry\", Sum(\"BaseSum\") as \"baseimpu\" From \"RIN4\" " +
+            "Where IfNull(\"TaxSum\",0) != 0 Group By \"DocEntry\") A7 On A0.\"DocEntry\" = A7.\"Doc" +
+            "Entry\"\r\nLeft Join \"OADM\" A8 On 1 = 1\r\nLeft Join (Select \"Code\", STRING_AGG(\"U_Co" +
+            "digo\",\';\') As \"string\" From \"@FEDIAN_SNRES\"\r\n\t\t\t\tGroup By \"Code\") A9 On A2.\"Card" +
+            "Code\" = A9.\"Code\"\r\nLeft Join \"OITM\" A10 On A1.\"ItemCode\" = A10.\"ItemCode\"\r\nLeft " +
+            "Join \"RIN4\" A11 On A1.\"DocEntry\" = A11.\"DocEntry\" And A1.\"LineNum\" = A11.\"LineNu" +
+            "m\" And A11.\"RelateType\" = \'1\'\r\nLeft Join \"OSTC\" A12 On A11.\"StcCode\" = A12.\"Code" +
+            "\"\r\nLeft Join \"OCRY\" A13 On A2.\"Country\" = A13.\"Code\"\r\nLeft Join (\r\n\t\t\tSelect B0." +
+            "\"AbsEntry\" , Sum(B0.\"WTAmnt\") as \"TotalRet\"\r\n\t\t\tFrom \"RIN5\" B0 \r\n\t\t\tInner Join \"" +
+            "OWHT\" B1 On B0.\"WTCode\" = B1.\"WTCode\" And B1.\"U_HBT_TipRet\" != 0\r\n\t\t\tGroup By B1" +
+            ".\"U_HBT_TipRet\", B0.\"AbsEntry\"\r\n\t\t  ) A14 On A0.\"DocEntry\" = A14.\"AbsEntry\"\r\nLef" +
+            "t Join \"@FEDIAN_MONITORLOG\" A15 On A1.\"BaseType\" = A15.\"U_ObjType\" And A1.\"BaseE" +
+            "ntry\" = A15.\"U_DocNum\"\r\nWhere A0.\"DocEntry\" = {0} And A1.\"TreeType\" != \'I\';")]
         public string NotaCredito {
             get {
                 return ((string)(this["NotaCredito"]));
@@ -116,62 +115,60 @@ namespace AddOn_FE_DIAN {
             "egimen\",\r\nA0.\"DocTotal\" + IfNull(A14.\"TotalRet\",0) as \"totalfactura\", A0.\"DpmApp" +
             "l\" as \"pagoanticipado\",  A0.\"Comments\" as \"descripcion\",\r\nCase When A2.\"U_HBT_Ti" +
             "pEnt\" = \'1\' Then \'2\' When A2.\"U_HBT_TipEnt\" = \'2\' Then \'1\' Else \'1\' End \"tipoper" +
-            "sona\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'2\' Then IfNull(A2.\"CardName\",\'\') Else \'\' " +
-            "End \"nombreCompleto\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U_HBT_N" +
-            "ombres\",\'\') Else \'\' End \"primernombre\", \'\' as \"segundonombre\",\r\nCase When A2.\"U_" +
-            "HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U_HBT_Apellido1\",\'\') Else \'\' End \"primerapelli" +
-            "do\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U_HBT_Apellido2\",\'\') Els" +
-            "e \'\' End \"segundoapellido\", \r\nIfNull(A2.\"U_HBT_TipDoc\",\'\') as \"tipoidentificacio" +
-            "n\",\r\nCase When Locate(A1.\"LicTradNum\",\'-\') = 0 Then A1.\"LicTradNum\" Else SubStri" +
-            "ng(A0.\"LicTradNum\", 1, Locate(A0.\"LicTradNum\", \'-\')-1) End \"numeroidentificacion" +
-            "\",\r\nCase When Locate(A1.\"LicTradNum\",\'-\') = 0 Then \'\' Else SubString(A0.\"LicTrad" +
-            "Num\", (Locate(A0.\"LicTradNum\", \'-\')+1),1) End \"digitoverificacion\",\r\n\'SI\' as \"ap" +
-            "licafel\", \'EMAIL\' as \"envioPorEmailPlataforma\", A2.\"E_Mail\" as \"email\", \r\nA2.\"Co" +
-            "untry\" as \"pais\", A13.\"Name\" as \"paisnombre\",\r\nSUBSTRING(A2.\"U_HBT_MunMed\",1,2) " +
-            "as \"departamento\", A4.\"U_NomDepartamento\" as \"nombredepartamento\",\r\nA2.\"U_HBT_Mu" +
-            "nMed\" as \"codigoCiudad\", A4.\"Name\" as \"descripcionCiudad\",\r\nA2.\"Address\" as \"dir" +
-            "eccion\", A2.\"Phone1\" as \"telefono\", Case When A0.\"GroupNum\" = \'-1\' Then \'1\' Else" +
-            " \'2\' End \"tipocompra\",\r\nA2.\"BillToDef\" as \"despachadoANombre\", A2.\"Phone1\" as \"t" +
-            "elefonoEntrega\", A2.\"Address\" as \"direccionEntrega\", A2.\"Country\" as \"paisEntreg" +
-            "a\",\r\nCase When A0.\"DocType\" = \'S\' Then A1.\"AcctCode\" Else A1.\"ItemCode\" End as \"" +
-            "codigoproducto\", \r\nA10.\"U_SEI_FEIdent\" as \"tipocodigoproducto\",\r\nA1.\"Dscription\"" +
-            " as \"referencia\", A1.\"Dscription\" as \"descripcionLine\", A1.\"Dscription\" as \"nomb" +
-            "reProducto\", \r\nCase When A0.\"DocType\" = \'S\' Then 1 Else Cast(A1.\"Quantity\" as de" +
-            "cimal(28,8)) End as \"cantidad\",\r\nCASE \r\nWHEN IfNull(A1.\"UomCode\",\'\') = \'Manual\' " +
-            "Then (Select IfNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SA" +
-            "P_UM\" = A1.\"unitMsr\") \r\nElse (Select IfNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOM" +
-            "OL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"UomCode\") End \"unidadmedida\", \r\nA1.\"PriceBef" +
-            "Di\" as \"valorunitario\", \r\nA1.\"LineTotal\" as \"preciosinimpuestos\", \r\nA1.\"LineTota" +
-            "l\" as \"preciototal\", Cast(A1.\"DiscPrcnt\" as decimal(28,8)) as \"porcentajedescuen" +
-            "to\",\r\nA0.\"U_SEI_FEMedPago\" as \"medioPago\", A5.\"PymntGroup\" as \"nombreCondPago\", " +
-            "A0.\"U_CuidadEmi\" as \"documentoEmitidoEn\",\r\nCase When A0.\"GroupNum\" = \'-1\' Then \'" +
-            "1\' Else A5.\"ExtraMonth\"*30 + A5.\"ExtraDays\" End \"periododepagoa\",\r\nCase\r\nWhen A1" +
-            ".\"TaxCode\" = \'IVAEXENT\' Then \'3\'\r\nWhen A1.\"TaxCode\" = \'IVANOGRV\' Then \'2\'\r\nElse " +
-            "\'1\' End \"tipoImpuesto\", \r\nA12.\"U_SEI_FETributo\" as \"codigoImpuestoRetencion\", Ca" +
-            "st(A11.\"TaxRate\" as decimal(28,8)) as \"porcentaje\",\r\nA11.\"TaxSum\" as \"valorImpue" +
-            "stoRetencion\", Case When IfNull(A11.\"TaxSum\",0) = 0 Then 0 Else A11.\"BaseSum\" En" +
-            "d as \"baseimponible\",\r\n\'false\' as \"isAutoRetenido\", IfNull(A9.\"string\",\'ZZ\') as " +
-            "\"tipoobligacion\",\r\nIfNull(A0.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoCab\", A0.\"Di" +
-            "scSum\" as \"descuentoCab\", A0.\"DiscPrcnt\" as \"porcentajeDescuentoCab\",\r\nIfNull(A1" +
-            ".\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoLin\", A1.\"PriceBefDi\"*(A1.\"DiscPrcnt\"/10" +
-            "0) as \"descuentoLin\", A1.\"DiscPrcnt\" as \"porcentajeDescuentoLin\"\r\nFrom \"OINV\" A0" +
-            "\r\nInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\nInner Join \"OCRD\" A2 On" +
-            " A0.\"CardCode\" = A2.\"CardCode\"\r\nInner Join \"NNM1\" A3 On A0.\"Series\" = A3.\"Series" +
-            "\"\r\nLeft Join \"@HBT_MUNICIPIO\" A4 On A2.\"U_HBT_MunMed\" = A4.\"Code\"\r\nInner Join \"O" +
-            "CTG\" A5 On A0.\"GroupNum\" = A5.\"GroupNum\"\r\nLeft Join (Select \"DocEntry\", Sum(\"Lin" +
-            "eTotal\") as \"SubTotal\" From \"INV1\" Group By \"DocEntry\") A6 On A0.\"DocEntry\" = A6" +
-            ".\"DocEntry\"\r\nLeft Join (Select \"DocEntry\", Sum(\"BaseSum\") as \"baseimpu\" From \"IN" +
-            "V4\" Where IfNull(\"TaxSum\",0) != 0 Group By \"DocEntry\") A7 On A0.\"DocEntry\" = A7." +
-            "\"DocEntry\"\r\nLeft Join \"OADM\" A8 On 1 = 1\r\nLeft Join (Select \"Code\", STRING_AGG(\"" +
-            "U_Codigo\",\';\') As \"string\" From \"@FEDIAN_SN_RESPO\"\r\n\t\t\t\tGroup By \"Code\") A9 On A" +
-            "2.\"CardCode\" = A9.\"Code\"\r\nLeft Join \"OITM\" A10 On A1.\"ItemCode\" = A10.\"ItemCode\"" +
-            "\r\nLeft Join \"INV4\" A11 On A1.\"DocEntry\" = A11.\"DocEntry\" And A1.\"LineNum\" = A11." +
-            "\"LineNum\" And A11.\"RelateType\" = \'1\'\r\nLeft Join \"OSTC\" A12 On A11.\"StcCode\" = A1" +
-            "2.\"Code\"\r\nLeft Join \"OCRY\" A13 On A2.\"Country\" = A13.\"Code\"\r\nLeft Join (\r\n\t\t\tSel" +
-            "ect B0.\"AbsEntry\" , Sum(B0.\"WTAmnt\") as \"TotalRet\"\r\n\t\t\tFrom \"INV5\" B0 \r\n\t\t\tInner" +
-            " Join \"OWHT\" B1 On B0.\"WTCode\" = B1.\"WTCode\" And B1.\"U_HBT_TipRet\" != 0\r\n\t\t\tGrou" +
-            "p By B1.\"U_HBT_TipRet\", B0.\"AbsEntry\"\r\n\t\t  ) A14 On A0.\"DocEntry\" = A14.\"AbsEntr" +
-            "y\"\r\nWhere A0.\"DocEntry\" = {0} And A1.\"TreeType\" != \'I\'")]
+            "sona\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'2\' Then IfNull(A2.\"CardName\",\'\') \r\nElse I" +
+            "fNull(A2.\"U_HBT_Nombres\",\'\') || \' \' || IfNull(A2.\"U_HBT_Apellido1\",\'\') || \' \' ||" +
+            " IfNull(A2.\"U_HBT_Apellido2\",\'\') End \"nombreCompleto\",\r\nIfNull(A2.\"U_HBT_TipDoc\"" +
+            ",\'\') as \"tipoidentificacion\",\r\nCase When IfNull(Locate(A2.\"LicTradNum\",\'-\'),0) =" +
+            " 0 Then A2.\"LicTradNum\" Else SubString(A2.\"LicTradNum\", 1, Locate(A2.\"LicTradNum" +
+            "\", \'-\')-1) End \"numeroidentificacion\",\r\nCase When Locate(A1.\"LicTradNum\",\'-\') = " +
+            "0 Then \'\' Else SubString(A0.\"LicTradNum\", (Locate(A0.\"LicTradNum\", \'-\')+1),1) En" +
+            "d \"digitoverificacion\",\r\n\'SI\' as \"aplicafel\", \'EMAIL\' as \"envioPorEmailPlataform" +
+            "a\", A2.\"E_Mail\" as \"email\", \r\nA2.\"Country\" as \"pais\", A13.\"Name\" as \"paisnombre\"" +
+            ",\r\nSUBSTRING(A2.\"U_HBT_MunMed\",1,2) as \"departamento\", A4.\"U_NomDepartamento\" as" +
+            " \"nombredepartamento\",\r\nA2.\"U_HBT_MunMed\" as \"codigoCiudad\", A4.\"Name\" as \"descr" +
+            "ipcionCiudad\",\r\nA2.\"Address\" as \"direccion\", A2.\"Phone1\" as \"telefono\", Case Whe" +
+            "n A0.\"GroupNum\" = \'-1\' Then \'1\' Else \'2\' End \"tipocompra\",\r\nA2.\"BillToDef\" as \"d" +
+            "espachadoANombre\", A2.\"Phone1\" as \"telefonoEntrega\", A2.\"Address\" as \"direccionE" +
+            "ntrega\", A2.\"Country\" as \"paisEntrega\",\r\nCase When A0.\"DocType\" = \'S\' Then A1.\"A" +
+            "cctCode\" Else A1.\"ItemCode\" End as \"codigoproducto\", \r\nA10.\"U_SEI_FEIdent\" as \"t" +
+            "ipocodigoproducto\",\r\nA1.\"Dscription\" as \"referencia\", A1.\"Dscription\" as \"descri" +
+            "pcionLine\", A1.\"Dscription\" as \"nombreProducto\", \r\nCase When A0.\"DocType\" = \'S\' " +
+            "Then 1 Else Cast(A1.\"Quantity\" as decimal(28,8)) End as \"cantidad\",\r\nCASE \r\nWHEN" +
+            " IfNull(A1.\"UomCode\",\'\') = \'Manual\' Then (Select IfNull(P0.\"U_DIAN_UM\",\'\') From " +
+            "\"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"unitMsr\") \r\nElse (Select IfNull(" +
+            "P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"UomCode\"" +
+            ") End \"unidadmedida\", \r\nA1.\"PriceBefDi\" as \"valorunitario\", \r\nA1.\"LineTotal\" as " +
+            "\"preciosinimpuestos\", \r\nA1.\"LineTotal\" as \"preciototal\", Cast(A1.\"DiscPrcnt\" as " +
+            "decimal(28,8)) as \"porcentajedescuento\",\r\nA0.\"U_SEI_FEMedPago\" as \"medioPago\", A" +
+            "5.\"PymntGroup\" as \"nombreCondPago\", A0.\"U_CuidadEmi\" as \"documentoEmitidoEn\",\r\nC" +
+            "ase When A0.\"GroupNum\" = \'-1\' Then \'1\' Else A5.\"ExtraMonth\"*30 + A5.\"ExtraDays\" " +
+            "End \"periododepagoa\",\r\nCase\r\nWhen A1.\"TaxCode\" = \'IVAEXENT\' Then \'3\'\r\nWhen A1.\"T" +
+            "axCode\" = \'IVAGEV0\' Then \'2\'\r\nWhen A1.\"TaxCode\" = \'IVANOGRV\' Then \'2\'\r\nElse \'1\' " +
+            "End \"tipoImpuesto\", \r\nA12.\"U_SEI_FETributo\" as \"codigoImpuestoRetencion\", Cast(A" +
+            "11.\"TaxRate\" as decimal(28,8)) as \"porcentaje\",\r\nA11.\"TaxSum\" as \"valorImpuestoR" +
+            "etencion\", Case When IfNull(A11.\"TaxSum\",0) = 0 Then 0 Else A11.\"BaseSum\" End as" +
+            " \"baseimponible\",\r\n\'false\' as \"isAutoRetenido\", IfNull(A9.\"string\",\'ZZ\') as \"tip" +
+            "oobligacion\",\r\nIfNull(A0.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoCab\", A0.\"DiscSu" +
+            "m\" as \"descuentoCab\", A0.\"DiscPrcnt\" as \"porcentajeDescuentoCab\",\r\nIfNull(A1.\"U_" +
+            "SEI_FEDescu\",\'\') as \"codigoDescuentoLin\", A1.\"PriceBefDi\"*(A1.\"DiscPrcnt\"/100) a" +
+            "s \"descuentoLin\", A1.\"DiscPrcnt\" as \"porcentajeDescuentoLin\"\r\nFrom \"OINV\" A0\r\nIn" +
+            "ner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\nInner Join \"OCRD\" A2 On A0." +
+            "\"CardCode\" = A2.\"CardCode\"\r\nInner Join \"NNM1\" A3 On A0.\"Series\" = A3.\"Series\"\r\nL" +
+            "eft Join \"@HBT_MUNICIPIO\" A4 On A2.\"U_HBT_MunMed\" = A4.\"Code\"\r\nInner Join \"OCTG\"" +
+            " A5 On A0.\"GroupNum\" = A5.\"GroupNum\"\r\nLeft Join (Select \"DocEntry\", Sum(\"LineTot" +
+            "al\") as \"SubTotal\" From \"INV1\" Group By \"DocEntry\") A6 On A0.\"DocEntry\" = A6.\"Do" +
+            "cEntry\"\r\nLeft Join (Select \"DocEntry\", Sum(\"BaseSum\") as \"baseimpu\" From \"INV4\" " +
+            "Where IfNull(\"TaxSum\",0) != 0 Group By \"DocEntry\") A7 On A0.\"DocEntry\" = A7.\"Doc" +
+            "Entry\"\r\nLeft Join \"OADM\" A8 On 1 = 1\r\nLeft Join (Select \"Code\", STRING_AGG(\"U_Co" +
+            "digo\",\';\') As \"string\" From \"@FEDIAN_SNRES\"\r\n\t\t\t\tGroup By \"Code\") A9 On A2.\"Card" +
+            "Code\" = A9.\"Code\"\r\nLeft Join \"OITM\" A10 On A1.\"ItemCode\" = A10.\"ItemCode\"\r\nLeft " +
+            "Join \"INV4\" A11 On A1.\"DocEntry\" = A11.\"DocEntry\" And A1.\"LineNum\" = A11.\"LineNu" +
+            "m\" And A11.\"RelateType\" = \'1\'\r\nLeft Join \"OSTC\" A12 On A11.\"StcCode\" = A12.\"Code" +
+            "\"\r\nLeft Join \"OCRY\" A13 On A2.\"Country\" = A13.\"Code\"\r\nLeft Join (\r\n\t\t\tSelect B0." +
+            "\"AbsEntry\" , Sum(B0.\"WTAmnt\") as \"TotalRet\"\r\n\t\t\tFrom \"INV5\" B0 \r\n\t\t\tInner Join \"" +
+            "OWHT\" B1 On B0.\"WTCode\" = B1.\"WTCode\" And B1.\"U_HBT_TipRet\" != 0\r\n\t\t\tGroup By B1" +
+            ".\"U_HBT_TipRet\", B0.\"AbsEntry\"\r\n\t\t  ) A14 On A0.\"DocEntry\" = A14.\"AbsEntry\"\r\nWhe" +
+            "re A0.\"DocEntry\" = {0} And A1.\"TreeType\" != \'I\';")]
         public string FacturaVenta {
             get {
                 return ((string)(this["FacturaVenta"]));
@@ -236,7 +233,74 @@ Where (IfNull(""U_Status"",'') in ({0})) Or (IfNull(""U_Status"",'') = '' And If
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Select \'6\' as \"version\", \'5\' as \"tipodocumento\", \'1\' as \"codigoPlantillaPdf\", IfN" +
+            "ull(A3.\"BeginStr\",\'\') as \"prefijo\", \r\nA0.\"U_TipoNota\" as \"tiponota\", A0.\"DocNum\"" +
+            " as \"consecutivo\", A0.\"U_SEI_FETipOper\" as \"tipoOperacion\",\r\nTO_NVARCHAR(A0.\"Doc" +
+            "Date\", \'YYYY-MM-DD\') as \"fechafacturacion\", TO_NVARCHAR(A0.\"DocDueDate\", \'YYYY-M" +
+            "M-DD\') as \"fechavencimiento\",\r\nCase When A0.\"DocCur\" = \'$\' Then \'COP\' Else \'COP\'" +
+            " End \"moneda\", A6.\"SubTotal\" as \"totalimportebruto\", \r\nA7.\"baseimpu\" as \"totalba" +
+            "seimponible\", (A6.\"SubTotal\" + A0.\"VatSum\") as \"totalbaseconimpuestos\",\r\nA0.\"Dis" +
+            "cSum\" as \"totalDescuento\", A0.\"DiscPrcnt\" as \"campoAdicional3\",\r\n\'TEXTO ENCABEZA" +
+            "DO\' as \"campoAdicional6\", \'COP\' as \"codigoMonedaCambio\",\r\nA2.\"U_SEI_FERegFis\" \"r" +
+            "egimen\",\r\nA0.\"DocTotal\" + IfNull(A14.\"TotalRet\",0) as \"totalfactura\", A0.\"DpmApp" +
+            "l\" as \"pagoanticipado\",  A0.\"Comments\" as \"descripcion\",\r\nCase When A2.\"U_HBT_Ti" +
+            "pEnt\" = \'1\' Then \'2\' When A2.\"U_HBT_TipEnt\" = \'2\' Then \'1\' Else \'1\' End \"tipoper" +
+            "sona\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'2\' Then IfNull(A2.\"CardName\",\'\') \r\nElse I" +
+            "fNull(A2.\"U_HBT_Nombres\",\'\') || \' \' || IfNull(A2.\"U_HBT_Apellido1\",\'\') || \' \' ||" +
+            " IfNull(A2.\"U_HBT_Apellido2\",\'\') End \"nombreCompleto\",\r\nIfNull(A2.\"U_HBT_TipDoc\"" +
+            ",\'\') as \"tipoidentificacion\",\r\nCase When IfNull(Locate(A2.\"LicTradNum\",\'-\'),0) =" +
+            " 0 Then A2.\"LicTradNum\" Else SubString(A2.\"LicTradNum\", 1, Locate(A2.\"LicTradNum" +
+            "\", \'-\')-1) End \"numeroidentificacion\",\r\nCase When Locate(A1.\"LicTradNum\",\'-\') = " +
+            "0 Then \'\' Else SubString(A0.\"LicTradNum\", (Locate(A0.\"LicTradNum\", \'-\')+1),1) En" +
+            "d \"digitoverificacion\",\r\n\'SI\' as \"aplicafel\", \'EMAIL\' as \"envioPorEmailPlataform" +
+            "a\", A2.\"E_Mail\" as \"email\", \r\nA2.\"Country\" as \"pais\", A13.\"Name\" as \"paisnombre\"" +
+            ",\r\nSUBSTRING(A2.\"U_HBT_MunMed\",1,2) as \"departamento\", A4.\"U_NomDepartamento\" as" +
+            " \"nombredepartamento\",\r\nA2.\"U_HBT_MunMed\" as \"codigoCiudad\", A4.\"Name\" as \"descr" +
+            "ipcionCiudad\",\r\nA2.\"Address\" as \"direccion\", A2.\"Phone1\" as \"telefono\", Case Whe" +
+            "n A0.\"GroupNum\" = \'-1\' Then \'1\' Else \'2\' End \"tipocompra\",\r\nA2.\"BillToDef\" as \"d" +
+            "espachadoANombre\", A2.\"Phone1\" as \"telefonoEntrega\", A2.\"Address\" as \"direccionE" +
+            "ntrega\", A2.\"Country\" as \"paisEntrega\",\r\nCase When A0.\"DocType\" = \'S\' Then A1.\"A" +
+            "cctCode\" Else A1.\"ItemCode\" End as \"codigoproducto\", \r\nA10.\"U_SEI_FEIdent\" as \"t" +
+            "ipocodigoproducto\",\r\nA1.\"Dscription\" as \"referencia\", A1.\"Dscription\" as \"descri" +
+            "pcionLine\", A1.\"Dscription\" as \"nombreProducto\", \r\nCase When A0.\"DocType\" = \'S\' " +
+            "Then 1 Else Cast(A1.\"Quantity\" as decimal(28,8)) End as \"cantidad\",\r\nCASE \r\nWHEN" +
+            " IfNull(A1.\"UomCode\",\'\') = \'Manual\' Then (Select IfNull(P0.\"U_DIAN_UM\",\'\') From " +
+            "\"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"unitMsr\") \r\nElse (Select IfNull(" +
+            "P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"UomCode\"" +
+            ") End \"unidadmedida\", \r\nA1.\"PriceBefDi\" as \"valorunitario\", \r\nA1.\"LineTotal\" as " +
+            "\"preciosinimpuestos\", \r\nA1.\"LineTotal\" as \"preciototal\", Cast(A1.\"DiscPrcnt\" as " +
+            "decimal(28,8)) as \"porcentajedescuento\",\r\nA0.\"U_SEI_FEMedPago\" as \"medioPago\", A" +
+            "5.\"PymntGroup\" as \"nombreCondPago\", A0.\"U_CuidadEmi\" as \"documentoEmitidoEn\",\r\nC" +
+            "ase When A0.\"GroupNum\" = \'-1\' Then \'1\' Else A5.\"ExtraMonth\"*30 + A5.\"ExtraDays\" " +
+            "End \"periododepagoa\",\r\nCase\r\nWhen A1.\"TaxCode\" = \'IVAEXENT\' Then \'3\'\r\nWhen A1.\"T" +
+            "axCode\" = \'IVAGEV0\' Then \'2\'\r\nWhen A1.\"TaxCode\" = \'IVANOGRV\' Then \'2\'\r\nElse \'1\' " +
+            "End \"tipoImpuesto\", \r\nA12.\"U_SEI_FETributo\" as \"codigoImpuestoRetencion\", Cast(A" +
+            "11.\"TaxRate\" as decimal(28,8)) as \"porcentaje\",\r\nA11.\"TaxSum\" as \"valorImpuestoR" +
+            "etencion\", Case When IfNull(A11.\"TaxSum\",0) = 0 Then 0 Else A11.\"BaseSum\" End as" +
+            " \"baseimponible\",\r\n\'false\' as \"isAutoRetenido\", IfNull(A9.\"string\",\'ZZ\') as \"tip" +
+            "oobligacion\",\r\nIfNull(A0.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoCab\", A0.\"DiscSu" +
+            "m\" as \"descuentoCab\", A0.\"DiscPrcnt\" as \"porcentajeDescuentoCab\",\r\nIfNull(A1.\"U_" +
+            "SEI_FEDescu\",\'\') as \"codigoDescuentoLin\", A1.\"PriceBefDi\"*(A1.\"DiscPrcnt\"/100) a" +
+            "s \"descuentoLin\", A1.\"DiscPrcnt\" as \"porcentajeDescuentoLin\",\r\nA0.\"DocNum\" as \"c" +
+            "onsecutivofacturamodificada\", IfNull(A3.\"BeginStr\",\'\') as \"prefijoFacturaModific" +
+            "ada\", \'5\' as \"tipoDocumentoFacturaModificada\"\r\nFrom \"OINV\" A0\r\nInner Join \"INV1\"" +
+            " A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\nInner Join \"OCRD\" A2 On A0.\"CardCode\" = A2" +
+            ".\"CardCode\"\r\nInner Join \"NNM1\" A3 On A0.\"Series\" = A3.\"Series\"\r\nLeft Join \"@HBT_" +
+            "MUNICIPIO\" A4 On A2.\"U_HBT_MunMed\" = A4.\"Code\"\r\nInner Join \"OCTG\" A5 On A0.\"Grou" +
+            "pNum\" = A5.\"GroupNum\"\r\nLeft Join (Select \"DocEntry\", Sum(\"LineTotal\") as \"SubTot" +
+            "al\" From \"INV1\" Group By \"DocEntry\") A6 On A0.\"DocEntry\" = A6.\"DocEntry\"\r\nLeft J" +
+            "oin (Select \"DocEntry\", Sum(\"BaseSum\") as \"baseimpu\" From \"INV4\" Where IfNull(\"T" +
+            "axSum\",0) != 0 Group By \"DocEntry\") A7 On A0.\"DocEntry\" = A7.\"DocEntry\"\r\nLeft Jo" +
+            "in \"OADM\" A8 On 1 = 1\r\nLeft Join (Select \"Code\", STRING_AGG(\"U_Codigo\",\';\') As \"" +
+            "string\" From \"@FEDIAN_SNRES\"\r\n\t\t\t\tGroup By \"Code\") A9 On A2.\"CardCode\" = A9.\"Cod" +
+            "e\"\r\nLeft Join \"OITM\" A10 On A1.\"ItemCode\" = A10.\"ItemCode\"\r\nLeft Join \"INV4\" A11" +
+            " On A1.\"DocEntry\" = A11.\"DocEntry\" And A1.\"LineNum\" = A11.\"LineNum\" And A11.\"Rel" +
+            "ateType\" = \'1\'\r\nLeft Join \"OSTC\" A12 On A11.\"StcCode\" = A12.\"Code\"\r\nLeft Join \"O" +
+            "CRY\" A13 On A2.\"Country\" = A13.\"Code\"\r\nLeft Join (\r\n\t\t\tSelect B0.\"AbsEntry\" , Su" +
+            "m(B0.\"WTAmnt\") as \"TotalRet\"\r\n\t\t\tFrom \"INV5\" B0 \r\n\t\t\tInner Join \"OWHT\" B1 On B0." +
+            "\"WTCode\" = B1.\"WTCode\" And B1.\"U_HBT_TipRet\" != 0\r\n\t\t\tGroup By B1.\"U_HBT_TipRet\"" +
+            ", B0.\"AbsEntry\"\r\n\t\t  ) A14 On A0.\"DocEntry\" = A14.\"AbsEntry\"\r\nWhere A0.\"DocEntry" +
+            "\" = {0} And A1.\"TreeType\" != \'I\';")]
         public string FacturaConti {
             get {
                 return ((string)(this["FacturaConti"]));
@@ -257,62 +321,60 @@ Where (IfNull(""U_Status"",'') in ({0})) Or (IfNull(""U_Status"",'') = '' And If
             "is\" \"regimen\",\r\nA0.\"DocTotal\" + IfNull(A14.\"TotalRet\",0) as \"totalfactura\", A0.\"" +
             "DpmAppl\" as \"pagoanticipado\",  A0.\"Comments\" as \"descripcion\",\r\nCase When A2.\"U_" +
             "HBT_TipEnt\" = \'1\' Then \'2\' When A2.\"U_HBT_TipEnt\" = \'2\' Then \'1\' Else \'1\' End \"t" +
-            "ipopersona\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'2\' Then IfNull(A2.\"CardName\",\'\') El" +
-            "se \'\' End \"nombreCompleto\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U" +
-            "_HBT_Nombres\",\'\') Else \'\' End \"primernombre\", \'\' as \"segundonombre\",\r\nCase When " +
-            "A2.\"U_HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U_HBT_Apellido1\",\'\') Else \'\' End \"primer" +
-            "apellido\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'1\' Then IfNull(A2.\"U_HBT_Apellido2\",\'" +
-            "\') Else \'\' End \"segundoapellido\", \r\nIfNull(A2.\"U_HBT_TipDoc\",\'\') as \"tipoidentif" +
-            "icacion\",\r\nCase When Locate(A1.\"LicTradNum\",\'-\') = 0 Then A1.\"LicTradNum\" Else S" +
-            "ubString(A0.\"LicTradNum\", 1, Locate(A0.\"LicTradNum\", \'-\')-1) End \"numeroidentifi" +
-            "cacion\",\r\nCase When Locate(A1.\"LicTradNum\",\'-\') = 0 Then \'\' Else SubString(A0.\"L" +
-            "icTradNum\", (Locate(A0.\"LicTradNum\", \'-\')+1),1) End \"digitoverificacion\",\r\n\'SI\' " +
-            "as \"aplicafel\", \'EMAIL\' as \"envioPorEmailPlataforma\", A2.\"E_Mail\" as \"email\", \r\n" +
-            "A2.\"Country\" as \"pais\", A13.\"Name\" as \"paisnombre\",\r\nSUBSTRING(A2.\"U_HBT_MunMed\"" +
-            ",1,2) as \"departamento\", A4.\"U_NomDepartamento\" as \"nombredepartamento\",\r\nA2.\"U_" +
-            "HBT_MunMed\" as \"codigoCiudad\", A4.\"Name\" as \"descripcionCiudad\",\r\nA2.\"Address\" a" +
-            "s \"direccion\", A2.\"Phone1\" as \"telefono\", Case When A0.\"GroupNum\" = \'-1\' Then \'1" +
-            "\' Else \'2\' End \"tipocompra\",\r\nA2.\"BillToDef\" as \"despachadoANombre\", A2.\"Phone1\"" +
-            " as \"telefonoEntrega\", A2.\"Address\" as \"direccionEntrega\", A2.\"Country\" as \"pais" +
-            "Entrega\",\r\nCase When A0.\"DocType\" = \'S\' Then A1.\"AcctCode\" Else A1.\"ItemCode\" En" +
-            "d as \"codigoproducto\", \r\nA10.\"U_SEI_FEIdent\" as \"tipocodigoproducto\",\r\nA1.\"Dscri" +
-            "ption\" as \"referencia\", A1.\"Dscription\" as \"descripcionLine\", A1.\"Dscription\" as" +
-            " \"nombreProducto\", \r\nCase When A0.\"DocType\" = \'S\' Then 1 Else Cast(A1.\"Quantity\"" +
-            " as decimal(28,8)) End as \"cantidad\",\r\nCASE \r\nWHEN IfNull(A1.\"UomCode\",\'\') = \'Ma" +
-            "nual\' Then (Select IfNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0" +
-            ".\"U_SAP_UM\" = A1.\"unitMsr\") \r\nElse (Select IfNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDI" +
-            "AN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"UomCode\") End \"unidadmedida\", \r\nA1.\"Pr" +
-            "iceBefDi\" as \"valorunitario\", \r\nA1.\"LineTotal\" \"preciosinimpuestos\", \r\nA1.\"LineT" +
-            "otal\" as \"preciototal\", Cast(A1.\"DiscPrcnt\" as decimal(28,8)) as \"porcentajedesc" +
-            "uento\",\r\nA0.\"U_SEI_FEMedPago\" as \"medioPago\", A5.\"PymntGroup\" as \"nombreCondPago" +
-            "\", A0.\"U_CuidadEmi\" as \"documentoEmitidoEn\",\r\nCase When A0.\"GroupNum\" = \'-1\' The" +
-            "n \'1\' Else A5.\"ExtraMonth\"*30 + A5.\"ExtraDays\" End \"periododepagoa\",\r\nCase\r\nWhen" +
-            " A1.\"TaxCode\" = \'IVAEXENT\' Then \'3\'\r\nWhen A1.\"TaxCode\" = \'IVANOGRV\' Then \'2\'\r\nEl" +
-            "se \'1\' End \"tipoImpuesto\", \r\nA12.\"U_SEI_FETributo\" as \"codigoImpuestoRetencion\"," +
-            " Cast(A11.\"TaxRate\" as decimal(28,8)) as \"porcentaje\",\r\nA11.\"TaxSum\" as \"valorIm" +
-            "puestoRetencion\", Case When IfNull(A11.\"TaxSum\",0) = 0 Then 0 Else A11.\"BaseSum\"" +
-            " End as \"baseimponible\",\r\n\'false\' as \"isAutoRetenido\", IfNull(A9.\"string\",\'ZZ\') " +
-            "as \"tipoobligacion\",\r\nIfNull(A0.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoCab\", A0." +
-            "\"DiscSum\" as \"descuentoCab\", A0.\"DiscPrcnt\" as \"porcentajeDescuentoCab\",\r\nIfNull" +
-            "(A1.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoLin\", A1.\"PriceBefDi\"*(A1.\"DiscPrcnt\"" +
-            "/100) as \"descuentoLin\", A1.\"DiscPrcnt\" as \"porcentajeDescuentoLin\"\r\nFrom \"OINV\"" +
-            " A0\r\nInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\nInner Join \"OCRD\" A2" +
-            " On A0.\"CardCode\" = A2.\"CardCode\"\r\nInner Join \"NNM1\" A3 On A0.\"Series\" = A3.\"Ser" +
-            "ies\"\r\nLeft Join \"@HBT_MUNICIPIO\" A4 On A2.\"U_HBT_MunMed\" = A4.\"Code\"\r\nInner Join" +
-            " \"OCTG\" A5 On A0.\"GroupNum\" = A5.\"GroupNum\"\r\nLeft Join (Select \"DocEntry\", Sum(\"" +
-            "LineTotal\") as \"SubTotal\" From \"INV1\" Group By \"DocEntry\") A6 On A0.\"DocEntry\" =" +
-            " A6.\"DocEntry\"\r\nLeft Join (Select \"DocEntry\", Sum(\"BaseSum\") as \"baseimpu\" From " +
-            "\"INV4\" Where IfNull(\"TaxSum\",0) != 0 Group By \"DocEntry\") A7 On A0.\"DocEntry\" = " +
-            "A7.\"DocEntry\"\r\nLeft Join \"OADM\" A8 On 1 = 1\r\nLeft Join (Select \"Code\", STRING_AG" +
-            "G(\"U_Codigo\",\';\') As \"string\" From \"@FEDIAN_SN_RESPO\"\r\n\t\t\t\tGroup By \"Code\") A9 O" +
-            "n A2.\"CardCode\" = A9.\"Code\"\r\nLeft Join \"OITM\" A10 On A1.\"ItemCode\" = A10.\"ItemCo" +
-            "de\"\r\nLeft Join \"INV4\" A11 On A1.\"DocEntry\" = A11.\"DocEntry\" And A1.\"LineNum\" = A" +
-            "11.\"LineNum\" And A11.\"RelateType\" = \'1\'\r\nLeft Join \"OSTC\" A12 On A11.\"StcCode\" =" +
-            " A12.\"Code\"\r\nLeft Join \"OCRY\" A13 On A2.\"Country\" = A13.\"Code\"\r\nLeft Join (\r\n\t\t\t" +
-            "Select B0.\"AbsEntry\" , Sum(B0.\"WTAmnt\") as \"TotalRet\"\r\n\t\t\tFrom \"INV5\" B0 \r\n\t\t\tIn" +
-            "ner Join \"OWHT\" B1 On B0.\"WTCode\" = B1.\"WTCode\" And B1.\"U_HBT_TipRet\" != 0\r\n\t\t\tG" +
-            "roup By B1.\"U_HBT_TipRet\", B0.\"AbsEntry\"\r\n\t\t  ) A14 On A0.\"DocEntry\" = A14.\"AbsE" +
-            "ntry\"\r\nWhere A0.\"DocEntry\" = {0} And A1.\"TreeType\" != \'I\'")]
+            "ipopersona\",\r\nCase When A2.\"U_HBT_TipEnt\" = \'2\' Then IfNull(A2.\"CardName\",\'\') \r\n" +
+            "Else IfNull(A2.\"U_HBT_Nombres\",\'\') || \' \' || IfNull(A2.\"U_HBT_Apellido1\",\'\') || " +
+            "\' \' || IfNull(A2.\"U_HBT_Apellido2\",\'\') End \"nombreCompleto\",\r\nIfNull(A2.\"U_HBT_T" +
+            "ipDoc\",\'\') as \"tipoidentificacion\",\r\nCase When IfNull(Locate(A2.\"LicTradNum\",\'-\'" +
+            "),0) = 0 Then A2.\"LicTradNum\" Else SubString(A2.\"LicTradNum\", 1, Locate(A2.\"LicT" +
+            "radNum\", \'-\')-1) End \"numeroidentificacion\",\r\nCase When Locate(A1.\"LicTradNum\",\'" +
+            "-\') = 0 Then \'\' Else SubString(A0.\"LicTradNum\", (Locate(A0.\"LicTradNum\", \'-\')+1)" +
+            ",1) End \"digitoverificacion\",\r\n\'SI\' as \"aplicafel\", \'EMAIL\' as \"envioPorEmailPla" +
+            "taforma\", A2.\"E_Mail\" as \"email\", \r\nA2.\"Country\" as \"pais\", A13.\"Name\" as \"paisn" +
+            "ombre\",\r\nSUBSTRING(A2.\"U_HBT_MunMed\",1,2) as \"departamento\", A4.\"U_NomDepartamen" +
+            "to\" as \"nombredepartamento\",\r\nA2.\"U_HBT_MunMed\" as \"codigoCiudad\", A4.\"Name\" as " +
+            "\"descripcionCiudad\",\r\nA2.\"Address\" as \"direccion\", A2.\"Phone1\" as \"telefono\", Ca" +
+            "se When A0.\"GroupNum\" = \'-1\' Then \'1\' Else \'2\' End \"tipocompra\",\r\nA2.\"BillToDef\"" +
+            " as \"despachadoANombre\", A2.\"Phone1\" as \"telefonoEntrega\", A2.\"Address\" as \"dire" +
+            "ccionEntrega\", A2.\"Country\" as \"paisEntrega\",\r\nCase When A0.\"DocType\" = \'S\' Then" +
+            " A1.\"AcctCode\" Else A1.\"ItemCode\" End as \"codigoproducto\", \r\nA10.\"U_SEI_FEIdent\"" +
+            " as \"tipocodigoproducto\",\r\nA1.\"Dscription\" as \"referencia\", A1.\"Dscription\" as \"" +
+            "descripcionLine\", A1.\"Dscription\" as \"nombreProducto\", \r\nCase When A0.\"DocType\" " +
+            "= \'S\' Then 1 Else Cast(A1.\"Quantity\" as decimal(28,8)) End as \"cantidad\",\r\nCASE " +
+            "\r\nWHEN IfNull(A1.\"UomCode\",\'\') = \'Manual\' Then (Select IfNull(P0.\"U_DIAN_UM\",\'\')" +
+            " From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"unitMsr\") \r\nElse (Select I" +
+            "fNull(P0.\"U_DIAN_UM\",\'\') From \"@FEDIAN_HOMOL_UM\" P0 Where P0.\"U_SAP_UM\" = A1.\"Uo" +
+            "mCode\") End \"unidadmedida\", \r\nA1.\"PriceBefDi\" as \"valorunitario\", \r\nA1.\"LineTota" +
+            "l\" as \"preciosinimpuestos\", \r\nA1.\"LineTotal\" as \"preciototal\", Cast(A1.\"DiscPrcn" +
+            "t\" as decimal(28,8)) as \"porcentajedescuento\",\r\nA0.\"U_SEI_FEMedPago\" as \"medioPa" +
+            "go\", A5.\"PymntGroup\" as \"nombreCondPago\", A0.\"U_CuidadEmi\" as \"documentoEmitidoE" +
+            "n\",\r\nCase When A0.\"GroupNum\" = \'-1\' Then \'1\' Else A5.\"ExtraMonth\"*30 + A5.\"Extra" +
+            "Days\" End \"periododepagoa\",\r\nCase\r\nWhen A1.\"TaxCode\" = \'IVAEXENT\' Then \'3\'\r\nWhen" +
+            " A1.\"TaxCode\" = \'IVAGEV0\' Then \'2\'\r\nWhen A1.\"TaxCode\" = \'IVANOGRV\' Then \'2\'\r\nEls" +
+            "e \'1\' End \"tipoImpuesto\", \r\nA12.\"U_SEI_FETributo\" as \"codigoImpuestoRetencion\", " +
+            "Cast(A11.\"TaxRate\" as decimal(28,8)) as \"porcentaje\",\r\nA11.\"TaxSum\" as \"valorImp" +
+            "uestoRetencion\", Case When IfNull(A11.\"TaxSum\",0) = 0 Then 0 Else A11.\"BaseSum\" " +
+            "End as \"baseimponible\",\r\n\'false\' as \"isAutoRetenido\", IfNull(A9.\"string\",\'ZZ\') a" +
+            "s \"tipoobligacion\",\r\nIfNull(A0.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoCab\", A0.\"" +
+            "DiscSum\" as \"descuentoCab\", A0.\"DiscPrcnt\" as \"porcentajeDescuentoCab\",\r\nIfNull(" +
+            "A1.\"U_SEI_FEDescu\",\'\') as \"codigoDescuentoLin\", A1.\"PriceBefDi\"*(A1.\"DiscPrcnt\"/" +
+            "100) as \"descuentoLin\", A1.\"DiscPrcnt\" as \"porcentajeDescuentoLin\"\r\nFrom \"OINV\" " +
+            "A0\r\nInner Join \"INV1\" A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\nInner Join \"OCRD\" A2 " +
+            "On A0.\"CardCode\" = A2.\"CardCode\"\r\nInner Join \"NNM1\" A3 On A0.\"Series\" = A3.\"Seri" +
+            "es\"\r\nLeft Join \"@HBT_MUNICIPIO\" A4 On A2.\"U_HBT_MunMed\" = A4.\"Code\"\r\nInner Join " +
+            "\"OCTG\" A5 On A0.\"GroupNum\" = A5.\"GroupNum\"\r\nLeft Join (Select \"DocEntry\", Sum(\"L" +
+            "ineTotal\") as \"SubTotal\" From \"INV1\" Group By \"DocEntry\") A6 On A0.\"DocEntry\" = " +
+            "A6.\"DocEntry\"\r\nLeft Join (Select \"DocEntry\", Sum(\"BaseSum\") as \"baseimpu\" From \"" +
+            "INV4\" Where IfNull(\"TaxSum\",0) != 0 Group By \"DocEntry\") A7 On A0.\"DocEntry\" = A" +
+            "7.\"DocEntry\"\r\nLeft Join \"OADM\" A8 On 1 = 1\r\nLeft Join (Select \"Code\", STRING_AGG" +
+            "(\"U_Codigo\",\';\') As \"string\" From \"@FEDIAN_SNRES\"\r\n\t\t\t\tGroup By \"Code\") A9 On A2" +
+            ".\"CardCode\" = A9.\"Code\"\r\nLeft Join \"OITM\" A10 On A1.\"ItemCode\" = A10.\"ItemCode\"\r" +
+            "\nLeft Join \"INV4\" A11 On A1.\"DocEntry\" = A11.\"DocEntry\" And A1.\"LineNum\" = A11.\"" +
+            "LineNum\" And A11.\"RelateType\" = \'1\'\r\nLeft Join \"OSTC\" A12 On A11.\"StcCode\" = A12" +
+            ".\"Code\"\r\nLeft Join \"OCRY\" A13 On A2.\"Country\" = A13.\"Code\"\r\nLeft Join (\r\n\t\t\tSele" +
+            "ct B0.\"AbsEntry\" , Sum(B0.\"WTAmnt\") as \"TotalRet\"\r\n\t\t\tFrom \"INV5\" B0 \r\n\t\t\tInner " +
+            "Join \"OWHT\" B1 On B0.\"WTCode\" = B1.\"WTCode\" And B1.\"U_HBT_TipRet\" != 0\r\n\t\t\tGroup" +
+            " By B1.\"U_HBT_TipRet\", B0.\"AbsEntry\"\r\n\t\t  ) A14 On A0.\"DocEntry\" = A14.\"AbsEntry" +
+            "\"\r\nWhere A0.\"DocEntry\" = {0} And A1.\"TreeType\" != \'I\';")]
         public string NotaDebito {
             get {
                 return ((string)(this["NotaDebito"]));
@@ -480,7 +542,11 @@ Group By A1.""U_SEI_FETributo"", A1.""PrctBsAmnt""")]
             "nion All\r\n\r\nSelect \'retencionsugerida\' as \"nombreCampo\", \r\n\'RETEFUENTE SUGERIDA:" +
             " $ \' || Cast(Cast(Sum(A0.\"WTAmnt\") as Decimal(15,0)) as nvarchar(100)),\r\n\'\' as \"" +
             "seccion\"\r\nFrom INV5 A0\r\nInner Join OWHT A1 On A0.\"WTCode\" = A1.\"WTCode\" and A1.\"" +
-            "U_HBT_TipRet\" != 0\r\nWhere A0.\"AbsEntry\" = {0}\r\nhaving  Sum(A0.\"WTAmnt\") > 0")]
+            "U_HBT_TipRet\" != 0\r\nWhere A0.\"AbsEntry\" = {0}\r\nhaving  Sum(A0.\"WTAmnt\") > 0\r\n\r\nU" +
+            "nion All\r\n\r\nSelect \'subtotal\' as \"nombreCampo\",\r\nCast(Cast(Sum(A1.\"LineTotal\") -" +
+            " A0.\"DiscSum\" as decimal(15,0)) as Nvarchar(100)),\r\n\'\' as \"seccion\"\r\nFrom OINV A" +
+            "0\r\nInner Join INV1 A1 On A0.\"DocEntry\" = A1.\"DocEntry\"\r\nWhere A0.\"DocEntry\" = {0" +
+            "}\r\nGroup By A0.\"DiscSum\", A0.\"DocEntry\"")]
         public string listaAdiFac {
             get {
                 return ((string)(this["listaAdiFac"]));
@@ -512,7 +578,11 @@ Group By A1.""U_SEI_FETributo"", A1.""PrctBsAmnt""")]
             "nsugerida\' as \"nombreCampo\", \r\n\'RETEFUENTE SUGERIDA:\' || Cast(Cast(Sum(A0.\"WTAmn" +
             "t\") as Decimal(15,2)) as nvarchar(100)),\r\n\'\' as \"seccion\"\r\nFrom RIN5 A0\r\nInner J" +
             "oin OWHT A1 On A0.\"WTCode\" = A1.\"WTCode\" and A1.\"U_HBT_TipRet\" != 0\r\nWhere A0.\"A" +
-            "bsEntry\" = {0}\r\nhaving  Sum(A0.\"WTAmnt\") > 0")]
+            "bsEntry\" = {0}\r\nhaving  Sum(A0.\"WTAmnt\") > 0\r\n\r\nUnion All\r\n\r\nSelect \'subtotal\' a" +
+            "s \"nombreCampo\",\r\nCast(Cast(Sum(A1.\"LineTotal\") - A0.\"DiscSum\" as decimal(15,0))" +
+            " as Nvarchar(100)),\r\n\'\' as \"seccion\"\r\nFrom ORIN A0\r\nInner Join RIN1 A1 On A0.\"Do" +
+            "cEntry\" = A1.\"DocEntry\"\r\nWhere A0.\"DocEntry\" = {0}\r\nGroup By A0.\"DiscSum\", A0.\"D" +
+            "ocEntry\"")]
         public string listaAdiNC {
             get {
                 return ((string)(this["listaAdiNC"]));
@@ -544,7 +614,11 @@ Group By A1.""U_SEI_FETributo"", A1.""PrctBsAmnt""")]
             "cionsugerida\' as \"nombreCampo\", \r\n\'RETEFUENTE SUGERIDA: $ \' || Cast(Cast(Sum(A0." +
             "\"WTAmnt\") as Decimal(15,0)) as nvarchar(100)),\r\n\'\' as \"seccion\"\r\nFrom INV5 A0\r\nI" +
             "nner Join OWHT A1 On A0.\"WTCode\" = A1.\"WTCode\" and A1.\"U_HBT_TipRet\" != 0\r\nWhere" +
-            " A0.\"AbsEntry\" = {0}\r\nhaving  Sum(A0.\"WTAmnt\") > 0")]
+            " A0.\"AbsEntry\" = {0}\r\nhaving  Sum(A0.\"WTAmnt\") > 0\r\n\r\nUnion All\r\n\r\nSelect \'subto" +
+            "tal\' as \"nombreCampo\",\r\nCast(Cast(Sum(A1.\"LineTotal\") - A0.\"DiscSum\" as decimal(" +
+            "15,0)) as Nvarchar(100)),\r\n\'\' as \"seccion\"\r\nFrom OINV A0\r\nInner Join INV1 A1 On " +
+            "A0.\"DocEntry\" = A1.\"DocEntry\"\r\nWhere A0.\"DocEntry\" = {0}\r\nGroup By A0.\"DiscSum\"," +
+            " A0.\"DocEntry\"")]
         public string listaAdiND {
             get {
                 return ((string)(this["listaAdiND"]));

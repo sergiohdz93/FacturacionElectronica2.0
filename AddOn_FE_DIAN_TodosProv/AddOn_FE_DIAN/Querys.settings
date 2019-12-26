@@ -162,33 +162,31 @@ Where A0.DocEntry = {0}
 Union All
 
 Select 'TOT' + ',' + 
-Cast(Sum(Cast(A1.Linetotal as decimal (15,0))) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Sum(Cast(A2.BaseSum as decimal (15,0))) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(Round(A0.DocTotal+IsNull(A3.TotalRet,0), 0, 0) as Decimal(15,0)) as nvarchar(100))
---Cast(Cast(Cast(A0.DocTotal as Decimal(15,0)) + Cast( as Decimal(15,0)) as decimal(15,0)) as nVarchar(100))
-+ ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
---Cast(Cast(Round(Sum(A1.LineTotal)+Sum(A2.TaxSum)+A0.RoundDif, 0, 1) as Decimal(15,0)) as nvarchar(100)) + ',' +
-Cast(Cast(Sum(Cast(A1.LineTotal as decimal (15,0))) + Sum(Cast(A2.TaxSum as decimal (15,0))) + +A0.RoundDif as decimal(15,0)) as nVarchar(100)) + ',' + 
+Cast(Cast(Round(Sum(A1.Linetotal),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(Sum(A2.BaseSum),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A0.DocTotal + IsNull(A3.TotalRet,0) , 0, 1)  as Decimal(15,0)) as nvarchar(100)) + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+Cast(Cast(Round(Sum(A1.LineTotal) + A0.VatSum + A0.RoundDif, 0 ,1) as decimal(15,0))  as nVarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A0.DiscSum as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A0.DiscSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 Cast(Cast('0.00' as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 Cast(Cast(A0.DpmAmnt as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' + '' As 'Cadena'
 From ORIN A0
 Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join RIN4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum And A2.ExpnsCode = -1
 Left Join (
-			Select B0.AbsEntry , Sum(Cast(WTAmnt as Decimal (15,0))) as TotalRet 
+			Select B0.AbsEntry , Cast(Round(Sum(WTAmnt),0,1) as Decimal (15,2)) as TotalRet 
 			From RIN5 B0 
 			Inner Join OWHT B1 On B0.WTCode = B1.WTCode And B1.U_HBT_TipRet != 0
 			Group By B1.U_HBT_TipRet, B0.AbsEntry
 		  ) A3 On A0.DocEntry = A3.AbsEntry
 Where A0.DocEntry = {0}
-Group By A0.DocCur, A0.WTSum, A0.TotalExpns, A0.DiscSum, A0.DocTotal, A0.DpmAmnt, A3.TotalRet, A0.RoundDif
+Group By A0.DocCur, A0.VatSum, A0.TotalExpns, A0.DiscSum, A0.DocTotal, A0.DpmAmnt, A3.TotalRet, A0.RoundDif
 
 Union All
 
 Select 'TIM' + ',' + 'false' + ',' + 
-Cast(Sum(Cast(A2.TaxSum as Decimal(15,0))) as nVarchar(100))  + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End As 'Cadena'
+Cast(Cast(Round(Sum(A2.TaxSum),0,1) as decimal(15,0))  as nVarchar(100))  + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End As 'Cadena'
 From ORIN A0
 Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join RIN4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum And A2.ExpnsCode = -1
@@ -198,17 +196,42 @@ Group By A0.DocCur
 Union All
 
 Select 'IMP' + ',' + IsNull(A2.U_SEI_FETributo,'') + ',' + 
-Cast(Cast(Sum(A1.BaseSum) as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(Sum(A1.BaseSum),0,1) as decimal(15,0))  as nVarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
-Cast(Cast(Sum(A1.TaxSum) as decimal (15,0)) as Nvarchar(100)) + ',' +
+Cast(Cast(Round(Sum(A1.TaxSum),0,1) as decimal(15,0))  as nVarchar(100)) + ',' +
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.TaxRate as decimal (14,2)) as Nvarchar(100)) 
+Cast(Cast(A1.TaxRate as decimal (15,2)) as Nvarchar(100)) 
 + ',' + '' + ',' + '' + ',' + '' + ',' + '' As 'Cadena'
 From ORIN A0
-Inner Join RIN4 A1 On A0.DocEntry = A1.DocEntry
+Inner Join RIN4 A1 On A0.DocEntry = A1.DocEntry And A1.ExpnsCode = -1
 Inner Join OSTC A2 On A1.StcCode = A2.Code
-Where A0.DocEntry = {0} And IsNull(A1.TaxSum ,0) != 0
+Where A0.DocEntry = {0}
 Group By A0.DocCur, A1.TaxRate, A2.U_SEI_FETributo
+
+Union All
+
+Select 'TIM' + ',' + 'true' + ',' + Cast(Cast(Round(Sum(A1.WTAmnt),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End 'Cadena'
+From ORIN A0
+Inner Join RIN5 A1 ON A0.DocEntry = A1.AbsEntry 
+Inner Join OWHT A2 On A1.WTCode = A2.WTCode
+Where A0.DocEntry = {0} and A2.U_HBT_TipRet != '0'
+Group By A0.DocEntry, A0.DocCur
+
+Union All
+
+Select 'IMP' + ',' + IsNull(A2.U_SEI_FETributo,'') + ',' + 
+Cast(Cast(Round(Sum(A1.U_HBT_BaseRet),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+Cast(Cast(Round(Sum(A1.WTAmnt),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' +
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(A2.PrctBsAmnt as decimal (15,2)) as Nvarchar(100)) 
++ ',' + '' + ',' + '' + ',' + '' + ',' + '' As 'Cadena'
+From ORIN A0
+Inner Join RIN5 A1 On A0.DocEntry = A1.AbsEntry
+Inner Join OWHT A2 On A1.WTCode = A2.WTCode
+Where A0.DocEntry = {0} And A2.U_HBT_TipRet != '0'
+Group By A0.DocCur, A2.PrctBsAmnt, A2.U_SEI_FETributo
 
 Union ALL
 
@@ -221,9 +244,9 @@ Where A0.DocEntry = {0} And A0.DocCur != 'COP'
 Union All
 
 Select 'DSC' + ',' + 'false' + ',' + 
-Cast(Cast(A0.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + Cast(Cast(A0.DiscSum as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Cast(Cast(A0.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + Cast(Cast(Round(A0.DiscSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + IsNull(A0.U_SEI_FEDescu,'') + ',' + IsNull(A2.Descr,'') + ',' +
-Cast(Cast(Sum(A3.LineTotal) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + 
+Cast(Cast(Round(Sum(A3.LineTotal),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + 
 ',' + '' + ',' + '1'  As 'Cadena'
 From ORIN A0
 Left Join CUFD A1 On A1.TableID = 'ORIN' And A1.AliasID = 'SEI_FEDescu'
@@ -342,26 +365,26 @@ Where A0.DocEntry = {0}
 
 Union All
 
-Select A1.LineNum, 2 as 'ordenplano', 'ITE' + ',' + Cast(A1.VisOrder+1 as Nvarchar(100)) + ',' + '' + ',' +
+Select A1.VisOrder, 2 as 'ordenplano', 'ITE' + ',' + Cast(A1.VisOrder+1 as Nvarchar(100)) + ',' + '' + ',' +
 Case When A1.Quantity = 0 Then Cast(Cast(1 as decimal (14,0)) as Nvarchar(100)) 
 Else Cast(Cast(A1.Quantity as decimal (14,0)) as Nvarchar(100)) End + ',' + 
 CASE 
-WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'') 
-Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
-Case When A1.Quantity = 0 Then Cast(Cast(A1.LineTotal/1 as decimal (15,0)) as Nvarchar(100)) 
-Else Cast(Cast(A1.LineTotal/A1.Quantity as decimal (15,0)) as Nvarchar(100)) End + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'94') 
+Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'94') End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+Case When A1.Quantity = 0 Then Cast(Cast(Round(A1.LineTotal/1,0,1) as decimal (15,0)) as Nvarchar(100)) 
+Else Cast(Cast(Round(A1.LineTotal/A1.Quantity,0,1) as decimal (15,0)) as Nvarchar(100)) End + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + Replace(A1.Dscription,',','.') + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + 
 '' + ',' + Case When A0.Doctype = 'S' Then A1.AcctCode Else Replace(A1.ItemCode,',','.') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + 
 Case When A1.Quantity = 0 Then Cast(Cast(1 as decimal (14,0)) as Nvarchar(100)) 
 Else Cast(Cast(A1.Quantity as decimal (14,0)) as Nvarchar(100)) End + ',' + CASE 
-WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'') 
-Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'94') 
+Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'94') End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
 Cast(A0.SlpCode as Nvarchar(100)) as 'Cadena'
 From ORIN A0 
 Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
@@ -369,29 +392,31 @@ Where A0.DocEntry = {0}
 
 Union All
 
-Select A1.LineNum, 3 as 'ordenplano', 'IPA' + ',' + IsNull(A1.U_SEI_FETipPrec,'01') + ',' + 
-Cast(Cast(A1.Price as decimal (14,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End as 'cadena'
+Select A1.VisOrder, 3 as 'ordenplano', 'IPA' + ',' + IsNull(A1.U_SEI_FETipPrec,'01') + ',' + 
+Case When IsNull(A1.Price,0) = 0 Then '0.01' Else Cast(Cast(A1.Price as decimal (15,2)) as Nvarchar(100)) End + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End as 'cadena'
 From ORIN A0 
 Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
 Where A0.DocEntry = {0} And IsNull(A1.LineTotal,0) &lt; 1
 
 Union All
 
-Select A1.LineNum, 4 as 'ordenplano', 'IAE' + ',' + Cast(IsNull(A1.ItemCode,'') as Nvarchar(100)) + ',' + 
-IsNull(A2.U_SEI_FEIdent,'') + ',' + '' + ',' + '' as 'cadena'
+Select A1.VisOrder, 4 as 'ordenplano', 'IAE' + ',' + 
+Case When A0.Doctype = 'S' Then Cast(IsNull(A1.AcctCode,'') as Nvarchar(100)) Else Cast(IsNull(A1.ItemCode,'') as Nvarchar(100)) End + ',' + 
+IsNull(A2.U_SEI_FEIdent,'999') + ',' + '' + ',' + '' as 'cadena'
 From ORIN A0 
 Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
-Inner Join OITM A2 On A1.ItemCode = A2.ItemCode
+Left Join OITM A2 On A1.ItemCode = A2.ItemCode
 Where A0.DocEntry = {0}
 
 Union All
 
 
-Select A1.LineNum, 5 as 'ordenplano', 'IDE' + ',' + 'false' + ',' + 
-Cast(Cast(A1.PriceBefDi*(A1.DiscPrcnt/100) as decimal (14,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Select A1.VisOrder, 5 as 'ordenplano', 'IDE' + ',' + 'false' + ',' + 
+Cast(Cast(Round(A1.PriceBefDi*(A1.DiscPrcnt/100),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + 
-Cast(Cast(A1.DiscPrcnt as decimal (14,0)) as Nvarchar(100)) + ',' + 
-Cast(Cast(A1.PriceBefDi as decimal (14,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' +
+Cast(Cast(A1.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(A1.PriceBefDi,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' +
 Cast(A1.VisOrder + 1 as Nvarchar(100)) as 'cadena'
 From ORIN A0 
 Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
@@ -399,26 +424,26 @@ Where A0.DocEntry = {0} And A1.DiscPrcnt &gt; 0
 
 Union All
 
-Select A1.LineNum, 6 as 'ordenplano', 'TII' + ',' + Cast(Cast(A2.TaxSum as decimal (14,0)) as Nvarchar(100)) + ',' + 
+Select A1.VisOrder, 6 as 'ordenplano', 'TII' + ',' + Cast(Cast(Round(A2.TaxSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 'false'
 From ORIN A0 
 Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join RIN4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum
 Where A0.DocEntry = {0} And A2.ExpnsCode = -1
-Group By A0.DocEntry, A0.DocCur, A2.TaxSum, A1.LineNum
+Group By A0.DocEntry, A0.DocCur, A2.TaxSum, A1.VisOrder
 
 Union All
 
-Select A1.LineNum, 7 as 'ordenplano', 'IIM' + ',' + IsNull(A3.U_SEI_FETributo,'') + ',' + Cast(Cast(A2.TaxSum as decimal (14,0)) as Nvarchar(100)) + ',' + 
-Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(A2.BaseSum as decimal (14,0)) as Nvarchar(100)) + 
-',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(A2.TaxRate as decimal (14,2)) as Nvarchar(100))
+Select A1.VisOrder, 7 as 'ordenplano', 'IIM' + ',' + IsNull(A3.U_SEI_FETributo,'') + ',' + Cast(Cast(Round(A2.TaxSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(Round(A2.BaseSum,0,1) as decimal (15,0)) as Nvarchar(100)) + 
+',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(A2.TaxRate as decimal (15,2)) as Nvarchar(100))
 + ',' + '' + ',' + '' + ',' + '' + ',' + '' as 'Cadena'
 From ORIN A0 
 Inner Join RIN1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join RIN4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum
 Inner Join OSTC A3 On A2.StcCode = A3.Code
 Where A0.DocEntry = {0} And A2.ExpnsCode = -1
-Group By A0.DocEntry, A0.DocCur, A2.BaseSum, A2.TaxRate, A2.TaxSum, A1.LineNum, A3.U_SEI_FETributo
+Group By A0.DocEntry, A0.DocCur, A2.BaseSum, A2.TaxRate, A2.TaxSum, A1.VisOrder, A3.U_SEI_FETributo
 )C0 Order by LineNum, ordenplano;</Value>
     </Setting>
     <Setting Name="FacturaVenta" Type="System.String" Scope="Application">
@@ -489,7 +514,7 @@ From OADM A0
 
 Union All
 
-Select 'ORC' + ',' + IsNull(A0.NumAtCard,'') + ',' + '' + ',' + '' + ',' + IsNull(Cast(A2.DocNum as Nvarchar(100)),'') As 'Cadena'
+Select Top 1 'ORC' + ',' + IsNull(A0.NumAtCard,'') + ',' + '' + ',' + '' + ',' + IsNull(Cast(A2.DocNum as Nvarchar(100)),'') As 'Cadena'
 From OINV A0
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Left Join ORDR A2 On A2.DocEntry = A1.BaseEntry
@@ -590,33 +615,31 @@ Where A0.DocEntry = {0}
 Union All
 
 Select 'TOT' + ',' + 
-Cast(Sum(Cast(A1.Linetotal as decimal (15,0))) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Sum(Cast(A2.BaseSum as decimal (15,0))) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(Round(A0.DocTotal+IsNull(A3.TotalRet,0), 0, 0) as Decimal(15,0)) as nvarchar(100))
---Cast(Cast(Cast(A0.DocTotal as Decimal(15,0)) + Cast( as Decimal(15,0)) as decimal(15,0)) as nVarchar(100))
-+ ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
---Cast(Cast(Round(Sum(A1.LineTotal)+Sum(A2.TaxSum)+A0.RoundDif, 0, 1) as Decimal(15,0)) as nvarchar(100)) + ',' +
-Cast(Cast(Sum(Cast(A1.LineTotal as decimal (15,0))) + Sum(Cast(A2.TaxSum as decimal (15,0))) + +A0.RoundDif as decimal(15,0)) as nVarchar(100)) + ',' + 
+Cast(Cast(Round(Sum(A1.Linetotal),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(Sum(A2.BaseSum),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A0.DocTotal + IsNull(A3.TotalRet,0) , 0, 1)  as Decimal(15,0)) as nvarchar(100)) + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+Cast(Cast(Round(Sum(A1.LineTotal) + A0.VatSum + A0.RoundDif, 0 ,1) as decimal(15,0))  as nVarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A0.DiscSum as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A0.DiscSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 Cast(Cast('0.00' as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 Cast(Cast(A0.DpmAmnt as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' + '' As 'Cadena'
 From OINV A0
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join INV4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum And A2.ExpnsCode = -1
 Left Join (
-			Select B0.AbsEntry , Sum(Cast(WTAmnt as Decimal (15,0))) as TotalRet 
+			Select B0.AbsEntry , Cast(Round(Sum(WTAmnt),0,1) as Decimal (15,2)) as TotalRet 
 			From INV5 B0 
 			Inner Join OWHT B1 On B0.WTCode = B1.WTCode And B1.U_HBT_TipRet != 0
 			Group By B1.U_HBT_TipRet, B0.AbsEntry
 		  ) A3 On A0.DocEntry = A3.AbsEntry
 Where A0.DocEntry = {0}
-Group By A0.DocCur, A0.WTSum, A0.TotalExpns, A0.DiscSum, A0.DocTotal, A0.DpmAmnt, A3.TotalRet, A0.RoundDif
+Group By A0.DocCur, A0.VatSum, A0.TotalExpns, A0.DiscSum, A0.DocTotal, A0.DpmAmnt, A3.TotalRet, A0.RoundDif
 
 Union All
 
 Select 'TIM' + ',' + 'false' + ',' + 
-Cast(Sum(Cast(A2.TaxSum as Decimal(15,0))) as nVarchar(100))  + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End As 'Cadena'
+Cast(Cast(Round(Sum(A2.TaxSum),0,1) as decimal(15,0))  as nVarchar(100))  + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End As 'Cadena'
 From OINV A0
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join INV4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum And A2.ExpnsCode = -1
@@ -626,21 +649,21 @@ Group By A0.DocCur
 Union All
 
 Select 'IMP' + ',' + IsNull(A2.U_SEI_FETributo,'') + ',' + 
-Cast(Sum(Cast(A1.BaseSum as decimal (15,0))) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(Sum(A1.BaseSum),0,1) as decimal(15,0))  as nVarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
-Cast(Sum(Cast(A1.TaxSum as decimal (15,0))) as Nvarchar(100)) + ',' +
+Cast(Cast(Round(Sum(A1.TaxSum),0,1) as decimal(15,0))  as nVarchar(100)) + ',' +
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 Cast(Cast(A1.TaxRate as decimal (15,2)) as Nvarchar(100)) 
 + ',' + '' + ',' + '' + ',' + '' + ',' + '' As 'Cadena'
 From OINV A0
-Inner Join INV4 A1 On A0.DocEntry = A1.DocEntry
+Inner Join INV4 A1 On A0.DocEntry = A1.DocEntry And A1.ExpnsCode = -1
 Inner Join OSTC A2 On A1.StcCode = A2.Code
-Where A0.DocEntry = {0} And IsNull(A1.TaxSum ,0) != 0
+Where A0.DocEntry = {0}
 Group By A0.DocCur, A1.TaxRate, A2.U_SEI_FETributo
 
 Union All
 
-Select 'TIM' + ',' + 'true' + ',' + Cast(Sum(Cast(A1.WTAmnt as decimal (15,0))) as Nvarchar(100)) + ',' + 
+Select 'TIM' + ',' + 'true' + ',' + Cast(Cast(Round(Sum(A1.WTAmnt),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End 'Cadena'
 From OINV A0
 Inner Join INV5 A1 ON A0.DocEntry = A1.AbsEntry 
@@ -651,22 +674,22 @@ Group By A0.DocEntry, A0.DocCur
 Union All
 
 Select 'IMP' + ',' + IsNull(A2.U_SEI_FETributo,'') + ',' + 
-Cast(Sum(Cast(A1.U_HBT_BaseRet as decimal (15,0))) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(Sum(A1.U_HBT_BaseRet),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
-Cast(Sum(Cast(A1.WTAmnt as decimal (15,0))) as Nvarchar(100)) + ',' +
+Cast(Cast(Round(Sum(A1.WTAmnt),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' +
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.Rate as decimal (15,2)) as Nvarchar(100)) 
+Cast(Cast(A2.PrctBsAmnt as decimal (15,2)) as Nvarchar(100)) 
 + ',' + '' + ',' + '' + ',' + '' + ',' + '' As 'Cadena'
 From OINV A0
 Inner Join INV5 A1 On A0.DocEntry = A1.AbsEntry
 Inner Join OWHT A2 On A1.WTCode = A2.WTCode
 Where A0.DocEntry = {0} And A2.U_HBT_TipRet != '0'
-Group By A0.DocCur, A1.Rate, A2.U_SEI_FETributo
+Group By A0.DocCur, A2.PrctBsAmnt, A2.U_SEI_FETributo
 
 Union ALL
 
 Select 'TDC' + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 'COP' + ',' + 
-Cast(Cast(A0.DocRate as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(A0.DocRate,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Convert(char(10), A0.DocDate,126) + ',' + '1.00' + ',' + '1.00' + ',' + '' + ',' + ''
 From OINV A0
 Where A0.DocEntry = {0} And A0.DocCur != 'COP'
@@ -674,9 +697,9 @@ Where A0.DocEntry = {0} And A0.DocCur != 'COP'
 Union All
 
 Select 'DSC' + ',' + 'false' + ',' + 
-Cast(Cast(A0.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + Cast(Cast(A0.DiscSum as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Cast(Cast(A0.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + Cast(Cast(Round(A0.DiscSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + IsNull(A0.U_SEI_FEDescu,'') + ',' + IsNull(A2.Descr,'') + ',' +
-Cast(Sum(Cast(A3.LineTotal as decimal (15,0))) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + 
+Cast(Cast(Round(Sum(A3.LineTotal),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + 
 ',' + '' + ',' + '1'  As 'Cadena'
 From OINV A0
 Left Join CUFD A1 On A1.TableID = 'OINV' And A1.AliasID = 'SEI_FEDescu'
@@ -783,26 +806,26 @@ From OADM
 
 Union All
 
-Select A1.LineNum, 2 as 'ordenplano', 'ITE' + ',' + Cast(A1.VisOrder+1 as Nvarchar(100)) + ',' + '' + ',' +
+Select A1.VisOrder, 2 as 'ordenplano', 'ITE' + ',' + Cast(A1.VisOrder+1 as Nvarchar(100)) + ',' + '' + ',' +
 Case When A1.Quantity = 0 Then Cast(Cast(1 as decimal (14,0)) as Nvarchar(100)) 
 Else Cast(Cast(A1.Quantity as decimal (14,0)) as Nvarchar(100)) End + ',' + 
 CASE 
-WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'') 
-Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
-Case When A1.Quantity = 0 Then Cast(Cast(A1.LineTotal/1 as decimal (15,0)) as Nvarchar(100)) 
-Else Cast(Cast(A1.LineTotal/A1.Quantity as decimal (15,0)) as Nvarchar(100)) End + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'94') 
+Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'94') End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+Case When A1.Quantity = 0 Then Cast(Cast(Round(A1.LineTotal/1,0,1) as decimal (15,0)) as Nvarchar(100)) 
+Else Cast(Cast(Round(A1.LineTotal/A1.Quantity,0,1) as decimal (15,0)) as Nvarchar(100)) End + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + Replace(A1.Dscription,',','.') + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + 
 '' + ',' + Case When A0.Doctype = 'S' Then A1.AcctCode Else Replace(A1.ItemCode,',','.') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + 
 Case When A1.Quantity = 0 Then Cast(Cast(1 as decimal (14,0)) as Nvarchar(100)) 
 Else Cast(Cast(A1.Quantity as decimal (14,0)) as Nvarchar(100)) End + ',' + CASE 
-WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'') 
-Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'94') 
+Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'94') End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
 Cast(A0.SlpCode as Nvarchar(100)) as 'Cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
@@ -810,29 +833,31 @@ Where A0.DocEntry = {0}
 
 Union All
 
-Select A1.LineNum, 3 as 'ordenplano', 'IPA' + ',' + IsNull(A1.U_SEI_FETipPrec,'01') + ',' + 
-Cast(Cast(A1.Price as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End as 'cadena'
+Select A1.VisOrder, 3 as 'ordenplano', 'IPA' + ',' + IsNull(A1.U_SEI_FETipPrec,'01') + ',' + 
+Case When IsNull(A1.Price,0) = 0 Then '0.01' Else Cast(Cast(A1.Price as decimal (15,2)) as Nvarchar(100)) End + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End as 'cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Where A0.DocEntry = {0} And IsNull(A1.LineTotal,0) &lt; 1
 
 Union All
 
-Select A1.LineNum, 4 as 'ordenplano', 'IAE' + ',' + Cast(IsNull(A1.ItemCode,'') as Nvarchar(100)) + ',' + 
-IsNull(A2.U_SEI_FEIdent,'') + ',' + '' + ',' + '' as 'cadena'
+Select A1.VisOrder, 4 as 'ordenplano', 'IAE' + ',' + 
+Case When A0.Doctype = 'S' Then Cast(IsNull(A1.AcctCode,'') as Nvarchar(100)) Else Cast(IsNull(A1.ItemCode,'') as Nvarchar(100)) End + ',' + 
+IsNull(A2.U_SEI_FEIdent,'999') + ',' + '' + ',' + '' as 'cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
-Inner Join OITM A2 On A1.ItemCode = A2.ItemCode
+Left Join OITM A2 On A1.ItemCode = A2.ItemCode
 Where A0.DocEntry = {0}
 
 Union All
 
 
-Select A1.LineNum, 5 as 'ordenplano', 'IDE' + ',' + 'false' + ',' + 
-Cast(Cast(A1.PriceBefDi*(A1.DiscPrcnt/100) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Select A1.VisOrder, 5 as 'ordenplano', 'IDE' + ',' + 'false' + ',' + 
+Cast(Cast(Round(A1.PriceBefDi*(A1.DiscPrcnt/100),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + 
-Cast(Cast(A1.DiscPrcnt as decimal (15,0)) as Nvarchar(100)) + ',' + 
-Cast(Cast(A1.PriceBefDi as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' +
+Cast(Cast(A1.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(A1.PriceBefDi,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' +
 Cast(A1.VisOrder + 1 as Nvarchar(100)) as 'cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
@@ -840,18 +865,18 @@ Where A0.DocEntry = {0} And A1.DiscPrcnt &gt; 0
 
 Union All
 
-Select A1.LineNum, 6 as 'ordenplano', 'TII' + ',' + Cast(Cast(A2.TaxSum as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Select A1.VisOrder, 6 as 'ordenplano', 'TII' + ',' + Cast(Cast(Round(A2.TaxSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 'false'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join INV4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum
 Where A0.DocEntry = {0} And A2.ExpnsCode = -1
-Group By A0.DocEntry, A0.DocCur, A2.TaxSum, A1.LineNum
+Group By A0.DocEntry, A0.DocCur, A2.TaxSum, A1.VisOrder
 
 Union All
 
-Select A1.LineNum, 7 as 'ordenplano', 'IIM' + ',' + IsNull(A3.U_SEI_FETributo,'') + ',' + Cast(Cast(A2.TaxSum as decimal (15,0)) as Nvarchar(100)) + ',' + 
-Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(A2.BaseSum as decimal (15,0)) as Nvarchar(100)) + 
+Select A1.VisOrder, 7 as 'ordenplano', 'IIM' + ',' + IsNull(A3.U_SEI_FETributo,'') + ',' + Cast(Cast(Round(A2.TaxSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(Round(A2.BaseSum,0,1) as decimal (15,0)) as Nvarchar(100)) + 
 ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(A2.TaxRate as decimal (15,2)) as Nvarchar(100))
 + ',' + '' + ',' + '' + ',' + '' + ',' + '' as 'Cadena'
 From OINV A0 
@@ -859,7 +884,7 @@ Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join INV4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum
 Inner Join OSTC A3 On A2.StcCode = A3.Code
 Where A0.DocEntry = {0} And A2.ExpnsCode = -1
-Group By A0.DocEntry, A0.DocCur, A2.BaseSum, A2.TaxRate, A2.TaxSum, A1.LineNum, A3.U_SEI_FETributo
+Group By A0.DocEntry, A0.DocCur, A2.BaseSum, A2.TaxRate, A2.TaxSum, A1.VisOrder, A3.U_SEI_FETributo
 )C0 Order by LineNum, ordenplano;</Value>
     </Setting>
     <Setting Name="CargueMonitor" Type="System.String" Scope="Application">
@@ -895,7 +920,7 @@ Where (IsNull("U_Status",'') in ({0})) Or (IsNull("U_Status",'') = '' And IsNull
       <Value Profile="(Default)">Select Cadena from (
 Select 0 'LineNum', 1 as 'ordenplano', Cadena from (
 
-Select 'ENC' + ',' + 'ND' + ',' + 
+Select 'ENC' + ',' + 'INVOIC' + ',' + 
 Case When CharIndex('-', A2.TaxIdNum) = 0 Then A2.TaxIdNum Else SubString(A2.TaxIdNum, 1, CharIndex('-', A2.TaxIdNum)-1) End + ',' + 
 Case when CharIndex('-', A1.LicTradNum) = 0 Then A1.LicTradNum Else SubString(A1.LicTradNum, 1, CharIndex('-', A1.LicTradNum)-1) End 
 + ',' + 'UBL 2.1' + ',' + 'DIAN 2.1' + ',' + IsNull(A4.BeginStr,'') + Cast(A0.DocNum as Nvarchar(100)) + ',' 
@@ -959,7 +984,7 @@ From OADM A0
 
 Union All
 
-Select 'ORC' + ',' + IsNull(A0.NumAtCard,'') + ',' + '' + ',' + '' + ',' + IsNull(Cast(A2.DocNum as Nvarchar(100)),'') As 'Cadena'
+Select Top 1 'ORC' + ',' + IsNull(A0.NumAtCard,'') + ',' + '' + ',' + '' + ',' + IsNull(Cast(A2.DocNum as Nvarchar(100)),'') As 'Cadena'
 From OINV A0
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Left Join ORDR A2 On A2.DocEntry = A1.BaseEntry
@@ -1060,33 +1085,31 @@ Where A0.DocEntry = {0}
 Union All
 
 Select 'TOT' + ',' + 
-Cast(Sum(Cast(A1.Linetotal as decimal (15,0))) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Sum(Cast(A2.BaseSum as decimal (15,0))) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(Round(A0.DocTotal+IsNull(A3.TotalRet,0), 0, 0) as Decimal(15,0)) as nvarchar(100))
---Cast(Cast(Cast(A0.DocTotal as Decimal(15,0)) + Cast( as Decimal(15,0)) as decimal(15,0)) as nVarchar(100))
-+ ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
---Cast(Cast(Round(Sum(A1.LineTotal)+Sum(A2.TaxSum)+A0.RoundDif, 0, 1) as Decimal(15,0)) as nvarchar(100)) + ',' +
-Cast(Cast(Sum(Cast(A1.LineTotal as decimal (15,0))) + Sum(Cast(A2.TaxSum as decimal (15,0))) + +A0.RoundDif as decimal(15,0)) as nVarchar(100)) + ',' + 
+Cast(Cast(Round(Sum(A1.Linetotal),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(Sum(A2.BaseSum),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A0.DocTotal + IsNull(A3.TotalRet,0) , 0, 1)  as Decimal(15,0)) as nvarchar(100)) + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+Cast(Cast(Round(Sum(A1.LineTotal) + A0.VatSum + A0.RoundDif, 0 ,1) as decimal(15,0))  as nVarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A0.DiscSum as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A0.DiscSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 Cast(Cast('0.00' as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 Cast(Cast(A0.DpmAmnt as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' + '' As 'Cadena'
 From OINV A0
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join INV4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum And A2.ExpnsCode = -1
 Left Join (
-			Select B0.AbsEntry , Sum(Cast(WTAmnt as Decimal (15,0))) as TotalRet 
+			Select B0.AbsEntry , Cast(Round(Sum(WTAmnt),0,1) as Decimal (15,2)) as TotalRet 
 			From INV5 B0 
 			Inner Join OWHT B1 On B0.WTCode = B1.WTCode And B1.U_HBT_TipRet != 0
 			Group By B1.U_HBT_TipRet, B0.AbsEntry
 		  ) A3 On A0.DocEntry = A3.AbsEntry
 Where A0.DocEntry = {0}
-Group By A0.DocCur, A0.WTSum, A0.TotalExpns, A0.DiscSum, A0.DocTotal, A0.DpmAmnt, A3.TotalRet, A0.RoundDif
+Group By A0.DocCur, A0.VatSum, A0.TotalExpns, A0.DiscSum, A0.DocTotal, A0.DpmAmnt, A3.TotalRet, A0.RoundDif
 
 Union All
 
 Select 'TIM' + ',' + 'false' + ',' + 
-Cast(Sum(Cast(A2.TaxSum as Decimal(15,0))) as nVarchar(100))  + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End As 'Cadena'
+Cast(Cast(Round(Sum(A2.TaxSum),0,1) as decimal(15,0))  as nVarchar(100))  + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End As 'Cadena'
 From OINV A0
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join INV4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum And A2.ExpnsCode = -1
@@ -1096,21 +1119,21 @@ Group By A0.DocCur
 Union All
 
 Select 'IMP' + ',' + IsNull(A2.U_SEI_FETributo,'') + ',' + 
-Cast(Cast(Sum(A1.BaseSum) as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(Sum(A1.BaseSum),0,1) as decimal(15,0))  as nVarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
-Cast(Cast(Sum(A1.TaxSum) as decimal (15,0)) as Nvarchar(100)) + ',' +
+Cast(Cast(Round(Sum(A1.TaxSum),0,1) as decimal(15,0))  as nVarchar(100)) + ',' +
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.TaxRate as decimal (14,2)) as Nvarchar(100)) 
+Cast(Cast(A1.TaxRate as decimal (15,2)) as Nvarchar(100)) 
 + ',' + '' + ',' + '' + ',' + '' + ',' + '' As 'Cadena'
 From OINV A0
-Inner Join INV4 A1 On A0.DocEntry = A1.DocEntry
+Inner Join INV4 A1 On A0.DocEntry = A1.DocEntry And A1.ExpnsCode = -1
 Inner Join OSTC A2 On A1.StcCode = A2.Code
-Where A0.DocEntry = {0} And IsNull(A1.TaxSum ,0) != 0
+Where A0.DocEntry = {0}
 Group By A0.DocCur, A1.TaxRate, A2.U_SEI_FETributo
 
 Union All
 
-Select 'TIM' + ',' + 'true' + ',' + Cast(Cast(Sum(A1.WTAmnt) as decimal (14,0)) as Nvarchar(100)) + ',' + 
+Select 'TIM' + ',' + 'true' + ',' + Cast(Cast(Round(Sum(A1.WTAmnt),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End 'Cadena'
 From OINV A0
 Inner Join INV5 A1 ON A0.DocEntry = A1.AbsEntry 
@@ -1121,22 +1144,22 @@ Group By A0.DocEntry, A0.DocCur
 Union All
 
 Select 'IMP' + ',' + IsNull(A2.U_SEI_FETributo,'') + ',' + 
-Cast(Cast(Sum(A1.U_HBT_BaseRet) as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(Sum(A1.U_HBT_BaseRet),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
-Cast(Cast(Sum(A1.WTAmnt) as decimal (15,0)) as Nvarchar(100)) + ',' +
+Cast(Cast(Round(Sum(A1.WTAmnt),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' +
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.Rate as decimal (14,2)) as Nvarchar(100)) 
+Cast(Cast(A2.PrctBsAmnt as decimal (15,2)) as Nvarchar(100)) 
 + ',' + '' + ',' + '' + ',' + '' + ',' + '' As 'Cadena'
 From OINV A0
 Inner Join INV5 A1 On A0.DocEntry = A1.AbsEntry
 Inner Join OWHT A2 On A1.WTCode = A2.WTCode
 Where A0.DocEntry = {0} And A2.U_HBT_TipRet != '0'
-Group By A0.DocCur, A1.Rate, A2.U_SEI_FETributo
+Group By A0.DocCur, A2.PrctBsAmnt, A2.U_SEI_FETributo
 
 Union ALL
 
 Select 'TDC' + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 'COP' + ',' + 
-Cast(Cast(A0.DocRate as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(A0.DocRate,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Convert(char(10), A0.DocDate,126) + ',' + '1.00' + ',' + '1.00' + ',' + '' + ',' + ''
 From OINV A0
 Where A0.DocEntry = {0} And A0.DocCur != 'COP'
@@ -1144,9 +1167,9 @@ Where A0.DocEntry = {0} And A0.DocCur != 'COP'
 Union All
 
 Select 'DSC' + ',' + 'false' + ',' + 
-Cast(Cast(A0.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + Cast(Cast(A0.DiscSum as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Cast(Cast(A0.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + Cast(Cast(Round(A0.DiscSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + IsNull(A0.U_SEI_FEDescu,'') + ',' + IsNull(A2.Descr,'') + ',' +
-Cast(Cast(Sum(A3.LineTotal) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + 
+Cast(Cast(Round(Sum(A3.LineTotal),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + 
 ',' + '' + ',' + '1'  As 'Cadena'
 From OINV A0
 Left Join CUFD A1 On A1.TableID = 'OINV' And A1.AliasID = 'SEI_FEDescu'
@@ -1161,6 +1184,21 @@ Select 'DRF' + ',' + IsNull(A2.U_NumResol,'') + ',' +
 Case When IsNull(A2.U_FechaDesde,'') = '' Then '' Else CONVERT(char(10), A2.U_FechaDesde,126) End + ',' + 
 Case When IsNull(A2.U_FechaHasta,'') = '' Then '' Else CONVERT(char(10), A2.U_FechaHasta,126) End + ',' + 
 IsNull(A1.BeginStr,'') + ',' + Cast(Cast(A2.U_InitialNum as int) as Nvarchar(100)) + ',' + Cast(IsNull(Cast(A2.U_LastNum as int),'') as Nvarchar(100))
+From OINV A0
+Inner Join NNM1 A1 On A0.Series = A1.Series
+Inner Join "@FEDIAN_NUMAUTORI" A2 On A1.Series = A2.Code
+Where A0.DocEntry = {0}
+
+Union All
+
+Select 
+Cast(
+'NOT,1_ LA PRESENTE FACTURA DE VENTA SE ASIMILA PARA TODOS LOS EFECTOS DE UNA LETRA DE CAMBIO DE CONFORMIDAD CON LOS ARTÍCULOS 770 Y 774 DEL CÓDIGO DEL COMERCIO' + '|' + 
+'DEVOLUCIONES AUTORIZADAS POR EL VENDEDOR PREVIAMENTE OCASIONARAN UNA PENALIZACIÓN DEL 20% SOBRE EL VALOR FACTURADO. ' + '|' +
+'AUTORIZACIÓN DIAN FE No. ' + A2.U_NumResol + ' PREFIJO ' + 
+A1.BeginStr + ' DEL ' + Cast(Cast(A2.U_InitialNum as int) as Nvarchar(100)) + ' AL ' + Cast(IsNull(Cast(A2.U_LastNum as int),'') as Nvarchar(100)) + 
+' DESDE ' + convert(varchar, A2.U_FechaDesde, 106) + ' HASTA ' + convert(varchar, A2.U_FechaHasta, 106) 
+as text) As 'Cadena'
 From OINV A0
 Inner Join NNM1 A1 On A0.Series = A1.Series
 Inner Join "@FEDIAN_NUMAUTORI" A2 On A1.Series = A2.Code
@@ -1224,15 +1262,6 @@ Where A0.DocEntry = {0}
 
 Union All
 
-Select 'REF' + ',' + 'IV' + ',' + IsNull(A2.BeginStr,'') + Cast(A1.DocNum as Nvarchar(100)) + ',' +
-Convert(char(10), A1.DocDate,126) + ',' + '' + ',' + '' 
-From INV1 A0
-Inner Join OINV A1 On A0.BaseType = A1.ObjType And A0.BaseEntry = A1.DocEntry
-Inner Join NNM1 A2 On A1.Series = A2.Series
-Where A0.DocEntry = {0}
-
-Union All
-
 Select 'MEP' + ',' + IsNull(A0.U_SEI_FEMedPago,'') + ',' + Case When A1."ExtraMonth" + A1."ExtraDays" &lt;= 0 Then '1' Else '2' End  + ',' +
 Convert(char(10), A0.DocDueDate,126) + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + '' As 'Cadena'
 From OINV A0
@@ -1243,46 +1272,30 @@ Union All
 
 Select 'CTS' + ',' + 'BIOT01' + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + ''
 From OADM
-
-Union All
-
-Select 'CDN' + ',' + A0.U_SEI_FEConcepND + ',' + A2.Descr + ',' + ''
-From OINV A0
-Inner Join CUFD A1 On A1.TableID = 'OINV' And A1.AliasID = 'SEI_FEConcepND'
-Inner Join UFD1 A2 On A2.TableID = A1.TableID And A2.FieldID = A1.FieldID And A0.U_SEI_FEConcepND = A2.FldValue
-Where A0.DocEntry = {0}
-
-Union All
-
-Select 'DCN' + ',' + A2.Descr
-From OINV A0
-Inner Join CUFD A1 On A1.TableID = 'OINV' And A1.AliasID = 'SEI_FEConcepND'
-Inner Join UFD1 A2 On A2.TableID = A1.TableID And A2.FieldID = A1.FieldID And A0.U_SEI_FEConcepND = A2.FldValue
-Where A0.DocEntry = {0}
 )T0
 
 Union All
 
-Select A1.LineNum, 2 as 'ordenplano', 'ITE' + ',' + Cast(A1.VisOrder+1 as Nvarchar(100)) + ',' + '' + ',' +
+Select A1.VisOrder, 2 as 'ordenplano', 'ITE' + ',' + Cast(A1.VisOrder+1 as Nvarchar(100)) + ',' + '' + ',' +
 Case When A1.Quantity = 0 Then Cast(Cast(1 as decimal (14,0)) as Nvarchar(100)) 
 Else Cast(Cast(A1.Quantity as decimal (14,0)) as Nvarchar(100)) End + ',' + 
 CASE 
-WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'') 
-Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
-Case When A1.Quantity = 0 Then Cast(Cast(A1.LineTotal/1 as decimal (15,0)) as Nvarchar(100)) 
-Else Cast(Cast(A1.LineTotal/A1.Quantity as decimal (15,0)) as Nvarchar(100)) End + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'94') 
+Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'94') End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+Case When A1.Quantity = 0 Then Cast(Cast(Round(A1.LineTotal/1,0,1) as decimal (15,0)) as Nvarchar(100)) 
+Else Cast(Cast(Round(A1.LineTotal/A1.Quantity,0,1) as decimal (15,0)) as Nvarchar(100)) End + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + Replace(A1.Dscription,',','.') + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + '' + ',' + 
 '' + ',' + Case When A0.Doctype = 'S' Then A1.AcctCode Else Replace(A1.ItemCode,',','.') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + 
 Case When A1.Quantity = 0 Then Cast(Cast(1 as decimal (14,0)) as Nvarchar(100)) 
 Else Cast(Cast(A1.Quantity as decimal (14,0)) as Nvarchar(100)) End + ',' + CASE 
-WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'') 
-Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'') End + ',' + 
-Cast(Cast(A1.LineTotal as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
+WHEN IsNull(A1."UomCode",'') = 'Manual' Then IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."unitMsr"),'94') 
+Else IsNull((Select IsNull(P0."U_DIAN_UM",'') From "@FEDIAN_HOMOL_UM" P0 Where P0."U_SAP_UM" = A1."UomCode"),'94') End + ',' + 
+Cast(Cast(Round(A1.LineTotal,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' +
 Cast(A0.SlpCode as Nvarchar(100)) as 'Cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
@@ -1290,29 +1303,31 @@ Where A0.DocEntry = {0}
 
 Union All
 
-Select A1.LineNum, 3 as 'ordenplano', 'IPA' + ',' + IsNull(A1.U_SEI_FETipPrec,'01') + ',' + 
-Cast(Cast(A1.Price as decimal (14,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End as 'cadena'
+Select A1.VisOrder, 3 as 'ordenplano', 'IPA' + ',' + IsNull(A1.U_SEI_FETipPrec,'01') + ',' + 
+Case When IsNull(A1.Price,0) = 0 Then '0.01' Else Cast(Cast(A1.Price as decimal (15,2)) as Nvarchar(100)) End + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End as 'cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
-Where A0.DocEntry = {0} And IsNull(A1.LineTotal,0) &lt; 0
+Where A0.DocEntry = {0} And IsNull(A1.LineTotal,0) &lt; 1
 
 Union All
 
-Select A1.LineNum, 4 as 'ordenplano', 'IAE' + ',' + Cast(IsNull(A1.ItemCode,'') as Nvarchar(100)) + ',' + 
-IsNull(A2.U_SEI_FEIdent,'') + ',' + '' + ',' + '' as 'cadena'
+Select A1.VisOrder, 4 as 'ordenplano', 'IAE' + ',' + 
+Case When A0.Doctype = 'S' Then Cast(IsNull(A1.AcctCode,'') as Nvarchar(100)) Else Cast(IsNull(A1.ItemCode,'') as Nvarchar(100)) End + ',' + 
+IsNull(A2.U_SEI_FEIdent,'999') + ',' + '' + ',' + '' as 'cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
-Inner Join OITM A2 On A1.ItemCode = A2.ItemCode
+Left Join OITM A2 On A1.ItemCode = A2.ItemCode
 Where A0.DocEntry = {0}
 
 Union All
 
 
-Select A1.LineNum, 5 as 'ordenplano', 'IDE' + ',' + 'false' + ',' + 
-Cast(Cast(A1.PriceBefDi*(A1.DiscPrcnt/100) as decimal (14,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
+Select A1.VisOrder, 5 as 'ordenplano', 'IDE' + ',' + 'false' + ',' + 
+Cast(Cast(Round(A1.PriceBefDi*(A1.DiscPrcnt/100),0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 
 '' + ',' + '' + ',' + 
-Cast(Cast(A1.DiscPrcnt as decimal (14,0)) as Nvarchar(100)) + ',' + 
-Cast(Cast(A1.PriceBefDi as decimal (14,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' +
+Cast(Cast(A1.DiscPrcnt as decimal (15,2)) as Nvarchar(100)) + ',' + 
+Cast(Cast(Round(A1.PriceBefDi,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + '' + ',' +
 Cast(A1.VisOrder + 1 as Nvarchar(100)) as 'cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
@@ -1320,26 +1335,26 @@ Where A0.DocEntry = {0} And A1.DiscPrcnt &gt; 0
 
 Union All
 
-Select A1.LineNum, 6 as 'ordenplano', 'TII' + ',' + Cast(Cast(A2.TaxSum as decimal (14,0)) as Nvarchar(100)) + ',' + 
+Select A1.VisOrder, 6 as 'ordenplano', 'TII' + ',' + Cast(Cast(Round(A2.TaxSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
 Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + 'false'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join INV4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum
 Where A0.DocEntry = {0} And A2.ExpnsCode = -1
-Group By A0.DocEntry, A0.DocCur, A2.TaxSum, A1.LineNum
+Group By A0.DocEntry, A0.DocCur, A2.TaxSum, A1.VisOrder
 
 Union All
 
-Select A1.LineNum, 7 as 'ordenplano', 'IIM' + ',' + IsNull(A3.U_SEI_FETributo,'') + ',' + Cast(Cast(A2.TaxSum as decimal (14,0)) as Nvarchar(100)) + ',' + 
-Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(A2.BaseSum as decimal (14,0)) as Nvarchar(100)) + 
-',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(A2.TaxRate as decimal (14,2)) as Nvarchar(100))
+Select A1.VisOrder, 7 as 'ordenplano', 'IIM' + ',' + IsNull(A3.U_SEI_FETributo,'') + ',' + Cast(Cast(Round(A2.TaxSum,0,1) as decimal (15,0)) as Nvarchar(100)) + ',' + 
+Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(Round(A2.BaseSum,0,1) as decimal (15,0)) as Nvarchar(100)) + 
+',' + Case When A0.DocCur = '$' Then 'COP' Else A0.DocCur End + ',' + Cast(Cast(A2.TaxRate as decimal (15,2)) as Nvarchar(100))
 + ',' + '' + ',' + '' + ',' + '' + ',' + '' as 'Cadena'
 From OINV A0 
 Inner Join INV1 A1 On A0.DocEntry = A1.DocEntry
 Inner Join INV4 A2 On A1.DocEntry = A2.DocEntry And A1.LineNum = A2.LineNum
 Inner Join OSTC A3 On A2.StcCode = A3.Code
 Where A0.DocEntry = {0} And A2.ExpnsCode = -1
-Group By A0.DocEntry, A0.DocCur, A2.BaseSum, A2.TaxRate, A2.TaxSum, A1.LineNum, A3.U_SEI_FETributo
+Group By A0.DocEntry, A0.DocCur, A2.BaseSum, A2.TaxRate, A2.TaxSum, A1.VisOrder, A3.U_SEI_FETributo
 )C0 Order by LineNum, ordenplano;</Value>
     </Setting>
     <Setting Name="Msginter" Type="System.String" Scope="Application">

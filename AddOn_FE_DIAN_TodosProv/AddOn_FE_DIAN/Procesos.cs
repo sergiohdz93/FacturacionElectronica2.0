@@ -13,7 +13,6 @@ using Newtonsoft.Json.Linq;
 using AddOn_FE_DIAN.Carvajal;
 using AddOn_FE_DIAN.Controllers;
 using System.Text;
-using System.Data.SqlClient;
 using System.Reflection;
 
 namespace AddOn_FE_DIAN
@@ -491,7 +490,7 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                if (banderaVerificaEstados == true)
+                if (banderaVerificaEstados == true && senalActiva == true)
                 {
                     banderaVerificaEstados = false;
                     Verifystatus();
@@ -510,7 +509,7 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                if (banderaReenviar == true)
+                if (banderaReenviar == true && senalActiva == true)
                 {
                     banderaReenviar = false;
                     AutoReSend();
@@ -812,7 +811,7 @@ namespace AddOn_FE_DIAN
                 if (sNumSegui != "")
                 {
                     sRequest = requestSend;
-                    System.Threading.Thread.Sleep(10000);
+                    //System.Threading.Thread.Sleep(10000);
                     MetodosCarvajal.DocStatusFE(codeLog, sNumSegui, sRequest, reSend, filestr);
                 }
             }
@@ -942,9 +941,6 @@ namespace AddOn_FE_DIAN
                 string sSQL = "";
                 System.Data.DataTable DTDocFile = new System.Data.DataTable();
                 Recordset oRecordset = oCompany.GetBusinessObject(BoObjectTypes.BoRecordset);
-
-                //sSQL = System.Configuration.ConfigurationManager.AppSettings[typeDoc];
-                //sSQL = string.Format(sSQL, transaction);
                 switch (typeDoc)
                 {
                     case "01":
@@ -964,35 +960,6 @@ namespace AddOn_FE_DIAN
                         break;
                 }
                 oRecordset.DoQuery(sSQL);
-                //if (typeDoc == "1")
-                //{
-                //    oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, transaction));
-                //}
-                ////else if(typeDoc == "4" & objType == "13")
-                ////{
-                ////    oRecordset.DoQuery(string.Format(Querys.Default.FacturaVenta, transaction));
-                ////}
-                //else if (typeDoc == "2")
-                //{
-                //    oRecordset.DoQuery(string.Format(Querys.Default.FacturaExpo, transaction));
-                //    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
-                //}
-                //else if (typeDoc == "3")
-                //{
-                //    oRecordset.DoQuery(string.Format(Querys.Default.FacturaConti, transaction));
-                //    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
-                //}
-                //else if (typeDoc == "4")
-                //{
-                //    Procesos.EscribirLogFileTXT("strtxt: " + typeDoc);
-                //    oRecordset.DoQuery(string.Format(Querys.Default.NotaCredito, transaction));
-                //    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
-                //}
-                //else if(typeDoc == "5")
-                //{
-                //    oRecordset.DoQuery(string.Format(Querys.Default.NotaDebito, transaction));
-                //    //oRecordset.DoQuery(string.Format(Constants.CarvajalTXTCredit, transaction));
-                //}
 
                 string myStr = "";
                 int i = 0;
@@ -1399,7 +1366,7 @@ namespace AddOn_FE_DIAN
 
                 tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = responseStatus;
 
-                if (response.processStatus == "FAIL" || response.legalStatus != "ACCEPTED")
+                if (response.processStatus == "FAIL" || response.legalStatus == "REJECTED")
                 {
                     if (response.errorMessage.Contains("Ya existe un comprobante con ese mismo tipo y número"))
                     {
@@ -1443,8 +1410,10 @@ namespace AddOn_FE_DIAN
                         oSeries = oSeriesService.GetSeries(oSeriesParams);
                         string prefijo = "";
                         prefijo = oSeries.Prefix;
-                        Procesos.EscribirLogFileTXT("FAIL: Descarga XML");
+                        //Procesos.EscribirLogFileTXT("FAIL: Descarga XML");
                         xmlResult = MetodosCarvajal.DownloadDocFE(codeline, documentType, prefijo + documentNumber, "SIGNED_XML");
+
+
                         if (xmlResult == "El recurso solicitado no ha sido encontrado.")
                         {
                             tbl.UserFields.Fields.Item("U_Status").Value = "2";
@@ -1465,8 +1434,9 @@ namespace AddOn_FE_DIAN
                                 tbl.UserFields.Fields.Item("U_Enlace_XML").Value = xmlResult;
                             }
                         }
-                        System.Threading.Thread.Sleep(10000);
-                        Procesos.EscribirLogFileTXT("FAIL: Descarga PDF");
+                        //System.Threading.Thread.Sleep(10000);
+                        //Procesos.EscribirLogFileTXT("FAIL: Descarga PDF");
+
                         pdfResult = MetodosCarvajal.DownloadDocFE(codeline, documentType, prefijo + documentNumber, "PDF");
                         if (pdfResult == "El recurso solicitado no ha sido encontrado.")
                         {
@@ -1488,6 +1458,7 @@ namespace AddOn_FE_DIAN
                             }
                         }
                     }
+
                     else
                     {
                         tbl.UserFields.Fields.Item("U_Resultado").Value = response.errorMessage;
@@ -1584,7 +1555,7 @@ namespace AddOn_FE_DIAN
                     }
                 }
 
-                else if (response.processStatus == "OK")
+                else if (response.processStatus == "OK" && response.legalStatus == "ACCEPTED")
                 {
                     string tipoDoc = tbl.UserFields.Fields.Item("U_DocType").Value;
                     string documentNumber = tbl.UserFields.Fields.Item("U_Folio").Value;
@@ -1666,6 +1637,20 @@ namespace AddOn_FE_DIAN
                             tbl.UserFields.Fields.Item("U_Archivo_PDF").Value = pdfResult;
                         }
                     }
+                }
+
+                else
+                {
+                    if(!string.IsNullOrEmpty(response.errorMessage))
+                    {
+                        tbl.UserFields.Fields.Item("U_Resultado").Value = response.errorMessage;
+                        tbl.UserFields.Fields.Item("U_Status").Value = "3";
+                    } 
+                    else
+                    {
+                        tbl.UserFields.Fields.Item("U_Resultado").Value = response.processName;
+                        tbl.UserFields.Fields.Item("U_Status").Value = "2";
+                    } 
                 }
 
                 tbl.UserFields.Fields.Item("U_ProcessID").Value = codseg;

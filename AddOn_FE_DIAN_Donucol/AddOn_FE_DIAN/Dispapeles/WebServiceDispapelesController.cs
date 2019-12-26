@@ -86,7 +86,6 @@ namespace AddOn_FE_DIAN.Controllers
                     Factura.tiponota = Procesos.Buscar_ValorCab("tiponota", i, Fac);
                     Factura.aplicafel = Procesos.Buscar_ValorCab("aplicafel", i, Fac);
                     Factura.tipoOperacion = Procesos.Buscar_ValorCab("tipoOperacion", i, Fac);
-                    //Factura.documentoemitidoen = Procesos.Buscar_ValorCab("documentoemitidoen", i, Fac);
 
                     enviarDocumentoDispape.felPagos pago = new enviarDocumentoDispape.felPagos();
                     pago.moneda = Procesos.Buscar_ValorCab("moneda", i, Fac);
@@ -132,10 +131,18 @@ namespace AddOn_FE_DIAN.Controllers
                         foreach (DataRow _row in listAdi.Rows)
                         {
                             enviarDocumentoDispape.felCampoAdicional campoAdi = new enviarDocumentoDispape.felCampoAdicional();
-                            campoAdi.nombreCampo = Procesos.Buscar_ValorCab("nombreCampo", i, listAdi);
-                            campoAdi.valorCampo = Procesos.Buscar_ValorCab("valorCampo", i, listAdi);
-                            //campoAdi.seccion = Procesos.Buscar_ValorCab("seccion", i, listAdi);
-
+                            if (Procesos.Buscar_ValorCab("nombreCampo", i, listAdi) == "subtotal")
+                            {
+                                double valorMoney = 0;
+                                valorMoney = double.Parse(Procesos.Buscar_ValorCab("valorCampo", i, listAdi));
+                                campoAdi.nombreCampo = Procesos.Buscar_ValorCab("nombreCampo", i, listAdi);
+                                campoAdi.valorCampo = string.Format(CultureInfo.InvariantCulture, "{0:N0}", valorMoney);
+                            }
+                            else
+                            {
+                                campoAdi.nombreCampo = Procesos.Buscar_ValorCab("nombreCampo", i, listAdi);
+                                campoAdi.valorCampo = Procesos.Buscar_ValorCab("valorCampo", i, listAdi);
+                            }
                             camposAdi[i] = campoAdi;
                             i++;
                         }
@@ -227,14 +234,21 @@ namespace AddOn_FE_DIAN.Controllers
                     int docBase = 1;
                     if (impFactura.Rows.Count > 0)
                     {
-                        if (Procesos.Buscar_ValorCab("consecutivofacturamodificada", i, Fac) != "")
+                        if (!string.IsNullOrEmpty(Procesos.Buscar_ValorCab("consecutivofacturamodificada", i, Fac)))
                         {
                             enviarDocumentoDispape.felFacturaModificada[] Notas_DocBase = new enviarDocumentoDispape.felFacturaModificada[docBase];
                             enviarDocumentoDispape.felFacturaModificada LineadocBase = new enviarDocumentoDispape.felFacturaModificada();
+
                             LineadocBase.consecutivoFacturaModificada = Procesos.Buscar_ValorCab("consecutivofacturamodificada", i, Fac);
-                            LineadocBase.cufeFacturaModificada = Procesos.Buscar_ValorCab("cufefacturamodificada", i, Fac);
-                            LineadocBase.fechaFacturaModificadaSpecified = true;
-                            LineadocBase.fechaFacturaModificada = DateTime.Parse(Procesos.Buscar_ValorCab("fechafacturamodificada", i, Fac));
+                            LineadocBase.prefijoFacturaModificada = Procesos.Buscar_ValorCab("prefijoFacturaModificada", i, Fac);
+                            LineadocBase.tipoDocumentoFacturaModificada = Procesos.Buscar_ValorCab("tipoDocumentoFacturaModificada", i, Fac);
+                            LineadocBase.cufeFacturaModificada = Procesos.Buscar_ValorCab("cufefacturamodificada", i, Fac);                            
+                            if(!string.IsNullOrEmpty(Procesos.Buscar_ValorCab("fechafacturamodificada", i, Fac)))
+                            {
+                                LineadocBase.fechaFacturaModificadaSpecified = true;
+                                LineadocBase.fechaFacturaModificada = DateTime.Parse(Procesos.Buscar_ValorCab("fechafacturamodificada", i, Fac));
+                            }
+                            
                             Notas_DocBase[i] = LineadocBase;
                             Factura.listaFacturasModificadas = Notas_DocBase;
                         }
@@ -323,15 +337,25 @@ namespace AddOn_FE_DIAN.Controllers
                 request.contrasenia = Procesos.password;
                 request.token = Procesos.token;
                 //request.version = "6";
-                if(tipoDoc.Substring(0,1) == "0")
+                switch (tipoDoc)
                 {
-                    request.tipoDocumento = tipoDoc.Substring(1,1);
+                    case "01":
+                        request.tipoDocumento = "1";
+                        break;
+
+                    case "03":
+                        request.tipoDocumento = "5";
+                        break;
+
+                    case "91":
+                        request.tipoDocumento = "2";
+                        break;
+
+                    case "92":
+                        request.tipoDocumento = "3";
+                        break;
                 }
-                else
-                {
-                    request.tipoDocumento = tipoDoc;
-                }
-                
+
                 request.prefijo = prefijo;
                 request.consecutivoSpecified = true;
                 request.consecutivo = Convert.ToInt32(numDoc);
@@ -343,9 +367,9 @@ namespace AddOn_FE_DIAN.Controllers
                 var ms = new MemoryStream();
                 serxml.Serialize(ms, request);
                 string xml = Encoding.UTF8.GetString(ms.ToArray());
-                Procesos.requestSend = xml;
+                //Procesos.requestSend = xml;
 
-                Procesos.EscribirLogFileTXT("ConsultaPDF: Fin");
+                Procesos.EscribirLogFileTXT("ConsultaArchvios: n/" + xml);
                 return response;
             }
             catch (Exception ex)

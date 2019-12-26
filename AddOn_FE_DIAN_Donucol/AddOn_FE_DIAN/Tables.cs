@@ -1039,7 +1039,7 @@ namespace AddOn_FE_DIAN
             if (!retval)
             {
                 oUserObjectMD.Code = "Fediansn";
-                oUserObjectMD.Name = "Responsabilidades y Tributos SN";
+                oUserObjectMD.Name = "Fediansn";
                 oUserObjectMD.TableName = "FEDIAN_SN";
                 oUserObjectMD.ObjectType = SAPbobsCOM.BoUDOObjType.boud_MasterData;
 

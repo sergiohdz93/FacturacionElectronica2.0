@@ -1,0 +1,22 @@
+[
+  {
+    "Codigo": "O-13",
+    "Nombre": "Gran contribuyente"
+  },
+  {
+    "Codigo": "O-15",
+    "Nombre": "Autorretenedor"
+  },
+  {
+    "Codigo": "O-23",
+    "Nombre": "Agente de retención IVA"
+  },
+  {
+    "Codigo": "O-47",
+    "Nombre": "Régimen simple de tributación"
+  },
+  {
+    "Codigo": "ZZ",
+    "Nombre": "No aplica"
+  }
+]

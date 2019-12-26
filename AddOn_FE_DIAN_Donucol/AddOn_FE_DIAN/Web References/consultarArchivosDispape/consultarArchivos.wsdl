@@ -1,89 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://wsconsultarpdfxml.webservice.dispapeles.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="consultarArchivos" targetNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsdl:types>
-    <xs:schema elementFormDefault="unqualified" targetNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:element name="consultarArchivos" type="tns:consultarArchivos" />
-      <xs:element name="consultarArchivosResponse" type="tns:consultarArchivosResponse" />
-      <xs:complexType name="consultarArchivos">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Fel_ConsultaFacturaArchivo" type="tns:felConsultaFacturaArchivo" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="felConsultaFacturaArchivo">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="consecutivo" type="xs:long" />
-          <xs:element minOccurs="0" name="contrasenia" type="xs:string" />
-          <xs:element minOccurs="0" name="idEmpresa" type="xs:long" />
-          <xs:element minOccurs="0" name="prefijo" type="xs:string" />
-          <xs:element name="tipoArchivo" type="xs:int" />
-          <xs:element minOccurs="0" name="tipoDocumento" type="xs:string" />
-          <xs:element minOccurs="0" name="token" type="xs:string" />
-          <xs:element minOccurs="0" name="usuario" type="xs:string" />
-          <xs:element minOccurs="0" name="version" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="consultarArchivosResponse">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="return" type="tns:felRepuestaDescargaDocumentos" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="felRepuestaDescargaDocumentos">
-        <xs:sequence>
-          <xs:element name="codigoRespuesta" type="xs:int" />
-          <xs:element minOccurs="0" name="consecutivo" type="xs:long" />
-          <xs:element minOccurs="0" name="descripcionRespuesta" type="xs:string" />
-          <xs:element name="estadoProceso" type="xs:int" />
-          <xs:element minOccurs="0" name="idErp" type="xs:string" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="listaArchivos" nillable="true" type="tns:felArchivos" />
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="listaMensajesProceso" nillable="true" type="tns:felMensajesProceso" />
-          <xs:element minOccurs="0" name="prefijo" type="xs:string" />
-          <xs:element minOccurs="0" name="tipoDocumento" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="felArchivos">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="formato" type="xs:string" />
-          <xs:element minOccurs="0" name="mimeType" type="xs:string" />
-          <xs:element minOccurs="0" name="nameFile" type="xs:string" />
-          <xs:element minOccurs="0" name="streamFile" type="xs:base64Binary" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:complexType name="felMensajesProceso">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="codigoMensaje" type="xs:string" />
-          <xs:element minOccurs="0" name="descripcionMensaje" type="xs:string" />
-          <xs:element minOccurs="0" name="rechazoNotificacion" type="xs:string" />
-        </xs:sequence>
-      </xs:complexType>
-    </xs:schema>
-  </wsdl:types>
-  <wsdl:message name="consultarArchivos">
-    <wsdl:part name="parameters" element="tns:consultarArchivos" />
-  </wsdl:message>
-  <wsdl:message name="consultarArchivosResponse">
-    <wsdl:part name="parameters" element="tns:consultarArchivosResponse" />
-  </wsdl:message>
-  <wsdl:portType name="ConsultarArchivos">
-    <wsdl:operation name="consultarArchivos">
-      <wsdl:input name="consultarArchivos" message="tns:consultarArchivos" />
-      <wsdl:output name="consultarArchivosResponse" message="tns:consultarArchivosResponse" />
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="consultarArchivosSoapBinding" type="tns:ConsultarArchivos">
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://wsconsultarpdfxml.webservice.dispapeles.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="consultarArchivos" targetNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://wsconsultarpdfxmlfactura.dispafel.com:443/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos?xsd=1" namespace="http://wsconsultarpdfxml.webservice.dispapeles.com/" />
+    </xsd:schema>
+  </types>
+  <message name="consultarArchivos">
+    <part name="parameters" element="tns:consultarArchivos" />
+  </message>
+  <message name="consultarArchivosResponse">
+    <part name="parameters" element="tns:consultarArchivosResponse" />
+  </message>
+  <message name="consultarRegistrosIA">
+    <part name="parameters" element="tns:consultarRegistrosIA" />
+  </message>
+  <message name="consultarRegistrosIAResponse">
+    <part name="parameters" element="tns:consultarRegistrosIAResponse" />
+  </message>
+  <message name="borrarRegistrosIA">
+    <part name="parameters" element="tns:borrarRegistrosIA" />
+  </message>
+  <message name="borrarRegistrosIAResponse">
+    <part name="parameters" element="tns:borrarRegistrosIAResponse" />
+  </message>
+  <message name="ConsultarRegistrosIAManual">
+    <part name="parameters" element="tns:ConsultarRegistrosIAManual" />
+  </message>
+  <message name="ConsultarRegistrosIAManualResponse">
+    <part name="parameters" element="tns:ConsultarRegistrosIAManualResponse" />
+  </message>
+  <portType name="ConsultarArchivos">
+    <operation name="consultarArchivos">
+      <input wsam:Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/consultarArchivosRequest" message="tns:consultarArchivos" />
+      <output wsam:Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/consultarArchivosResponse" message="tns:consultarArchivosResponse" />
+    </operation>
+    <operation name="consultarRegistrosIA">
+      <input wsam:Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/consultarRegistrosIARequest" message="tns:consultarRegistrosIA" />
+      <output wsam:Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/consultarRegistrosIAResponse" message="tns:consultarRegistrosIAResponse" />
+    </operation>
+    <operation name="borrarRegistrosIA">
+      <input wsam:Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/borrarRegistrosIARequest" message="tns:borrarRegistrosIA" />
+      <output wsam:Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/borrarRegistrosIAResponse" message="tns:borrarRegistrosIAResponse" />
+    </operation>
+    <operation name="ConsultarRegistrosIAManual">
+      <input wsam:Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/ConsultarRegistrosIAManualRequest" message="tns:ConsultarRegistrosIAManual" />
+      <output wsam:Action="http://wsconsultarpdfxml.webservice.dispapeles.com/ConsultarArchivos/ConsultarRegistrosIAManualResponse" message="tns:ConsultarRegistrosIAManualResponse" />
+    </operation>
+  </portType>
+  <binding name="ConsultarArchivosPortBinding" type="tns:ConsultarArchivos">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="consultarArchivos">
-      <soap:operation soapAction="" style="document" />
-      <wsdl:input name="consultarArchivos">
+    <operation name="consultarArchivos">
+      <soap:operation soapAction="" />
+      <input>
         <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output name="consultarArchivosResponse">
+      </input>
+      <output>
         <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="consultarArchivos">
-    <wsdl:port name="ConsultarArchivosPort" binding="tns:consultarArchivosSoapBinding">
-      <soap:address location="https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos" />
-    </wsdl:port>
-  </wsdl:service>
-</wsdl:definitions>
+      </output>
+    </operation>
+    <operation name="consultarRegistrosIA">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="borrarRegistrosIA">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ConsultarRegistrosIAManual">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="consultarArchivos">
+    <port name="ConsultarArchivosPort" binding="tns:ConsultarArchivosPortBinding">
+      <soap:address location="https://wsconsultarpdfxmlfactura.dispafel.com:443/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos" />
+    </port>
+  </service>
+</definitions>

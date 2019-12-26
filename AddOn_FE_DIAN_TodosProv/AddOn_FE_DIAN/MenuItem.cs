@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Data;
-using System.Globalization;
 using System.Text;
 using System.IO;
 using System.Drawing;
 using System.Linq;
 using System.Xml;
-using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using AddOn_FE_DIAN.Carvajal;
@@ -1302,10 +1299,10 @@ namespace AddOn_FE_DIAN
                             string sStatus = oDT.GetValue("Codigo Estado", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
                             string sTipoDoc = oDT.GetValue("Tipo Documento", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
                             //string sObject = oDT.GetValue("Tipo Objeto", oGrid.GetDataTableRowIndex(oGrid.Rows.SelectedRows.Item(i, SAPbouiCOM.BoOrderType.ot_RowOrder)));
-                            if (!Constants.green.Contains(sStatus))
-                            {
+                            //if (!Constants.green.Contains(sStatus))
+                            //{
                                 Procesos.SendFE(sDocentry, sDocnum, sPrefijo, sCodeLog, sTipoDoc, true);
-                            }
+                            //}
                             progressBar.Value += AvanceBar;
                         }
                         progressBar.Value = LimiteBar;

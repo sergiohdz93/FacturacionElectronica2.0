@@ -492,7 +492,7 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                if (banderaVerificaEstados == true)
+                if (banderaVerificaEstados == true && senalActiva == true)
                 {
                     banderaVerificaEstados = false;
                     Verifystatus();
@@ -511,7 +511,7 @@ namespace AddOn_FE_DIAN
         {
             try
             {
-                if (banderaReenviar == true)
+                if (banderaReenviar == true && senalActiva == true)
                 {
                     banderaReenviar = false;
                     AutoReSend();
@@ -893,6 +893,18 @@ namespace AddOn_FE_DIAN
                     case "01":
 
                         oRS.DoQuery(string.Format(Querys.Default.FacturaVenta, docentry));
+                        Doc = RecordSet_DataTable(oRS);
+
+                        oRS.DoQuery(string.Format(Querys.Default.impFac, docentry));
+                        impDoc = RecordSet_DataTable(oRS);
+
+                        oRS.DoQuery(string.Format(Querys.Default.listaAdiFac, docentry));
+                        listAdi = RecordSet_DataTable(oRS);
+                        break;
+
+                    case "03":
+
+                        oRS.DoQuery(string.Format(Querys.Default.FacturaConti, docentry));
                         Doc = RecordSet_DataTable(oRS);
 
                         oRS.DoQuery(string.Format(Querys.Default.impFac, docentry));
@@ -1708,60 +1720,11 @@ namespace AddOn_FE_DIAN
                         tbl.UserFields.Fields.Item("U_Status").Value = "2";
                         tbl.UserFields.Fields.Item("U_Resultado").Value = consultarArchivos.descripcionRespuesta;
                     }
-
-                    //if (respuestaXML != null && respuestaXML.listaArchivos != null)
-                    //{
-                    //    Procesos.EscribirLogFileTXT("ConsultaPDF: No Null");
-                    //    string base64 = Convert.ToBase64String(respuestaXML.listaArchivos[0].streamFile);
-                    //    tbl.UserFields.Fields.Item("U_Enlace_XML").Value = base64;
-                    //}
-
                 }
-
-                //else if (response.descripcionProceso == "La factura fue ingresada previamente")
-                //{
-                //    Procesos.EscribirLogFileTXT("UpdateLogDispapeles: La factura fue ingresada previamente");
-
-                //    tbl.UserFields.Fields.Item("U_Status").Value = "2";
-
-                //    tbl.UserFields.Fields.Item("U_Resultado").Value = response.descripcionProceso;
-                //    if (response.cufe != null)
-                //    {
-                //        tbl.UserFields.Fields.Item("U_ProcessID").Value = response.cufe;
-                //        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: OK " + response.cufe);
-                //    }
-                //}
 
                 else
                 {
-                    //string[] ArrLine;
-                    //string delimStr = ":";
-                    //char[] delimiter = delimStr.ToCharArray();
-
-                    //int x = 2;
-                    //ArrLine = response.descripcionProceso.Split(delimiter, x);
-
-                    //if (ArrLine.Length > 1)
-                    //{
-                    //    if (ArrLine[0].ToString().Substring(0, 5).ToUpper() == "ERROR")
-                    //    {
-                    //        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + ArrLine[0]);
-                    //        tbl.UserFields.Fields.Item("U_Status").Value = "3";
-
-                    //        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + ArrLine[1]);
-                    //        tbl.UserFields.Fields.Item("U_Resultado").Value = ArrLine[1];
-                    //    }
-                    //    else
-                    //    {
-                    //        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + ArrLine[0]);
-                    //        tbl.UserFields.Fields.Item("U_Status").Value = ArrLine[0];
-
-                    //        Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + ArrLine[1]);
-                    //        tbl.UserFields.Fields.Item("U_Resultado").Value = ArrLine[1];
-                    //    }
-                    //}
-                    //else
-                    //{
+                    
                     Procesos.EscribirLogFileTXT("UpdateLogDispapeles: Error" + "3");
                     tbl.UserFields.Fields.Item("U_Status").Value = "3";
                     if (response.listaMensajesProceso != null && response.listaMensajesProceso[0].descripcionMensaje.Contains("Documento procesado anteriormente"))
@@ -1789,35 +1752,12 @@ namespace AddOn_FE_DIAN
 
                 Procesos.EscribirLogFileTXT("response : " + xmlresponse);
                 tbl.UserFields.Fields.Item("U_Respuesta_Int").Value = xmlresponse;
-
-                //if (reSend == false)
-                //{
-                //    Procesos.EscribirLogFileTXT("reSend: " + reSend);
-                //    if (response.fechaFactura != null)
-                //    {
-                //        Procesos.EscribirLogFileTXT("FechaDispapeles: " + dateSend.ToString("yyyy/MM/dd"));
-                //        tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
-                //        tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
-                //        tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
-                //        //tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = response.fechaFactura.ToString("yyyy/MM/dd");//dateSend.ToString("yyyy/MM/dd");
-                //        //tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm"); //response.fechaFactura.ToString("HH:mm");
-                //    }
-
-                //    else
-                //    {
-                //        Procesos.EscribirLogFileTXT("FechaSistema: " + dateSend.ToString("yyyy/MM/dd"));
-                //        tbl.UserFields.Fields.Item("U_Fecha_Envio").Value = dateSend.ToString("yyyy/MM/dd");
-                //        tbl.UserFields.Fields.Item("U_Hora_Envio").Value = dateSend.ToString("HH:mm");
-                //    }
-                //}
-
-                //else if (reSend == true)
-                //{
-                //    Procesos.EscribirLogFileTXT("reSend: " + reSend);
-                //    tbl.UserFields.Fields.Item("U_Fecha_ReEnvio").Value = dateSend.ToString("yyyy/MM/dd");
-                //    tbl.UserFields.Fields.Item("U_Hora_ReEnvio").Value = dateSend.ToString("HH:mm");
-                //    tbl.UserFields.Fields.Item("U_Usuario_ReEnvio").Value = user;
-                //}
+                
+                if (response.cufe != null)
+                {
+                    tbl.UserFields.Fields.Item("U_ProcessID").Value = response.cufe;
+                    Procesos.EscribirLogFileTXT("UpdateLogDispapeles: OK " + response.cufe);
+                }
 
                 lRetCode = tbl.Update();
 
@@ -1983,14 +1923,14 @@ namespace AddOn_FE_DIAN
                             "Inner Join NNM1 A1 On A0.\"Series\" = A1.\"Series\" And A0.\"ObjType\" = A1.\"ObjectCode\" " +
                             "Inner Join OUSR A2 On A0.\"UserSign\" = A2.\"USERID\" " +
                             "Inner Join \"@FEDIAN_NUMAUTORI\" A3 On A1.\"Series\" = A3.\"Code\" " +
-                            "Where A0.\"DocEntry\" Not In (Select \"U_DocNum\" From \"@FEDIAN_MONITORLOG\" Where \"U_ObjType\" = '13') And A0.\"DocDate\" Between ADD_DAYS(CURRENT_DATE, -1) and To_Date(Current_Date) " +
+                            "Where A0.\"DocEntry\" Not In (Select \"U_DocNum\" From \"@FEDIAN_MONITORLOG\" Where \"U_ObjType\" = '13') And A0.\"DocDate\" Between ADD_DAYS(CURRENT_DATE, -30) and To_Date(Current_Date) " +
                             "Union All " +
                             "Select A3.\"U_DocDIAN\", A0.\"DocNum\", A1.\"BeginStr\", A0.\"ObjType\", A0.\"DocEntry\", A2.\"USER_CODE\", A0.\"DocDate\", A0.\"DocTime\" " +
                             "From ORIN A0 " +
                             "Inner Join NNM1 A1 On A0.\"Series\" = A1.\"Series\" And A0.\"ObjType\" = A1.\"ObjectCode\" " +
                             "Inner Join OUSR A2 On A0.\"UserSign\" = A2.\"USERID\" " +
                             "Inner Join \"@FEDIAN_NUMAUTORI\" A3 On A1.\"Series\" = A3.\"Code\" " +
-                            "Where A0.\"DocEntry\" Not In (Select \"U_DocNum\" From \"@FEDIAN_MONITORLOG\" Where \"U_ObjType\" = '14') And A0.\"DocDate\" Between ADD_DAYS(CURRENT_DATE, -1) and To_Date(Current_Date) ";
+                            "Where A0.\"DocEntry\" Not In (Select \"U_DocNum\" From \"@FEDIAN_MONITORLOG\" Where \"U_ObjType\" = '14') And A0.\"DocDate\" Between ADD_DAYS(CURRENT_DATE, -30) and To_Date(Current_Date) ";
                 }
 
                 else
@@ -2000,14 +1940,14 @@ namespace AddOn_FE_DIAN
                             "Inner Join NNM1 A1 On A0.Series = A1.Series And A0.ObjType = A1.ObjectCode " +
                             "Inner Join OUSR A2 On A0.UserSign = A2.USERID " +
                             "Inner Join \"@FEDIAN_NUMAUTORI\" A3 On A1.Series = A3.Code " +
-                            "Where A0.DocEntry Not In(Select U_DocNum From \"@FEDIAN_MONITORLOG\" Where U_ObjType = '13') And CONVERT(char(10), A0.DocDate,126) Between CONVERT(char(10), GetDate() - 1,126) and CONVERT(char(10), GetDate(),126) " +
+                            "Where A0.DocEntry Not In(Select U_DocNum From \"@FEDIAN_MONITORLOG\" Where U_ObjType = '13') And CONVERT(char(10), A0.DocDate,126) Between CONVERT(char(10), GetDate() - 30,126) and CONVERT(char(10), GetDate(),126) " +
                             "Union All " +
                             "Select A3.U_DocDIAN, A0.DocNum, A1.BeginStr, A0.ObjType, A0.DocEntry, A2.USER_CODE, A0.DocDate, A0.DocTime " +
                             "From ORIN A0 " +
                             "Inner Join NNM1 A1 On A0.Series = A1.Series And A0.ObjType = A1.ObjectCode " +
                             "Inner Join OUSR A2 On A0.UserSign = A2.USERID " +
                             "Inner Join \"@FEDIAN_NUMAUTORI\" A3 On A1.Series = A3.Code " +
-                            "Where A0.DocEntry Not In(Select U_DocNum From \"@FEDIAN_MONITORLOG\" Where U_ObjType = '14') And CONVERT(char(10), A0.DocDate,126) Between CONVERT(char(10), GetDate() - 1,126) and CONVERT(char(10), GetDate(),126) ";
+                            "Where A0.DocEntry Not In(Select U_DocNum From \"@FEDIAN_MONITORLOG\" Where U_ObjType = '14') And CONVERT(char(10), A0.DocDate,126) Between CONVERT(char(10), GetDate() - 30,126) and CONVERT(char(10), GetDate(),126) ";
                 }
 
                 oRS.DoQuery(sSql);

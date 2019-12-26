@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="P9Rym7qnwCFQjIMGt6cbIPAkiao=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="7G8umLNLXS/cih/L3BF1ya6fAHQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WsEnviarDocumentoPortBinding">
       <properties>
@@ -221,10 +221,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WsEnviarDocumentoPort" contract="enviarDocumentoDispape.WsEnviarDocumento" bindingType="basicHttpBinding" address="https://enviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento" bindingConfiguration="WsEnviarDocumentoPortBinding">
+    <endpoint name="WsEnviarDocumentoPort" contract="enviarDocumentoDispape.WsEnviarDocumento" bindingType="basicHttpBinding" address="https://wsenviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento" bindingConfiguration="WsEnviarDocumentoPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>https://enviardocumentos.dispafel.com:443/DFFacturaElectronicaEnviarDocumentos/enviarDocumento</serializedValue>
+          <serializedValue>https://wsenviardocumentos.dispafel.com:443/DFFacturaElectronicaEnviarDocumentos/enviarDocumento</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

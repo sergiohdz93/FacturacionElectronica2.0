@@ -19,10 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://consultarestadofactura.dispafel.com:443/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://wsenviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="consultarEstado.wsdl" MetadataType="Wsdl" ID="4bbd9969-17d0-427f-820a-8e1a17ef7ffe" SourceId="1" SourceUrl="https://consultarestadofactura.dispafel.com/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado?wsdl" />
+    <MetadataFile FileName="enviarDocumento.xsd" MetadataType="Schema" ID="68a45657-0f10-4fdc-b34e-a71ca18ff53d" SourceId="1" SourceUrl="https://wsenviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?xsd=1" />
+    <MetadataFile FileName="enviarDocumento.wsdl" MetadataType="Wsdl" ID="06db523f-191b-423e-88e7-7343ebf597c0" SourceId="1" SourceUrl="https://wsenviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

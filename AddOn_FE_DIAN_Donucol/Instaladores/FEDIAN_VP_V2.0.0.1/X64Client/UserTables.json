@@ -1,0 +1,102 @@
+[
+  {
+    "TableName": "FEDIAN_PARAMG",
+    "TableDescription": "Parametrizacion General",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_INTERF_CFG",
+    "TableDescription": "Configuracion Interfaces",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_CODDOC",
+    "TableDescription": "Codigos de documento DIAN",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_MONITORLOG",
+    "TableDescription": "Monitor FE DIAN",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_VERSION",
+    "TableDescription": "Version FE DIAN",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_DESCU",
+    "TableDescription": "Codigo de descuentos",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_UM",
+    "TableDescription": "Unidades de medida",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_CONCEP_NC",
+    "TableDescription": "Concepto Nota Credito",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_CONCEP_ND",
+    "TableDescription": "Concepto Nota Debito",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_MEDPAGO",
+    "TableDescription": "Medios de Pago",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_RESPONSA",
+    "TableDescription": "Responsabilidades Fiscales",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_TRIBU",
+    "TableDescription": "Tributos",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_TIPOPERA",
+    "TableDescription": "Tipos de Operacion",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_HOMOL_UM",
+    "TableDescription": "Homomlogacion UM",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_IDENT_ARTI",
+    "TableDescription": "Identificacion del Articulo",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_SN",
+    "TableDescription": "Respons y Tributos SN",
+    "TableType": "bott_MasterData"
+  },
+  {
+    "TableName": "FEDIAN_SNRES",
+    "TableDescription": "Responsabilidades SN",
+    "TableType": "bott_MasterDataLines"
+  },
+  {
+    "TableName": "FEDIAN_SNTRI",
+    "TableDescription": "Tributos SN",
+    "TableType": "bott_MasterDataLines"
+  },
+  {
+    "TableName": "FEDIAN_NUMAUTORI",
+    "TableDescription": "Numeracion Autorizada DIAN",
+    "TableType": "bott_NoObject"
+  },
+  {
+    "TableName": "FEDIAN_INCOTERMS",
+    "TableDescription": "Cond de Entrega (INCOTERMS)",
+    "TableType": "bott_NoObject"
+  }
+]

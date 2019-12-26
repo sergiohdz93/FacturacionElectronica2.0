@@ -1,0 +1,38 @@
+[
+  {
+    "Codigo": "10",
+    "Nombre": "Estándar *"
+  },
+  {
+    "Codigo": "09",
+    "Nombre": "AIU"
+  },
+  {
+    "Codigo": "11",
+    "Nombre": "Mandatos"
+  },
+  {
+    "Codigo": "20",
+    "Nombre": "Nota Crédito que referencia una factura electrónica *"
+  },
+  {
+    "Codigo": "22",
+    "Nombre": "Nota Crédito sin referencia a facturas"
+  },
+  {
+    "Codigo": "23",
+    "Nombre": "Nota Crédito para facturación electrónica V1 (Decreto 2242)."
+  },
+  {
+    "Codigo": "30",
+    "Nombre": "Nota Débito que referencia una factura electrónica."
+  },
+  {
+    "Codigo": "32",
+    "Nombre": "Nota Débito sin referencia a facturas"
+  },
+  {
+    "Codigo": "33",
+    "Nombre": "Nota Débito para facturación electrónica V1 (Decreto 2242)."
+  }
+]

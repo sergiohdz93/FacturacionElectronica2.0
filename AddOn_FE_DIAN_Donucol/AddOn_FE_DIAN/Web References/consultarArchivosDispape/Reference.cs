@@ -26,10 +26,16 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="consultarArchivosSoapBinding", Namespace="http://wsconsultarpdfxml.webservice.dispapeles.com/")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="ConsultarArchivosPortBinding", Namespace="http://wsconsultarpdfxml.webservice.dispapeles.com/")]
     public partial class consultarArchivos : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback CallconsultarArchivosOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback consultarRegistrosIAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback borrarRegistrosIAOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ConsultarRegistrosIAManualOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -73,6 +79,15 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
         public event CallconsultarArchivosCompletedEventHandler CallconsultarArchivosCompleted;
         
         /// <remarks/>
+        public event consultarRegistrosIACompletedEventHandler consultarRegistrosIACompleted;
+        
+        /// <remarks/>
+        public event borrarRegistrosIACompletedEventHandler borrarRegistrosIACompleted;
+        
+        /// <remarks/>
+        public event ConsultarRegistrosIAManualCompletedEventHandler ConsultarRegistrosIAManualCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestElementName="consultarArchivos", RequestNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", ResponseElementName="consultarArchivosResponse", ResponseNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public felRepuestaDescargaDocumentos CallconsultarArchivos([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo) {
@@ -99,6 +114,96 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
             if ((this.CallconsultarArchivosCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.CallconsultarArchivosCompleted(this, new CallconsultarArchivosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", ResponseNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string[] consultarRegistrosIA([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo) {
+            object[] results = this.Invoke("consultarRegistrosIA", new object[] {
+                        Fel_ConsultaFacturaArchivo});
+            return ((string[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void consultarRegistrosIAAsync(felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo) {
+            this.consultarRegistrosIAAsync(Fel_ConsultaFacturaArchivo, null);
+        }
+        
+        /// <remarks/>
+        public void consultarRegistrosIAAsync(felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo, object userState) {
+            if ((this.consultarRegistrosIAOperationCompleted == null)) {
+                this.consultarRegistrosIAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnconsultarRegistrosIAOperationCompleted);
+            }
+            this.InvokeAsync("consultarRegistrosIA", new object[] {
+                        Fel_ConsultaFacturaArchivo}, this.consultarRegistrosIAOperationCompleted, userState);
+        }
+        
+        private void OnconsultarRegistrosIAOperationCompleted(object arg) {
+            if ((this.consultarRegistrosIACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.consultarRegistrosIACompleted(this, new consultarRegistrosIACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", ResponseNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public felRepuestaDescargaDocumentos borrarRegistrosIA([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo) {
+            object[] results = this.Invoke("borrarRegistrosIA", new object[] {
+                        Fel_ConsultaFacturaArchivo});
+            return ((felRepuestaDescargaDocumentos)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void borrarRegistrosIAAsync(felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo) {
+            this.borrarRegistrosIAAsync(Fel_ConsultaFacturaArchivo, null);
+        }
+        
+        /// <remarks/>
+        public void borrarRegistrosIAAsync(felConsultaFacturaArchivo Fel_ConsultaFacturaArchivo, object userState) {
+            if ((this.borrarRegistrosIAOperationCompleted == null)) {
+                this.borrarRegistrosIAOperationCompleted = new System.Threading.SendOrPostCallback(this.OnborrarRegistrosIAOperationCompleted);
+            }
+            this.InvokeAsync("borrarRegistrosIA", new object[] {
+                        Fel_ConsultaFacturaArchivo}, this.borrarRegistrosIAOperationCompleted, userState);
+        }
+        
+        private void OnborrarRegistrosIAOperationCompleted(object arg) {
+            if ((this.borrarRegistrosIACompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.borrarRegistrosIACompleted(this, new borrarRegistrosIACompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", ResponseNamespace="http://wsconsultarpdfxml.webservice.dispapeles.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string[] ConsultarRegistrosIAManual([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] felConsultaFacturaArchivoIA Fel_ConsultaFacturaArchivoIA) {
+            object[] results = this.Invoke("ConsultarRegistrosIAManual", new object[] {
+                        Fel_ConsultaFacturaArchivoIA});
+            return ((string[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ConsultarRegistrosIAManualAsync(felConsultaFacturaArchivoIA Fel_ConsultaFacturaArchivoIA) {
+            this.ConsultarRegistrosIAManualAsync(Fel_ConsultaFacturaArchivoIA, null);
+        }
+        
+        /// <remarks/>
+        public void ConsultarRegistrosIAManualAsync(felConsultaFacturaArchivoIA Fel_ConsultaFacturaArchivoIA, object userState) {
+            if ((this.ConsultarRegistrosIAManualOperationCompleted == null)) {
+                this.ConsultarRegistrosIAManualOperationCompleted = new System.Threading.SendOrPostCallback(this.OnConsultarRegistrosIAManualOperationCompleted);
+            }
+            this.InvokeAsync("ConsultarRegistrosIAManual", new object[] {
+                        Fel_ConsultaFacturaArchivoIA}, this.ConsultarRegistrosIAManualOperationCompleted, userState);
+        }
+        
+        private void OnConsultarRegistrosIAManualOperationCompleted(object arg) {
+            if ((this.ConsultarRegistrosIAManualCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ConsultarRegistrosIAManualCompleted(this, new ConsultarRegistrosIAManualCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -269,6 +374,171 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
             }
             set {
                 this.versionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://wsconsultarpdfxml.webservice.dispapeles.com/")]
+    public partial class felConsultaFacturaArchivoIA {
+        
+        private long consecutivoFinalField;
+        
+        private bool consecutivoFinalFieldSpecified;
+        
+        private long consecutivoInicialField;
+        
+        private bool consecutivoInicialFieldSpecified;
+        
+        private System.DateTime fechaFinalField;
+        
+        private bool fechaFinalFieldSpecified;
+        
+        private System.DateTime fechaIncialField;
+        
+        private bool fechaIncialFieldSpecified;
+        
+        private long idEmpresaField;
+        
+        private bool idEmpresaFieldSpecified;
+        
+        private string numeroIdentificacionField;
+        
+        private string prefijoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public long consecutivoFinal {
+            get {
+                return this.consecutivoFinalField;
+            }
+            set {
+                this.consecutivoFinalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool consecutivoFinalSpecified {
+            get {
+                return this.consecutivoFinalFieldSpecified;
+            }
+            set {
+                this.consecutivoFinalFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public long consecutivoInicial {
+            get {
+                return this.consecutivoInicialField;
+            }
+            set {
+                this.consecutivoInicialField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool consecutivoInicialSpecified {
+            get {
+                return this.consecutivoInicialFieldSpecified;
+            }
+            set {
+                this.consecutivoInicialFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public System.DateTime fechaFinal {
+            get {
+                return this.fechaFinalField;
+            }
+            set {
+                this.fechaFinalField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaFinalSpecified {
+            get {
+                return this.fechaFinalFieldSpecified;
+            }
+            set {
+                this.fechaFinalFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public System.DateTime fechaIncial {
+            get {
+                return this.fechaIncialField;
+            }
+            set {
+                this.fechaIncialField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaIncialSpecified {
+            get {
+                return this.fechaIncialFieldSpecified;
+            }
+            set {
+                this.fechaIncialFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public long idEmpresa {
+            get {
+                return this.idEmpresaField;
+            }
+            set {
+                this.idEmpresaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool idEmpresaSpecified {
+            get {
+                return this.idEmpresaFieldSpecified;
+            }
+            set {
+                this.idEmpresaFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string numeroIdentificacion {
+            get {
+                return this.numeroIdentificacionField;
+            }
+            set {
+                this.numeroIdentificacionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string prefijo {
+            get {
+                return this.prefijoField;
+            }
+            set {
+                this.prefijoField = value;
             }
         }
     }
@@ -543,6 +813,84 @@ namespace AddOn_FE_DIAN.consultarArchivosDispape {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((felRepuestaDescargaDocumentos)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void consultarRegistrosIACompletedEventHandler(object sender, consultarRegistrosIACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class consultarRegistrosIACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal consultarRegistrosIACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void borrarRegistrosIACompletedEventHandler(object sender, borrarRegistrosIACompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class borrarRegistrosIACompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal borrarRegistrosIACompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public felRepuestaDescargaDocumentos Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((felRepuestaDescargaDocumentos)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    public delegate void ConsultarRegistrosIAManualCompletedEventHandler(object sender, ConsultarRegistrosIAManualCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ConsultarRegistrosIAManualCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ConsultarRegistrosIAManualCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string[])(this.results[0]));
             }
         }
     }

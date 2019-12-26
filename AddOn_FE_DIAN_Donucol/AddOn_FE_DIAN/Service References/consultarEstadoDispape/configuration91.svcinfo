@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="/P2OESzo3hRLxk1hDqnDB23dAKU=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="nWEQx6sckvjKIdVs/btmguTYVZU=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="consultarEstadoSoapBinding">
+    <bindingConfiguration bindingType="basicHttpBinding" name="WsEnviarDocumentoPortBinding2">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>consultarEstadoSoapBinding</serializedValue>
+          <serializedValue>WsEnviarDocumentoPortBinding2</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -110,10 +110,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="consultarEstadoSoapBinding1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="WsEnviarDocumentoPortBinding3">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>consultarEstadoSoapBinding1</serializedValue>
+          <serializedValue>WsEnviarDocumentoPortBinding3</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -221,10 +221,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="ConsultarEstadoPort" contract="consultarEstadoDispape.ConsultarEstado" bindingType="basicHttpBinding" address="https://consultarestadofactura.dispafel.com/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado" bindingConfiguration="consultarEstadoSoapBinding">
+    <endpoint name="WsEnviarDocumentoPort1" contract="consultarEstadoDispape.WsEnviarDocumento" bindingType="basicHttpBinding" address="https://wsenviardocumentos.dispafel.com/DFFacturaElectronicaEnviarDocumentos/enviarDocumento" bindingConfiguration="WsEnviarDocumentoPortBinding2">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>https://consultarestadofactura.dispafel.com/DFFacturaElectronicaConsultarEstadoFactura/consultarEstado</serializedValue>
+          <serializedValue>https://wsenviardocumentos.dispafel.com:443/DFFacturaElectronicaEnviarDocumentos/enviarDocumento</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -233,10 +233,10 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>consultarEstadoSoapBinding</serializedValue>
+          <serializedValue>WsEnviarDocumentoPortBinding2</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>consultarEstadoDispape.ConsultarEstado</serializedValue>
+          <serializedValue>consultarEstadoDispape.WsEnviarDocumento</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -296,7 +296,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ConsultarEstadoPort</serializedValue>
+          <serializedValue>WsEnviarDocumentoPort1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

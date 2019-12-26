@@ -12,7 +12,7 @@
       <Value Profile="(Default)">C:\\Fac_Electronica\\</Value>
     </Setting>
     <Setting Name="AddOn_FE_DIAN_consultarArchivosDispape_consultarArchivos" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://consultarpdfxmlfactura.dispafel.com/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos</Value>
+      <Value Profile="(Default)">https://wsconsultarpdfxmlfactura.dispafel.com:443/DFFacturaElectronicaConsultarPdfXmlFactura/consultarArchivos</Value>
     </Setting>
   </Settings>
 </SettingsFile>
