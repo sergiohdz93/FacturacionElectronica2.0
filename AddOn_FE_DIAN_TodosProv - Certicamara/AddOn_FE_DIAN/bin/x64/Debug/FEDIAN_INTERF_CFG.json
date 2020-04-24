@@ -1,0 +1,37 @@
+[
+  {
+    "Codigo": "01",
+    "Nombre": "Factura de Venta",
+    "U_URL": "https://devv5.certifactura.co/servicios/recepcionPrueba/rest/emitir"
+  },
+  {
+    "Codigo": "02",
+    "Nombre": "Factura de Exportacion",
+    "U_URL": "https://devv5.certifactura.co/servicios/recepcionPrueba/rest/emitir"
+  },
+  {
+    "Codigo": "03",
+    "Nombre": "Factura de Contingencia Facturador",
+    "U_URL": "https://devv5.certifactura.co/servicios/recepcionPrueba/rest/emitir"
+  },
+  {
+    "Codigo": "04",
+    "Nombre": "Factura de Contingencia DIAN",
+    "U_URL": "https://devv5.certifactura.co/servicios/recepcionPrueba/rest/emitir"
+  },
+  {
+    "Codigo": "91",
+    "Nombre": "Nota Credito",
+    "U_URL": "https://devv5.certifactura.co/servicios/recepcionPrueba/rest/emitir"
+  },
+  {
+    "Codigo": "92",
+    "Nombre": "Nota Debito",
+    "U_URL": "https://devv5.certifactura.co/servicios/recepcionPrueba/rest/emitir"
+  },
+  {
+    "Codigo": "7",
+    "Nombre": "Lectura por Folio",
+    "U_URL": "https://devv5.certifactura.co/consultaDocumentos/documentos"
+  }
+]

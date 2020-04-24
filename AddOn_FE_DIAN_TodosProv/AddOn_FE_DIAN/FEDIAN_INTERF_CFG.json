@@ -6,22 +6,27 @@
   },
   {
     "Codigo": "02",
-    "Nombre": "Factura de Exportación",
+    "Nombre": "Factura de Exportacion",
     "U_URL": "https://cenf.cen.biz/"
   },
   {
     "Codigo": "03",
-    "Nombre": "Factura de Contingencia",
+    "Nombre": "Factura de Contingencia Facturador",
+    "U_URL": "https://cenf.cen.biz/"
+  },
+  {
+    "Codigo": "04",
+    "Nombre": "Factura de Contingencia DIAN",
     "U_URL": "https://cenf.cen.biz/"
   },
   {
     "Codigo": "91",
-    "Nombre": "Nota Crédito",
+    "Nombre": "Nota Credito",
     "U_URL": "https://cenf.cen.biz/"
   },
   {
     "Codigo": "92",
-    "Nombre": "Nota Débito",
+    "Nombre": "Nota Debito",
     "U_URL": "https://cenf.cen.biz/"
   },
   {

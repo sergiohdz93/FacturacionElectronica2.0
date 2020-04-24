@@ -1,0 +1,46 @@
+[
+  {
+    "Codigo": "CFR ",
+    "Nombre": "Costo y flete "
+  },
+  {
+    "Codigo": "CIF ",
+    "Nombre": "Costo, flete y seguro "
+  },
+  {
+    "Codigo": "CIP ",
+    "Nombre": "Transporte y Seguro Pagados hasta "
+  },
+  {
+    "Codigo": "CPT ",
+    "Nombre": "Transporte Pagado Hasta "
+  },
+  {
+    "Codigo": "DAP ",
+    "Nombre": "Entregado en un Lugar "
+  },
+  {
+    "Codigo": "DAT ",
+    "Nombre": "Entregado en Terminal "
+  },
+  {
+    "Codigo": "DDP ",
+    "Nombre": "Entregado con Pago de Derechos "
+  },
+  {
+    "Codigo": "EXW ",
+    "Nombre": "En Fabrica "
+  },
+  {
+    "Codigo": "FAS ",
+    "Nombre": "Franco al costado del buque "
+  },
+  {
+    "Codigo": "FCA ",
+    "Nombre": "Franco transportista "
+  },
+  {
+    "Codigo": "FOB ",
+    "Nombre": "Franco a bordo "
+  }
+]

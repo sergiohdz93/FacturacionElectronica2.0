@@ -811,7 +811,7 @@ namespace AddOn_FE_DIAN
                 if (sNumSegui != "")
                 {
                     sRequest = requestSend;
-                    //System.Threading.Thread.Sleep(10000);
+                    System.Threading.Thread.Sleep(10000);
                     MetodosCarvajal.DocStatusFE(codeLog, sNumSegui, sRequest, reSend, filestr);
                 }
             }
@@ -1434,7 +1434,7 @@ namespace AddOn_FE_DIAN
                                 tbl.UserFields.Fields.Item("U_Enlace_XML").Value = xmlResult;
                             }
                         }
-                        //System.Threading.Thread.Sleep(10000);
+                        System.Threading.Thread.Sleep(10000);
                         //Procesos.EscribirLogFileTXT("FAIL: Descarga PDF");
 
                         pdfResult = MetodosCarvajal.DownloadDocFE(codeline, documentType, prefijo + documentNumber, "PDF");

@@ -1,0 +1,122 @@
+[
+  {
+    "FormStand": "tNO",
+    "ByField": "tNO",
+    "CollumID": "U_SAP_UM",
+    "ItemID": "3",
+    "FormID": "FEDIAN_HOMOL_UM",
+    "QueryName": "UM_Pendientes",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tNO",
+    "ByField": "tNO",
+    "CollumID": "U_DIAN_UM",
+    "ItemID": "3",
+    "FormID": "FEDIAN_HOMOL_UM",
+    "QueryName": "ListaUM",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tNO",
+    "CollumID": "U_SEI_FEUMDIAN",
+    "ItemID": "38",
+    "FormID": "133",
+    "QueryName": "UM_DIAN",
+    "Refresh": "tYES",
+    "FieldID": "1"
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tNO",
+    "CollumID": "7",
+    "ItemID": "4",
+    "FormID": "185",
+    "QueryName": "ListaDocDIAN",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tNO",
+    "CollumID": "C_0_1",
+    "ItemID": "0_U_G",
+    "FormID": "UDO_FT_Fediansn",
+    "QueryName": "ListaRespon",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tNO",
+    "CollumID": "C_0_2",
+    "ItemID": "0_U_G",
+    "FormID": "UDO_FT_Fediansn",
+    "QueryName": "DescRespon",
+    "Refresh": "tYES",
+    "FieldID": "C_0_1"
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tNO",
+    "CollumID": "C_1_1",
+    "ItemID": "1_U_G",
+    "FormID": "UDO_FT_Fediansn",
+    "QueryName": "ListaTribu",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tNO",
+    "CollumID": "C_1_2",
+    "ItemID": "1_U_G",
+    "FormID": "UDO_FT_Fediansn",
+    "QueryName": "DescTribu",
+    "Refresh": "tYES",
+    "FieldID": "C_1_1"
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tYES",
+    "CollumID": "-1",
+    "ItemID": "1_U_E",
+    "FormID": "UDO_FT_Fediansn",
+    "QueryName": "NombreSN",
+    "Refresh": "tYES",
+    "FieldID": "0"
+  },
+  {
+    "FormStand": "tYES",
+    "ByField": "tYES",
+    "CollumID": "-1",
+    "ItemID": "U_SEI_FETipDoc",
+    "FormID": "136",
+    "QueryName": "TipoDoc",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tNO",
+    "ByField": "tNO",
+    "CollumID": "Code",
+    "ItemID": "3",
+    "FormID": "FEDIAN_NUMAUTORI",
+    "QueryName": "ListaNume",
+    "Refresh": "tNO",
+    "FieldID": ""
+  },
+  {
+    "FormStand": "tNO",
+    "ByField": "tNO",
+    "CollumID": "Name",
+    "ItemID": "3",
+    "FormID": "FEDIAN_NUMAUTORI",
+    "QueryName": "DescNume",
+    "Refresh": "tYES",
+    "FieldID": "Code"
+  }
+]

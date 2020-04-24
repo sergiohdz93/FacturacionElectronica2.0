@@ -11,7 +11,12 @@
   },
   {
     "Codigo": "03",
-    "Nombre": "Factura de Contingencia",
+    "Nombre": "Factura de Contingencia Facturador",
+    "U_URL": "https://cenf.cen.biz/"
+  },
+  {
+    "Codigo": "04",
+    "Nombre": "Factura de Contingencia DIAN",
     "U_URL": "https://cenf.cen.biz/"
   },
   {

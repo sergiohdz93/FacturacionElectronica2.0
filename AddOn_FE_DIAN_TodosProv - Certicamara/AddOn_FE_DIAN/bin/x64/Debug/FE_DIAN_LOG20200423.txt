@@ -1,0 +1,30 @@
+23/04/2020 12:56:15 p. m. : SendFE: DocEntry: 210 TipoDoc: 01
+23/04/2020 12:58:24 p. m. : SendFE: DocEntry: 210 TipoDoc: 01
+23/04/2020 12:58:56 p. m. : Ruta Crystal: C:\Users\user1\AppData\Local\Temp\PruebasGO2_DOC_210.rpt
+23/04/2020 12:59:02 p. m. : Load RPT: 
+23/04/2020 12:59:02 p. m. : DataSourceConnections: 1
+23/04/2020 12:59:02 p. m. : Ruta PDF: C:\Users\user1\AppData\Local\Temp\PruebasGO2_DOC_210.pdf
+23/04/2020 12:59:02 p. m. : DocKey@: 210
+23/04/2020 12:59:02 p. m. : Referencia a objeto no establecida como instancia de un objeto. Datos.cs ExportarPDF()
+23/04/2020 4:57:56 p. m. : SendFE: DocEntry: 210 TipoDoc: 01
+23/04/2020 4:58:48 p. m. : strJson: XML file validation failed
+23/04/2020 4:58:51 p. m. : updateLog: Referencia a objeto no establecida como instancia de un objeto.
+23/04/2020 5:00:42 p. m. : SendFE: DocEntry: 210 TipoDoc: 01
+23/04/2020 5:01:16 p. m. : Ruta Crystal: C:\Users\user1\AppData\Local\Temp\PruebasGO2_DOC_210.rpt
+23/04/2020 5:01:18 p. m. : Load RPT: 
+23/04/2020 5:01:18 p. m. : DataSourceConnections: 1
+23/04/2020 5:01:18 p. m. : Ruta PDF: C:\Users\user1\AppData\Local\Temp\PruebasGO2_DOC_210.pdf
+23/04/2020 5:01:18 p. m. : DocKey@: 210
+23/04/2020 5:01:18 p. m. : Referencia a objeto no establecida como instancia de un objeto. Datos.cs ExportarPDF()
+23/04/2020 5:01:26 p. m. : {
+  "versionDocumento": "1.0",
+  "tipoDocumento": "1",
+  "numeroDocumento": "SETT4000001",
+  "tipoRespuesta": "pdf"
+}
+23/04/2020 5:01:26 p. m. : {
+  "versionDocumento": "1.0",
+  "tipoDocumento": "1",
+  "numeroDocumento": "SETT4000001",
+  "tipoRespuesta": "xml"
+}

@@ -184,10 +184,11 @@ From "OADM"</value>
   <data name="UM_Pendientes" xml:space="preserve">
     <value>Select C0."Unidad", C0."Descr"
 From(
-	SELECT 
+	Select  
 	Case When "UomCode" = 'Manual' Then "unitMsr" Else "UomCode" End "Unidad", 
 	"unitMsr" as "Descr" 
-	FROM INV1
+	From INV1
+	Group By "UomCode", "unitMsr"
 )C0 
 Where IsNull("Unidad",'') != '' And C0."Unidad" Not In (Select "U_SAP_UM" From "@FEDIAN_HOMOL_UM" Where IsNull("U_DIAN_UM",'') != '')
 Group By C0."Unidad", C0."Descr"</value>

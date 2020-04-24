@@ -1,20 +1,24 @@
 [
- {
-   "Codigo": "01",
-   "Nombre": "Factura de Venta"
- },
- {
-   "Codigo": "02",
-   "Nombre": "Factura de Exportacion"
- },
- {
-   "Codigo": "03",
-   "Nombre": "Factura de Contingencia"
- },
- {
-   "Codigo": "91",
-   "Nombre": "Nota Credito"
- },
+  {
+    "Codigo": "01",
+    "Nombre": "Factura de Venta"
+  },
+  {
+    "Codigo": "02",
+    "Nombre": "Factura de Exportacion"
+  },
+  {
+    "Codigo": "03",
+    "Nombre": "Factura de Contingencia Facturador"
+  },
+  {
+    "Codigo": "04",
+    "Nombre": "Factura de Contingencia DIAN"
+  },
+  {
+    "Codigo": "91",
+    "Nombre": "Nota Credito"
+  },
   {
     "Codigo": "92",
     "Nombre": "Nota Debito"

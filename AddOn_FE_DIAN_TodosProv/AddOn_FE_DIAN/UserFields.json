@@ -524,11 +524,11 @@
     "ValidValuesMD": [
       {
         "Value": "04",
-        "Description": "Régimen Simple"
+        "Description": "Regimen Simple"
       },
       {
         "Value": "05",
-        "Description": "Régimen Ordinario"
+        "Description": "Regimen Ordinario"
       }
     ]
   },
@@ -739,11 +739,11 @@
     "ValidValuesMD": [
       {
         "Value": "04",
-        "Description": "Régimen Simple"
+        "Description": "Regimen Simple"
       },
       {
         "Value": "05",
-        "Description": "Régimen Ordinario"
+        "Description": "Regimen Ordinario"
       }
     ]
   }

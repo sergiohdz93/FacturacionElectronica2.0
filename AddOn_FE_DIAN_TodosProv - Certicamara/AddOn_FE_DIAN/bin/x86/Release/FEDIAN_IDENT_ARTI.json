@@ -1,0 +1,18 @@
+[
+  {
+    "Codigo": "001",
+    "Nombre": "UNSPSC"
+  },
+  {
+    "Codigo": "010",
+    "Nombre": "GTIN"
+  },
+  {
+    "Codigo": "020",
+    "Nombre": "Partida Alanceraria"
+  },
+  {
+    "Codigo": "999",
+    "Nombre": "Estandar de adopción del contribuyente"
+  }
+]
